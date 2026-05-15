@@ -1,0 +1,41 @@
+title: Underwater Photography Resources
+description: Complete guide and documentation collection for underwater photography
+theme: minima
+baseurl: "/public"
+url: "https://andreiastra.github.io"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude files
+exclude:
+  - .gitignore
+  - README.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Made with Bob

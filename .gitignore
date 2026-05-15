@@ -62,3 +62,10 @@ ehthumbs.db
 Desktop.ini
 
 # Made with Bob
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
