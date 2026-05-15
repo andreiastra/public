@@ -3,9 +3,9 @@ layout: default
 title: Home
 ---
 
-# 🌊 Andrei Astrakharchik Underwater Photography Resources
+# 🌊 Andre Astra's Underwater Photography Resources
 
-Complete guide and documentation collection for underwater photography with OM System cameras.
+Guide and documentation collection for underwater photography with OM System cameras.
 
 ## 📊 Repository Overview
 
