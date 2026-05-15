@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# 🌊 Andre Astra's Underwater Photography Resources
+# 🌊 Andre Astra's Underwater Photography
 
 Guide and documentation collection for underwater photography with OM System cameras.
 
