@@ -1,0 +1,64 @@
+# macOS System Files
+.DS_Store
+Icon
+Icon?
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Temporary directories
+.tmp.drivedownload/
+.tmp.driveupload/
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Log files
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Compressed files (optional - uncomment if needed)
+# *.zip
+# *.tar.gz
+# *.rar
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Made with Bob
