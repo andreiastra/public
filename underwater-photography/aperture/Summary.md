@@ -1,4 +1,4 @@
-Table 1
+### Table 1
 | Aperture | Sharpness Quality | DOF Depth | Field Use Case |
 | :--- | :--- | :--- | :--- |
 | **f/5.6 – f/7.1** | **Peak Sharpness** | Razor Thin | Specialized portraits (eye only). |
@@ -7,8 +7,10 @@ Table 1
 | **f/16 – f/18** | **Softening Begins** | Deep | High surge / "Safety net" shots. |
 | **f/22+** | **Muddied/Mushy** | Maximum | Avoid (use Focus Stacking instead). |
 
-Table 2
+
 Wetpixel / Scubaboard Experts: Generally agree that **f/11** is the "line in the sand".
+
+### Table 2
 ---
 | Aperture Setting | Depth of Field (DOF) Characteristic | Diffraction Impact | Suggested Application in West Cork |
 | :---- | :---- | :---- | :---- |
@@ -17,14 +19,14 @@ Wetpixel / Scubaboard Experts: Generally agree that **f/11** is the "line in the
 | **f/13 - f/18** | Deep; covers most small subjects. | Moderate softening. | High-magnification shots of tiny (1cm) subjects. |
 | **f/22** | Maximum DOF; subject fully sharp. | Significant softening. | Super macro with wet diopters; black backgrounds. |
 
-Table 3
+### Table 3
 | Subject | Recommended Aperture | Mode | Goal |
 | :--- | :--- | :--- | :--- |
 | **Moving Shrimp/Fish** | f/9 - f/11 | C1 (Single) | Instant capture, max sharpness |
 | **Small Nudibranch (Profile)** | f/13 - f/16 | C1 (Single) | Balance of DOF and resolution |
 | **Super Macro (CMC-1)** | f/11 | C1 + Rocking | Managing the extreme thin DOF |
 
-Table4
+### Table4
 | Setting | Sharpness | DOF Buffer | Verdict |
 | :--- | :--- | :--- | :--- |
 | **f/9** | Clinical / Razor | Extremely Unforgiving | Best for stationary subjects in dead calm water. |
