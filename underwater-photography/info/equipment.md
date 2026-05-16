@@ -24,7 +24,7 @@
 * C11 Dive light 18000 Lumens
     * 4 X Nitecore NL1836HP High Performance rechargeable 18650 Li-ion battery, 3600 mAh
 
-## Underwater Housing
+## Housing
 * Nauticam NA-OM1 Housing
 * Nauticam Macro Port 65 (for Olympus 60mm Macro) [#36163]
     * Nauticam O60-F Focus Gear (for Olympus 60mm Macro) [#36149]
@@ -42,7 +42,7 @@
 * AOI Optical Cable V2 Medium (613 cores, Sea&Sea connectors) [SKU: AOFOCPAAMV2]
 * AOI Optical Cable V2 Short (613 cores, Sea&Sea connectors)
 
-## Birding Gear
+## Birding
 * Bushnell 32MP Dual Core 4K Trail Camera
 * Energizer Ultimate Lithium AA Batteries
 * Manfrotto 055PROB Tripod
