@@ -1,4 +1,4 @@
-# My Photography Equipment Inventory
+# My Photography Setup
 
 ## Camera
 * OM SYSTEM OM-1 Mark II
