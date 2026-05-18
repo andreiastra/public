@@ -14,14 +14,11 @@ This document contains the finalized submission details, photography metadata, a
 * **Requirements:** JPEG, PNG, or TIF (Max 15 MB)
 
 ### Image Preview
-![Marine Drama at Lough Hyne](./P4045593-3.jpg)
+<img src="./P4045593-3.jpg" alt="Marine Drama at Lough Hyne" width="300"/>
 
-### Final Submission Text
-*Character count: 439 (Limits: 500 max)*
-
-> Lough Hyne, Europe’s first Marine Nature Reserve, is a uniquely spectacular sanctuary for marine biodiversity. Every dive offers a window into a complex, hidden world. 
->
-> This photograph captures a rare, fascinating ecological interaction beneath the surface: a predatory ribbon worm (*Lineus longissimus*) preying upon a fan worm and skillfully extracting it from its protective tube. It is a striking reminder of how vibrant and worthy of protection our marine ecosystems truly are.
+### Submission Caption
+Lough Hyne, Europe’s first Marine Nature Reserve, is a uniquely spectacular sanctuary for marine biodiversity. Every dive offers a window into a complex, hidden world. This photograph captures a rare, fascinating ecological interaction beneath the surface: a predatory ribbon worm (*Lineus longissimus*) preying upon a fan worm and skillfully extracting it from its protective tube. It is a striking reminder of how vibrant and worthy of protection our marine ecosystems truly are.
+*(439 characters / 500 max)*
 
 ---
 
@@ -34,14 +31,11 @@ This document contains the finalized submission details, photography metadata, a
 * **Requirements:** JPEG, PNG, or TIF (Max 15 MB)
 
 ### Image Preview
-![The Mid-Water Drifter of Bantry Bay](./P4257000-2.jpg)
+<img src="./P4257000-2.jpg" alt="The Mid-Water Drifter of Bantry Bay" width="300"/>
 
-### Final Submission Text
-*Character count: 482 (Limits: 500 max)*
-
-> Bantry Bay, County Cork, is a spectacular haven for shore diving—a brilliant, versatile way to explore Ireland's waters without the complexity of boats. 
->
-> This photograph captures a rare, magical moment right off the shore: a lined nudibranch (*Coryphella lineata*) drifting freely in mid-water. Normally found on the seabed, seeing this vibrant sea slug suspended against the dark open water feels like discovering a tiny alien, proving how world-class our shore-accessible marine life is.
+### Submission Caption
+Bantry Bay, County Cork, is a spectacular haven for shore diving—a brilliant, versatile way to explore Ireland's waters without the complexity of boats. This photograph captures a rare, magical moment right off the shore: a lined nudibranch (*Coryphella lineata*) drifting freely in mid-water. Normally found on the seabed, seeing this vibrant sea slug suspended against the dark open water feels like discovering a tiny alien, proving how world-class our shore-accessible marine life is.
+*(482 characters / 500 max)*
 
 ---
 
