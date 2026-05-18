@@ -7,6 +7,7 @@ This document contains the finalized submission details, photography metadata, a
 ## Entry 1: "Marine Drama at Lough Hyne"
 
 * **Target Competition:** "My Favourite Waterbody" Photo Competition 2026 (LAWPRO)
+* **Submission Link:** [LAWPRO Submission Portal](https://consult.watersandcommunities.ie/en/content/my-favourite-waterbody-photo-competition-2026)
 * **Submission Deadline:** 5:00 PM, Friday 22nd May 2026
 * **Location:** Lough Hyne, County Cork (Europe's first Marine Nature Reserve)
 * **Subject:** Ribbon worm (*Lineus longissimus*) preying upon a fan worm.
@@ -28,7 +29,9 @@ Lough Hyne, Europe’s first Marine Nature Reserve, is a uniquely spectacular sa
 
 ## Entry 2: "The Mid-Water Drifter of Bantry Bay"
 
-* **Target Competition:** "My Favourite Waterbody" Photo Competition 2026 (Alternative/Second Entry) **OR** Biodiversity Photographer of the Year 2026 (Deadline 31st May)
+* **Target Competition:** "My Favourite Waterbody" Photo Competition 2026 (LAWPRO)
+* **Submission Link:** [LAWPRO Submission Portal](https://consult.watersandcommunities.ie/en/content/my-favourite-waterbody-photo-competition-2026)
+* **Submission Deadline:** 5:00 PM, Friday 22nd May 2026
 * **Location:** Bantry Bay, County Cork
 * **Subject:** Lined nudibranch (*Coryphella lineata*) drifting in the water column.
 * **File Link:** [P4257000-2.jpg](./P4257000-2.jpg)
@@ -49,10 +52,12 @@ Bantry Bay, County Cork, is a spectacular haven for shore diving—a brilliant, 
 
 ## Entry 3: "The Sunlit Traveler of Dunmanus Bay"
 
-* **Target Competition:** "My Favourite Waterbody" Photo Competition 2026 (Alternative Entry) **OR** Biodiversity Photographer of the Year 2026 (Deadline 31st May)
+* **Target Competition:** "My Favourite Waterbody" Photo Competition 2026 (LAWPRO)
+* **Submission Link:** [LAWPRO Submission Portal](https://consult.watersandcommunities.ie/en/content/my-favourite-waterbody-photo-competition-2026)
+* **Submission Deadline:** 5:00 PM, Friday 22nd May 2026
 * **Location:** Dunmanus Bay, County Cork
-* **Subject:** Sea hare (*Aplysia punctata*) climbing/drifting on marine growth.
-* **File Link:** [image_dcdb4b.jpg](./image_dcdb4b.jpg)
+* **Subject:** Sea hare (*Aplysia punctata*) climbing on marine growth.
+* **File Link:** [P5168042.jpg](./P5168042.jpg)
 * **Requirements:** JPEG, PNG, or TIF (Max 15 MB)
 
 ### Image Preview
@@ -68,9 +73,32 @@ The shallow, sun-drenched waters of Dunmanus Bay offer an incredibly intimate lo
 
 ---
 
+## Entry 4: "Jewel of the Shadows"
+
+* **Target Competition:** Biodiversity Photographer of the Year 2026 (Ocean/Marine Category)
+* **Submission Link:** [National Biodiversity Week Portal](https://biodiversityweek.ie/)
+* **Submission Deadline:** Midnight, Sunday 31st May 2026
+* **Location:** Beara Peninsula, County Cork
+* **Subject:** Lined nudibranch (*Coryphella lineata*) on a dark reef substrate.
+* **File Link:** [P5168039.jpg](./P5168039.jpg)
+* **Requirements:** Taken in May 2026, Max 5 entries total per person.
+
+### Image Preview
+<img src="./P5168039.jpg" alt="Jewel of the Shadows" width="300"/>
+
+### Submission Caption (English)
+Taken during a shore dive on the Beara Peninsula, this macro shot shows a tiny nudibranch (*Coryphella lineata*) on a dark reef. Its vibrant body looks like a brilliant burst of fire in the shadows, showcasing the incredible biodiversity found right off our coast.
+*(264 characters / 500 max)*
+
+### Submission Caption (Russian)
+Этот макроснимок, сделанный во время берегового дайвинга на полуострове Беара, запечатлел крошечного моллюска (*Coryphella lineata*) на темном рифе. Его яркое тело выглядит как яркая вспышка огня в тени, напоминая об удивительном богатстве нашей прибрежной жизни.
+*(268 characters / 500 max)*
+
+---
+
 ## Quick Submission Checklist
 
-- [ ] **File Size Check:** Verify all three image file sizes are under 15 MB.
-- [ ] **Address Details:** Confirm Eircode (`P72 WN29`) is ready for the LAWPRO submission portal.
-- [ ] **Deadline Check (LAWPRO):** Ensure entries are uploaded to the [LAWPRO Portal](https://consult.watersandcommunities.ie/en/content/my-favourite-waterbody-photo-competition-2026) before **5:00 PM on Friday, May 22, 2026**.
-- [ ] **Deadline Check (Biodiversity):** For entries submitted alternatively to Biodiversity Photographer of the Year, ensure upload is complete before **Midnight on Sunday, May 31, 2026**.
+- [ ] **File Size & Format Check:** Verify all images are under 15 MB and saved as required (JPEG/PNG/TIF).
+- [ ] **Address Details:** Confirm Eircode (`P72 WN29`) is ready for the LAWPRO forms.
+- [ ] **LAWPRO Submission (Entries 1, 2, & 3):** Upload before **5:00 PM on Friday, May 22, 2026** using the [LAWPRO Portal](https://consult.watersandcommunities.ie/en/content/my-favourite-waterbody-photo-competition-2026).
+- [ ] **Biodiversity Week Submission (Entry 4):** Upload before **Midnight on Sunday, May 31, 2026** using the [National Biodiversity Week Portal](https://biodiversityweek.ie/).
