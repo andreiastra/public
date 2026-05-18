@@ -7,10 +7,10 @@
 ---
 * M.ZUIKO DIGITAL ED 8mm f/1.8 Fisheye PRO
 * M.ZUIKO DIGITAL ED 12mm f/2.0
-
-* M.ZUIKO DIGITAL ED 75-300mm f/4.8-6.7 II
 * M.ZUIKO DIGITAL ED 100-400mm f/5-6.3 ED IS II
     * 72mm UV Filter
+---
+* M.ZUIKO DIGITAL ED 75-300mm f/4.8-6.7 II
 * Nauticam CMC-1 Macro Converter
     * AOI M67 Flip Adapter (for CMC-1)
 
