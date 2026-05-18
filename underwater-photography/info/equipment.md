@@ -47,3 +47,7 @@
 * Energizer Ultimate Lithium AA Batteries
 * Manfrotto 055PROB Tripod
 * Manfrotto 486RC2 Ball Head
+
+## Comments
+
+* The single biggest asset in your inventory for macro is the Smart Control Macro (SC Macro) setting, which is supported on both the HF-1 and the MF-2.
