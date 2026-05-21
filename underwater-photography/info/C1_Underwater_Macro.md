@@ -5,6 +5,7 @@ OM SYSTEM OM-1 Mark II
 
 ## Lens
 M.Zuiko 60mm Macro
+Limiter set to 0.19m - 0.4m
 
 ## Flash / Strobe
 
@@ -55,3 +56,10 @@ M.Zuiko 60mm Macro
 
 * Drive Mode: Single Shot
 * Image Stabilization: S-IS1
+
+## Note
+
+Keep it for now:
+
+* Back Button Focus: ON (Assigned to AF-ON)
+* Shutter Half-press: AF On
