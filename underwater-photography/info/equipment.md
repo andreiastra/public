@@ -7,7 +7,7 @@
 * M.ZUIKO DIGITAL ED 12mm f/2.0
 * M.ZUIKO DIGITAL ED 60mm f/2.8 Macro
 * M.ZUIKO DIGITAL ED 75-300mm f/4.8-6.7 II
-* M.ZUIKO DIGITAL ED 100-400mm f/5-6.3 ED IS II
+* M.ZUIKO DIGITAL ED 100-400mm f/5-6.3 ED IS MSC II
 * Nauticam CMC-1 Macro Converter
     * AOI M67 Flip Adapter (for CMC-1)
 
@@ -25,6 +25,7 @@
 
 ## Housing
 * Nauticam NA-OM1 Housing
+    * CR2032 battery Panasonic/Energizer Ultimate
 * Nauticam Macro Port 65 (for Olympus 60mm Macro) [#36163]
     * Nauticam O60-F Focus Gear (for Olympus 60mm Macro) [#36149]
 * Nauticam 4.33 inch Dome Port (for Panasonic 8mm) [#36132]
