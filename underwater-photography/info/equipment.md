@@ -26,6 +26,8 @@
 ## Housing
 * Nauticam NA-OM1 Housing
     * CR2032 battery Panasonic/Energizer Ultimate
+* Nauticam Full Frame Angle Viewfinder 32°/ 1:1 [32213]
+    * Nauticam Viewfinder Collar Adaptor for MIL Housings [32215]
 * Nauticam Macro Port 65 (for Olympus 60mm Macro) [#36163]
     * Nauticam O60-F Focus Gear (for Olympus 60mm Macro) [#36149]
 * Nauticam 4.33 inch Dome Port (for Panasonic 8mm) [#36132]
