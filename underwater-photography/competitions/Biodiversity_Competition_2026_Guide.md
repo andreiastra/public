@@ -31,3 +31,7 @@ Judges for biodiversity contests look for **narrative** over just "pretty portra
 
 ## 🔗 Submissions
 Upload your top 5 shots from this month at: [www.biodiversityweek.ie](https://www.biodiversityweek.ie)
+
+Shortlist:
+
+https://biodiversityweek.ie/photo-competitions/shortlist/

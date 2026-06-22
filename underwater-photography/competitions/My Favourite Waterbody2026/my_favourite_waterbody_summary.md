@@ -31,4 +31,6 @@ The competition is broad and inclusive of various photographic styles:
 * **Storytelling:** Use the required description to highlight the ecological or personal significance of the location.
 
 ---
-*Generated on: 2026-05-08*
+
+
+The announcements are expected to drop in early August 2026 on catchments.ie.
