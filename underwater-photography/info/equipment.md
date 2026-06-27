@@ -1,5 +1,7 @@
 # My Photography Setup
 
+West Cork shore diving.
+
 ## Camera
 * OM SYSTEM OM-1 Mark II
 ## Lenses & Optics
@@ -50,6 +52,7 @@
 * Manfrotto 055PROB Tripod
 * Manfrotto 486RC2 Ball Head
 
-## Comments
+## Knots
+* Buntline Hitch
+* Scaffold Knot
 
-* The single biggest asset in your inventory for macro is the Smart Control Macro (SC Macro) setting, which is supported on both the HF-1 and the MF-2.
