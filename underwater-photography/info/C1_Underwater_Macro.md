@@ -28,13 +28,13 @@ Limiter set to 0.19m - 0.4m
 
 ## Focus
 
-* AF Mode: S-AF
+* AF Mode: S-AF + MF
 * AF Illuminator: OFF
 * AF Target: Small point
-* AF+MF: OFF
-    * Not using Nauticam O60-F Focus Gear for now
+* AF+MF: ON
+    * Using Nauticam O60-F Focus Gear
 * Back Button Focus: ON (Assigned to AF-ON)
-* Shutter Half-press: AF On
+* Shutter Half-press: AF OFF
 * Release Priority S-AF: OFF
 
 ## Customized function for Fn lever
