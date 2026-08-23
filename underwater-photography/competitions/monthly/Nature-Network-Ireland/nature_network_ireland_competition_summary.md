@@ -21,6 +21,7 @@ The competition runs on a strict monthly cycle. The dates below dictate the **su
 
 ## 📧 How to Submit
 Send your email entry directly to: **`competitions@naturenetworkireland.ie`**
+Just to let you know we will from August onwards we are only taking submissions to this email (competitions@naturenetworkireland.ie)! 
 
 ### Mandatory Email Details:
 1. **Exact Species Name:** (e.g., *Eurasian Otter*, *European Robin*, *Tompot Blenny*).
