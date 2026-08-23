@@ -10,6 +10,7 @@ West Cork shore diving.
 * M.ZUIKO DIGITAL ED 60mm f/2.8 Macro
 * M.ZUIKO DIGITAL ED 75-300mm f/4.8-6.7 II
 * M.ZUIKO DIGITAL ED 100-400mm f/5-6.3 ED IS MSC II
+    * DIY Solar filter. EXPLORE SCIENTIFIC Solarix Solar Filter Film. 
 * Nauticam CMC-1 Macro Converter
     * AOI M67 Flip Adapter (for CMC-1)
 
