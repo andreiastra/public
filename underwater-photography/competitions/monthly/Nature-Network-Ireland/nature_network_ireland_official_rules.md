@@ -47,7 +47,7 @@ The competition operates on a predictable monthly schedule throughout the year:
 
 5. **Submission Limits:**
    - Photographers may submit multiple entries per month.
-   - Each individual email submission is capped at a **maximum of two (2) photographs**.
+   - Each individual photographer is capped at a **maximum of two (2) photographs**.
 
 ---
 

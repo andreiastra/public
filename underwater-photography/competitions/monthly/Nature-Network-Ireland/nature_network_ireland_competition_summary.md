@@ -28,6 +28,7 @@ Just to let you know we will from August onwards we are only taking submissions 
 2. **Caption:** A brief caption or description for the photograph.
 3. **Category Preference:** Indicate if you are entering the Amateur or Advanced track.
 4. **Calendar Opt-out (Optional):** If you do **not** want your image considered for the annual charity calendar, you must explicitly state this in the text of your email.
+5. Can only take two submissions from each photographer.
 
 ## 🐍 Wildlife Ethics & Legal Compliance
 * **Nesting Birds:** In accordance with Irish and EU law, photographing wild nesting birds on or near their breeding place requires a licence from the National Parks and Wildlife Service (NPWS). If your entry features a bird at or near its nest, you **must attach a copy or evidence of your NPWS licence** with your submission.
