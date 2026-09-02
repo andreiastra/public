@@ -1,0 +1,16 @@
+{
+  "username" : "andreiastrakharchik",
+  "createdDate" : "24-06-2019",
+  "lastModified" : "02-09-2026",
+  "realName" : "Andrei Astrakharchik",
+  "country" : "IE",
+  "countrySubdivision" : "US-RI",
+  "gender" : "MALE",
+  "birthDate" : "24-08-1971",
+  "weight" : 100,
+  "height" : 170,
+  "hrRest" : 0,
+  "hrMax" : 180,
+  "locale" : "en",
+  "language" : "EN"
+}
