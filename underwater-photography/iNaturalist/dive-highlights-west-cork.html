@@ -21,6 +21,11 @@
   .header .meta strong { color: #1f2328; }
   h2 { font-size: 16px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 6px;
        border-bottom: 1px solid #e5e7eb; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hero-group { display: flex; flex-direction: column; gap: 0; }
+  .hero-connector { display: flex; align-items: center; gap: 10px; padding: 6px 20px;
+                    color: #57606a; font-size: 12px; font-style: italic; }
+  .hero-connector::before, .hero-connector::after { content: ""; flex: 1;
+                    border-top: 1px dashed #d1d5db; }
   .hero-card { background: #f7f8fa; border: 1px solid #e5e7eb; border-left: 4px solid #3b82d4;
                border-radius: 6px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; }
   .hero-card img { width: 160px; height: 120px; object-fit: cover; border-radius: 4px;
@@ -88,8 +93,9 @@
   </div>
 
   <h2>⭐ Most Impressive Sighting</h2>
+  <div class="hero-group">
   <div class="hero-card">
-    <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724746232/medium.jpg" alt="Football Jersey Worm" loading="lazy" />
+    <a href="https://www.inaturalist.org/observations/395271306" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724746232/medium.jpg" alt="Football Jersey Worm" loading="lazy" /></a>
     <div class="hero-body">
       <h3>Football Jersey Worm</h3>
       <div class="sci">Tubulanus annulatus</div>
@@ -101,6 +107,21 @@
         <span class="badge">Lough Hyne · Mar 2026</span>
         </div>
     </div>
+  </div>
+  <div class="hero-connector">related observation</div>
+  <div class="hero-card">
+    <a href="https://www.inaturalist.org/observations/395263077" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/726468376/medium.jpg" alt="Football Jersey Worm" loading="lazy" /></a>
+    <div class="hero-body">
+      <h3>Football Jersey Worm</h3>
+      <div class="sci">Tubulanus annulatus</div>
+      <div class="desc">The same species caught in the act — pulling a fan worm out of its tube. Predatory behaviour this vivid is exceptionally rarely documented underwater. Recorded at the same site one week earlier.</div>
+      <div class="badges">
+        <span class="badge">1 Comment</span>
+        <span class="badge">Predation behaviour</span>
+        <span class="badge">Lough Hyne · Apr 2026</span>
+        </div>
+    </div>
+  </div>
   </div>
 
   <h2>Standout Sightings</h2>
@@ -120,7 +141,7 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/396180386" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/726544669/medium.jpg" alt="Small-spotted Catshark" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/396180386" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/726524731/medium.jpg" alt="Small-spotted Catshark" loading="lazy" /></a>
       <div class="sight-body">
         <h4>Small-spotted Catshark</h4>
         <div class="sci">Scyliorhinus canicula</div>
@@ -146,9 +167,9 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/395243552" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/medium.jpg" alt="European Lobster" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/395243552" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/medium.jpg" alt="European lobster" loading="lazy" /></a>
       <div class="sight-body">
-        <h4>European Lobster</h4>
+        <h4>European lobster</h4>
         <div class="sci">Homarus gammarus</div>
         <div class="where">📍 Seven Heads · Jul 2026</div>
         <div class="sight-badges">
@@ -183,9 +204,9 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/395515725" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/725226402/medium.jpg" alt="Portuguese Blenny" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/395515725" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/725226402/medium.jpg" alt="Portuguese blenny" loading="lazy" /></a>
       <div class="sight-body">
-        <h4>Portuguese Blenny</h4>
+        <h4>Portuguese blenny</h4>
         <div class="sci">Parablennius ruber</div>
         <div class="where">📍 Gortdubh Pier · Aug 2026</div>
         <div class="sight-badges">
@@ -219,9 +240,9 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/395243258" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724692861/medium.jpg" alt="Spiny Squat Lobster" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/395243258" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724692861/medium.jpg" alt="Spiny Squat lobster" loading="lazy" /></a>
       <div class="sight-body">
-        <h4>Spiny Squat Lobster</h4>
+        <h4>Spiny Squat lobster</h4>
         <div class="sci">Galathea strigosa</div>
         <div class="where">📍 Seven Heads · Aug 2026</div>
         <div class="sight-badges">
@@ -280,7 +301,7 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/396158775" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724481836/medium.jpg" alt="Great Scallop" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/396158775" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/726481836/medium.jpg" alt="Great Scallop" loading="lazy" /></a>
       <div class="sight-body">
         <h4>Great Scallop</h4>
         <div class="sci">Pecten maximus</div>
@@ -332,7 +353,7 @@
       <a href="https://www.inaturalist.org/observations/395265769" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/medium.jpg" alt="Sea Lemon" loading="lazy" /></a>
       <div class="sight-body">
         <h4>Sea Lemon</h4>
-        <div class="sci">Doris pseudoargus</div>
+        <div class="sci">Archidoris pseudoargus</div>
         <div class="where">📍 Canty's Cove · Mar 2026</div>
         <div class="sight-badges">
         <span class="badge">Nudibranch</span>
@@ -341,9 +362,9 @@
     </div>
 
     <div class="sight-card">
-      <a href="https://www.inaturalist.org/observations/395254192" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724713295/medium.jpg" alt="European Cowrie" loading="lazy" /></a>
+      <a href="https://www.inaturalist.org/observations/395254192" target="_blank" rel="noopener" class="img-link"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/724713295/medium.jpg" alt="European cowrie" loading="lazy" /></a>
       <div class="sight-body">
-        <h4>European Cowrie</h4>
+        <h4>European cowrie</h4>
         <div class="sci">Trivia monacha</div>
         <div class="where">📍 Bank Pier · May 2026</div>
         <div class="sight-badges">
@@ -372,7 +393,6 @@
         <div class="where">📍 Trafrask Pier · Aug 2025</div>
         <div class="sight-badges">
         <span class="badge threatened">Near Threatened ⚠️</span>
-        <span class="badge">New site</span>
         </div>
       </div>
     </div>
@@ -385,7 +405,6 @@
         <div class="where">📍 Zetland Pier · Aug 2025</div>
         <div class="sight-badges">
         <span class="badge threatened">Near Threatened ⚠️</span>
-        <span class="badge">New at Zetland</span>
         </div>
       </div>
     </div>
@@ -397,7 +416,6 @@
         <div class="sci">Pagurus bernhardus</div>
         <div class="where">📍 Zetland Pier · Aug 2025</div>
         <div class="sight-badges">
-        <span class="badge">New at Zetland</span>
         </div>
       </div>
     </div>
@@ -544,7 +562,7 @@
   </table>
 
   <footer>
-    <p>All observations recorded on <a href="https://www.inaturalist.org/people/andreiastra">iNaturalist · andreiastra</a>  |  Made with IBM Bob</p>
+    <p>All observations recorded on <a href="https://www.inaturalist.org/people/andreiastra">iNaturalist · andreiastra</a>  |  Generated 02 Sep 2026 13:50 UTC  |  Made with IBM Bob</p>
   </footer>
 
 </div>

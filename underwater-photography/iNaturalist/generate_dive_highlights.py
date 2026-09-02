@@ -96,50 +96,53 @@ SITE_WHY = {
     "Dooneen Pier":     "Blood Stars, Orange-clubbed Sea Slug ×2, Common Brittle Star, Ballan Wrasse. Quiet site, underrated.",
 }
 
-# Hero observation — the single most impressive find
-HERO = {
-    "name":    "Football Jersey Worm",
-    "sci":     "Tubulanus annulatus",
-    "photo":   "https://inaturalist-open-data.s3.amazonaws.com/photos/724746232/medium.jpg",
-    "desc":    "A vividly banded ribbon worm — striking orange, white, and dark stripes along its long, flattened body. This observation attracted community comments and was <strong>favourited</strong> by the iNaturalist community, making it the standout find of the season. Ribbon worms of this size and colour are rarely photographed well underwater.",
-    "badges":  [
-        ("research", "Research Grade"),
-        ("faved",    "⭐ Community Favourite"),
-        ("",         "2 Comments"),
-        ("",         "Lough Hyne · Mar 2026"),
-    ],
-}
+# Hero observations — the most impressive find(s); list of related cards shown together.
+# name, sci, photo are resolved live from the API — only url, desc, and extra_badges are hardcoded.
+# extra_badges: editorial labels beyond what is auto-generated (quality, faves, comments, site, date).
+HERO = [
+    {
+        "url":          "https://www.inaturalist.org/observations/395271306",
+        "desc":         "A vividly banded ribbon worm — striking orange, white, and dark stripes along its long, flattened body. This observation attracted community comments and was <strong>favourited</strong> by the iNaturalist community, making it the standout find of the season. Ribbon worms of this size and colour are rarely photographed well underwater.",
+        "extra_badges": [],
+    },
+    {
+        "url":          "https://www.inaturalist.org/observations/395263077",
+        "desc":         "The same species caught in the act — pulling a fan worm out of its tube. Predatory behaviour this vivid is exceptionally rarely documented underwater. Recorded at the same site one week earlier.",
+        "extra_badges": [("", "Predation behaviour")],
+    },
+]
 
-# Standout sightings grid — curated list of (name, sci, photo_url, obs_url, site_label, badge_list)
-# badge_list: list of (css_class, label) — css_class one of: "research", "threatened", ""
-# obs_url: iNaturalist observation URL — image becomes a clickable link; date is resolved automatically
-# site_label: site name only — no date (fetched live from the API)
+# Standout sightings grid.
+# Each row: (obs_url, site_label, extra_badges)
+# name, sci, photo, quality_grade, faves, comments are all resolved live from the API.
+# extra_badges: editorial labels beyond auto-generated ones — e.g. ("", "Shark ×2 at Zetland").
+# site_label: canonical site name — date is appended automatically.
 STANDOUT_SIGHTINGS = [
-    ("Small-spotted Catshark",     "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724751029/medium.jpg",  "https://www.inaturalist.org/observations/395273855",  "Zetland Pier",     [("research","Research Grade"),("","Shark ×2 at Zetland")]),
-    ("Small-spotted Catshark",     "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/726544669/medium.jpg",  "https://www.inaturalist.org/observations/396180386",  "Aghabeg Pier",     [("research","Research Grade"),("","Shark")]),
-    ("Orange-clubbed Sea Slug",    "Limacia clavigera",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724749530/medium.jpg",  "https://www.inaturalist.org/observations/395272939",  "Kilcrohane Pier",  [("research","Research Grade"),("","Nudibranch")]),
-    ("European Lobster",           "Homarus gammarus",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/medium.jpg",  "https://www.inaturalist.org/observations/395243552",  "Seven Heads",      [("research","Research Grade")]),
-    ("Compass Jelly",              "Chrysaora hysoscella",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726520118/medium.jpg",  "https://www.inaturalist.org/observations/396178535",  "Aghabeg Pier",     [("research","Research Grade"),("","Jellyfish ×2")]),
-    ("Candy Stripe Flatworm",      "Prostheceraeus vittatus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724735849/medium.jpg",  "https://www.inaturalist.org/observations/395266018",  "Canty's Cove",     [("research","Research Grade")]),
-    ("Portuguese Blenny",          "Parablennius ruber",       "https://inaturalist-open-data.s3.amazonaws.com/photos/725226402/medium.jpg",  "https://www.inaturalist.org/observations/395515725",  "Gortdubh Pier",    [("research","Research Grade")]),
-    ("Tompot Blenny",              "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/725225882/medium.jpg",  "https://www.inaturalist.org/observations/395515479",  "Gortdubh Pier",    [("research","Research Grade")]),
-    ("Atlantic Black Sea Cucumber","Holothuria forskali",      "https://inaturalist-open-data.s3.amazonaws.com/photos/725728812/medium.jpg",  "https://www.inaturalist.org/observations/395777213",  "Gortdubh Pier",    [("research","Research Grade")]),
-    ("Spiny Squat Lobster",        "Galathea strigosa",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724692861/medium.jpg",  "https://www.inaturalist.org/observations/395243258",  "Seven Heads",      [("research","Research Grade")]),
-    ("Tompot Blenny",              "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/724712257/medium.jpg",  "https://www.inaturalist.org/observations/395253688",  "Kilcrohane Pier",  [("research","Research Grade")]),
-    ("Facelina annulicornis",      "Facelina annulicornis",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724709431/medium.jpg",  "https://www.inaturalist.org/observations/395252016",  "Kilcrohane Pier",  [("research","Research Grade"),("","Nudibranch ×2")]),
-    ("Spotted Seahare",            "Aplysia punctata",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724704135/medium.jpg",  "https://www.inaturalist.org/observations/395249124",  "Kilcrohane Pier",  [("","Nudibranch")]),
-    ("Polycera faeroensis",        "Polycera faeroensis",      "https://inaturalist-open-data.s3.amazonaws.com/photos/724701007/medium.jpg",  "https://www.inaturalist.org/observations/395247782",  "Seven Heads",      [("","Nudibranch")]),
-    ("Great Scallop",              "Pecten maximus",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724481836/medium.jpg",  "https://www.inaturalist.org/observations/396158775",  "Lough Hyne",       [("research","Research Grade")]),
-    ("Velvet Swimming Crab",       "Necora puber",             "https://inaturalist-open-data.s3.amazonaws.com/photos/726464205/medium.jpg",  "https://www.inaturalist.org/observations/396151003",  "Lough Hyne",       [("research","Research Grade")]),
-    ("Cylinder Anemone",           "Cerianthus membranaceus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724748563/medium.jpg",  "https://www.inaturalist.org/observations/395272480",  "Lough Hyne",       [("","Rare find")]),
-    ("Mauve Stinger",              "Pelagia noctiluca",        "https://inaturalist-open-data.s3.amazonaws.com/photos/726552889/medium.jpg",  "https://www.inaturalist.org/observations/396194167",  "Zetland Pier",     [("research","Research Grade"),("","Jellyfish")]),
-    ("Sea Lemon",                  "Doris pseudoargus",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/medium.jpg",  "https://www.inaturalist.org/observations/395265769",  "Canty's Cove",     [("","Nudibranch")]),
-    ("European Cowrie",            "Trivia monacha",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724713295/medium.jpg",  "https://www.inaturalist.org/observations/395254192",  "Bank Pier",        [("research","Research Grade")]),
-    ("Ballan Wrasse",              "Labrus bergylta",          "https://inaturalist-open-data.s3.amazonaws.com/photos/724695640/medium.jpg",  "https://www.inaturalist.org/observations/395244688",  "Dooneen Pier",     [("research","Research Grade")]),
-    ("European Seabass",           "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726537592/medium.jpg",  "https://www.inaturalist.org/observations/396186672",  "Trafrask Pier",    [("threatened","Near Threatened ⚠️"),("","New site")]),
-    ("European Seabass",           "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/727116530/medium.jpg",  "https://www.inaturalist.org/observations/396495775",  "Zetland Pier",     [("threatened","Near Threatened ⚠️"),("","New at Zetland")]),
-    ("Common Hermit Crab",         "Pagurus bernhardus",       "https://inaturalist-open-data.s3.amazonaws.com/photos/727118200/medium.jpg",  "https://www.inaturalist.org/observations/396496493",  "Zetland Pier",     [("","New at Zetland")]),
-    ("Strawberry Anemone",         "Actinia fragacea",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724705630/medium.jpg",  "https://www.inaturalist.org/observations/395250027",  "Simon's Cove",     [("research","Research Grade")]),
+    ("https://www.inaturalist.org/observations/395273855",  "Zetland Pier",     [("","Shark ×2 at Zetland")]),
+    ("https://www.inaturalist.org/observations/396180386",  "Aghabeg Pier",     [("","Shark")]),
+    ("https://www.inaturalist.org/observations/395272939",  "Kilcrohane Pier",  [("","Nudibranch")]),
+    ("https://www.inaturalist.org/observations/395243552",  "Seven Heads",      []),
+    ("https://www.inaturalist.org/observations/396178535",  "Aghabeg Pier",     [("","Jellyfish ×2")]),
+    ("https://www.inaturalist.org/observations/395266018",  "Canty's Cove",     []),
+    ("https://www.inaturalist.org/observations/395515725",  "Gortdubh Pier",    []),
+    ("https://www.inaturalist.org/observations/395515479",  "Gortdubh Pier",    []),
+    ("https://www.inaturalist.org/observations/395777213",  "Gortdubh Pier",    []),
+    ("https://www.inaturalist.org/observations/395243258",  "Seven Heads",      []),
+    ("https://www.inaturalist.org/observations/395253688",  "Kilcrohane Pier",  []),
+    ("https://www.inaturalist.org/observations/395252016",  "Kilcrohane Pier",  [("","Nudibranch ×2")]),
+    ("https://www.inaturalist.org/observations/395249124",  "Kilcrohane Pier",  [("","Nudibranch")]),
+    ("https://www.inaturalist.org/observations/395247782",  "Seven Heads",      [("","Nudibranch")]),
+    ("https://www.inaturalist.org/observations/396158775",  "Lough Hyne",       []),
+    ("https://www.inaturalist.org/observations/396151003",  "Lough Hyne",       []),
+    ("https://www.inaturalist.org/observations/395272480",  "Lough Hyne",       [("","Rare find")]),
+    ("https://www.inaturalist.org/observations/396194167",  "Zetland Pier",     [("","Jellyfish")]),
+    ("https://www.inaturalist.org/observations/395265769",  "Canty's Cove",     [("","Nudibranch")]),
+    ("https://www.inaturalist.org/observations/395254192",  "Bank Pier",        []),
+    ("https://www.inaturalist.org/observations/395244688",  "Dooneen Pier",     []),
+    ("https://www.inaturalist.org/observations/396186672",  "Trafrask Pier",    [("threatened","Near Threatened ⚠️")]),
+    ("https://www.inaturalist.org/observations/396495775",  "Zetland Pier",     [("threatened","Near Threatened ⚠️")]),
+    ("https://www.inaturalist.org/observations/396496493",  "Zetland Pier",     []),
+    ("https://www.inaturalist.org/observations/395250027",  "Simon's Cove",     []),
 ]
 
 # ── API helpers ─────────────────────────────────────────────────────────────
@@ -149,6 +152,45 @@ def obs_id_from_url(url):
     import re
     m = re.search(r'/observations/(\d+)', url)
     return int(m.group(1)) if m else None
+
+
+def obs_photo_url(obs):
+    """Return the medium-size URL of the first photo on an observation, or None."""
+    photos = obs.get("photos") or []
+    if not photos:
+        return None
+    square = photos[0].get("url", "")
+    return square.replace("/square.", "/medium.")
+
+
+def obs_live_badges(obs):
+    """Return auto-generated badges from live observation data: quality, faves, comments."""
+    badges = []
+    if obs.get("quality_grade") == "research":
+        badges.append(("research", "Research Grade"))
+    if (obs.get("faves_count") or 0) > 0:
+        badges.append(("faved", "⭐ Community Favourite"))
+    comments = obs.get("comments_count") or 0
+    if comments > 0:
+        badges.append(("", f"{comments} Comment{'s' if comments != 1 else ''}"))
+    return badges
+
+
+def obs_display_name(obs):
+    """Return preferred common name, falling back to species_guess then taxon name."""
+    taxon = obs.get("taxon") or {}
+    return (
+        taxon.get("preferred_common_name")
+        or obs.get("species_guess")
+        or taxon.get("name")
+        or "Unknown"
+    )
+
+
+def obs_sci_name(obs):
+    """Return scientific name from taxon, or empty string."""
+    taxon = obs.get("taxon") or {}
+    return taxon.get("name") or ""
 
 
 def format_obs_date(obs):
@@ -247,6 +289,11 @@ CSS = """
   .header .meta strong { color: #1f2328; }
   h2 { font-size: 16px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 6px;
        border-bottom: 1px solid #e5e7eb; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hero-group { display: flex; flex-direction: column; gap: 0; }
+  .hero-connector { display: flex; align-items: center; gap: 10px; padding: 6px 20px;
+                    color: #57606a; font-size: 12px; font-style: italic; }
+  .hero-connector::before, .hero-connector::after { content: ""; flex: 1;
+                    border-top: 1px dashed #d1d5db; }
   .hero-card { background: #f7f8fa; border: 1px solid #e5e7eb; border-left: 4px solid #3b82d4;
                border-radius: 6px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; }
   .hero-card img { width: 160px; height: 120px; object-fit: cover; border-radius: 4px;
@@ -323,27 +370,57 @@ def build_html(stats, obs_lookup):
   </div>"""
 
     # ── Hero ──
-    hero_badges = badges_html(HERO["badges"], "badges")
+    def hero_card_html(h):
+        oid = obs_id_from_url(h["url"])
+        live = obs_lookup.get(oid) or {}
+        name    = obs_display_name(live) if live else h["url"]
+        sci     = obs_sci_name(live)
+        photo   = obs_photo_url(live) or ""
+        site    = resolve_site(live.get("place_guess", "")) or ""
+        date    = format_obs_date(live)
+        where   = f"{site} · {date}" if site and date else site or date
+        auto_b  = obs_live_badges(live)
+        all_b   = auto_b + (h.get("extra_badges") or [])
+        if where:
+            all_b.append(("", where))
+        b = badges_html(all_b, "badges")
+        return (
+            f'  <div class="hero-card">\n'
+            f'    <a href="{h["url"]}" target="_blank" rel="noopener" class="img-link">'
+            f'<img src="{photo}" alt="{name}" loading="lazy" /></a>\n'
+            f'    <div class="hero-body">\n'
+            f'      <h3>{name}</h3>\n'
+            f'      <div class="sci">{sci}</div>\n'
+            f'      <div class="desc">{h["desc"]}</div>\n'
+            f'      {b}\n'
+            f'    </div>\n'
+            f'  </div>'
+        )
+
+    hero_cards = f'  <div class="hero-group">\n'
+    for i, h in enumerate(HERO):
+        hero_cards += hero_card_html(h)
+        if i < len(HERO) - 1:
+            hero_cards += '\n  <div class="hero-connector">related observation</div>\n'
+    hero_cards += '\n  </div>'
+
     hero = f"""  <h2>⭐ Most Impressive Sighting</h2>
-  <div class="hero-card">
-    <img src="{HERO['photo']}" alt="{HERO['name']}" loading="lazy" />
-    <div class="hero-body">
-      <h3>{HERO['name']}</h3>
-      <div class="sci">{HERO['sci']}</div>
-      <div class="desc">{HERO['desc']}</div>
-      {hero_badges}
-    </div>
-  </div>"""
+{hero_cards}"""
 
     # ── Sightings grid ──
     cards = []
-    for name, sci, photo, obs_url, site_label, bdgs in STANDOUT_SIGHTINGS:
+    for obs_url, site_label, extra_badges in STANDOUT_SIGHTINGS:
+        oid = obs_id_from_url(obs_url)
+        live_obs = obs_lookup.get(oid) or {}
+        name    = obs_display_name(live_obs) if live_obs else obs_url
+        sci     = obs_sci_name(live_obs)
+        photo   = obs_photo_url(live_obs) or ""
+        auto_b  = obs_live_badges(live_obs)
+        bdgs    = auto_b + extra_badges
         sight_badges = badges_html(bdgs, "sight-badges")
         img_tag = f'<img src="{photo}" alt="{name}" loading="lazy" />'
         img_block = f'<a href="{obs_url}" target="_blank" rel="noopener" class="img-link">{img_tag}</a>'
         # Resolve date from live data; fall back to site_label if obs not found
-        oid = obs_id_from_url(obs_url)
-        live_obs = obs_lookup.get(oid)
         if live_obs:
             date_str = format_obs_date(live_obs)
             where = f"{site_label} · {date_str}" if date_str else site_label
@@ -405,7 +482,9 @@ def build_html(stats, obs_lookup):
     </thead>
     <tbody>\n""" + "\n".join(revisit_rows) + "\n    </tbody>\n  </table>"
 
-    footer = f'  <footer>\n    <p>All observations recorded on <a href="https://www.inaturalist.org/people/{USER_ID}">iNaturalist · {USER_ID}</a>  |  Made with IBM Bob</p>\n  </footer>'
+    from datetime import datetime, timezone
+    generated = datetime.now(timezone.utc).strftime("%d %b %Y %H:%M UTC")
+    footer = f'  <footer>\n    <p>All observations recorded on <a href="https://www.inaturalist.org/people/{USER_ID}">iNaturalist · {USER_ID}</a>  |  Generated {generated}</p>\n  </footer>'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
