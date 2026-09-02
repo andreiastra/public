@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,92 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dive Highlights — West Cork</title>
 <style>
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #1f2328;
-    background: #ffffff;
-    padding: 32px 16px 48px;
+    font-size: 14px; line-height: 1.6; color: #1f2328;
+    background: #ffffff; padding: 32px 16px 48px;
   }
   .page { max-width: 760px; margin: 0 auto; }
-
-  /* Header */
   .header { border-bottom: 2px solid #1f2328; padding-bottom: 20px; margin-bottom: 32px; }
   .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
   .header .sub { color: #57606a; margin-top: 4px; font-size: 13px; }
   .header .meta { margin-top: 10px; display: flex; gap: 24px; flex-wrap: wrap; }
   .header .meta span { font-size: 12px; color: #57606a; }
   .header .meta strong { color: #1f2328; }
-
-  /* Section titles */
-  h2 { font-size: 16px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; text-transform: uppercase; letter-spacing: 0.5px; }
-
-  /* Star card — hero observation */
-  .hero-card {
-    background: #f7f8fa;
-    border: 1px solid #e5e7eb;
-    border-left: 4px solid #3b82d4;
-    border-radius: 6px;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-  }
-  .hero-card img {
-    width: 160px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
-    flex-shrink: 0;
-    border: 1px solid #e5e7eb;
-  }
+  h2 { font-size: 16px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 6px;
+       border-bottom: 1px solid #e5e7eb; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hero-card { background: #f7f8fa; border: 1px solid #e5e7eb; border-left: 4px solid #3b82d4;
+               border-radius: 6px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; }
+  .hero-card img { width: 160px; height: 120px; object-fit: cover; border-radius: 4px;
+                   flex-shrink: 0; border: 1px solid #e5e7eb; }
   .hero-card .hero-body h3 { font-size: 18px; font-weight: 700; }
   .hero-card .hero-body .sci { font-style: italic; color: #57606a; font-size: 13px; }
   .hero-card .hero-body .desc { margin-top: 8px; font-size: 13px; color: #1f2328; }
   .hero-card .hero-body .badges { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .badge {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: #e5e7eb;
-    color: #1f2328;
-  }
-  .badge.research { background: #dcfce7; color: #166534; }
-  .badge.faved { background: #fef9c3; color: #713f12; }
-  .badge.threatened { background: #fee2e2; color: #991b1b; }
-
-  /* Sightings grid */
-  .sightings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 4px;
-  }
-  .sight-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-  }
-  .sight-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    display: block;
-    background: #f7f8fa;
-  }
+  .badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
+           background: #e5e7eb; color: #1f2328; }
+  .badge.research  { background: #dcfce7; color: #166534; }
+  .badge.faved     { background: #fef9c3; color: #713f12; }
+  .badge.threatened{ background: #fee2e2; color: #991b1b; }
+  .sightings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                    gap: 14px; margin-top: 4px; }
+  .sight-card { border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; background: #fff; }
+  .sight-card img { width: 100%; height: 140px; object-fit: cover; display: block; background: #f7f8fa; }
   .sight-card .sight-body { padding: 10px 12px 12px; }
   .sight-card .sight-body h4 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
   .sight-card .sight-body .sci { font-style: italic; color: #57606a; font-size: 11px; }
   .sight-card .sight-body .where { margin-top: 6px; font-size: 11px; color: #57606a; }
   .sight-card .sight-body .sight-badges { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
-
-  /* Sites table */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  thead th { background: #f7f8fa; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #57606a; padding: 8px 10px; border-bottom: 2px solid #e5e7eb; text-align: left; }
+  thead th { background: #f7f8fa; font-weight: 700; font-size: 11px; text-transform: uppercase;
+             letter-spacing: 0.4px; color: #57606a; padding: 8px 10px;
+             border-bottom: 2px solid #e5e7eb; text-align: left; }
   tbody tr { border-bottom: 1px solid #e5e7eb; }
   tbody tr:last-child { border-bottom: none; }
   tbody td { padding: 9px 10px; vertical-align: top; }
@@ -99,15 +54,14 @@
   .obs-count { font-weight: 700; font-size: 15px; }
   .site-name { font-weight: 600; }
   .site-desc { color: #57606a; font-size: 12px; margin-top: 2px; }
-
-  /* Stats row */
   .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
-  .stat { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 6px; padding: 14px 20px; flex: 1 1 120px; }
+  .stat { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 6px;
+          padding: 14px 20px; flex: 1 1 120px; }
   .stat .num { font-size: 28px; font-weight: 700; color: #3b82d4; line-height: 1; }
   .stat .label { font-size: 12px; color: #57606a; margin-top: 4px; }
+  footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid #e5e7eb;
+           text-align: center; font-size: 12px; color: #57606a; }
 
-  /* Footer */
-  footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 12px; color: #57606a; }
 </style>
 </head>
 <body>
@@ -119,17 +73,16 @@
     <div class="meta">
       <span><strong>Observer:</strong> andreiastra (iNaturalist)</span>
       <span><strong>Region:</strong> West Cork, Ireland</span>
-      <span><strong>Period:</strong> Jul 2025 – Aug 2026</span>
-      <span><strong>Dive Sites:</strong> 14 locations</span>
+      <span><strong>Dive Sites:</strong> 13 locations</span>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">93</div><div class="label">Total observations</div></div>
-    <div class="stat"><div class="num">14</div><div class="label">Dive sites visited</div></div>
+    <div class="stat"><div class="num">102</div><div class="label">Total observations</div></div>
+    <div class="stat"><div class="num">13</div><div class="label">Dive sites visited</div></div>
     <div class="stat"><div class="num">3</div><div class="label">Shark encounters</div></div>
-    <div class="stat"><div class="num">8</div><div class="label">Nudibranch species</div></div>
-    <div class="stat"><div class="num">1</div><div class="label">Community-faved find</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">Nudibranch species</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Community-faved find</div></div>
   </div>
 
   <h2>⭐ Most Impressive Sighting</h2>
@@ -144,7 +97,7 @@
         <span class="badge faved">⭐ Community Favourite</span>
         <span class="badge">2 Comments</span>
         <span class="badge">Lough Hyne · Mar 2026</span>
-      </div>
+        </div>
     </div>
   </div>
 
@@ -158,8 +111,8 @@
         <div class="sci">Scyliorhinus canicula</div>
         <div class="where">📍 Zetland Pier · Sep 2025</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Shark ×2 at Zetland</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Shark ×2 at Zetland</span>
         </div>
       </div>
     </div>
@@ -171,8 +124,8 @@
         <div class="sci">Scyliorhinus canicula</div>
         <div class="where">📍 Aghabeg Pier · Jul 2025</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Shark</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Shark</span>
         </div>
       </div>
     </div>
@@ -184,8 +137,8 @@
         <div class="sci">Limacia clavigera</div>
         <div class="where">📍 Kilcrohane Pier · Jan 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Nudibranch</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Nudibranch</span>
         </div>
       </div>
     </div>
@@ -197,7 +150,7 @@
         <div class="sci">Homarus gammarus</div>
         <div class="where">📍 Seven Heads · Jul 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -209,8 +162,8 @@
         <div class="sci">Chrysaora hysoscella</div>
         <div class="where">📍 Aghabeg Pier · Jul 2025</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Jellyfish ×2</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Jellyfish ×2</span>
         </div>
       </div>
     </div>
@@ -222,7 +175,7 @@
         <div class="sci">Prostheceraeus vittatus</div>
         <div class="where">📍 Canty's Cove · Mar 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -234,7 +187,7 @@
         <div class="sci">Parablennius ruber</div>
         <div class="where">📍 Gortdubh Pier · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -246,7 +199,7 @@
         <div class="sci">Parablennius gattorugine</div>
         <div class="where">📍 Gortdubh Pier · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -258,7 +211,7 @@
         <div class="sci">Holothuria forskali</div>
         <div class="where">📍 Gortdubh Pier · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -270,7 +223,7 @@
         <div class="sci">Galathea strigosa</div>
         <div class="where">📍 Seven Heads · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -282,7 +235,7 @@
         <div class="sci">Parablennius gattorugine</div>
         <div class="where">📍 Kilcrohane Pier · May 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -294,8 +247,8 @@
         <div class="sci">Facelina annulicornis</div>
         <div class="where">📍 Kilcrohane Pier · May 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Nudibranch ×2</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Nudibranch ×2</span>
         </div>
       </div>
     </div>
@@ -307,7 +260,7 @@
         <div class="sci">Aplysia punctata</div>
         <div class="where">📍 Kilcrohane Pier · Jan 2026</div>
         <div class="sight-badges">
-          <span class="badge">Nudibranch</span>
+        <span class="badge">Nudibranch</span>
         </div>
       </div>
     </div>
@@ -319,7 +272,7 @@
         <div class="sci">Polycera faeroensis</div>
         <div class="where">📍 Seven Heads · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge">Nudibranch</span>
+        <span class="badge">Nudibranch</span>
         </div>
       </div>
     </div>
@@ -331,7 +284,7 @@
         <div class="sci">Pecten maximus</div>
         <div class="where">📍 Lough Hyne · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -343,7 +296,7 @@
         <div class="sci">Necora puber</div>
         <div class="where">📍 Lough Hyne · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -355,7 +308,7 @@
         <div class="sci">Cerianthus membranaceus</div>
         <div class="where">📍 Lough Hyne · Jan 2026</div>
         <div class="sight-badges">
-          <span class="badge">Rare find</span>
+        <span class="badge">Rare find</span>
         </div>
       </div>
     </div>
@@ -367,8 +320,8 @@
         <div class="sci">Pelagia noctiluca</div>
         <div class="where">📍 Zetland Pier · Sep 2025</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
-          <span class="badge">Jellyfish</span>
+        <span class="badge research">Research Grade</span>
+        <span class="badge">Jellyfish</span>
         </div>
       </div>
     </div>
@@ -380,7 +333,7 @@
         <div class="sci">Doris pseudoargus</div>
         <div class="where">📍 Canty's Cove · Mar 2026</div>
         <div class="sight-badges">
-          <span class="badge">Nudibranch</span>
+        <span class="badge">Nudibranch</span>
         </div>
       </div>
     </div>
@@ -392,7 +345,7 @@
         <div class="sci">Trivia monacha</div>
         <div class="where">📍 Bank Pier · May 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -404,7 +357,7 @@
         <div class="sci">Labrus bergylta</div>
         <div class="where">📍 Dooneen Pier · Jul 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -416,7 +369,33 @@
         <div class="sci">Dicentrarchus labrax</div>
         <div class="where">📍 Trafrask Pier · Aug 2026</div>
         <div class="sight-badges">
-          <span class="badge">New site</span>
+        <span class="badge threatened">Near Threatened ⚠️</span>
+        <span class="badge">New site</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sight-card">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/727116530/medium.jpg" alt="European Seabass" loading="lazy" />
+      <div class="sight-body">
+        <h4>European Seabass</h4>
+        <div class="sci">Dicentrarchus labrax</div>
+        <div class="where">📍 Zetland Pier · Aug 2026</div>
+        <div class="sight-badges">
+        <span class="badge threatened">Near Threatened ⚠️</span>
+        <span class="badge">New at Zetland</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sight-card">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/727118200/medium.jpg" alt="Common Hermit Crab" loading="lazy" />
+      <div class="sight-body">
+        <h4>Common Hermit Crab</h4>
+        <div class="sci">Pagurus bernhardus</div>
+        <div class="where">📍 Zetland Pier · Aug 2026</div>
+        <div class="sight-badges">
+        <span class="badge">New at Zetland</span>
         </div>
       </div>
     </div>
@@ -428,7 +407,7 @@
         <div class="sci">Actinia fragacea</div>
         <div class="where">📍 Simon's Cove · Jun 2026</div>
         <div class="sight-badges">
-          <span class="badge research">Research Grade</span>
+        <span class="badge research">Research Grade</span>
         </div>
       </div>
     </div>
@@ -439,11 +418,7 @@
   <table>
     <thead>
       <tr>
-        <th>#</th>
-        <th>Site</th>
-        <th>Rating</th>
-        <th>Obs</th>
-        <th>Why it stands out</th>
+        <th>#</th><th>Site</th><th>Rating</th><th>Obs</th><th>Why it stands out</th>
       </tr>
     </thead>
     <tbody>
@@ -451,7 +426,7 @@
         <td>1</td>
         <td>
           <div class="site-name">Lough Hyne</div>
-          <div class="site-desc">Co. Cork — 4+ dive sessions</div>
+          <div class="site-desc">Co. Cork — Marine Nature Reserve</div>
         </td>
         <td><span class="stars">★★★</span></td>
         <td><span class="obs-count">25</span></td>
@@ -474,8 +449,8 @@
           <div class="site-desc">Co. Cork</div>
         </td>
         <td><span class="stars">★★★</span></td>
-        <td><span class="obs-count">10</span></td>
-        <td><strong>Small-spotted Catshark ×2</strong>, Mauve Stinger, Connemarra Clingfish, Toothed Crab, Sea Potato, Sea Vase. Highest surprise value of any site — always worth a look under the pontoons.</td>
+        <td><span class="obs-count">12</span></td>
+        <td><strong>Small-spotted Catshark ×2</strong>, European Seabass (Near Threatened), Mauve Stinger, Connemarra Clingfish, Toothed Crab, Common Hermit Crab, Sea Potato. Highest surprise value of any site.</td>
       </tr>
       <tr>
         <td>4</td>
@@ -534,21 +509,19 @@
   <table>
     <thead>
       <tr>
-        <th>Site</th>
-        <th>Standout find so far</th>
-        <th>Why revisit</th>
+        <th>Site</th><th>Standout find so far</th><th>Why revisit</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><strong>Trafrask Pier</strong></td>
         <td>European Seabass, Pouting</td>
-        <td>Only 2 observations logged — fish activity suggests productive site worth developing</td>
+        <td>Only 2 obs — fish activity suggests a productive site</td>
       </tr>
       <tr>
         <td><strong>Simon's Cove</strong></td>
         <td>Strawberry Anemone</td>
-        <td>Only 1 dive logged — likely much more to find in the rocky crevices</td>
+        <td>Only 1 dive logged — rocky crevices likely hold more</td>
       </tr>
       <tr>
         <td><strong>Bank Pier</strong></td>
@@ -563,7 +536,7 @@
       <tr>
         <td><strong>Barloge Pier</strong></td>
         <td>Spiny Squat Lobster</td>
-        <td>Remote location, barely explored</td>
+        <td>Remote location, barely explored — high potential</td>
       </tr>
     </tbody>
   </table>
