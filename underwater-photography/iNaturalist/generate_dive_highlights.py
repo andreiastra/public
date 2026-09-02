@@ -110,37 +110,59 @@ HERO = {
     ],
 }
 
-# Standout sightings grid — curated list of (name, sci, photo_url, site_label, badge_list)
+# Standout sightings grid — curated list of (name, sci, photo_url, obs_url, site_label, badge_list)
 # badge_list: list of (css_class, label) — css_class one of: "research", "threatened", ""
+# obs_url: iNaturalist observation URL — image becomes a clickable link; date is resolved automatically
+# site_label: site name only — no date (fetched live from the API)
 STANDOUT_SIGHTINGS = [
-    ("Small-spotted Catshark",    "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724751029/medium.jpg",   "Zetland Pier · Sep 2025",    [("research","Research Grade"),("","Shark ×2 at Zetland")]),
-    ("Small-spotted Catshark",    "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/726544669/medium.jpg",   "Aghabeg Pier · Jul 2025",    [("research","Research Grade"),("","Shark")]),
-    ("Orange-clubbed Sea Slug",   "Limacia clavigera",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724749530/medium.jpg",   "Kilcrohane Pier · Jan 2026", [("research","Research Grade"),("","Nudibranch")]),
-    ("European Lobster",          "Homarus gammarus",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/medium.jpg",   "Seven Heads · Jul 2026",     [("research","Research Grade")]),
-    ("Compass Jelly",             "Chrysaora hysoscella",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726520118/medium.jpg",   "Aghabeg Pier · Jul 2025",    [("research","Research Grade"),("","Jellyfish ×2")]),
-    ("Candy Stripe Flatworm",     "Prostheceraeus vittatus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724735849/medium.jpg",   "Canty's Cove · Mar 2026",    [("research","Research Grade")]),
-    ("Portuguese Blenny",         "Parablennius ruber",       "https://inaturalist-open-data.s3.amazonaws.com/photos/725226402/medium.jpg",   "Gortdubh Pier · Aug 2026",   [("research","Research Grade")]),
-    ("Tompot Blenny",             "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/725225882/medium.jpg",   "Gortdubh Pier · Aug 2026",   [("research","Research Grade")]),
-    ("Atlantic Black Sea Cucumber","Holothuria forskali",     "https://inaturalist-open-data.s3.amazonaws.com/photos/725728812/medium.jpg",   "Gortdubh Pier · Aug 2026",   [("research","Research Grade")]),
-    ("Spiny Squat Lobster",       "Galathea strigosa",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724692861/medium.jpg",   "Seven Heads · Aug 2026",     [("research","Research Grade")]),
-    ("Tompot Blenny",             "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/724712257/medium.jpg",   "Kilcrohane Pier · May 2026", [("research","Research Grade")]),
-    ("Facelina annulicornis",     "Facelina annulicornis",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724709431/medium.jpg",   "Kilcrohane Pier · May 2026", [("research","Research Grade"),("","Nudibranch ×2")]),
-    ("Spotted Seahare",           "Aplysia punctata",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724704135/medium.jpg",   "Kilcrohane Pier · Jan 2026", [("","Nudibranch")]),
-    ("Polycera faeroensis",       "Polycera faeroensis",      "https://inaturalist-open-data.s3.amazonaws.com/photos/724701007/medium.jpg",   "Seven Heads · Aug 2026",     [("","Nudibranch")]),
-    ("Great Scallop",             "Pecten maximus",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724481836/medium.jpg",   "Lough Hyne · Aug 2026",      [("research","Research Grade")]),
-    ("Velvet Swimming Crab",      "Necora puber",             "https://inaturalist-open-data.s3.amazonaws.com/photos/726464205/medium.jpg",   "Lough Hyne · Aug 2026",      [("research","Research Grade")]),
-    ("Cylinder Anemone",          "Cerianthus membranaceus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724748563/medium.jpg",   "Lough Hyne · Jan 2026",      [("","Rare find")]),
-    ("Mauve Stinger",             "Pelagia noctiluca",        "https://inaturalist-open-data.s3.amazonaws.com/photos/726552889/medium.jpg",   "Zetland Pier · Sep 2025",    [("research","Research Grade"),("","Jellyfish")]),
-    ("Sea Lemon",                 "Doris pseudoargus",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/medium.jpg",   "Canty's Cove · Mar 2026",    [("","Nudibranch")]),
-    ("European Cowrie",           "Trivia monacha",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724713295/medium.jpg",   "Bank Pier · May 2026",       [("research","Research Grade")]),
-    ("Ballan Wrasse",             "Labrus bergylta",          "https://inaturalist-open-data.s3.amazonaws.com/photos/724695640/medium.jpg",   "Dooneen Pier · Jul 2026",    [("research","Research Grade")]),
-    ("European Seabass",          "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726537592/medium.jpg",   "Trafrask Pier · Aug 2026",   [("threatened","Near Threatened ⚠️"),("","New site")]),
-    ("European Seabass",          "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/727116530/medium.jpg",   "Zetland Pier · Aug 2026",    [("threatened","Near Threatened ⚠️"),("","New at Zetland")]),
-    ("Common Hermit Crab",        "Pagurus bernhardus",       "https://inaturalist-open-data.s3.amazonaws.com/photos/727118200/medium.jpg",   "Zetland Pier · Aug 2026",    [("","New at Zetland")]),
-    ("Strawberry Anemone",        "Actinia fragacea",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724705630/medium.jpg",   "Simon's Cove · Jun 2026",    [("research","Research Grade")]),
+    ("Small-spotted Catshark",     "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724751029/medium.jpg",  "https://www.inaturalist.org/observations/395273855",  "Zetland Pier",     [("research","Research Grade"),("","Shark ×2 at Zetland")]),
+    ("Small-spotted Catshark",     "Scyliorhinus canicula",    "https://inaturalist-open-data.s3.amazonaws.com/photos/726544669/medium.jpg",  "https://www.inaturalist.org/observations/396180386",  "Aghabeg Pier",     [("research","Research Grade"),("","Shark")]),
+    ("Orange-clubbed Sea Slug",    "Limacia clavigera",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724749530/medium.jpg",  "https://www.inaturalist.org/observations/395272939",  "Kilcrohane Pier",  [("research","Research Grade"),("","Nudibranch")]),
+    ("European Lobster",           "Homarus gammarus",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/medium.jpg",  "https://www.inaturalist.org/observations/395243552",  "Seven Heads",      [("research","Research Grade")]),
+    ("Compass Jelly",              "Chrysaora hysoscella",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726520118/medium.jpg",  "https://www.inaturalist.org/observations/396178535",  "Aghabeg Pier",     [("research","Research Grade"),("","Jellyfish ×2")]),
+    ("Candy Stripe Flatworm",      "Prostheceraeus vittatus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724735849/medium.jpg",  "https://www.inaturalist.org/observations/395266018",  "Canty's Cove",     [("research","Research Grade")]),
+    ("Portuguese Blenny",          "Parablennius ruber",       "https://inaturalist-open-data.s3.amazonaws.com/photos/725226402/medium.jpg",  "https://www.inaturalist.org/observations/395515725",  "Gortdubh Pier",    [("research","Research Grade")]),
+    ("Tompot Blenny",              "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/725225882/medium.jpg",  "https://www.inaturalist.org/observations/395515479",  "Gortdubh Pier",    [("research","Research Grade")]),
+    ("Atlantic Black Sea Cucumber","Holothuria forskali",      "https://inaturalist-open-data.s3.amazonaws.com/photos/725728812/medium.jpg",  "https://www.inaturalist.org/observations/395777213",  "Gortdubh Pier",    [("research","Research Grade")]),
+    ("Spiny Squat Lobster",        "Galathea strigosa",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724692861/medium.jpg",  "https://www.inaturalist.org/observations/395243258",  "Seven Heads",      [("research","Research Grade")]),
+    ("Tompot Blenny",              "Parablennius gattorugine", "https://inaturalist-open-data.s3.amazonaws.com/photos/724712257/medium.jpg",  "https://www.inaturalist.org/observations/395253688",  "Kilcrohane Pier",  [("research","Research Grade")]),
+    ("Facelina annulicornis",      "Facelina annulicornis",    "https://inaturalist-open-data.s3.amazonaws.com/photos/724709431/medium.jpg",  "https://www.inaturalist.org/observations/395252016",  "Kilcrohane Pier",  [("research","Research Grade"),("","Nudibranch ×2")]),
+    ("Spotted Seahare",            "Aplysia punctata",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724704135/medium.jpg",  "https://www.inaturalist.org/observations/395249124",  "Kilcrohane Pier",  [("","Nudibranch")]),
+    ("Polycera faeroensis",        "Polycera faeroensis",      "https://inaturalist-open-data.s3.amazonaws.com/photos/724701007/medium.jpg",  "https://www.inaturalist.org/observations/395247782",  "Seven Heads",      [("","Nudibranch")]),
+    ("Great Scallop",              "Pecten maximus",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724481836/medium.jpg",  "https://www.inaturalist.org/observations/396158775",  "Lough Hyne",       [("research","Research Grade")]),
+    ("Velvet Swimming Crab",       "Necora puber",             "https://inaturalist-open-data.s3.amazonaws.com/photos/726464205/medium.jpg",  "https://www.inaturalist.org/observations/396151003",  "Lough Hyne",       [("research","Research Grade")]),
+    ("Cylinder Anemone",           "Cerianthus membranaceus",  "https://inaturalist-open-data.s3.amazonaws.com/photos/724748563/medium.jpg",  "https://www.inaturalist.org/observations/395272480",  "Lough Hyne",       [("","Rare find")]),
+    ("Mauve Stinger",              "Pelagia noctiluca",        "https://inaturalist-open-data.s3.amazonaws.com/photos/726552889/medium.jpg",  "https://www.inaturalist.org/observations/396194167",  "Zetland Pier",     [("research","Research Grade"),("","Jellyfish")]),
+    ("Sea Lemon",                  "Doris pseudoargus",        "https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/medium.jpg",  "https://www.inaturalist.org/observations/395265769",  "Canty's Cove",     [("","Nudibranch")]),
+    ("European Cowrie",            "Trivia monacha",           "https://inaturalist-open-data.s3.amazonaws.com/photos/724713295/medium.jpg",  "https://www.inaturalist.org/observations/395254192",  "Bank Pier",        [("research","Research Grade")]),
+    ("Ballan Wrasse",              "Labrus bergylta",          "https://inaturalist-open-data.s3.amazonaws.com/photos/724695640/medium.jpg",  "https://www.inaturalist.org/observations/395244688",  "Dooneen Pier",     [("research","Research Grade")]),
+    ("European Seabass",           "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/726537592/medium.jpg",  "https://www.inaturalist.org/observations/396186672",  "Trafrask Pier",    [("threatened","Near Threatened ⚠️"),("","New site")]),
+    ("European Seabass",           "Dicentrarchus labrax",     "https://inaturalist-open-data.s3.amazonaws.com/photos/727116530/medium.jpg",  "https://www.inaturalist.org/observations/396495775",  "Zetland Pier",     [("threatened","Near Threatened ⚠️"),("","New at Zetland")]),
+    ("Common Hermit Crab",         "Pagurus bernhardus",       "https://inaturalist-open-data.s3.amazonaws.com/photos/727118200/medium.jpg",  "https://www.inaturalist.org/observations/396496493",  "Zetland Pier",     [("","New at Zetland")]),
+    ("Strawberry Anemone",         "Actinia fragacea",         "https://inaturalist-open-data.s3.amazonaws.com/photos/724705630/medium.jpg",  "https://www.inaturalist.org/observations/395250027",  "Simon's Cove",     [("research","Research Grade")]),
 ]
 
 # ── API helpers ─────────────────────────────────────────────────────────────
+
+def obs_id_from_url(url):
+    """Extract numeric observation ID from an iNaturalist observation URL."""
+    import re
+    m = re.search(r'/observations/(\d+)', url)
+    return int(m.group(1)) if m else None
+
+
+def format_obs_date(obs):
+    """Return 'Mon YYYY' string from an observation dict, e.g. 'Aug 2025'."""
+    date_str = obs.get("observed_on") or ""
+    if not date_str:
+        return ""
+    from datetime import datetime
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.strftime("%b %Y")
+    except ValueError:
+        return date_str
+
 
 def fetch_all_observations(user_id):
     obs = []
@@ -242,6 +264,8 @@ CSS = """
                     gap: 14px; margin-top: 4px; }
   .sight-card { border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; background: #fff; }
   .sight-card img { width: 100%; height: 140px; object-fit: cover; display: block; background: #f7f8fa; }
+  .sight-card a.img-link { display: block; line-height: 0; }
+  .sight-card a.img-link:hover img { opacity: 0.88; transition: opacity 0.15s; }
   .sight-card .sight-body { padding: 10px 12px 12px; }
   .sight-card .sight-body h4 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
   .sight-card .sight-body .sci { font-style: italic; color: #57606a; font-size: 11px; }
@@ -275,7 +299,7 @@ def badges_html(badges, container_class="badges"):
     parts.append('</div>')
     return "\n        ".join(parts)
 
-def build_html(stats):
+def build_html(stats, obs_lookup):
     by_site = stats["by_site"]
 
     # ── Header ──
@@ -313,10 +337,20 @@ def build_html(stats):
 
     # ── Sightings grid ──
     cards = []
-    for name, sci, photo, where, bdgs in STANDOUT_SIGHTINGS:
+    for name, sci, photo, obs_url, site_label, bdgs in STANDOUT_SIGHTINGS:
         sight_badges = badges_html(bdgs, "sight-badges")
+        img_tag = f'<img src="{photo}" alt="{name}" loading="lazy" />'
+        img_block = f'<a href="{obs_url}" target="_blank" rel="noopener" class="img-link">{img_tag}</a>'
+        # Resolve date from live data; fall back to site_label if obs not found
+        oid = obs_id_from_url(obs_url)
+        live_obs = obs_lookup.get(oid)
+        if live_obs:
+            date_str = format_obs_date(live_obs)
+            where = f"{site_label} · {date_str}" if date_str else site_label
+        else:
+            where = site_label
         cards.append(f"""    <div class="sight-card">
-      <img src="{photo}" alt="{name}" loading="lazy" />
+      {img_block}
       <div class="sight-body">
         <h4>{name}</h4>
         <div class="sci">{sci}</div>
@@ -412,12 +446,13 @@ def main():
     obs = fetch_all_observations(USER_ID)
     print(f"Total: {len(obs)}\n")
 
+    obs_lookup = {o["id"]: o for o in obs}
     stats = compute_stats(obs)
     print(f"Dive sites: {stats['dive_sites']}")
     print(f"Sharks: {stats['sharks']}, Nudibranchs: {stats['nudibranchs']}, Faved: {stats['faved']}")
     print(f"Site obs counts: { {s: len(v) for s, v in stats['by_site'].items()} }\n")
 
-    html = build_html(stats)
+    html = build_html(stats, obs_lookup)
     with open(OUTPUT_FILE, "w") as f:
         f.write(html)
     print(f"Written to {OUTPUT_FILE}")
