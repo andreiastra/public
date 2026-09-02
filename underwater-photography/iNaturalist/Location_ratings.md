@@ -1,4 +1,4 @@
-# Dive Sites
+# Dive Site Ratings
 
 Sorted by interest: observation count, species variety, and notable finds.
 

@@ -1,8 +1,8 @@
 Fetching observations for user 'andreiastra'...
-  Fetched page 1 (93 observations)...
-Total observations fetched: 93
+  Fetched page 1 (102 observations)...
+Total observations fetched: 102
 
-Location clusters within 500 m (14 total):
+Location clusters within 500 m (16 total):
 
   Aghabeg Pier (6) [51.6615, -9.7733]
     Aghabeg Pier, Knockane, Co. Cork, Ireland  https://www.inaturalist.org/observations/396181184
@@ -33,6 +33,17 @@ Location clusters within 500 m (14 total):
     Canty's Cove, Ireland  https://www.inaturalist.org/observations/395257020
     Canty's Cove, Co. Cork, Ireland  https://www.inaturalist.org/observations/395256609
     Canty's Cove  https://www.inaturalist.org/observations/395255910
+
+  Coolanagh, Co. Cork, Ireland (6) [51.7815, -8.8820]
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396396376
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396395486
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396394723
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396393841
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396392081
+    Coolanagh, Co. Cork, Ireland  https://www.inaturalist.org/observations/396381509
+
+  Derrigra, Co. Cork, Ireland (1) [51.7345, -8.9503]
+    Derrigra, Co. Cork, Ireland  https://www.inaturalist.org/observations/396398337
 
   Dooneen Pier (5) [51.5639, -9.7292]
     Unnamed Road, Dooneen, Co. Cork, Ireland  https://www.inaturalist.org/observations/395271654
@@ -113,7 +124,9 @@ Location clusters within 500 m (14 total):
     Trafrask Pier, Adrigole, Co. Cork, Ireland  https://www.inaturalist.org/observations/396186672
     Trafrask Pier, Trafrask, Co. Cork, Ireland  https://www.inaturalist.org/observations/396186003
 
-  Zetland Pier (10) [51.6953, -9.5960]
+  Zetland Pier (12) [51.6952, -9.5960]
+    Zetland Pier, Co. Cork, Ireland  https://www.inaturalist.org/observations/396496493
+    Zetland Pier, Co. Cork, Ireland  https://www.inaturalist.org/observations/396495775
     Zetland Pier, Co. Cork, Ireland  https://www.inaturalist.org/observations/396195695
     Zetland Pier, Co. Cork, Ireland  https://www.inaturalist.org/observations/396194922
     Zetland Pier, Co. Cork, Ireland  https://www.inaturalist.org/observations/396194167

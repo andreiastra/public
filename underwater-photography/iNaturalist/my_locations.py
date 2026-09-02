@@ -20,7 +20,8 @@ PER_PAGE = 200
 CLUSTER_RADIUS_M = 500
 
 # Keyword fragments (lowercase) that map to each preferred name.
-# Site ratings and notes are maintained in Preferred_location_names.md.
+# Preferred names are listed in Preferred_location_names.txt (alphabetical).
+# Site ratings and notes are maintained in Location_ratings.md.
 # Order matters — more specific entries first.
 PREFERRED_NAME_KEYWORDS = [
     ("seven heads",     "Seven Heads Pier"),
