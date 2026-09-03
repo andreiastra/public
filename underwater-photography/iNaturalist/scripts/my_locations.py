@@ -20,7 +20,8 @@ PER_PAGE = 200
 CLUSTER_RADIUS_M = 500
 
 # Keyword fragments (lowercase) that map to each preferred name.
-# Preferred names are listed in Preferred_location_names.txt (alphabetical).
+# Preferred dive site names are listed in Preferred_dive_site_names.txt (alphabetical).
+# Preferred non-dive location names are listed in Preferred_other_location_names.txt (alphabetical).
 # Site ratings and notes are maintained in Location_ratings.md.
 # Order matters — more specific entries first.
 PREFERRED_NAME_KEYWORDS = [

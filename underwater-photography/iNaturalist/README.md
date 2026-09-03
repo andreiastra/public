@@ -40,7 +40,8 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ```text
 iNaturalist/
-├── Preferred_location_names.txt       # Canonical preferred names for West Cork dive sites
+├── Preferred_dive_site_names.txt      # Canonical preferred names for West Cork dive sites
+├── Preferred_other_location_names.txt # Canonical preferred names for non-dive observation locations
 ├── Location_ratings.md                # Dive site ratings, accessibility notes, and descriptions
 │
 ├── scripts/                           # Standalone helper scripts
@@ -75,7 +76,7 @@ iNaturalist/
 - **Purpose**: Fetches all observations for the user (`andreiastra`) from iNaturalist and groups them into geospatial clusters.
 - **How It Works**:
   - Uses a greedy clustering algorithm with a 500-metre radius (calculated via the Haversine great-circle formula).
-  - Assigns canonical site names by matching `place_guess` fragments against [`Preferred_location_names.txt`](Preferred_location_names.txt).
+  - Assigns canonical site names by matching `place_guess` fragments against [`Preferred_dive_site_names.txt`](Preferred_dive_site_names.txt) (dive sites) and [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) (other locations).
 - **Execution**:
   ```bash
   .venv/bin/python scripts/my_locations.py
@@ -128,7 +129,7 @@ The [`dive-logs/`](dive-logs) subfolder holds the raw Suunto Eon Core telemetry 
 The [`matching-dives-and-places/`](matching-dives-and-places) subfolder contains scripts that cross-reference dive logs against iNaturalist observations and the canonical preferred locations list.
 
 ### 1. `matching-dives-and-places/export_unmatched_dives.py`
-- **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_location_names.txt`.
+- **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_dive_site_names.txt`.
 - **How It Works**: Handles character normalization (smart quotes, apostrophes), case-insensitivity, and aliases (`7 Heads` $\rightarrow$ `Seven Heads Pier`, `Barloque` $\rightarrow$ `Barloge Pier`).
 - **Output**: [`matching-dives-and-places/unmatched_dives.json`](matching-dives-and-places/unmatched_dives.json)
 - **Execution**:
