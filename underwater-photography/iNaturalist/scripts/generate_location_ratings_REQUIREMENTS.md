@@ -43,13 +43,14 @@ Sorted by observation count descending (ties broken by dive count, then name).
 | `Site` | Canonical name, linked to the section anchor below |
 | `Dives` | Number of distinct `observed_on` dates at that site |
 | `Observations` | Total iNaturalist observation count at that site |
+| `Species` | Collapsible `<details open>` block: summary shows the count; body lists each species as a clickable link to `inaturalist.org/taxa/{id}`, separated by ` · `. Expanded by default; click the count to collapse. |
 
 #### Per-site sections
 One section per site in `Preferred_dive_site_names.txt`.  Each section contains:
 
 - Anchor `<a id="...">` derived from the lowercase, hyphenated site name
 - `## Site Name` heading
-- Summary line: `**Dives:** N  |  **Observations:** N`
+- Summary line: `**Dives:** N  |  **Observations:** N  |  **Species:** N` (species count only; no list)
 - Observation table (see below), sorted by `observed_on` descending
 
 #### Observation table columns

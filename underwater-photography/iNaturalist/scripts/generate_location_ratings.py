@@ -196,6 +196,27 @@ def count_dives_per_site(site_obs):
     return counts
 
 
+def species_per_site(site_obs):
+    """
+    Return dict: site_name → sorted list of (common_name, sci_name, taxon_url)
+    tuples, one per distinct taxon ID.  Observations with no taxon are excluded.
+    """
+    result = {}
+    for site, obs_list in site_obs.items():
+        seen = {}
+        for obs in obs_list:
+            taxon = obs.get("taxon") or {}
+            tid = taxon.get("id")
+            if tid is None or tid in seen:
+                continue
+            common = taxon.get("preferred_common_name") or taxon.get("name") or "Unknown"
+            sci    = taxon.get("name") or ""
+            url    = f"https://www.inaturalist.org/taxa/{tid}"
+            seen[tid] = (common, sci, url)
+        result[site] = sorted(seen.values(), key=lambda t: t[0].lower())
+    return result
+
+
 # ── Markdown rendering ────────────────────────────────────────────────────────
 
 def photo_md(obs):
@@ -215,12 +236,12 @@ def photo_md(obs):
     return f"[{name}]({url})"
 
 
-def render_site_section(site, obs_list, dive_count):
+def render_site_section(site, obs_list, dive_count, species_list):
     anchor = site.lower().replace(" ", "-").replace("'", "").replace("(", "").replace(")", "")
     lines  = [
         f'\n<a id="{anchor}"></a>',
         f"## {site}\n",
-        f"**Dives:** {dive_count}  |  **Observations:** {len(obs_list)}\n",
+        f"**Dives:** {dive_count}  |  **Observations:** {len(obs_list)}  |  **Species:** {len(species_list)}\n",
     ]
 
     if not obs_list:
@@ -260,13 +281,14 @@ def main():
         print(f"ERROR: cannot read {SITES_FILE}: {exc}")
         sys.exit(1)
 
-    observations = fetch_all_observations(notes)
-    site_obs     = cluster_and_label(observations, dive_sites, notes)
-    dive_counts  = count_dives_per_site(site_obs)
+    observations  = fetch_all_observations(notes)
+    site_obs      = cluster_and_label(observations, dive_sites, notes)
+    dive_counts   = count_dives_per_site(site_obs)
+    species_map   = species_per_site(site_obs)
 
     # Build records for every site in Preferred_dive_site_names.txt
     records = [
-        (site, site_obs.get(site, []), dive_counts.get(site, 0))
+        (site, site_obs.get(site, []), dive_counts.get(site, 0), species_map.get(site, []))
         for site in sorted(dive_sites)
     ]
     # Sort: most observations first, then most dives, then alphabetical
@@ -284,25 +306,30 @@ def main():
         notes_block,
         "---\n",
         "## Site Summary\n",
-        "| # | Site | Dives | Observations |",
-        "|---|------|------:|-------------:|",
+        "| # | Site | Dives | Observations | Species |",
+        "|---|------|------:|-------------:|--------:|",
     ]
-    for i, (site, obs_list, dc) in enumerate(records, 1):
+    for i, (site, obs_list, dc, sl) in enumerate(records, 1):
         anchor = site.lower().replace(" ", "-").replace("'", "").replace("(", "").replace(")", "")
-        lines.append(f"| {i} | [{site}](#{anchor}) | {dc} | {len(obs_list)} |")
+        if sl:
+            sp_items = " · ".join(f'[{common}]({url})' for common, sci, url in sl)
+            sp_cell = f'<details open><summary>{len(sl)}</summary>{sp_items}</details>'
+        else:
+            sp_cell = "0"
+        lines.append(f"| {i} | [{site}](#{anchor}) | {dc} | {len(obs_list)} | {sp_cell} |")
 
     lines.append("\n---\n")
 
-    for site, obs_list, dc in records:
-        lines.append(render_site_section(site, obs_list, dc))
+    for site, obs_list, dc, sl in records:
+        lines.append(render_site_section(site, obs_list, dc, sl))
         lines.append("\n---\n")
 
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
     print(f"\nWrote {OUTPUT}")
-    for site, obs_list, dc in records:
-        print(f"  {site:30s}  dives={dc:3d}  obs={len(obs_list):3d}")
+    for site, obs_list, dc, sl in records:
+        print(f"  {site:30s}  dives={dc:3d}  obs={len(obs_list):3d}  species={len(sl):3d}")
 
 
 if __name__ == "__main__":
