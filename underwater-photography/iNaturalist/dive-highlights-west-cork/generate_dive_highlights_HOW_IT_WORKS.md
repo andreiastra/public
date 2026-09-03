@@ -3,7 +3,7 @@
 Run it with:
 
 ```bash
-.venv/bin/python generate_dive_highlights.py
+.venv/bin/python dive-highlights-west-cork/generate_dive_highlights.py
 ```
 
 It fetches your live iNaturalist observations, computes stats, and writes

@@ -2,7 +2,7 @@
 """
 export_unmatched.py
 
-Compares iNaturalist observations (from `observations_raw.json`) with Suunto dive dates
+Compares iNaturalist observations (fetched live from the API) with Suunto dive dates
 from the `workouts/` GPX files.
 
 Outputs `unmatched_observations.json` containing observations that were recorded on days
@@ -13,14 +13,38 @@ import glob
 import json
 import os
 import re
+import requests
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
 # Base directory configuration
 BASE_DIR = '/Users/astra/github/public/underwater-photography/iNaturalist'
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
-OBS_FILE = os.path.join(BASE_DIR, 'observations_raw.json')
 OUTPUT_FILE = os.path.join(BASE_DIR, 'dive-logs/unmatched_observations.json')
+
+USER_ID = "andreiastra"
+BASE_URL = "https://api.inaturalist.org/v1/observations"
+PER_PAGE = 200
+
+
+def fetch_all_observations(user_id):
+    observations = []
+    page = 1
+    while True:
+        response = requests.get(BASE_URL, params={
+            "user_id": user_id,
+            "per_page": PER_PAGE,
+            "page": page,
+        })
+        response.raise_for_status()
+        data = response.json()
+        results = data.get("results", [])
+        observations.extend(results)
+        print(f"  Fetched page {page} ({len(results)} observations)...")
+        if len(observations) >= data.get("total_results", 0):
+            break
+        page += 1
+    return observations
 
 # 1. Collect all unique dive dates (YYYY-MM-DD) from GPX filenames
 gpx_files = sorted(glob.glob(os.path.join(WORKOUTS_DIR, '*.gpx')))
@@ -31,11 +55,10 @@ for g in gpx_files:
     if m:
         dive_dates.add(m.group(1))
 
-# 2. Load iNaturalist raw observation data
-with open(OBS_FILE, 'r', encoding='utf-8') as f:
-    obs_data = json.load(f)
-
-observations = obs_data.get('results', [])
+# 2. Fetch iNaturalist observations live from the API
+print(f"Fetching observations for user '{USER_ID}'...")
+observations = fetch_all_observations(USER_ID)
+print(f"Total observations fetched: {len(observations)}\n")
 
 # 3. Identify observations whose `observed_on` date does not match any dive log date
 unmatched_by_date = defaultdict(list)

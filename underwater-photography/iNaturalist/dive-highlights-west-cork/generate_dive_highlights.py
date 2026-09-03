@@ -17,7 +17,7 @@ import requests
 # ── Configuration ──────────────────────────────────────────────────────────
 
 USER_ID = "andreiastra"
-OUTPUT_FILE = "dive-highlights-west-cork.html"
+OUTPUT_FILE = "dive-highlights-west-cork/dive-highlights-west-cork.html"
 PREPARED_FOR = "Sean Hallahan"
 
 # Keywords mapping place_guess fragments → preferred site name
