@@ -20,7 +20,7 @@ from collections import defaultdict
 # Base directory configuration
 BASE_DIR = '/Users/astra/github/public/underwater-photography/iNaturalist'
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
-OUTPUT_FILE = os.path.join(BASE_DIR, 'dive-logs/unmatched_observations.json')
+OUTPUT_FILE = os.path.join(BASE_DIR, 'matching-dives-and-places/unmatched_observations.json')
 
 USER_ID = "andreiastra"
 BASE_URL = "https://api.inaturalist.org/v1/observations"

@@ -26,7 +26,7 @@ import xml.etree.ElementTree as ET
 BASE_DIR = '/Users/astra/github/public/underwater-photography/iNaturalist'
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
 PREF_FILE = os.path.join(BASE_DIR, 'Preferred_location_names.txt')
-OUTPUT_FILE = os.path.join(BASE_DIR, 'dive-logs/unmatched_dives.json')
+OUTPUT_FILE = os.path.join(BASE_DIR, 'matching-dives-and-places/unmatched_dives.json')
 
 # Load the preferred location names
 with open(PREF_FILE, 'r', encoding='utf-8') as f:

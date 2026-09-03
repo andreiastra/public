@@ -54,13 +54,15 @@ iNaturalist/
 │   ├── generate_dive_highlights_HOW_IT_WORKS.md # Technical documentation
 │   └── dive-highlights-west-cork.html # Generated HTML report
 │
-└── dive-logs/                         # Suunto dive computer logs and correlation tools
-    ├── README.md                      # Dive logs architecture and matching documentation
-    ├── workouts/                      # Raw .gpx and .fit files exported from Suunto Eon Core
-    ├── generate_dives_table.py        # Generates dives_table.md index from workouts
+├── dive-logs/                         # Raw Suunto dive computer export
+│   ├── README.md                      # Dive logs documentation
+│   ├── workouts/                      # Raw .gpx and .fit files exported from Suunto Eon Core
+│   ├── generate_dives_table.py        # Generates dives_table.md index from workouts
+│   └── dives_table.md                 # Complete chronological index of recorded dives
+│
+└── matching-dives-and-places/         # Cross-references dive logs with iNaturalist observations
     ├── export_unmatched_dives.py      # Identifies dive workouts with unmapped locations
     ├── export_unmatched.py            # Identifies observations recorded on non-diving days
-    ├── dives_table.md                 # Complete index of recorded dive workouts
     ├── unmatched_dives.json           # Review dataset of unmapped dive sites
     └── unmatched_observations.json    # Review dataset of non-dive observations
 ```
@@ -107,9 +109,9 @@ iNaturalist/
 
 ---
 
-## Dive Logs & Telemetry Scripts (`dive-logs/`)
+## Dive Logs (`dive-logs/`)
 
-The [`dive-logs/`](dive-logs) subfolder manages telemetry and workout logs downloaded from the Suunto Eon Core dive computer.
+The [`dive-logs/`](dive-logs) subfolder holds the raw Suunto Eon Core telemetry export and a table generator.
 
 ### 1. `dive-logs/generate_dives_table.py`
 - **Purpose**: Parses all `.gpx` files in `dive-logs/workouts/` to build a chronological markdown table of all dive sessions.
@@ -119,22 +121,28 @@ The [`dive-logs/`](dive-logs) subfolder manages telemetry and workout logs downl
   .venv/bin/python dive-logs/generate_dives_table.py
   ```
 
-### 2. `dive-logs/export_unmatched_dives.py`
+---
+
+## Matching Dives & Places (`matching-dives-and-places/`)
+
+The [`matching-dives-and-places/`](matching-dives-and-places) subfolder contains scripts that cross-reference dive logs against iNaturalist observations and the canonical preferred locations list.
+
+### 1. `matching-dives-and-places/export_unmatched_dives.py`
 - **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_location_names.txt`.
 - **How It Works**: Handles character normalization (smart quotes, apostrophes), case-insensitivity, and aliases (`7 Heads` $\rightarrow$ `Seven Heads Pier`, `Barloque` $\rightarrow$ `Barloge Pier`).
-- **Output**: [`dive-logs/unmatched_dives.json`](dive-logs/unmatched_dives.json)
+- **Output**: [`matching-dives-and-places/unmatched_dives.json`](matching-dives-and-places/unmatched_dives.json)
 - **Execution**:
   ```bash
-  .venv/bin/python dive-logs/export_unmatched_dives.py
+  .venv/bin/python matching-dives-and-places/export_unmatched_dives.py
   ```
 
-### 3. `dive-logs/export_unmatched.py`
+### 2. `matching-dives-and-places/export_unmatched.py`
 - **Purpose**: Cross-references iNaturalist observation dates against Suunto dive dates.
 - **How It Works**: Fetches all observations live from the iNaturalist API, then filters out non-diving observations (e.g. terrestrial birds, shore fauna, or moths) for review.
-- **Output**: [`dive-logs/unmatched_observations.json`](dive-logs/unmatched_observations.json)
+- **Output**: [`matching-dives-and-places/unmatched_observations.json`](matching-dives-and-places/unmatched_observations.json)
 - **Execution**:
   ```bash
-  .venv/bin/python dive-logs/export_unmatched.py
+  .venv/bin/python matching-dives-and-places/export_unmatched.py
   ```
 
 ---
