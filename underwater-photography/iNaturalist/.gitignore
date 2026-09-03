@@ -1,1 +1,3 @@
 dive-logs/workouts/
+__pycache__/
+*.pyc

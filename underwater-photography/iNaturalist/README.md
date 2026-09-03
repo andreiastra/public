@@ -8,6 +8,7 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
 - **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork/dive-highlights-west-cork.html)
+- **Dive Site Observations:** [Location_ratings.md](Location_ratings.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
@@ -42,10 +43,12 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 iNaturalist/
 ├── Preferred_dive_site_names.txt      # Canonical preferred names for West Cork dive sites
 ├── Preferred_other_location_names.txt # Canonical preferred names for non-dive observation locations
-├── Location_ratings.md                # Dive site ratings, accessibility notes, and descriptions
+├── Location_ratings.md                # Generated dive site index with observations and photo links
 │
 ├── scripts/                           # Standalone helper scripts
-│   ├── my_locations.py                # Clusters observations into dive sites via geospatial radius
+│   ├── site_names.py                  # Shared keyword → canonical site name mapping (refresh before use)
+│   ├── generate_location_ratings.py   # Generates Location_ratings.md from live iNaturalist data
+│   ├── my_locations.py                # Clusters observations into dive sites; use to verify site_names.py
 │   ├── my_places.py                   # Lists all distinct places from user observations
 │   ├── my_projects.py                 # Lists joined iNaturalist projects
 │   └── Locations.sh                   # Captured sample output from my_locations.py
@@ -72,17 +75,30 @@ iNaturalist/
 
 ## Core Scripts Documentation
 
-### 1. `scripts/my_locations.py`
-- **Purpose**: Fetches all observations for the user (`andreiastra`) from iNaturalist and groups them into geospatial clusters.
+### 1. `scripts/generate_location_ratings.py`
+- **Purpose**: Generates [`Location_ratings.md`](Location_ratings.md) — a per-site index of dive sessions and iNaturalist observations with clickable photo thumbnails.
+- **How It Works**:
+  - Fetches all observations from the iNaturalist API and clusters them geospatially (500 m radius).
+  - Resolves each cluster to a canonical site name via [`scripts/site_names.py`](scripts/site_names.py).
+  - Counts distinct observation dates per site as a proxy for dive sessions.
+  - Renders each observation as a linked thumbnail (`/small.jpg`) pointing to the iNaturalist observation page.
+- **Prerequisite**: Verify [`scripts/site_names.py`](scripts/site_names.py) is current before running (see that file for the refresh procedure).
+- **Execution**:
+  ```bash
+  .venv/bin/python scripts/generate_location_ratings.py
+  ```
+
+### 2. `scripts/my_locations.py`
+- **Purpose**: Fetches all observations for the user (`andreiastra`) from iNaturalist and groups them into geospatial clusters. **Also used to verify [`scripts/site_names.py`](scripts/site_names.py)** — run this and check that every cluster resolves to a canonical name.
 - **How It Works**:
   - Uses a greedy clustering algorithm with a 500-metre radius (calculated via the Haversine great-circle formula).
-  - Assigns canonical site names by matching `place_guess` fragments against [`Preferred_dive_site_names.txt`](Preferred_dive_site_names.txt) (dive sites) and [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) (other locations).
+  - Assigns canonical site names by matching `place_guess` fragments against the keyword mapping in [`scripts/site_names.py`](scripts/site_names.py).
 - **Execution**:
   ```bash
   .venv/bin/python scripts/my_locations.py
   ```
 
-### 2. `dive-highlights-west-cork/generate_dive_highlights.py`
+### 3. `dive-highlights-west-cork/generate_dive_highlights.py`
 - **Purpose**: Generates the standalone, interactive [`dive-highlights-west-cork/dive-highlights-west-cork.html`](dive-highlights-west-cork/dive-highlights-west-cork.html) summary report — also published at the GitHub Pages URL above.
 - **How It Works**:
   - Fetches observation records and high-resolution photo URLs via the iNaturalist REST API.
@@ -93,7 +109,7 @@ iNaturalist/
   .venv/bin/python dive-highlights-west-cork/generate_dive_highlights.py
   ```
 
-### 3. `scripts/my_places.py`
+### 4. `scripts/my_places.py`
 - **Purpose**: Fetches and aggregates all distinct `place_guess` strings associated with observations.
 - **How It Works**: Paginates through all user observations and outputs place counts with links to individual observations.
 - **Execution**:
@@ -101,7 +117,7 @@ iNaturalist/
   .venv/bin/python scripts/my_places.py
   ```
 
-### 4. `scripts/my_projects.py`
+### 5. `scripts/my_projects.py`
 - **Purpose**: Retrieves all iNaturalist collection and umbrella projects joined by the user.
 - **Execution**:
   ```bash

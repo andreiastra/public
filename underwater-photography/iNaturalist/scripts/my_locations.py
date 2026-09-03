@@ -1,7 +1,7 @@
 """
 Fetches all observations for a given user and groups them by geolocation.
 Observations within 500 metres of each other are treated as the same location.
-Each cluster is labelled with a preferred name from Preferred_location_names.txt
+Each cluster is labelled with a preferred name from Preferred_dive_site_names.txt
 matched by keyword against the cluster's constituent place_guess values.
 
 Uses the iNaturalist API endpoint:
@@ -10,41 +10,25 @@ Uses the iNaturalist API endpoint:
 Algorithm: greedy clustering — each observation is assigned to the first
 existing cluster whose centroid is within 500 m; otherwise a new cluster
 is started. The cluster label is then resolved to a preferred name.
+
+── Site keyword mapping ──────────────────────────────────────────────────────
+
+Cluster labels are resolved via the keyword list in scripts/site_names.py.
+That list must be kept in sync with Preferred_dive_site_names.txt and
+verified against live iNaturalist data whenever new sites are added or new
+observations appear for an unrecognised location.  See scripts/site_names.py
+for the full refresh procedure.  This script is also the tool used to perform
+that verification — run it and check that every cluster has a canonical name.
 """
 import math
 import requests
+
+from site_names import SITE_KEYWORDS as PREFERRED_NAME_KEYWORDS  # noqa: E402
 
 USER_ID = "andreiastra"
 BASE_URL = "https://api.inaturalist.org/v1/observations"
 PER_PAGE = 200
 CLUSTER_RADIUS_M = 500
-
-# Keyword fragments (lowercase) that map to each preferred name.
-# Preferred dive site names are listed in Preferred_dive_site_names.txt (alphabetical).
-# Preferred non-dive location names are listed in Preferred_other_location_names.txt (alphabetical).
-# Site ratings and notes are maintained in Location_ratings.md.
-# Order matters — more specific entries first.
-PREFERRED_NAME_KEYWORDS = [
-    ("seven heads",     "Seven Heads Pier"),
-    ("barloge",         "Barloge Pier"),
-    ("blind strand",    "Blind Strand Pier"),
-    ("canty",           "Canty's Cove"),
-    ("simon",           "Simon's Cove"),
-    ("councambeg",      "Simon's Cove"),
-    ("gortdubh",        "Gortdubh Pier"),
-    ("knockaphuca",     "Gortdubh Pier"),
-    ("lough hyne",      "Lough Hyne"),
-    ("sandmount",       "Bank Pier"),
-    ("bank",            "Bank Pier"),
-    ("rosscarbery",     "Rosscarbery"),
-    ("dooneen",         "Dooneen Pier"),
-    ("derreenacarrin",  "Zetland Pier"),
-    ("zetland",         "Zetland Pier"),
-    ("kilcrohane",      "Kilcrohane Pier"),
-    ("aghabeg",         "Aghabeg Pier"),
-    ("trafrask",        "Trafrask Pier"),
-    ("adrigole",        "Trafrask Pier"),
-]
 
 
 def resolve_preferred_name(place_guesses):
