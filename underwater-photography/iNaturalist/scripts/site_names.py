@@ -65,11 +65,8 @@ IGNORED_KEYWORDS = [
     "coolanagh",       # inland birding/wildlife area, Co. Cork
     "courtmacsherry",  # coastal village, no dive site
     "derrigra",        # inland townland, Co. Cork
+    "rosscarbery",     # non-dive location, listed in Preferred_other_location_names.txt
 ]
-# Note: "Cork, Co. Cork, Ireland" (the Rosscarbery estuary cluster) is
-# ambiguous — its place_guess is just "Cork" which is too broad to ignore
-# safely.  It is already handled by geospatial clustering; the rosscarbery
-# keyword resolves the observations that have the full place name.
 
 SITE_KEYWORDS = [
     # place_guess: "Seven Heads, Co. Cork" / "Seven Heads Pier, Co. Cork"
@@ -94,8 +91,6 @@ SITE_KEYWORDS = [
     ("bank pier",      "Bank Pier"),
     ("sandmount",      "Bank Pier"),
     ("bank",           "Bank Pier"),
-    # place_guess: "Rosscarbery, Cork, Co. Cork" — also "Cork, Co. Cork" (ambiguous, resolved by cluster)
-    ("rosscarbery",    "Rosscarbery"),
     # place_guess: "Unnamed Road, Dooneen, Co. Cork"
     ("dooneen",        "Dooneen Pier"),
     # place_guess: "Zetland Pier, Co. Cork" / "Zetland Pier, Derreenacarrin" / "Derreenacarrin, Co. Cork"

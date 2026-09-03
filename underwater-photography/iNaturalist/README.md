@@ -8,7 +8,7 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
 - **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork/dive-highlights-west-cork.html)
-- **Dive Site Observations:** [Location_ratings.md](https://andreiastra.github.io/public/underwater-photography/iNaturalist/Location_ratings.md)
+- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/Location_ratings.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
