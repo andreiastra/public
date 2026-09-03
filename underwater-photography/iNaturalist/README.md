@@ -7,7 +7,7 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 ## Profile & Links
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
-- **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork.html)
+- **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork/dive-highlights-west-cork.html)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
@@ -43,11 +43,13 @@ iNaturalist/
 ├── Preferred_location_names.txt       # Canonical preferred names for West Cork dive sites
 ├── Location_ratings.md                # Dive site ratings, accessibility notes, and descriptions
 │
-├── my_locations.py                    # Clusters observations into dive sites via geospatial radius
-├── my_places.py                       # Lists all distinct places from user observations
-├── my_projects.py                     # Lists joined iNaturalist projects
+├── scripts/                           # Standalone helper scripts
+│   ├── my_locations.py                # Clusters observations into dive sites via geospatial radius
+│   ├── my_places.py                   # Lists all distinct places from user observations
+│   ├── my_projects.py                 # Lists joined iNaturalist projects
+│   └── Locations.sh                   # Captured sample output from my_locations.py
 │
-├── dive-highlights-west-cork/         # Report generator and output
+├── dive-highlights-west-cork/         # Report generator, documentation, and output
 │   ├── generate_dive_highlights.py    # Generates the standalone HTML report
 │   ├── generate_dive_highlights_HOW_IT_WORKS.md # Technical documentation
 │   └── dive-highlights-west-cork.html # Generated HTML report
@@ -67,18 +69,18 @@ iNaturalist/
 
 ## Core Scripts Documentation
 
-### 1. `my_locations.py`
+### 1. `scripts/my_locations.py`
 - **Purpose**: Fetches all observations for the user (`andreiastra`) from iNaturalist and groups them into geospatial clusters.
 - **How It Works**:
   - Uses a greedy clustering algorithm with a 500-metre radius (calculated via the Haversine great-circle formula).
   - Assigns canonical site names by matching `place_guess` fragments against [`Preferred_location_names.txt`](Preferred_location_names.txt).
 - **Execution**:
   ```bash
-  .venv/bin/python my_locations.py
+  .venv/bin/python scripts/my_locations.py
   ```
 
 ### 2. `dive-highlights-west-cork/generate_dive_highlights.py`
-- **Purpose**: Generates the standalone, interactive [`dive-highlights-west-cork/dive-highlights-west-cork.html`](dive-highlights-west-cork/dive-highlights-west-cork.html) summary report.
+- **Purpose**: Generates the standalone, interactive [`dive-highlights-west-cork/dive-highlights-west-cork.html`](dive-highlights-west-cork/dive-highlights-west-cork.html) summary report — also published at the GitHub Pages URL above.
 - **How It Works**:
   - Fetches observation records and high-resolution photo URLs via the iNaturalist REST API.
   - Groups sightings into curated dive sites (excluding terrestrial and birding spots like Rosscarbery and Coolanagh).
@@ -88,19 +90,19 @@ iNaturalist/
   .venv/bin/python dive-highlights-west-cork/generate_dive_highlights.py
   ```
 
-### 3. `my_places.py`
+### 3. `scripts/my_places.py`
 - **Purpose**: Fetches and aggregates all distinct `place_guess` strings associated with observations.
 - **How It Works**: Paginates through all user observations and outputs place counts with links to individual observations.
 - **Execution**:
   ```bash
-  .venv/bin/python my_places.py
+  .venv/bin/python scripts/my_places.py
   ```
 
-### 4. `my_projects.py`
+### 4. `scripts/my_projects.py`
 - **Purpose**: Retrieves all iNaturalist collection and umbrella projects joined by the user.
 - **Execution**:
   ```bash
-  .venv/bin/python my_projects.py
+  .venv/bin/python scripts/my_projects.py
   ```
 
 ---
@@ -150,14 +152,14 @@ python3 -m venv .venv
 Run a script directly without activating the venv:
 
 ```bash
-.venv/bin/python my_projects.py
+.venv/bin/python scripts/my_projects.py
 ```
 
 Or activate for the session:
 
 ```bash
 source .venv/bin/activate
-python my_projects.py
+python scripts/my_projects.py
 deactivate
 ```
 

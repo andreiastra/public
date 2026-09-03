@@ -7,7 +7,7 @@ Run it with:
 ```
 
 It fetches your live iNaturalist observations, computes stats, and writes
-`dive-highlights-west-cork.html` from scratch. The whole file is overwritten
+`dive-highlights-west-cork/dive-highlights-west-cork.html` from scratch. The whole file is overwritten
 every time — there is nothing to merge or diff.
 
 ---
