@@ -40,6 +40,14 @@ To refresh:
   3. Add an entry here with the identifying fragment and the canonical name.
   4. Re-run my_locations.py to confirm the cluster resolves correctly.
 
+── Non-dive locations ────────────────────────────────────────────────────────
+
+IGNORED_KEYWORDS lists place_guess fragments for known terrestrial, birding,
+or otherwise non-dive locations.  Any cluster whose place_guess matches one of
+these is silently skipped by generate_location_ratings.py — no unresolved-
+cluster warning is raised.  Add entries here whenever my_locations.py shows a
+cluster that should never appear in Location_ratings.md.
+
 ── Rules ─────────────────────────────────────────────────────────────────────
   - More-specific / longer keywords first (e.g. "bank pier" before "bank").
   - Multiple keywords may map to the same canonical name.
@@ -49,6 +57,19 @@ Imported by:
   scripts/my_locations.py
   scripts/generate_location_ratings.py
 """
+
+# Fragments that identify non-dive locations.  Clusters whose combined
+# place_guess contains any of these are silently excluded from the output.
+# Verified against live my_locations.py output.
+IGNORED_KEYWORDS = [
+    "coolanagh",       # inland birding/wildlife area, Co. Cork
+    "courtmacsherry",  # coastal village, no dive site
+    "derrigra",        # inland townland, Co. Cork
+]
+# Note: "Cork, Co. Cork, Ireland" (the Rosscarbery estuary cluster) is
+# ambiguous — its place_guess is just "Cork" which is too broad to ignore
+# safely.  It is already handled by geospatial clustering; the rosscarbery
+# keyword resolves the observations that have the full place name.
 
 SITE_KEYWORDS = [
     # place_guess: "Seven Heads, Co. Cork" / "Seven Heads Pier, Co. Cork"

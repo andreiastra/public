@@ -33,7 +33,7 @@ SITES_FILE = os.path.join(_ROOT, "Preferred_dive_site_names.txt")
 OUTPUT     = os.path.join(_ROOT, "Location_ratings.md")
 
 sys.path.insert(0, os.path.dirname(__file__))
-from site_names import SITE_KEYWORDS  # noqa: E402
+from site_names import SITE_KEYWORDS, IGNORED_KEYWORDS  # noqa: E402
 
 # ── API config ────────────────────────────────────────────────────────────────
 USER_ID  = "andreiastra"
@@ -77,16 +77,35 @@ def resolve_site(place_guesses, dive_sites):
 
 # ── API fetch ─────────────────────────────────────────────────────────────────
 
-def fetch_all_observations():
+def fetch_all_observations(notes):
+    """
+    Fetch all observations from the iNaturalist API.
+    On a page-level HTTP error, appends a warning to notes and stops early
+    (returning whatever was collected so far rather than aborting entirely).
+    """
     print(f"Fetching observations for '{USER_ID}' from iNaturalist…")
     all_obs, page = [], 1
     while True:
-        r = requests.get(BASE_URL, params={
-            "user_id":  USER_ID,
-            "per_page": PER_PAGE,
-            "page":     page,
-        })
-        r.raise_for_status()
+        try:
+            r = requests.get(BASE_URL, params={
+                "user_id":  USER_ID,
+                "per_page": PER_PAGE,
+                "page":     page,
+            }, timeout=30)
+            r.raise_for_status()
+        except requests.exceptions.Timeout:
+            notes.append(f"API timeout on page {page} — output may be incomplete.")
+            print(f"  WARNING: timeout on page {page}, stopping early.")
+            break
+        except requests.exceptions.HTTPError as exc:
+            notes.append(f"API HTTP error on page {page}: {exc} — output may be incomplete.")
+            print(f"  WARNING: HTTP error on page {page}: {exc}, stopping early.")
+            break
+        except requests.exceptions.RequestException as exc:
+            notes.append(f"API network error on page {page}: {exc} — output may be incomplete.")
+            print(f"  WARNING: network error on page {page}: {exc}, stopping early.")
+            break
+
         data    = r.json()
         results = data.get("results", [])
         all_obs.extend(results)
@@ -95,25 +114,29 @@ def fetch_all_observations():
             break
         page += 1
         time.sleep(1)
+
     print(f"Total: {len(all_obs)} observations\n")
     return all_obs
 
 
 # ── Clustering ────────────────────────────────────────────────────────────────
 
-def cluster_and_label(observations, dive_sites):
+def cluster_and_label(observations, dive_sites, notes):
     """
     Greedy 500 m radius clustering (same algorithm as my_locations.py).
     Returns dict: canonical_site_name → list of observation dicts.
     Only clusters that resolve to a name present in dive_sites are kept.
+    Appends a warning to notes for each cluster that could not be resolved.
     """
-    clusters = []
+    clusters      = []
+    no_coords     = 0
 
     for obs in observations:
         coords = (obs.get("geojson") or {}).get("coordinates")
         lat = coords[1] if coords else None
         lon = coords[0] if coords else None
         if lat is None or lon is None:
+            no_coords += 1
             continue
 
         nearest, nearest_dist = None, float("inf")
@@ -130,12 +153,31 @@ def cluster_and_label(observations, dive_sites):
         else:
             clusters.append({"centroid": (lat, lon), "obs": [obs]})
 
-    site_obs = {}
+    if no_coords:
+        notes.append(
+            f"{no_coords} observation(s) had no GPS coordinates and were excluded."
+        )
+
+    site_obs   = {}
+    unresolved = []
     for c in clusters:
-        guesses = [o.get("place_guess") or "" for o in c["obs"]]
-        name = resolve_site(guesses, dive_sites)
+        guesses  = [o.get("place_guess") or "" for o in c["obs"]]
+        combined = " ".join(guesses).lower()
+        name     = resolve_site(guesses, dive_sites)
         if name:
             site_obs.setdefault(name, []).extend(c["obs"])
+        elif any(kw in combined for kw in IGNORED_KEYWORDS):
+            pass  # known non-dive location — silently skip
+        else:
+            sample = next((g for g in guesses if g), "unknown location")
+            unresolved.append(f'{len(c["obs"])} obs near \u201c{sample}\u201d')
+
+    if unresolved:
+        notes.append(
+            "The following clusters could not be matched to a known dive site — "
+            "consider updating scripts/site_names.py: "
+            + "; ".join(unresolved)
+        )
 
     return site_obs
 
@@ -209,24 +251,37 @@ def render_site_section(site, obs_list, dive_count):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    dive_sites   = load_dive_sites(SITES_FILE)
-    observations = fetch_all_observations()
-    site_obs     = cluster_and_label(observations, dive_sites)
+    notes = []   # warnings accumulated during the run; written to the doc header
+
+    try:
+        dive_sites = load_dive_sites(SITES_FILE)
+    except OSError as exc:
+        # Fatal — cannot continue without the site list
+        print(f"ERROR: cannot read {SITES_FILE}: {exc}")
+        sys.exit(1)
+
+    observations = fetch_all_observations(notes)
+    site_obs     = cluster_and_label(observations, dive_sites, notes)
     dive_counts  = count_dives_per_site(site_obs)
 
-    # Build records for every site that has observations or logged dives
+    # Build records for every site in Preferred_dive_site_names.txt
     records = [
         (site, site_obs.get(site, []), dive_counts.get(site, 0))
         for site in sorted(dive_sites)
-        if site_obs.get(site) or dive_counts.get(site)
     ]
     # Sort: most observations first, then most dives, then alphabetical
     records.sort(key=lambda r: (-len(r[1]), -r[2], r[0]))
 
+    notes_block = ""
+    if notes:
+        note_lines = "\n".join(f"> ⚠️ {n}" for n in notes)
+        notes_block = f"\n{note_lines}\n"
+
     lines = [
         "# Dive Site Observations\n",
         "> Generated by `scripts/generate_location_ratings.py` from live iNaturalist data.",
-        f"> **{len(observations)}** total observations across **{len(records)}** sites.\n",
+        f"> **{len(observations)}** total observations across **{len(records)}** sites.",
+        notes_block,
         "---\n",
         "## Site Summary\n",
         "| # | Site | Dives | Observations |",
