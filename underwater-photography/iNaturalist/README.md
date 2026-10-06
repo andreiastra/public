@@ -51,6 +51,7 @@ iNaturalist/
 │   ├── my_locations.py                # Clusters observations into dive sites; use to verify site_names.py
 │   ├── my_places.py                   # Lists all distinct places from user observations
 │   ├── my_projects.py                 # Lists joined iNaturalist projects
+│   ├── rare_birds_ireland.py          # Ranks Ireland bird obs by rarity (fewest Ireland-wide records first)
 │   └── Locations.sh                   # Captured sample output from my_locations.py
 │
 ├── dive-highlights-west-cork/         # Report generator, documentation, and output
@@ -122,6 +123,17 @@ iNaturalist/
 - **Execution**:
   ```bash
   .venv/bin/python scripts/my_projects.py
+  ```
+
+### 6. `scripts/rare_birds_ireland.py`
+- **Purpose**: Fetches all Aves observations for the user in Ireland and ranks each species by rarity — measured as the number of **distinct observers** who have recorded that species anywhere in Ireland on iNaturalist (fewest observers = rarest).
+- **How It Works**:
+  - Paginates through all bird observations filtered to Ireland (`place_id=6718`).
+  - Collects each unique taxon, then queries `/v1/observations/observers` once per taxon for its Ireland-wide distinct-observer count.
+  - Prints a ranked table: rarest species first, with dates, locations, and your observation count.
+- **Execution**:
+  ```bash
+  .venv/bin/python scripts/rare_birds_ireland.py
   ```
 
 ---
