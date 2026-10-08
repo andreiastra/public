@@ -12,8 +12,9 @@ ID 10958443) is used consistently across all scripts in this project.
 """
 import requests
 
-USER_ID = "andreiastra"
-url = f"https://api.inaturalist.org/v1/users/{USER_ID}/projects"
+from config import API_BASE, USER_ID
+
+url = f"{API_BASE}/users/{USER_ID}/projects"
 
 try:
     response = requests.get(url)

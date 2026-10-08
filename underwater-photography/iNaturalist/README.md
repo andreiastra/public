@@ -8,7 +8,7 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
 - **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork/dive-highlights-west-cork.html)
-- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/Location_ratings.md)
+- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/scripts/OUTPUT/Location_ratings.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra&place=ireland)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
@@ -41,18 +41,9 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ```text
 iNaturalist/
-├── Preferred_dive_site_names.txt      # Canonical preferred names for West Cork dive sites
+├── Preferred_dive_site_names_ireland.txt # Canonical names of dive sites in Ireland (plus Scapa Flow, UK)
 ├── Preferred_other_location_names.txt # Canonical preferred names for non-dive observation locations
-├── Location_ratings.md                # Generated dive site index with observations and photo links
-│
-├── scripts/                           # Standalone helper scripts
-│   ├── site_names.py                  # Shared keyword → canonical site name mapping (refresh before use)
-│   ├── generate_location_ratings.py   # Generates Location_ratings.md from live iNaturalist data
-│   ├── my_locations.py                # Clusters observations into dive sites; use to verify site_names.py
-│   ├── my_places.py                   # Lists all distinct places from user observations
-│   ├── my_projects.py                 # Lists joined iNaturalist projects
-│   ├── rare_birds_ireland.py          # Ranks Ireland bird obs by rarity (fewest Ireland-wide records first)
-│   └── Locations.sh                   # Captured sample output from my_locations.py
+├── scripts/                           # iNaturalist API scripts, shared config and all generated reports in OUTPUT/ (see scripts/README.md)
 │
 ├── dive-highlights-west-cork/         # Report generator, documentation, and output
 │   ├── generate_dive_highlights.py    # Generates the standalone HTML report
@@ -74,32 +65,13 @@ iNaturalist/
 
 ---
 
-## Core Scripts Documentation
+## Scripts
 
-### 1. `scripts/generate_location_ratings.py`
-- **Purpose**: Generates [`Location_ratings.md`](Location_ratings.md) — a per-site index of dive sessions and iNaturalist observations with clickable photo thumbnails.
-- **How It Works**:
-  - Fetches all observations from the iNaturalist API and clusters them geospatially (500 m radius).
-  - Resolves each cluster to a canonical site name via [`scripts/site_names.py`](scripts/site_names.py).
-  - Counts distinct observation dates per site as a proxy for dive sessions.
-  - Renders each observation as a linked thumbnail (`/small.jpg`) pointing to the iNaturalist observation page.
-- **Prerequisite**: Verify [`scripts/site_names.py`](scripts/site_names.py) is current before running (see that file for the refresh procedure).
-- **Execution**:
-  ```bash
-  .venv/bin/python scripts/generate_location_ratings.py
-  ```
+The API scripts in [`scripts/`](scripts) are documented in [`scripts/README.md`](scripts/README.md): what each one does, shared constants, and how to verify place and taxon IDs.
 
-### 2. `scripts/my_locations.py`
-- **Purpose**: Fetches all observations for the user (`andreiastra`) from iNaturalist and groups them into geospatial clusters. **Also used to verify [`scripts/site_names.py`](scripts/site_names.py)** — run this and check that every cluster resolves to a canonical name.
-- **How It Works**:
-  - Uses a greedy clustering algorithm with a 500-metre radius (calculated via the Haversine great-circle formula).
-  - Assigns canonical site names by matching `place_guess` fragments against the keyword mapping in [`scripts/site_names.py`](scripts/site_names.py).
-- **Execution**:
-  ```bash
-  .venv/bin/python scripts/my_locations.py
-  ```
+## Dive Highlights (`dive-highlights-west-cork/`)
 
-### 3. `dive-highlights-west-cork/generate_dive_highlights.py`
+### 1. `dive-highlights-west-cork/generate_dive_highlights.py`
 - **Purpose**: Generates the standalone, interactive [`dive-highlights-west-cork/dive-highlights-west-cork.html`](dive-highlights-west-cork/dive-highlights-west-cork.html) summary report — also published at the GitHub Pages URL above.
 - **How It Works**:
   - Fetches observation records and high-resolution photo URLs via the iNaturalist REST API.
@@ -108,32 +80,6 @@ iNaturalist/
 - **Execution**:
   ```bash
   .venv/bin/python dive-highlights-west-cork/generate_dive_highlights.py
-  ```
-
-### 4. `scripts/my_places.py`
-- **Purpose**: Fetches and aggregates all distinct `place_guess` strings associated with observations.
-- **How It Works**: Paginates through all user observations and outputs place counts with links to individual observations.
-- **Execution**:
-  ```bash
-  .venv/bin/python scripts/my_places.py
-  ```
-
-### 5. `scripts/my_projects.py`
-- **Purpose**: Retrieves all iNaturalist collection and umbrella projects joined by the user.
-- **Execution**:
-  ```bash
-  .venv/bin/python scripts/my_projects.py
-  ```
-
-### 6. `scripts/rare_birds_ireland.py`
-- **Purpose**: Fetches all Aves observations for the user in Ireland and ranks each species by rarity — measured as the number of **distinct observers** who have recorded that species anywhere in Ireland on iNaturalist (fewest observers = rarest).
-- **How It Works**:
-  - Paginates through all bird observations filtered to Ireland (`place_id=6718`).
-  - Collects each unique taxon, then queries `/v1/observations/observers` once per taxon for its Ireland-wide distinct-observer count.
-  - Prints a ranked table: rarest species first, with dates, locations, and your observation count.
-- **Execution**:
-  ```bash
-  .venv/bin/python scripts/rare_birds_ireland.py
   ```
 
 ---
@@ -157,7 +103,7 @@ The [`dive-logs/`](dive-logs) subfolder holds the raw Suunto Eon Core telemetry 
 The [`matching-dives-and-places/`](matching-dives-and-places) subfolder contains scripts that cross-reference dive logs against iNaturalist observations and the canonical preferred locations list.
 
 ### 1. `matching-dives-and-places/export_unmatched_dives.py`
-- **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_dive_site_names.txt`.
+- **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_dive_site_names_ireland.txt`.
 - **How It Works**: Handles character normalization (smart quotes, apostrophes), case-insensitivity, and aliases (`7 Heads` $\rightarrow$ `Seven Heads Pier`, `Barloque` $\rightarrow$ `Barloge Pier`).
 - **Output**: [`matching-dives-and-places/unmatched_dives.json`](matching-dives-and-places/unmatched_dives.json)
 - **Execution**:

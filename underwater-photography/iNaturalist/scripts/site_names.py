@@ -2,7 +2,7 @@
 Shared keyword → canonical site name mapping.
 
 Maps raw place_guess fragments (from the iNaturalist API) to the canonical
-names defined in Preferred_dive_site_names.txt.
+names defined in Preferred_dive_site_names_ireland.txt.
 
 ── How this mapping was built ───────────────────────────────────────────────
 
@@ -30,7 +30,7 @@ Two kinds of entries exist:
 ── When to refresh ──────────────────────────────────────────────────────────
 
 This list MUST be re-verified whenever:
-  - A new site is added to Preferred_dive_site_names.txt
+  - A new site is added to Preferred_dive_site_names_ireland.txt
   - New observations are uploaded for a site not yet in the list
 
 To refresh:
@@ -51,7 +51,7 @@ cluster that should never appear in Location_ratings.md.
 ── Rules ─────────────────────────────────────────────────────────────────────
   - More-specific / longer keywords first (e.g. "bank pier" before "bank").
   - Multiple keywords may map to the same canonical name.
-  - Canonical names must match Preferred_dive_site_names.txt exactly.
+  - Canonical names must match Preferred_dive_site_names_ireland.txt exactly.
 
 Imported by:
   scripts/my_locations.py
@@ -62,6 +62,12 @@ Imported by:
 # place_guess contains any of these are silently excluded from the output.
 # Verified against live my_locations.py output.
 IGNORED_KEYWORDS = [
+    # Egypt trip (Red Sea) — not tracked in the West Cork site list
+    "egypt",
+    "janub sina",      # "Janub Sina', EG"
+    "saudi arabia",
+    "sharm el sheikh",
+    "clonakilty",      # above-water (birding) location, listed in Preferred_other_location_names.txt
     "coolanagh",       # inland birding/wildlife area, Co. Cork
     "courtmacsherry",  # coastal village, no dive site
     "derrigra",        # inland townland, Co. Cork
@@ -108,6 +114,10 @@ SITE_KEYWORDS = [
     ("snave",          "Snave Pier"),
     # place_guess: "UC42"
     ("uc42",           "UC42"),
+    # place_guess: "Small Sovereign Island, Ireland" / "Small Sovereign Island, Cork, Co. Cork, Ireland"
+    ("small sovereign", "Small Sovereign Island"),
+    # place_guess: "Scapa Flow, United Kingdom"
+    ("scapa",          "Scapa Flow"),
     # Tragumna and Reenabulliga Pier — no observations yet; keywords kept for future use
     ("tragumna",       "Tragumna"),
     ("reenabulliga",   "Reenabulliga Pier"),

@@ -1,7 +1,7 @@
 # Requirements: `Location_ratings.md` Generator
 
 **Script:** `scripts/generate_location_ratings.py`
-**Output:** `Location_ratings.md`
+**Output:** `scripts/OUTPUT/Location_ratings.md`
 
 ---
 
@@ -18,7 +18,7 @@ observation made there, each shown as a clickable photo thumbnail.
 | Input | Source | Notes |
 |---|---|---|
 | iNaturalist observations | Live API (`/v1/observations`) | Fetched at run time for user `andreiastra`; 30 s timeout per page |
-| Canonical site names | `Preferred_dive_site_names.txt` | One name per line; every entry appears in output |
+| Canonical site names | `Preferred_dive_site_names_ireland.txt` | One name per line; every entry appears in output |
 | Keyword → name mapping | `scripts/site_names.py` → `SITE_KEYWORDS` | Maps `place_guess` fragments to canonical names |
 | Non-dive location skip-list | `scripts/site_names.py` → `IGNORED_KEYWORDS` | Clusters matching these are silently excluded |
 
@@ -46,7 +46,7 @@ Sorted by observation count descending (ties broken by dive count, then name).
 | `Species` | Collapsible `<details open>` block: summary shows the count; body lists each species as a clickable link to `inaturalist.org/taxa/{id}`, separated by ` · `. Expanded by default; click the count to collapse. |
 
 #### Per-site sections
-One section per site in `Preferred_dive_site_names.txt`.  Each section contains:
+One section per site in `Preferred_dive_site_names_ireland.txt`.  Each section contains:
 
 - Anchor `<a id="...">` derived from the lowercase, hyphenated site name
 - `## Site Name` heading
@@ -112,7 +112,7 @@ of dive and observation counts.
 
 | Situation | Behaviour |
 |---|---|
-| `Preferred_dive_site_names.txt` unreadable | Fatal — script exits immediately |
+| `Preferred_dive_site_names_ireland.txt` unreadable | Fatal — script exits immediately |
 | API timeout (30 s) | Warning in doc; output uses partial data collected so far |
 | API HTTP error (e.g. 429, 500) | Warning in doc with status code; partial data |
 | API network error | Warning in doc; partial data |
@@ -128,7 +128,7 @@ of dive and observation counts.
 - **`place_guess` is OSM-derived** and may change as OpenStreetMap data is
   updated. If a cluster stops resolving, re-verify `site_names.py`.
 - **Sites with zero observations are included** — every site in
-  `Preferred_dive_site_names.txt` appears in the output, showing
+  `Preferred_dive_site_names_ireland.txt` appears in the output, showing
   `Dives: 0 | Observations: 0` and a placeholder message in place of the
   observation table.
 - **API results may lag.** iNaturalist can take a few minutes to reflect edits

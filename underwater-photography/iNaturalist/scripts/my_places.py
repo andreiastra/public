@@ -9,9 +9,7 @@ and prints each place with a count and links to individual observations.
 """
 import requests
 
-USER_ID = "andreiastra"
-BASE_URL = "https://api.inaturalist.org/v1/observations"
-PER_PAGE = 200
+from config import OBSERVATIONS_URL as BASE_URL, PER_PAGE, USER_ID
 
 
 def fetch_all_observations(user_id):

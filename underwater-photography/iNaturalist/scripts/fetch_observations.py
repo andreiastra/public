@@ -1,5 +1,12 @@
 """
-Fetch all iNaturalist observations for andreiastra and save to data/observations.json.
+Fetch all iNaturalist observations for andreiastra and save to OUTPUT/observations.json.
+
+The file is a git-ignored snapshot and goes stale as soon as new observations are
+uploaded.  Never read it directly: call refresh() (or run this script), which
+always re-fetches from the API, rewrites the file, and returns the observations.
+
+    from fetch_observations import refresh
+    observations = refresh()
 
 Usage:
   .venv/bin/python scripts/fetch_observations.py
@@ -10,10 +17,9 @@ import time
 
 import requests
 
-USER_ID  = "andreiastra"
-BASE_URL = "https://api.inaturalist.org/v1/observations"
-PER_PAGE = 200
-OUTPUT   = os.path.join(os.path.dirname(__file__), "..", "data", "observations.json")
+from config import OBSERVATIONS_URL as BASE_URL, OUTPUT_DIR, PER_PAGE, USER_ID
+
+OUTPUT   = os.path.join(OUTPUT_DIR, "observations.json")
 
 
 def fetch_all():
@@ -38,13 +44,19 @@ def fetch_all():
     return all_obs
 
 
-def main():
+def refresh():
+    """Fetch all observations from the API, rewrite OUTPUT, and return them."""
     observations = fetch_all()
     out = os.path.normpath(OUTPUT)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         json.dump(observations, f, ensure_ascii=False, indent=2)
     print(f"Saved → {out}")
+    return observations
+
+
+def main():
+    refresh()
 
 
 if __name__ == "__main__":

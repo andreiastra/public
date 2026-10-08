@@ -1,18 +1,18 @@
 """
-Generates Location_ratings.md — a structured dive-site reference with:
+Generates OUTPUT/Location_ratings.md — a structured dive-site reference with:
   - Number of dive sessions per site (distinct observation dates at that site)
   - iNaturalist observations per site (fetched live from the API)
   - Each observation as a clickable photo thumbnail linking to the observation page
 
 Authoritative sources:
-  - Canonical site names : Preferred_dive_site_names.txt
+  - Canonical site names : Preferred_dive_site_names_ireland.txt
   - Keyword → name mapping: scripts/site_names.py
 
 ── Site keyword mapping ──────────────────────────────────────────────────────
 
 Observations are assigned to sites by matching each observation's place_guess
 string against the keyword list in scripts/site_names.py.  That list must be
-kept in sync with Preferred_dive_site_names.txt and verified against live
+kept in sync with Preferred_dive_site_names_ireland.txt and verified against live
 iNaturalist data before running this script.  See scripts/site_names.py for
 the full refresh procedure.
 
@@ -27,25 +27,26 @@ import time
 
 import requests
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
-_ROOT      = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
-SITES_FILE = os.path.join(_ROOT, "Preferred_dive_site_names.txt")
-OUTPUT     = os.path.join(_ROOT, "Location_ratings.md")
-
 sys.path.insert(0, os.path.dirname(__file__))
+from config import (  # noqa: E402
+    CLUSTER_RADIUS_M as RADIUS_M,
+    OBSERVATIONS_URL as BASE_URL,
+    OUTPUT_DIR,
+    PER_PAGE,
+    USER_ID,
+)
 from site_names import SITE_KEYWORDS, IGNORED_KEYWORDS  # noqa: E402
 
-# ── API config ────────────────────────────────────────────────────────────────
-USER_ID  = "andreiastra"
-BASE_URL = "https://api.inaturalist.org/v1/observations"
-PER_PAGE = 200
-RADIUS_M = 500   # geospatial clustering radius in metres
+# ── Paths ─────────────────────────────────────────────────────────────────────
+_ROOT      = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
+SITES_FILE = os.path.join(_ROOT, "Preferred_dive_site_names_ireland.txt")
+OUTPUT     = os.path.join(OUTPUT_DIR, "Location_ratings.md")
 
 
 # ── Load dive sites from file ─────────────────────────────────────────────────
 
 def load_dive_sites(path):
-    """Return a set of canonical site names from Preferred_dive_site_names.txt."""
+    """Return a set of canonical site names from Preferred_dive_site_names_ireland.txt."""
     sites = set()
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -286,7 +287,7 @@ def main():
     dive_counts   = count_dives_per_site(site_obs)
     species_map   = species_per_site(site_obs)
 
-    # Build records for every site in Preferred_dive_site_names.txt
+    # Build records for every site in Preferred_dive_site_names_ireland.txt
     records = [
         (site, site_obs.get(site, []), dive_counts.get(site, 0), species_map.get(site, []))
         for site in sorted(dive_sites)
@@ -324,6 +325,7 @@ def main():
         lines.append(render_site_section(site, obs_list, dc, sl))
         lines.append("\n---\n")
 
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 

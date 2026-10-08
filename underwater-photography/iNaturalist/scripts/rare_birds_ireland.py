@@ -20,9 +20,13 @@ import time
 
 import requests
 
-BASE = "https://api.inaturalist.org/v1"
-USER = "andreiastra"
-IRELAND_PLACE_ID = 6718  # https://www.inaturalist.org/places/6718
+from config import (
+    API_BASE as BASE,
+    AVES_TAXON_ID,
+    IRELAND_PLACE_ID,
+    PER_PAGE,
+    USER_ID as USER,
+)
 
 
 def fetch_bird_observations(user: str, place_id: int) -> list[dict]:
@@ -34,9 +38,9 @@ def fetch_bird_observations(user: str, place_id: int) -> list[dict]:
             f"{BASE}/observations",
             params={
                 "user_id": user,
-                "taxon_id": 3,  # Aves
+                "taxon_id": AVES_TAXON_ID,
                 "place_id": place_id,
-                "per_page": 200,
+                "per_page": PER_PAGE,
                 "page": page,
             },
         )

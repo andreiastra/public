@@ -1,7 +1,7 @@
 """
 Fetches all observations for a given user and groups them by geolocation.
 Observations within 500 metres of each other are treated as the same location.
-Each cluster is labelled with a preferred name from Preferred_dive_site_names.txt
+Each cluster is labelled with a preferred name from Preferred_dive_site_names_ireland.txt
 matched by keyword against the cluster's constituent place_guess values.
 
 Uses the iNaturalist API endpoint:
@@ -14,7 +14,7 @@ is started. The cluster label is then resolved to a preferred name.
 ── Site keyword mapping ──────────────────────────────────────────────────────
 
 Cluster labels are resolved via the keyword list in scripts/site_names.py.
-That list must be kept in sync with Preferred_dive_site_names.txt and
+That list must be kept in sync with Preferred_dive_site_names_ireland.txt and
 verified against live iNaturalist data whenever new sites are added or new
 observations appear for an unrecognised location.  See scripts/site_names.py
 for the full refresh procedure.  This script is also the tool used to perform
@@ -23,12 +23,13 @@ that verification — run it and check that every cluster has a canonical name.
 import math
 import requests
 
+from config import (  # noqa: E402
+    CLUSTER_RADIUS_M,
+    OBSERVATIONS_URL as BASE_URL,
+    PER_PAGE,
+    USER_ID,
+)
 from site_names import SITE_KEYWORDS as PREFERRED_NAME_KEYWORDS  # noqa: E402
-
-USER_ID = "andreiastra"
-BASE_URL = "https://api.inaturalist.org/v1/observations"
-PER_PAGE = 200
-CLUSTER_RADIUS_M = 500
 
 
 def resolve_preferred_name(place_guesses):
