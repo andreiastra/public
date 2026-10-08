@@ -11,8 +11,6 @@ West Cork shore diving.
 * M.ZUIKO DIGITAL ED 75-300mm f/4.8-6.7 II
 * M.ZUIKO DIGITAL ED 100-400mm f/5-6.3 ED IS MSC II
     * DIY Solar filter. EXPLORE SCIENTIFIC Solarix Solar Filter Film. 
-* Nauticam CMC-1 Macro Converter
-    * AOI M67 Flip Adapter (for CMC-1)
 
 ## Strobes & Lighting
 * Backscatter Hybrid Flash (HF-1) [SKU: BABSHF1]
@@ -32,7 +30,11 @@ West Cork shore diving.
 * Nauticam Full Frame Angle Viewfinder 32°/ 1:1 [32213]
     * Nauticam Viewfinder Collar Adaptor for MIL Housings [32215]
 * Nauticam Macro Port 65 (for Olympus 60mm Macro) [#36163]
+    * Nauticam CMC-1 Macro Converter
+        * AOI M67 Flip Adapter (for CMC-1) AD-M67-03
+        * Nauticam M67 Spacer Ring for SMC/CMC [SKU # 81228]
     * Nauticam O60-F Focus Gear (for Olympus 60mm Macro) [#36149] S/N: A640775
+    * Nauticam M67 macro port cap [28120]
 * Nauticam 4.33 inch Dome Port (for Panasonic 8mm) [#36132]
     * Nauticam Mini Extension Ring 20 [#36620]
 * Nauticam M14 Vacuum Valve II (Pushbutton Release) [#25624]
