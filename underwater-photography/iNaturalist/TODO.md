@@ -12,22 +12,23 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ---
 
-## 2. 🟡 Generator Treats Townland Aliases as Separate Dive Sites
-* **Problem:** [`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt) lists `Sandmount` and `Sandmount Bay Beach` as separate canonical sites. However, [`scripts/site_names.py`](scripts/site_names.py) maps the place keyword `"sandmount"` to `Bank Pier`. Because observations cluster under `Bank Pier`, `Sandmount` and `Sandmount Bay Beach` appear as empty rows with 0 dives / 0 observations in [`scripts/OUTPUT/Location_ratings.md`](scripts/OUTPUT/Location_ratings.md).
-* **TODO:**
-  - [ ] Prune `Sandmount` and `Sandmount Bay Beach` from `Preferred_dive_site_names_ireland.txt`.
-  - [ ] Ensure any dive logs labeled `Sandmount` in `dive-logs/workouts/` are normalized to `Bank Pier` in [`matching-dives-and-places/export_unmatched_dives.py`](matching-dives-and-places/export_unmatched_dives.py).
-
----
-
-## 3. 🟡 Sites with GPX Dive Logs but No Uploaded Observations
-* **Problem:** `Tragumna` and `Reenabulliga Pier` are genuine dive sites with recorded GPX files in `dive-logs/workouts/`, but currently have zero iNaturalist observations uploaded, causing them to render with 0 counts in `Location_ratings.md`.
-* **TODO:**
-  - [ ] Upload corresponding underwater photo observations to iNaturalist for Tragumna and Reenabulliga Pier when available.
-
----
-
-## 4. 🔵 Generator Formatting for Zero-Observation Sites
+## 2. 🔵 Generator Formatting for Zero-Observation Sites
 * **Problem:** [`scripts/generate_location_ratings.py`](scripts/generate_location_ratings.py) unconditionally renders full markdown sections and table rows for every canonical site in `Preferred_dive_site_names_ireland.txt`, even when it has 0 observations.
 * **TODO:**
   - [ ] Update `generate_location_ratings.py` to optionally filter out 0-observation sites or group them into a compact "Unobserved Sites" section at the end of the report.
+
+---
+
+## 3. 🟡 Keep `site_names.py` in Sync with the Location Lists
+* **Problem:** Location names are kept in two places that can drift apart:
+  - [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) is not read by any script. Every above-water place must also be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). Example: `Bandon` was in the file but its observations still triggered an "unmatched cluster" warning until `"bandon"` was added to `IGNORED_KEYWORDS`.
+  - [`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt) and `SITE_KEYWORDS` are not checked against each other. A new dive site with no keyword, or a keyword pointing to a renamed or removed site, goes unnoticed.
+* **Why not check file timestamps:** modified times change on `git checkout`, `git pull` or a plain re-save, so they don't show whether names changed. They also can't say which names are new or which keyword they need. Compare file contents with `site_names.py` on every run instead.
+* **Why dive-site keywords stay hand-written:** they need judgement. A bare `"simon"` matched "Cloghmac**simon**, Bandon", and a bare `"sandmount"` merged Bank Pier with Sandmount Bay Beach. Some sites also need aliases that can't be derived from the name, such as `"derreenacarrin"` for Zetland Pier, or `"bank"` for the plus-code place names.
+* **TODO:**
+  - [ ] Make `site_names.py` read `Preferred_other_location_names.txt` and skip any place name containing one of its entries (lower-cased).
+  - [ ] Move `derrigra` from `IGNORED_KEYWORDS` into `Preferred_other_location_names.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
+  - [ ] In `generate_location_ratings.py`, add a warning at the top of `Location_ratings.md` for each site in `Preferred_dive_site_names_ireland.txt` that has no keyword in `SITE_KEYWORDS`.
+  - [ ] Add a warning for each `SITE_KEYWORDS` entry whose site name is not in `Preferred_dive_site_names_ireland.txt`.
+  - [ ] Update the "Two files are easy to mix up" section of [`scripts/README.md`](scripts/README.md), which currently says no script reads `Preferred_other_location_names.txt`.
+* **Workflow once done:** edit a `.txt` file, run `generate_location_ratings.py`, then read the warnings at the top of the report.

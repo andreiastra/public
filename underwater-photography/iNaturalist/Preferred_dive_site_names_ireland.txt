@@ -10,14 +10,13 @@ Gortnakilla Pier
 Kilcrohane Pier
 Lough Hyne
 Reenabulliga Pier
-Seven Heads Pier
-Simon's Cove
-Snave Pier
-Trafrask Pier
-UC42
-Zetland Pier
-Sandmount
-Tragumna
-Small Sovereign Island
 Sandmount Bay Beach
 Scapa Flow
+Seven Heads Pier
+Simon's Cove
+Small Sovereign Island
+Snave Pier
+Trafrask Pier
+Tragumna
+UC42
+Zetland Pier

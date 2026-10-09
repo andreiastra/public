@@ -67,6 +67,7 @@ IGNORED_KEYWORDS = [
     "janub sina",      # "Janub Sina', EG"
     "saudi arabia",
     "sharm el sheikh",
+    "bandon",          # above-water (birding) location, listed in Preferred_other_location_names.txt
     "clonakilty",      # above-water (birding) location, listed in Preferred_other_location_names.txt
     "coolanagh",       # inland birding/wildlife area, Co. Cork
     "courtmacsherry",  # coastal village, no dive site
@@ -84,8 +85,9 @@ SITE_KEYWORDS = [
     # place_guess: "Canty's Cove, Ireland" / "Canty's Cove, Cork, Co. Cork"
     ("canty",          "Canty's Cove"),
     # place_guess: "Councambeg, Simon's Cove, Co. Cork"
+    # Not a bare "simon": it also matches "Cloghmacsimon, Bandon" (birding).
     ("councambeg",     "Simon's Cove"),
-    ("simon",          "Simon's Cove"),
+    ("simon's cove",   "Simon's Cove"),
     # place_guess: "Gortdubh Pier, Co. Cork" / "Gortdubh Pier, Knockaphuca, Co. Cork"
     ("gortdubh",       "Gortdubh Pier"),
     ("knockaphuca",    "Gortdubh Pier"),
@@ -95,8 +97,11 @@ SITE_KEYWORDS = [
     ("lough hyne",     "Lough Hyne"),
     # place_guess: "Bank Pier, Sandmount, Co. Cork" / "M665+44, Bank, Sandmount, Co. Cork"
     ("bank pier",      "Bank Pier"),
-    ("sandmount",      "Bank Pier"),
     ("bank",           "Bank Pier"),
+    # place_guess: "Sandmount Bay Beach, Co. Cork" (M54X+FG3, ~680 m from Bank Pier)
+    # Separate dive site. Do not add a bare "sandmount" keyword: both sites
+    # contain "Sandmount" in their place_guess, so it would merge them.
+    ("sandmount bay beach", "Sandmount Bay Beach"),
     # place_guess: "Unnamed Road, Dooneen, Co. Cork"
     ("dooneen",        "Dooneen Pier"),
     # place_guess: "Zetland Pier, Co. Cork" / "Zetland Pier, Derreenacarrin" / "Derreenacarrin, Co. Cork"

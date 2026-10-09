@@ -31,8 +31,8 @@ SITE_KEYWORDS = [
     ("gortdubh",       "Gortdubh Pier"),
     ("knockaphuca",    "Gortdubh Pier"),
     ("lough hyne",     "Lough Hyne"),
-    ("sandmount",      "Bank Pier"),
     ("bank",           "Bank Pier"),
+    ("sandmount bay beach", "Sandmount Bay Beach"),
     ("rosscarbery",    "Rosscarbery"),
     ("dooneen",        "Dooneen Pier"),
     ("derreenacarrin", "Zetland Pier"),
@@ -48,7 +48,7 @@ DIVE_SITES = [
     "Lough Hyne", "Gortdubh Pier", "Zetland Pier", "Canty's Cove",
     "Kilcrohane Pier", "Seven Heads Pier", "Aghabeg Pier", "Dooneen Pier",
     "Bank Pier", "Trafrask Pier", "Simon's Cove", "Barloge Pier",
-    "Blind Strand Pier",
+    "Blind Strand Pier", "Sandmount Bay Beach",
 ]
 
 # Sites worth revisiting (low obs count, not in Best Sites table)

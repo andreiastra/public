@@ -28,7 +28,6 @@ Supporting files:
 |---|---|
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
 | [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
-| [`Locations.sh`](Locations.sh) | A saved text capture of `my_locations.py` output. It is not an executable script. |
 | `OUTPUT/` | All generated files: reports and the observations download. Safe to regenerate. |
 
 ## Scripts

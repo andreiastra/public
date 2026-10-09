@@ -2,6 +2,8 @@
 
 This repository contains tools, data pipelines, and reporting scripts for cataloging underwater photography, managing dive logs from the Suunto Eon Core dive computer, and linking records to [iNaturalist](https://www.inaturalist.org) observations.
 
+**Primary focus:** underwater (marine) observations in **Ireland**. Terrestrial and non-Irish observations are secondary.
+
 ---
 
 ## Profile & Links
