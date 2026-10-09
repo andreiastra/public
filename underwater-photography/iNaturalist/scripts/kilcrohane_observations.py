@@ -17,6 +17,7 @@ from datetime import date
 from config import CLUSTER_RADIUS_M, OUTPUT_DIR, USER_ID
 from generate_location_ratings import fetch_all_observations, haversine, photo_md
 from site_names import SITE_KEYWORDS
+from species_classification import species_type
 
 SITE        = "Kilcrohane Pier"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "kilcrohane.md")
@@ -59,7 +60,7 @@ def names(obs):
 def render(obs_list, notes):
     research = sum(1 for o in obs_list if o.get("quality_grade") == "research")
     dives    = {o.get("observed_on") for o in obs_list if o.get("observed_on")}
-    species  = collections.Counter(names(o) for o in obs_list)
+    species  = collections.Counter((names(o)[0], names(o)[1], species_type(o)) for o in obs_list)
 
     lines = [
         f"# Observations at {SITE}\n",
@@ -72,23 +73,23 @@ def render(obs_list, notes):
         f"**{len(dives)}** dates · **{research}** Research Grade, "
         f"**{len(obs_list) - research}** need ID\n",
         "## Species\n",
-        "| Species | Observations |",
-        "|---|---:|",
+        "| Species | Organism Type | Observations |",
+        "|---|---|---:|",
     ]
-    for (common, sci), count in sorted(species.items(), key=lambda kv: (-kv[1], kv[0][0].lower())):
+    for (common, sci, org_type), count in sorted(species.items(), key=lambda kv: (-kv[1], kv[0][0].lower())):
         label = f"**{common}**" + (f" (*{sci}*)" if sci and sci != common else "")
-        lines.append(f"| {label} | {count} |")
+        lines.append(f"| {label} | {org_type} | {count} |")
 
     lines += [
         "\n## Observations\n",
-        "| Photo | Date | Species | Grade |",
+        "| Photo | Date | Species | Organism Type |",
         "|---|---|---|---|",
     ]
     for obs in sorted(obs_list, key=lambda o: o.get("observed_on") or "", reverse=True):
         common, sci = names(obs)
+        org_type = species_type(obs)
         label = f"[{common}]({obs_url(obs)})" + (f" (*{sci}*)" if sci and sci != common else "")
-        grade = "Research" if obs.get("quality_grade") == "research" else "Needs ID"
-        lines.append(f"| {photo_md(obs)} | {obs.get('observed_on') or '—'} | {label} | {grade} |")
+        lines.append(f"| {photo_md(obs)} | {obs.get('observed_on') or '—'} | {label} | {org_type} |")
 
     return "\n".join(lines) + "\n"
 

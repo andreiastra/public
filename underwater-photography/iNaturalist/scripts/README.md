@@ -19,6 +19,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`generate_location_ratings.py`](#generate_location_ratingspy) | `OUTPUT/Location_ratings.md` |
 | [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `OUTPUT/nudibranch_ireland.md` |
 | [`kilcrohane_observations.py`](#kilcrohane_observationspy) | `OUTPUT/kilcrohane.md` |
+| [`species_classification.py`](#species_classificationpy) | `OUTPUT/species_classification.md` |
 | [`rare_birds_ireland.py`](#rare_birds_irelandpy) | stdout |
 
 Supporting files:
@@ -71,6 +72,12 @@ Supporting files:
 - **Output**: `OUTPUT/kilcrohane.md`
 - **Reuse for another site**: copy this script, change `SITE` to a canonical name from `site_names.py`, and change `OUTPUT_FILE`.
 
+### `species_classification.py`
+- **Purpose**: Generates [`OUTPUT/species_classification.md`](OUTPUT/species_classification.md), a comprehensive breakdown of user observations in Ireland categorized into clean organism types (Bird, Fish, Crab, Nudibranch, Anemone, Sponge, Jellyfish, Flatworm, etc.) with a summary table, full species list, and individual sightings with thumbnails.
+- **How it works**: Fetches user observations in Ireland (`place_id=6718`), traverses taxonomic hierarchies and ancestry to classify each observation into human-friendly organism types, and produces a structured report.
+- **Shared helper**: Also exports `species_type(obs)`, which is imported directly by other scripts (such as `kilcrohane_observations.py`) to classify live API observation objects. Other scripts do **not** read or depend on the generated `OUTPUT/species_classification.md` file from disk.
+- **Output**: `OUTPUT/species_classification.md`
+
 ### `rare_birds_ireland.py`
 - **Purpose**: Ranks the user's Irish bird species by rarity, measured as the number of **distinct observers** who have recorded the species anywhere in Ireland on iNaturalist (fewest observers = rarest).
 - **How it works**:
@@ -81,7 +88,9 @@ Supporting files:
 ## Shared code
 
 - **Constants**: import them from `config.py`. Don't redefine `USER_ID`, URLs or IDs in a script.
-- **Helpers**: `fetch_all_observations()`, `haversine()` and `photo_md()` come from `generate_location_ratings.py`.
+- **Helpers**:
+  - `fetch_all_observations()`, `haversine()`, and `photo_md()` come from `generate_location_ratings.py`.
+  - `species_type()` comes from `species_classification.py`.
 - **Site names**: `site_names.py` is imported directly where needed. It is not re-exported through `config.py`.
 
 ## Verify place and taxon IDs
