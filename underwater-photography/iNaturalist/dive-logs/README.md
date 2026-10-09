@@ -30,3 +30,5 @@ This directory contains raw dive workout data exported from the Suunto Eon Core 
 ## 3. Matching & Correlation
 
 Scripts that cross-reference these logs against iNaturalist observations and preferred location names live in [`../matching-dives-and-places/`](../matching-dives-and-places/).
+
+> **Historical use:** The dive logs were used as date and location anchors to resolve place names for old iNaturalist observations uploaded before consistent site naming was in place. That work is complete; these logs are not needed for processing new observations.

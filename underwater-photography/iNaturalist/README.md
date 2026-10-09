@@ -42,8 +42,8 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 - **[`scripts/`](scripts)** — API data pipelines and markdown report generators (see [`scripts/README.md`](scripts/README.md)).
 - **[`dive-highlights-west-cork/`](dive-highlights-west-cork)** — Interactive HTML highlights showcase (see [`dive-highlights-west-cork/README.md`](dive-highlights-west-cork/README.md)).
-- **[`dive-logs/`](dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`dive-logs/README.md`](dive-logs/README.md)).
-- **[`matching-dives-and-places/`](matching-dives-and-places)** — Cross-referencing dive logs against iNaturalist observations (see [`matching-dives-and-places/README.md`](matching-dives-and-places/README.md)).
+- **[`dive-logs/`](dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index. Used historically as date and location anchors to resolve place names for old observations (see [`dive-logs/README.md`](dive-logs/README.md)).
+- **[`matching-dives-and-places/`](matching-dives-and-places)** — Historical scripts used to resolve place names for old iNaturalist observations by cross-referencing dive log dates against observation dates. No longer needed for new observations (see [`matching-dives-and-places/README.md`](matching-dives-and-places/README.md)).
 - **[`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt)** & **[`Preferred_other_location_names.txt`](Preferred_other_location_names.txt)** — Canonical dive site and terrestrial location reference lists.
 - **[`TODO.md`](TODO.md)** — Active task tracker, known data/generator issues, and backlog improvements.
 
