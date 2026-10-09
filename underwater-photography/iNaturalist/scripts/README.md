@@ -1,6 +1,6 @@
 # iNaturalist scripts
 
-Python scripts that query the [iNaturalist API](https://api.inaturalist.org/v1/docs/) for user `andreiastra`. This file is the only documentation for this directory.
+Python scripts that query the [iNaturalist API](https://api.inaturalist.org/v1/docs/) for user `andreiastra`. This file serves as the technical reference for scripts, shared configuration, and output formats. For the project-wide overview, workflows, and pending action items / TODOs, see the root [`../README.md`](../README.md).
 
 Run every script from the `iNaturalist/` directory (the parent of this one) with the project virtualenv. See [Requirements & Setup](../README.md#requirements--setup) for creating it.
 
@@ -140,7 +140,7 @@ Then regenerate and check that the warning is gone.
 
 **Two files are easy to mix up:**
 
-- [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt) is read by `generate_location_ratings.py`. A site must be listed there to appear in the output.
+- [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt) is read by `generate_location_ratings.py`. Every entry listed here is treated as a distinct dive site and generates an output section in `Location_ratings.md`. Do not place townland aliases or alternate site names here if they map to another canonical site in `site_names.py` (otherwise they will render as empty 0-observation entries).
 - [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt) is a reference list for you only. No script reads it. Adding a place there does not silence a warning, so add the keyword to `IGNORED_KEYWORDS` as well.
 
 **Keyword rules** (details in the [`site_names.py`](site_names.py) docstring):

@@ -4,7 +4,7 @@
 
 Directory: `/Users/astra/github/public/underwater-photography/iNaturalist/dive-logs`
 
-This directory contains raw dive workout data exported from the Suunto Eon Core dive computer.
+This directory contains raw dive workout data exported from the Suunto Eon Core dive computer. This file serves as the technical reference for log formats and indexing scripts. For the project-wide overview, workflows, and pending action items / TODOs, see [`../README.md`](../README.md).
 
 ### Data Structure
 - `workouts/`: Raw dive logs containing `.fit` (binary dive telemetry including depth profile, temperature, and duration) and `.gpx` (GPS metadata, entry timestamps, and dive site description/notes in `<desc>`) files.
@@ -14,11 +14,16 @@ This directory contains raw dive workout data exported from the Suunto Eon Core 
 
 ## 2. Scripts & Generated Artifacts
 
-### Scripts
-- **[`generate_dives_table.py`](generate_dives_table.py)**: Scans all GPX files in `workouts/`, extracts date, timestamp, user description (`<desc>`), and filename, and outputs a complete markdown table.
+### `generate_dives_table.py`
+- **Purpose**: Parses all `.gpx` files in `dive-logs/workouts/` to build a chronological markdown table of all dive sessions.
+- **Output**: [`dives_table.md`](dives_table.md)
+- **Execution**:
+  ```bash
+  .venv/bin/python dive-logs/generate_dives_table.py
+  ```
 
-### Generated Artifacts
-- **[`dives_table.md`](dives_table.md)**: Full chronological index table of all recorded dives.
+### Generated Artifact
+- **[`dives_table.md`](dives_table.md)**: Complete chronological index table of all recorded dives.
 
 ---
 

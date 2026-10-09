@@ -40,92 +40,22 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ## Directory Overview
 
-```text
-iNaturalist/
-├── Preferred_dive_site_names_ireland.txt # Canonical names of dive sites in Ireland (plus Scapa Flow, UK)
-├── Preferred_other_location_names.txt # Canonical preferred names for non-dive observation locations
-├── scripts/                           # iNaturalist API scripts, shared config and all generated reports in OUTPUT/ (see scripts/README.md)
-│
-├── dive-highlights-west-cork/         # Report generator, documentation, and output
-│   ├── generate_dive_highlights.py    # Generates the standalone HTML report
-│   ├── generate_dive_highlights_HOW_IT_WORKS.md # Technical documentation
-│   └── dive-highlights-west-cork.html # Generated HTML report
-│
-├── dive-logs/                         # Raw Suunto dive computer export
-│   ├── README.md                      # Dive logs documentation
-│   ├── workouts/                      # Raw .gpx and .fit files exported from Suunto Eon Core
-│   ├── generate_dives_table.py        # Generates dives_table.md index from workouts
-│   └── dives_table.md                 # Complete chronological index of recorded dives
-│
-└── matching-dives-and-places/         # Cross-references dive logs with iNaturalist observations
-    ├── export_unmatched_dives.py      # Identifies dive workouts with unmapped locations
-    ├── export_unmatched.py            # Identifies observations recorded on non-diving days
-    ├── unmatched_dives.json           # Review dataset of unmapped dive sites
-    └── unmatched_observations.json    # Review dataset of non-dive observations
-```
+- **[`scripts/`](scripts)** — API data pipelines and markdown report generators (see [`scripts/README.md`](scripts/README.md)).
+- **[`dive-highlights-west-cork/`](dive-highlights-west-cork)** — Interactive HTML highlights showcase (see [`dive-highlights-west-cork/README.md`](dive-highlights-west-cork/README.md)).
+- **[`dive-logs/`](dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`dive-logs/README.md`](dive-logs/README.md)).
+- **[`matching-dives-and-places/`](matching-dives-and-places)** — Cross-referencing dive logs against iNaturalist observations (see [`matching-dives-and-places/README.md`](matching-dives-and-places/README.md)).
+- **[`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt)** & **[`Preferred_other_location_names.txt`](Preferred_other_location_names.txt)** — Canonical dive site and terrestrial location reference lists.
+- **[`TODO.md`](TODO.md)** — Active task tracker, known data/generator issues, and backlog improvements.
 
 ---
 
-## Scripts
-
-The API scripts in [`scripts/`](scripts) are documented in [`scripts/README.md`](scripts/README.md): what each one does, shared constants, and how to verify place and taxon IDs.
-
-## Dive Highlights (`dive-highlights-west-cork/`)
-
-### 1. `dive-highlights-west-cork/generate_dive_highlights.py`
-- **Purpose**: Generates the standalone, interactive [`dive-highlights-west-cork/dive-highlights-west-cork.html`](dive-highlights-west-cork/dive-highlights-west-cork.html) summary report — also published at the GitHub Pages URL above.
-- **How It Works**:
-  - Fetches observation records and high-resolution photo URLs via the iNaturalist REST API.
-  - Groups sightings into curated dive sites (excluding terrestrial and birding spots like Rosscarbery and Coolanagh).
-  - Formats species cards, hero image banners, and standout sightings into a self-contained HTML page.
-- **Execution**:
-  ```bash
-  .venv/bin/python dive-highlights-west-cork/generate_dive_highlights.py
-  ```
-
----
-
-## Dive Logs (`dive-logs/`)
-
-The [`dive-logs/`](dive-logs) subfolder holds the raw Suunto Eon Core telemetry export and a table generator.
-
-### 1. `dive-logs/generate_dives_table.py`
-- **Purpose**: Parses all `.gpx` files in `dive-logs/workouts/` to build a chronological markdown table of all dive sessions.
-- **Output**: [`dive-logs/dives_table.md`](dive-logs/dives_table.md)
-- **Execution**:
-  ```bash
-  .venv/bin/python dive-logs/generate_dives_table.py
-  ```
-
----
-
-## Matching Dives & Places (`matching-dives-and-places/`)
-
-The [`matching-dives-and-places/`](matching-dives-and-places) subfolder contains scripts that cross-reference dive logs against iNaturalist observations and the canonical preferred locations list.
-
-### 1. `matching-dives-and-places/export_unmatched_dives.py`
-- **Purpose**: Normalizes dive `<desc>` tags and maps them against canonical site names in `Preferred_dive_site_names_ireland.txt`.
-- **How It Works**: Handles character normalization (smart quotes, apostrophes), case-insensitivity, and aliases (`7 Heads` $\rightarrow$ `Seven Heads Pier`, `Barloque` $\rightarrow$ `Barloge Pier`).
-- **Output**: [`matching-dives-and-places/unmatched_dives.json`](matching-dives-and-places/unmatched_dives.json)
-- **Execution**:
-  ```bash
-  .venv/bin/python matching-dives-and-places/export_unmatched_dives.py
-  ```
-
-### 2. `matching-dives-and-places/export_unmatched.py`
-- **Purpose**: Cross-references iNaturalist observation dates against Suunto dive dates.
-- **How It Works**: Fetches all observations live from the iNaturalist API, then filters out non-diving observations (e.g. terrestrial birds, shore fauna, or moths) for review.
-- **Output**: [`matching-dives-and-places/unmatched_observations.json`](matching-dives-and-places/unmatched_observations.json)
-- **Execution**:
-  ```bash
-  .venv/bin/python matching-dives-and-places/export_unmatched.py
-  ```
+> **Documentation Convention:** This root README is the single source of truth for high-level workflows and project setup. Subfolder documentation files serve as focused technical references for script parameters, schemas, and data structures. Active issues and backlog tasks are tracked in [`TODO.md`](TODO.md).
 
 ---
 
 ## Requirements & Setup
 
-A virtual environment with `requests` installed is required to run the API scripts:
+A shared virtual environment in the project root with `requests` installed is used by all Python scripts across `scripts/`, `dive-highlights-west-cork/`, and `matching-dives-and-places/`:
 
 ```bash
 cd /Users/astra/github/public/underwater-photography/iNaturalist
@@ -133,7 +63,7 @@ python3 -m venv .venv
 .venv/bin/pip install requests
 ```
 
-Run a script directly without activating the venv:
+Run any script directly without activating the venv:
 
 ```bash
 .venv/bin/python scripts/my_projects.py
@@ -149,33 +79,17 @@ deactivate
 
 ---
 
-## Recommended Actions
+## Recommended Workflows
 
-*Last reviewed against live API data — 93 observations across 14 sites.*
+### 1. 🔍 Review "Needs ID" Observations
+To help observations reach **Research Grade** (which requires community consensus / 2+ agreeing identifications to be shared with scientific repositories like GBIF):
+- **Live Identification Queue:** [Identify `andreiastra` observations needing ID](https://www.inaturalist.org/observations/identify?user_id=andreiastra&quality_grade=needs_id)
+- **Live Needs-ID Map:** [Browse pending observations on the map](https://www.inaturalist.org/observations?user_id=andreiastra&quality_grade=needs_id&subview=map)
 
-### 🟡 High value: Resolve 54 Needs ID observations (58%)
+### 2. 📊 Monitor Site Coverage & Ratings
+Instead of tracking static counts manually in markdown, regenerate the dynamic site reports from live iNaturalist data:
+- Run `.venv/bin/python scripts/generate_location_ratings.py` to update [`scripts/OUTPUT/Location_ratings.md`](scripts/OUTPUT/Location_ratings.md) with current dive counts, observation totals, and species lists per site.
+- Use the summary table in [`Location_ratings.md`](scripts/OUTPUT/Location_ratings.md) to identify under-explored dive sites.
 
-Only 39 of 93 observations (42%) have reached Research Grade. Adding a second ID agreement pushes an observation to Research Grade and contributes to GBIF.
-
-**Quick link:** [View all Needs ID observations for andreiastra](https://www.inaturalist.org/observations/identify?user_id=andreiastra&quality_grade=needs_id)
-
-Highest-priority clusters:
-
-| Site | Needs ID | Notable species awaiting confirmation |
-|------|----------|---------------------------------------|
-| Lough Hyne | 17 | Cylinder Anemone, Gem Anemone, 6× spider crabs, Aeolidiella alderi/glauca, Thin Bubble-Shell ×2 |
-| Gortdubh Pier | 8 | Portuguese Blenny, Tompot Blenny, Sandalled Anemone, Blue-rayed Limpet, Dead Man's Fingers |
-| Zetland Pier | 5 | Sea Potato, Toothed Crab, Sea Vase, Connemarra Clingfish, Halichondria bowerbanki |
-| Canty's Cove | 5 | Sea Lemon, Pink Coryphella, Aeolid Nudibranch, Atlantic Black Sea Cucumber |
-| Seven Heads | 3 | Polycera faeroensis, Blood Stars, Topknot |
-
-The second Football Jersey Worm observation ([395263077](https://www.inaturalist.org/observations/395263077)) is still Needs ID despite the species being Research Grade elsewhere — worth tagging for community attention.
-
-### 🟡 High value: Revisit under-explored sites
-
-| Site | Only find so far | Why go back |
-|------|-----------------|-------------|
-| Simon's Cove | Strawberry Anemone | 1 dive only — rocky crevices likely hold nudibranchs |
-| Barloge Pier | Spiny Squat Lobster | Remote, barely explored — high potential |
-| Blind Strand Pier | Tompot Blenny | Pier structure likely holds more fish |
-| Trafrask Pier | Seabass + Pouting | 2 obs — fish activity suggests a productive site |
+### 3. 📋 Track Known Issues & Data Tasks
+For active bug fixes, canonical site list pruning, and generator enhancements, see [`TODO.md`](TODO.md).
