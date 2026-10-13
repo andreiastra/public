@@ -44,6 +44,7 @@ West Cork shore diving.
 * WeeFine 5" Ball Arms (x4)
 * Nauticam Standard Clamp [#72501]
 * WeeFine Float Block Set FLEX 600 (580g total buoyancy)
+* HSU Tripod Mount Adapter for Action Cameras [SKU: HGP237]
 
 ## Cables
 * AOI Optical Cable V2 Medium (613 cores, Sea&Sea connectors) [SKU: AOFOCPAAMV2]
