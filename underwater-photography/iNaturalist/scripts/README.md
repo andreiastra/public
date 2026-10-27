@@ -18,7 +18,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`my_projects.py`](#my_projectspy) | stdout |
 | [`generate_location_ratings.py`](#generate_location_ratingspy) | `OUTPUT/Location_ratings.md` |
 | [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `OUTPUT/nudibranch_ireland.md` |
-| [`kilcrohane_observations.py`](#kilcrohane_observationspy) | `OUTPUT/kilcrohane.md` |
+| [`site_observations.py`](#site_observationspy) | `OUTPUT/<site>.md` |
 | [`species_classification.py`](#species_classificationpy) | `OUTPUT/species_classification.md` |
 | [`rare_birds_ireland.py`](#rare_birds_irelandpy) | stdout |
 
@@ -65,16 +65,21 @@ Supporting files:
 - **How it works**: Filters the observations API by the nudibranch `taxon_id` and Ireland `place_id`, resolves each place to a site name via [`site_names.py`](site_names.py), and writes a site summary table and an observation table.
 - **Output**: `OUTPUT/nudibranch_ireland.md`
 
-### `kilcrohane_observations.py`
-- **Purpose**: Lists all of the user's observations at Kilcrohane Pier, with a species summary and a photo thumbnail linked to each observation.
-- **How it works**: Fetches all observations, keeps those whose `place_guess` matches the site's keywords, then adds any within `CLUSTER_RADIUS_M` of them by GPS. The GPS step catches observations logged under a generic name such as "Cork, Co. Cork, Ireland".
-- **Output**: `OUTPUT/kilcrohane.md`
-- **Reuse for another site**: copy this script, change `SITE` to a canonical name from `site_names.py`, and change `OUTPUT_FILE`.
+### `site_observations.py`
+- **Purpose**: Lists all of the user's observations at any specific dive site (or all sites with `--all`), with a species summary and photo thumbnails linked to each observation.
+- **How it works**: Fetches all observations, matches `place_guess` against canonical site keywords from [`site_names.py`](site_names.py), and incorporates any observation within `CLUSTER_RADIUS_M` of the centroid.
+- **Output**: `OUTPUT/<site_slug>.md` (e.g. `OUTPUT/bank_pier.md`, `OUTPUT/kilcrohane_pier.md`).
+- **Usage**:
+  ```bash
+  .venv/bin/python scripts/site_observations.py "Bank Pier"
+  .venv/bin/python scripts/site_observations.py "Kilcrohane Pier"
+  .venv/bin/python scripts/site_observations.py --all
+  ```
 
 ### `species_classification.py`
 - **Purpose**: Generates [`OUTPUT/species_classification.md`](OUTPUT/species_classification.md), a comprehensive breakdown of user observations in Ireland categorized into clean organism types (Bird, Fish, Crab, Nudibranch, Anemone, Sponge, Jellyfish, Flatworm, etc.) with a summary table, full species list, and individual sightings with thumbnails.
 - **How it works**: Fetches user observations in Ireland (`place_id=6718`), traverses taxonomic hierarchies and ancestry to classify each observation into human-friendly organism types, and produces a structured report.
-- **Shared helper**: Also exports `species_type(obs)`, which is imported directly by other scripts (such as `kilcrohane_observations.py`) to classify live API observation objects. Other scripts do **not** read or depend on the generated `OUTPUT/species_classification.md` file from disk.
+- **Shared helper**: Also exports `species_type(obs)`, which is imported directly by other scripts (such as `site_observations.py`) to classify live API observation objects. Other scripts do **not** read or depend on the generated `OUTPUT/species_classification.md` file from disk.
 - **Output**: `OUTPUT/species_classification.md`
 
 ### `rare_birds_ireland.py`
