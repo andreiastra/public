@@ -22,7 +22,6 @@ Two kinds of entries exist:
   2. Townland / OSM aliases — the place_guess contains only an OSM townland
      that has no lexical overlap with the canonical name:
        "Councambeg"   → Simon's Cove
-       "Knockaphuca"  → Gortdubh Pier
        "Derreenacarrin" → Zetland Pier
      These are verified geographically (the townland is the OSM area that
      contains the pier) and would not be discoverable automatically.
@@ -90,7 +89,6 @@ SITE_KEYWORDS = [
     ("simon's cove",   "Simon's Cove"),
     # place_guess: "Gortdubh Pier, Co. Cork" / "Gortdubh Pier, Knockaphuca, Co. Cork"
     ("gortdubh",       "Gortdubh Pier"),
-    ("knockaphuca",    "Gortdubh Pier"),
     # place_guess: "Gortnakilla Pier Sheeps Head, Co. Cork"
     ("gortnakilla",    "Gortnakilla Pier"),
     # place_guess: "Lough Hyne, Co. Cork"
