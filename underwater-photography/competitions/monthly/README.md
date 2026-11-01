@@ -86,4 +86,5 @@ Monthly submission folders are organised by month name and contain the candidate
 | :--- | :--- |
 | [`July/`](July/) | 8 images |
 | [`August/`](August/) | 4 images |
+| [`October/`](October/) | 4 images |
 | [`Irish-Wildlife-Trust/June/`](Irish-Wildlife-Trust/June/) | 5 images |
