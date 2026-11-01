@@ -38,6 +38,8 @@ The iNaturalist API provides programmatic access to the platform's biodiversity 
 
 Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ranges, quality grade (`research`, `needs_id`), and media presence. Returns JSON with page-based or `id_above` pagination. Public read access requires no authentication; write actions use OAuth2. Recommended throttle: **~1 request/second**.
 
+> **⚠️ Threatened species have obscured locations.** Without authentication, the API returns a randomised point (25 km or more off) for threatened species such as a VU Nursehound, so location-based reports miss them. See [Obscured locations](scripts/README.md#obscured-locations).
+
 ---
 
 ## Directory Overview
