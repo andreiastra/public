@@ -57,6 +57,10 @@ Some of my dive sites have no pier entry on eOceanic. Blind Strand Pier appears 
 - Its access notes ("safe access", "careful navigation required") describe approaching by sea, not parking, walking to the water or entering and leaving the water on foot.
 - It says nothing about visibility, currents, swell, marine life or whether diving is allowed at a given pier. Check local conditions and access for each site yourself.
 
+## TODO
+
+- [ ] Cross-reference the [eOceanic locations](eOceanic/Locations.md) with the [Takeout list](Takeout/Cork_Shore_Diving.csv). Only the 11 dropped pins carry coordinates, so the other 41 places need a name match or a lookup first.
+
 ## Related
 
 - [`../iNaturalist/`](../iNaturalist/README.md) holds the iNaturalist scripts and reports for my underwater observations.
