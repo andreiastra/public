@@ -7,9 +7,7 @@ Notes for exploring shore dives from piers, slips and beaches in West Cork. Pier
 | File | What it is |
 |---|---|
 | [`Cork_Shore_Diving_-_Google_Maps.jpg`](Cork_Shore_Diving_-_Google_Maps.jpg) | Map of the shore spots, split into 4 zones (see [Zones](#zones)) |
-| [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV), the saved pages, and the scripts that fetch and extract them. For cross-referencing with the [`Takeout/`](Takeout/Cork_Shore_Diving.csv) list |
-| [`question.txt`](question.txt) | Draft message for a poll on weekend shore diving: which days, times and distances suit best |
-| [`Flutter kick.jpg`](Flutter%20kick.jpg), [`Frog Kick.jpg`](Frog%20Kick.jpg) | Sketches of the two kicks, for [finning](#finning) |
+| [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV) and the scripts that fetch and extract them. For cross-referencing with the [`Takeout/`](Takeout/Cork_Shore_Diving.csv) list |
 
 ## Zones
 
@@ -58,14 +56,6 @@ Some of my dive sites have no pier entry on eOceanic. Blind Strand Pier appears 
 - eOceanic is written for boats. Its "metres LWS" figures are the depth at the anchorage at low water springs, not dive depth.
 - Its access notes ("safe access", "careful navigation required") describe approaching by sea, not parking, walking to the water or entering and leaving the water on foot.
 - It says nothing about visibility, currents, swell, marine life or whether diving is allowed at a given pier. Check local conditions and access for each site yourself.
-
-## Finning
-
-Sketches of the two kicks:
-
-| Flutter kick | Frog kick |
-|---|---|
-| ![Flutter kick sketch](Flutter%20kick.jpg) | ![Frog kick sketch](Frog%20Kick.jpg) |
 
 ## Related
 
