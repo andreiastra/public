@@ -7,6 +7,7 @@ Notes for exploring shore dives from piers, slips and beaches in West Cork. Pier
 | File | What it is |
 |---|---|
 | [`Cork_Shore_Diving_-_Google_Maps.jpg`](Cork_Shore_Diving_-_Google_Maps.jpg) | Map of the shore spots, split into 4 zones (see [Zones](#zones)) |
+| [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV), the saved pages, and the scripts that fetch and extract them. For cross-referencing with the [`Takeout/`](Takeout/Cork_Shore_Diving.csv) list |
 | [`question.txt`](question.txt) | Draft message for a poll on weekend shore diving: which days, times and distances suit best |
 | [`Flutter kick.jpg`](Flutter%20kick.jpg), [`Frog Kick.jpg`](Frog%20Kick.jpg) | Sketches of the two kicks, for [finning](#finning) |
 

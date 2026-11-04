@@ -1,0 +1,3 @@
+# Raw downloaded pages. Regenerate with scripts/fetch_eoceanic.py.
+# They embed a map API token that GitHub push protection blocks.
+raw/
