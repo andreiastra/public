@@ -2320,7 +2320,7 @@
   },
   {
     "no": 24,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 277,
     "name": "Coolmain Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/277/coolmain_bay",
@@ -2407,7 +2407,7 @@
   },
   {
     "no": 25,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 56,
     "name": "Courtmacsherry",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/56/courtmacsherry",
@@ -2516,7 +2516,7 @@
   },
   {
     "no": 26,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 276,
     "name": "Broadstrand Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/276/broadstrand_bay",
@@ -2606,7 +2606,7 @@
   },
   {
     "no": 27,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 272,
     "name": "Blindstrand Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/272/blindstrand_bay",
@@ -2696,7 +2696,7 @@
   },
   {
     "no": 28,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 327,
     "name": "Seven Heads Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/327/seven_heads_bay",
@@ -2787,7 +2787,7 @@
   },
   {
     "no": 29,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Seven Heads",
     "id": 328,
     "name": "Dunworly Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/328/dunworly_bay",
@@ -2877,7 +2877,7 @@
   },
   {
     "no": 30,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Clonakilty",
     "id": 51,
     "name": "Clonakilty Harbour (Ring)",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/51/clonakilty_harbour_%28ring%29",
@@ -2989,7 +2989,7 @@
   },
   {
     "no": 31,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Clonakilty",
     "id": 357,
     "name": "Dunnycove Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/357/dunnycove_bay",
@@ -3083,7 +3083,7 @@
   },
   {
     "no": 32,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Clonakilty",
     "id": 36,
     "name": "Dirk Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/36/dirk_bay",
@@ -3175,7 +3175,7 @@
   },
   {
     "no": 33,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Rosscarbery",
     "id": 363,
     "name": "Rosscarbery Inlet",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/363/rosscarbery_inlet",
@@ -3263,7 +3263,7 @@
   },
   {
     "no": 34,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Rosscarbery",
     "id": 331,
     "name": "Mill Cove",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/331/mill_cove",
@@ -3353,7 +3353,7 @@
   },
   {
     "no": 35,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Rosscarbery",
     "id": 330,
     "name": "Tralong Bay",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/330/tralong_bay",
@@ -3440,7 +3440,7 @@
   },
   {
     "no": 36,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Unionhall",
     "id": 43,
     "name": "Glandore",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/43/glandore",
@@ -3551,7 +3551,7 @@
   },
   {
     "no": 37,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Unionhall",
     "id": 499,
     "name": "Rabbit Island Sound",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/499/rabbit_island_sound",
@@ -3641,7 +3641,7 @@
   },
   {
     "no": 38,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Unionhall",
     "id": 362,
     "name": "Squince Harbour",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/362/squince_harbour",
@@ -3730,7 +3730,7 @@
   },
   {
     "no": 39,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Unionhall",
     "id": 37,
     "name": "Blind Harbour",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/37/blind_harbour",
@@ -3823,7 +3823,7 @@
   },
   {
     "no": 40,
-    "zone": "Rosscarbery, Galley Head & Seven Heads",
+    "zone": "Unionhall",
     "id": 42,
     "name": "Castlehaven (Castletownshend)",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/42/castlehaven_%28castletownshend%29",
@@ -3926,7 +3926,7 @@
   },
   {
     "no": 41,
-    "zone": "Mizen, Roaringwater Bay & Skibbereen",
+    "zone": "Lough Hyne & Baltimore",
     "id": 47,
     "name": "Barloge Creek (Lough Hyne)",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/47/barloge_creek_%28lough_hyne%29",
@@ -4021,7 +4021,7 @@
   },
   {
     "no": 42,
-    "zone": "Mizen, Roaringwater Bay & Skibbereen",
+    "zone": "Lough Hyne & Baltimore",
     "id": 46,
     "name": "Baltimore",
     "url": "https://eoceanic.com/sailing/harbours/europe/ireland/cork/46/baltimore",

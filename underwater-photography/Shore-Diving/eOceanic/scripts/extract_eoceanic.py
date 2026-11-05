@@ -4,13 +4,11 @@
 Reads ../raw/index.html and ../raw/pages/*.html (written by fetch_eoceanic.py)
 and writes, in the parent folder:
     eoceanic_cork_sites.json   all fields, one object per location, in index order
-    eoceanic_cork_sites.csv    the short fields only, for spreadsheets
     Locations.md               a table of every location, grouped into zones, for reading
 
 Nothing is fetched from the network.
 """
 
-import csv
 import html
 import json
 import re
@@ -20,15 +18,17 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "raw"
 
-# Zones are my own grouping, not eOceanic's. Each is a contiguous range of `no`
-# (position on eOceanic's index page, which follows the coast), east to west.
-# The names follow the zones I used for the Google Maps list, plus East Cork
-# and Cork Harbour, which that list doesn't cover.
+# Zones: see the intro written to Locations.md below. Each is a contiguous range
+# of `no` (position on eOceanic's index page, which follows the coast).
 ZONES = [
     (1, 15, "East Cork & Cork Harbour"),
     (16, 23, "Kinsale & South Cork Coast"),
-    (24, 40, "Rosscarbery, Galley Head & Seven Heads"),
-    (41, 72, "Mizen, Roaringwater Bay & Skibbereen"),
+    (24, 29, "Seven Heads"),
+    (30, 32, "Clonakilty"),
+    (33, 35, "Rosscarbery"),
+    (36, 40, "Unionhall"),
+    (41, 42, "Lough Hyne & Baltimore"),
+    (43, 72, "Mizen, Roaringwater Bay & Skibbereen"),
     (73, 79, "Sheep's Head & Dunmanus Bay"),
     (80, 91, "Beara Peninsula & Bantry Bay"),
 ]
@@ -40,6 +40,9 @@ def zone_of(no: int) -> str:
             return name
     raise ValueError(f"no zone for location no. {no}")
 BASE = "https://eoceanic.com/sailing/harbours/europe/ireland/cork/"
+
+# Colour markers for the 1-5 Shelter and Approaches ratings (1 worst, 5 best).
+DOTS = {1: "⚫", 2: "🔴", 3: "🟠", 4: "🟡", 5: "🟢"}
 
 
 def clean(fragment: str) -> str:
@@ -164,15 +167,6 @@ def main() -> None:
 
     (ROOT / "eoceanic_cork_sites.json").write_text(json.dumps(sites, indent=2, ensure_ascii=False) + "\n")
 
-    cols = [
-        "no", "zone", "id", "name", "url", "latitude", "longitude", "position_dm", "shelter_stars", "shelter",
-        "approaches_stars", "approaches", "min_depth_m", "last_modified", "contact",
-        "position_note", "overview", "facilities_text", "security",
-    ]
-    with (ROOT / "eoceanic_cork_sites.csv").open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
-        w.writeheader()
-        w.writerows(sites)
     rows = [
         "# eOceanic Cork locations",
         "",
@@ -181,11 +175,27 @@ def main() -> None:
         "Generated from [`eoceanic_cork_sites.json`](eoceanic_cork_sites.json) by `scripts/extract_eoceanic.py`; "
         "edit the script, not this file.",
         "",
-        "The zones are my own grouping, not eOceanic's. Each is a stretch of the coast in eOceanic's order, "
-        "and where one ends and the next begins is a judgement call. See [Zones](README.md#zones).",
+        "The zones are my own grouping, not eOceanic's, which has none. Each is one unbroken stretch of the coast "
+        "in eOceanic's order, so places on the same bay stay together, and where one ends and the next begins is a judgement call. "
+        "They are geographic only, say nothing about swell, shelter or dive conditions, and are not the 4 drive-time zones "
+        "in the [parent README](../README.md#zones). The boundaries are the `ZONES` list in the script.",
         "",
         "Positions are eOceanic's haven position, which can be some distance from where a diver would enter the water. "
+        "Each position links to Google Maps. "
         "Depth is at the anchorage at low water springs. See the [README](README.md).",
+        "",
+        "## Ratings",
+        "",
+        "Shelter and Approaches are eOceanic's 1-5 ratings, written for a boat at anchor, not a shore diver. "
+        "Higher is better.",
+        "",
+        "| Rating | Shelter: how well protected the anchorage is | Approaches: how hard the entrance is to navigate |",
+        "|---|---|---|",
+        "| 🟢 5 | Complete protection: all-round shelter in all reasonable conditions | Safe access: all reasonable conditions |",
+        "| 🟡 4 | Good: assured night's sleep except from specific quarters | Straightforward: no overly complex dangers when unaffected by weather from difficult quadrants or tidal consideration |",
+        "| 🟠 3 | Tolerable: in suitable conditions a vessel may be left unwatched for an overnight stay | Attentive navigation: daylight access, with dangers that need attention |",
+        "| 🔴 2 | Exposed: unattended vessels should be watched from the shore, and a comfortable overnight stay is unlikely | Careful navigation: good visibility and conditions needed, with dangers that require careful navigation |",
+        "| ⚫ 1 | Stay-aboard: lunch stop or tide-wait only, exposed or tenuous holding, vessel should not be left unattended | Highly involved navigation: complex dangers that require arduous navigation, good visibility and settled conditions |",
     ]
     for first, last, name in ZONES:
         members = [x for x in sites if first <= x["no"] <= last]
@@ -200,8 +210,11 @@ def main() -> None:
         ]
         for x in members:
             rows.append(
-                f"| {x['no']} | [{x['name']}]({x['url']}) | {x['latitude']:.5f}, {x['longitude']:.5f} "
-                f"| {x['shelter_stars']}: {x['shelter']} | {x['approaches_stars']}: {x['approaches']} "
+                f"| {x['no']} | [{x['name']}]({x['url']}) "
+                f"| [{x['latitude']:.5f}, {x['longitude']:.5f}]"
+                f"(https://www.google.com/maps/search/?api=1&query={x['latitude']:.5f},{x['longitude']:.5f}) "
+                f"| {DOTS[x['shelter_stars']]} {x['shelter_stars']}: {x['shelter']} "
+                f"| {DOTS[x['approaches_stars']]} {x['approaches_stars']}: {x['approaches']} "
                 f"| {x['min_depth_m']:g} |"
             )
     (ROOT / "Locations.md").write_text("\n".join(rows) + "\n")

@@ -4,6 +4,7 @@ West Cork shore diving.
 
 ## Camera
 * OM SYSTEM OM-1 Mark II
+    * Card: Angelbird AV PRO SD MK2 V90 (128GB)
 ## Lenses & Optics
 * M.ZUIKO DIGITAL ED 8mm f/1.8 Fisheye PRO
 * M.ZUIKO DIGITAL ED 12mm f/2.0
