@@ -28,7 +28,11 @@ ZONES = [
     (33, 35, "Rosscarbery"),
     (36, 40, "Unionhall"),
     (41, 42, "Lough Hyne & Baltimore"),
-    (43, 72, "Mizen, Roaringwater Bay & Skibbereen"),
+    (43, 48, "Carbery's Hundred Isles"),
+    (49, 55, "Ilen River & Heir Island"),
+    (56, 63, "Roaringwater Bay"),
+    (64, 68, "Schull"),
+    (69, 72, "Mizen Head"),
     (73, 79, "Sheep's Head & Dunmanus Bay"),
     (80, 91, "Beara Peninsula & Bantry Bay"),
 ]
@@ -41,8 +45,17 @@ def zone_of(no: int) -> str:
     raise ValueError(f"no zone for location no. {no}")
 BASE = "https://eoceanic.com/sailing/harbours/europe/ireland/cork/"
 
-# Colour markers for the 1-5 Shelter and Approaches ratings (1 worst, 5 best).
+# Colour markers for the 1-5 Shelter rating (1 worst, 5 best).
 DOTS = {1: "⚫", 2: "🔴", 3: "🟠", 4: "🟡", 5: "🟢"}
+
+
+# Names with "Island" in them that are not islands, so can be reached on foot.
+NOT_ISLANDS = {"Rabbit Island Sound"}
+
+
+def is_island(name: str) -> bool:
+    """Island locations have "Island" in their name. They can't be reached on foot."""
+    return name not in NOT_ISLANDS and re.search(r"\bIsland\b", name) is not None
 
 
 def clean(fragment: str) -> str:
@@ -170,7 +183,10 @@ def main() -> None:
     rows = [
         "# eOceanic Cork locations",
         "",
-        "In eOceanic's order, which follows the coast clockwise from Youghal to Ardgroom, so roughly east to west. "
+        f"All {len(sites)} harbours, anchorages and coves on the Cork coast from eOceanic's sailing guide, "
+        f"with each one's map position and shelter rating, grouped into {len(ZONES)} zones.",
+        "",
+        "They are listed in eOceanic's order, which follows the coast clockwise from Youghal to Ardgroom, so roughly east to west. "
         "It is not strictly sorted by longitude: the list follows the shoreline, so it doubles back where the coast does, such as up Bantry Bay. "
         "Generated from [`eoceanic_cork_sites.json`](eoceanic_cork_sites.json) by `scripts/extract_eoceanic.py`; "
         "edit the script, not this file.",
@@ -181,21 +197,22 @@ def main() -> None:
         "in the [parent README](../README.md#zones). The boundaries are the `ZONES` list in the script.",
         "",
         "Positions are eOceanic's haven position, which can be some distance from where a diver would enter the water. "
-        "Each position links to Google Maps. "
-        "Depth is at the anchorage at low water springs. See the [README](README.md).",
+        "Each position links to Google Maps. See the [README](README.md).",
         "",
-        "## Ratings",
+        "🚫 marks a location with \"Island\" in its name. It can't be reached on foot, so it is not available for shore diving.",
         "",
-        "Shelter and Approaches are eOceanic's 1-5 ratings, written for a boat at anchor, not a shore diver. "
-        "Higher is better.",
+        "## Shelter rating",
         "",
-        "| Rating | Shelter: how well protected the anchorage is | Approaches: how hard the entrance is to navigate |",
-        "|---|---|---|",
-        "| 🟢 5 | Complete protection: all-round shelter in all reasonable conditions | Safe access: all reasonable conditions |",
-        "| 🟡 4 | Good: assured night's sleep except from specific quarters | Straightforward: no overly complex dangers when unaffected by weather from difficult quadrants or tidal consideration |",
-        "| 🟠 3 | Tolerable: in suitable conditions a vessel may be left unwatched for an overnight stay | Attentive navigation: daylight access, with dangers that need attention |",
-        "| 🔴 2 | Exposed: unattended vessels should be watched from the shore, and a comfortable overnight stay is unlikely | Careful navigation: good visibility and conditions needed, with dangers that require careful navigation |",
-        "| ⚫ 1 | Stay-aboard: lunch stop or tide-wait only, exposed or tenuous holding, vessel should not be left unattended | Highly involved navigation: complex dangers that require arduous navigation, good visibility and settled conditions |",
+        "Shelter is eOceanic's 1-5 rating of how well protected the anchorage is. It is written for a boat at anchor, "
+        "not a shore diver, so read it as a rough guide to which winds and swell a site is open to. Higher is better.",
+        "",
+        "| Rating | Meaning |",
+        "|---|---|",
+        "| 🟢 5 | Complete protection: all-round shelter in all reasonable conditions |",
+        "| 🟡 4 | Good: assured night's sleep except from specific quarters |",
+        "| 🟠 3 | Tolerable: in suitable conditions a vessel may be left unwatched for an overnight stay |",
+        "| 🔴 2 | Exposed: unattended vessels should be watched from the shore, and a comfortable overnight stay is unlikely |",
+        "| ⚫ 1 | Stay-aboard: lunch stop or tide-wait only, exposed or tenuous holding, vessel should not be left unattended |",
     ]
     for first, last, name in ZONES:
         members = [x for x in sites if first <= x["no"] <= last]
@@ -205,17 +222,15 @@ def main() -> None:
             "",
             f"Locations {first}-{last}: {len(members)} sites.",
             "",
-            "| # | Location | Position (lat, lon) | Shelter | Approaches | Min depth (m) |",
-            "|---|---|---|---|---|---|",
+            "| # | Location | Position (lat, lon) | Shelter |",
+            "|---|---|---|---|",
         ]
         for x in members:
             rows.append(
-                f"| {x['no']} | [{x['name']}]({x['url']}) "
+                f"| {x['no']} | {'🚫 ' if is_island(x['name']) else ''}[{x['name']}]({x['url']}) "
                 f"| [{x['latitude']:.5f}, {x['longitude']:.5f}]"
                 f"(https://www.google.com/maps/search/?api=1&query={x['latitude']:.5f},{x['longitude']:.5f}) "
-                f"| {DOTS[x['shelter_stars']]} {x['shelter_stars']}: {x['shelter']} "
-                f"| {DOTS[x['approaches_stars']]} {x['approaches_stars']}: {x['approaches']} "
-                f"| {x['min_depth_m']:g} |"
+                f"| {DOTS[x['shelter_stars']]} {x['shelter_stars']}: {x['shelter']} |"
             )
     (ROOT / "Locations.md").write_text("\n".join(rows) + "\n")
     print(f"wrote {len(sites)} sites")
