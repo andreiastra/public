@@ -7,7 +7,8 @@ Notes for exploring shore dives from piers, slips and beaches in West Cork. Pier
 | File | What it is |
 |---|---|
 | [`Cork_Shore_Diving_-_Google_Maps.jpg`](Cork_Shore_Diving_-_Google_Maps.jpg) | Map of the shore spots, split into 4 zones (see [Zones](#zones)) |
-| [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV) and the scripts that fetch and extract them. For cross-referencing with the [`Takeout/`](Takeout/Cork_Shore_Diving.csv) list |
+| [`Google-Maps/`](Google-Maps/README.md) | Saved Google Maps shore diving list export ([`Cork_Shore_Diving.csv`](Google-Maps/Cork_Shore_Diving.csv)) |
+| [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV) and the scripts that fetch and extract them. For cross-referencing with the [`Google-Maps/`](Google-Maps/Cork_Shore_Diving.csv) list |
 
 ## Zones
 
@@ -59,7 +60,7 @@ Some of my dive sites have no pier entry on eOceanic. Blind Strand Pier appears 
 
 ## TODO
 
-- [ ] Cross-reference the [eOceanic locations](eOceanic/Locations.md) with the [Takeout list](Takeout/Cork_Shore_Diving.csv). Only the 11 dropped pins carry coordinates, so the other 41 places need a name match or a lookup first.
+- [ ] Cross-reference the [eOceanic locations](eOceanic/Locations.md) with the [Google Maps list](Google-Maps/Cork_Shore_Diving.csv). Only the 11 dropped pins carry coordinates, so the other 41 places need a name match or a lookup first.
 
 ## Related
 
