@@ -6,17 +6,13 @@ Notes for exploring shore dives from piers, slips and beaches in West Cork. Pier
 
 | File | What it is |
 |---|---|
-| [`Cork_Shore_Diving_-_Google_Maps.jpg`](Cork_Shore_Diving_-_Google_Maps.jpg) | Map of the shore spots, split into 4 zones (see [Zones](#zones)) |
 | [`Google-Maps/`](Google-Maps/README.md) | Saved Google Maps shore diving list export ([`Cork_Shore_Diving.csv`](Google-Maps/Cork_Shore_Diving.csv)) |
+| [`Diving-Ireland/`](Diving-Ireland/README.md) | Diving Ireland (CFT) dive sites, primary launch slips, and 250+ alternative slipways with safety plans and charts |
 | [`eOceanic/`](eOceanic/README.md) | Data for all 91 eOceanic Cork locations (JSON and CSV) and the scripts that fetch and extract them. For cross-referencing with the [`Google-Maps/`](Google-Maps/Cork_Shore_Diving.csv) list |
 
 ## Zones
 
-The local shore spots are split into 4 zones on the map, based on drive time from Cork city. Zone 1 is the closest and zone 4 the furthest.
-
-![Map of Cork shore diving spots in 4 zones](Cork_Shore_Diving_-_Google_Maps.jpg)
-
-Spots named on the map, read from the screenshot (zone boundaries are approximate):
+The local shore spots are split into 4 zones, based on drive time from Cork city. Zone 1 is the closest and zone 4 the furthest (zone boundaries are approximate):
 
 | Zone | Spots labelled on the map |
 |---|---|
@@ -60,7 +56,7 @@ Some of my dive sites have no pier entry on eOceanic. Blind Strand Pier appears 
 
 ## TODO
 
-- [ ] Cross-reference the [eOceanic locations](eOceanic/Locations.md) with the [Google Maps list](Google-Maps/Cork_Shore_Diving.csv). Only the 11 dropped pins carry coordinates, so the other 41 places need a name match or a lookup first.
+- [ ] Cross-reference the [eOceanic locations](eOceanic/Locations.md) with the [Google Maps list](Google-Maps/Cork_Shore_Diving.csv). Dropped pins carry coordinates directly, while named places need a name match or coordinate lookup first (see [`Google-Maps/README.md`](Google-Maps/README.md)).
 
 ## Related
 
