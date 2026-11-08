@@ -119,6 +119,8 @@ SITE_KEYWORDS = [
     ("uc42",           "UC42"),
     # place_guess: "Small Sovereign Island, Ireland" / "Small Sovereign Island, Cork, Co. Cork, Ireland"
     ("small sovereign", "Small Sovereign Island"),
+    # place_guess: "Audley Cove, Co. Cork" (verify against my_locations.py output)
+    ("audley",         "Audley Cove"),
     # place_guess: "Scapa Flow, United Kingdom"
     ("scapa",          "Scapa Flow"),
     # Tragumna and Reenabulliga Pier — no observations yet; keywords kept for future use

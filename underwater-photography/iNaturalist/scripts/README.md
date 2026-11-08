@@ -88,13 +88,11 @@ Supporting files:
 ### `underwater_ireland.py`
 - **Purpose**: Generates [`OUTPUT/underwater_ireland.md`](OUTPUT/underwater_ireland.md), listing all of the user's underwater observations in Ireland, grouped by dive site (most observations first), with a site summary table and a photo thumbnail linked to each observation.
 - **How it works**: Reuses `fetch_all_observations()`, `cluster_and_label()`, `count_dives_per_site()`, `species_per_site()` and `render_site_section()` from `generate_location_ratings.py`, so "underwater" means the observation clusters onto a site in [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). Birding and other above-water places are excluded. Non-Irish dive sites (`NON_IRELAND_SITES`, currently Scapa Flow) are dropped.
-- **Obscured locations**: iNaturalist hides the true location of threatened species (for example IUCN VU) from the public API. It returns a randomised point with a public accuracy of 25 km or more, and a generic place name such as "Cork, IE". The API flags these with `obscured: true`. Such a point can't be clustered onto a dive site, and only the owner, logged in on iNaturalist, sees the real location. The script therefore:
+- **Obscured locations**: the reference implementation of the handling described in [Obscured locations](#obscured-locations). The script:
   - Splits out every `obscured` observation before clustering, so none are placed on a site.
   - Lists them in a separate **Obscured locations** section, most threatened first (CR, EN, VU, NT), with their IUCN status.
   - Skips obscured observations at ignored places (`IGNORED_KEYWORDS`, for example the Egypt trip).
   - Doesn't count them in the site totals, only in the "with obscured location" count in the report header.
-
-  Editing the location on iNaturalist doesn't fix this, because the species stays obscured. Check the true location on the observation page while logged in. Making the API return the real coordinates would need authentication, which the scripts avoid (see [Conventions](#conventions)).
 - **Output**: `OUTPUT/underwater_ireland.md`. Unresolved clusters appear as a `⚠️` warning at the top of the report (see [Keeping places up to date](#keeping-places-up-to-date)).
 
 ### `rarity_underwater_ireland.py`
@@ -163,7 +161,9 @@ Example: the Nursehound (IUCN VU), [observation 407269590](https://www.inaturali
 **Consequences:**
 - Clustering by distance (`cluster_and_label()`, `at_site()`, `my_locations.py`) leaves these observations unmatched, or can place them at the wrong site.
 - Site counts, dive counts and species lists silently miss them.
-- Editing the location on iNaturalist doesn't help, because the species stays obscured whatever you enter.
+- `generate_location_ratings.py` raises an unmatched-cluster `⚠️` warning for each one, such as `1 obs near “Cork, IE”`.
+
+**What doesn't fix it:** editing the location or place name on iNaturalist. The species stays obscured whatever you enter. To see the true location, open the observation page while logged in as the owner.
 
 **How to handle it:**
 - Test `obs.get("obscured")` before using coordinates, and report these observations separately instead of dropping them. [`underwater_ireland.py`](#underwater_irelandpy) is the reference implementation.
@@ -199,6 +199,7 @@ Then read the `⚠️` warning block at the top of the generated file. Each entr
 | A dive site | Add the name to [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt), then add a keyword for it to `SITE_KEYWORDS` in [`site_names.py`](site_names.py). |
 | Not a dive site (birding, a trip abroad, a village) | Add a keyword to `IGNORED_KEYWORDS` in [`site_names.py`](site_names.py). |
 | Logged under a generic place name, such as "Cork, Co. Cork, Ireland" | Rename the place on iNaturalist first, then add a keyword for the new name. A keyword can't safely match a generic name. |
+| Logged as "Cork, IE" and the species is threatened (for example a VU Nursehound) | Nothing to fix. The location is [obscured](#obscured-locations), so the warning stays until `generate_location_ratings.py` handles these (see [`../TODO.md`](../TODO.md)). |
 
 Then regenerate and check that the warning is gone.
 
