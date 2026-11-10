@@ -4,7 +4,7 @@ All 91 harbours, anchorages and coves on the Cork coast from eOceanic's sailing 
 
 They are listed in eOceanic's order, which follows the coast clockwise from Youghal to Ardgroom, so roughly east to west. It is not strictly sorted by longitude: the list follows the shoreline, so it doubles back where the coast does, such as up Bantry Bay. Generated from [`eoceanic_cork_sites.json`](eoceanic_cork_sites.json) by `scripts/extract_eoceanic.py`; edit the script, not this file.
 
-The zones are my own grouping, not eOceanic's, which has none. Each is one unbroken stretch of the coast in eOceanic's order, so places on the same bay stay together, and where one ends and the next begins is a judgement call. They are geographic only, say nothing about swell, shelter or dive conditions, and are not the 4 drive-time zones in the [parent README](../README.md#zones). The boundaries are the `ZONES` list in the script.
+The zones are my own grouping, not eOceanic's, which has none. Each is one unbroken stretch of the coast in eOceanic's order, so places on the same bay stay together, and where one ends and the next begins is a judgement call. They are geographic only, say nothing about swell, shelter or dive conditions, and are not the 4 coastal zones in the [parent README](../README.md#zones). The boundaries are the `ZONES` list in the script.
 
 Positions are eOceanic's haven position, which can be some distance from where a diver would enter the water. Each position links to Google Maps. See the [README](README.md).
 

@@ -59,4 +59,4 @@ Decimal coordinates extracted from the URL. Row numbers reflect position in the 
 ## Related
 
 - [`../eOceanic/`](../eOceanic/README.md) has data for the 91 eOceanic Cork locations, which I'll cross-reference against this list.
-- [`../README.md`](../README.md) has notes on the shore diving spots and drive time zones.
+- [`../README.md`](../README.md) has notes on the shore diving spots and coastal zones.

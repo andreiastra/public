@@ -193,7 +193,7 @@ def main() -> None:
         "",
         "The zones are my own grouping, not eOceanic's, which has none. Each is one unbroken stretch of the coast "
         "in eOceanic's order, so places on the same bay stay together, and where one ends and the next begins is a judgement call. "
-        "They are geographic only, say nothing about swell, shelter or dive conditions, and are not the 4 drive-time zones "
+        "They are geographic only, say nothing about swell, shelter or dive conditions, and are not the 4 coastal zones "
         "in the [parent README](../README.md#zones). The boundaries are the `ZONES` list in the script.",
         "",
         "Positions are eOceanic's haven position, which can be some distance from where a diver would enter the water. "
