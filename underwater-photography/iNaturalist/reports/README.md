@@ -17,6 +17,7 @@ All reports are generated from live [iNaturalist](https://www.inaturalist.org) d
 | **[`rarity_underwater_worldwide.md`](rarity_underwater_worldwide.md)** | Ranks the same Irish underwater species by worldwide observation frequency on a logarithmic scale. | [`rarity_underwater_worldwide.py`](../scripts/README.md#rarity_underwater_worldwidepy) |
 | **[`nudibranch_ireland.md`](nudibranch_ireland.md)** | Dedicated showcase of all Irish sea slug & nudibranch observations (order *Nudibranchia*) grouped by dive site. | [`nudibranch_ireland.py`](../scripts/README.md#nudibranch_irelandpy) |
 | **[`sites/<site_name>.md`](sites/bank_pier.md)** | Individual dive site reports detailing site species lists and observation galleries (e.g., [`sites/bank_pier.md`](sites/bank_pier.md), [`sites/canty_s_cove.md`](sites/canty_s_cove.md), [`sites/gortdubh_pier.md`](sites/gortdubh_pier.md), [`sites/kilcrohane_pier.md`](sites/kilcrohane_pier.md)). | [`site_observations.py`](../scripts/README.md#site_observationspy) |
+| **[`runs/<date>.md`](runs/2026-11-13.md)** | One dated write-up per full run: how it went and what changed in the reports. Written by hand, not regenerated. | [`run_all.py`](../scripts/README.md#run_allpy) |
 
 ---
 
