@@ -1,6 +1,6 @@
 """
 Rate andreiastra's Research Grade underwater observations in Ireland by how many
-Research Grade observations of the taxon exist worldwide on iNaturalist, and write
+verifiable observations of the taxon exist worldwide on iNaturalist, and write
 a Markdown report to reports/rarity_underwater_worldwide.md.
 
 The observations are the same as in rarity_underwater_ireland.py (Irish dive
@@ -25,7 +25,7 @@ from rarity_underwater_ireland import generate_report
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "rarity_underwater_worldwide.md")
 
-# (max worldwide Research Grade observations, rating). The first matching row applies.
+# (max worldwide verifiable observations, rating). The first matching row applies.
 RATINGS = [
     (1, "Unique"),         # only your observation
     (100, "Very rare"),
@@ -41,9 +41,10 @@ def main():
         ratings=RATINGS,
         title="Rarity of underwater observations in Ireland, ranked worldwide",
         script="rarity_underwater_worldwide.py",
-        intro="Rarity is the number of Research Grade observations of the taxon worldwide on "
-              "iNaturalist (fewest = rarest). Ties go to the taxon with fewer distinct "
-              "observers worldwide. Only your Irish underwater observations are rated.",
+        intro="Rarity is the number of verifiable observations (Research Grade or Needs ID) of "
+              "the taxon worldwide on iNaturalist (fewest = rarest). Ties go to the taxon with "
+              "fewer distinct observers worldwide. Only your Irish underwater observations are "
+              "rated.",
         scope="WW",
         output_file=OUTPUT_FILE,
     )
