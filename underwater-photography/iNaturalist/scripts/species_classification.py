@@ -20,13 +20,19 @@ from config import (
     THROTTLE_S,
     USER_ID,
 )
+from fetch_observations import cached, in_ireland
 from generate_location_ratings import photo_md
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "species_classification.md")
 
 
 def fetch_ireland_observations(notes):
-    """Fetch all observations for USER_ID in Ireland (place_id=IRELAND_PLACE_ID)."""
+    """Fetch all observations for USER_ID in Ireland (place_id=IRELAND_PLACE_ID).
+
+    Filters the observations already downloaded in this process, if any."""
+    observations = cached()
+    if observations is not None:
+        return in_ireland(observations)
     print(f"Fetching observations in Ireland for '{USER_ID}' from iNaturalist…")
     all_obs, page = [], 1
     while True:

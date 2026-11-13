@@ -12,7 +12,8 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 
 | Script | Output |
 |---|---|
-| [`fetch_observations.py`](#fetch_observationspy) | `reports/observations.json` |
+| [`run_all.py`](#run_allpy) | all the reports below (except `my_*` and `rare_birds_ireland.py`) |
+| [`fetch_observations.py`](#fetch_observationspy) | `scripts/.cache/observations.json` |
 | [`my_places.py`](#my_placespy) | stdout |
 | [`my_locations.py`](#my_locationspy) | stdout |
 | [`my_projects.py`](#my_projectspy) | stdout |
@@ -31,14 +32,25 @@ Supporting files:
 |---|---|
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
 | [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
-| [`../reports/`](../reports) | All generated files: reports and the observations download. Safe to regenerate. |
+| [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
+| `.cache/` | Working data for the scripts (the observations download). Git-ignored. |
 
 ## Scripts
 
+### `run_all.py`
+- **Purpose**: Runs every script that writes a report, in one go, with a single download of the observations.
+- **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts still make 2 API calls per taxon.
+- **Order**: `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
+- **Not included**: `my_places.py`, `my_locations.py`, `my_projects.py` and `rare_birds_ireland.py`, because they only print to the terminal. Run them by hand.
+- **Usage**: `.venv/bin/python scripts/run_all.py`
+- **Standalone runs**: each script still works on its own. With nothing in memory it fetches from the API as before.
+- **Run reports**: after a full run, write up what changed in [`../reports/runs/`](../reports/runs). The procedure is in [`RUN_REPORT.md`](RUN_REPORT.md).
+
 ### `fetch_observations.py`
 - **Purpose**: Downloads all of the user's observations and saves them as JSON.
-- **How it works**: Paginates the observations API and writes the full result list to `reports/observations.json`.
-- **Git-ignored and always regenerated**: the file is a snapshot that goes stale as soon as new observations are uploaded, so it is not tracked. Don't read it directly. Run this script, or call `refresh()` from `fetch_observations.py`, which re-fetches from the API, rewrites the file and returns the observations. No script currently reads the file; the others fetch live.
+- **How it works**: Paginates the observations API and writes the full result list to `scripts/.cache/observations.json`, and keeps it in memory for the rest of the process.
+- **Git-ignored and always regenerated**: the file is a snapshot that goes stale as soon as new observations are uploaded, so it is not tracked. Don't read it directly. Run this script, or call `refresh()` from `fetch_observations.py`, which re-fetches from the API, rewrites the file and returns the observations.
+- **Helpers**: `cached()` returns the observations in memory (or `None`). `in_ireland()`, `nudibranchs_in_ireland()` and `birds_in_ireland()` give the same results as the API's `place_id` and `taxon_id` filters.
 
 ### `my_places.py`
 - **Purpose**: Lists every distinct `place_guess` string on the user's observations.

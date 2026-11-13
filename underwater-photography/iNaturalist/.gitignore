@@ -2,4 +2,4 @@ dive-logs/workouts/
 archive/dive-logs/workouts/
 __pycache__/
 *.pyc
-reports/observations.json
+scripts/.cache/

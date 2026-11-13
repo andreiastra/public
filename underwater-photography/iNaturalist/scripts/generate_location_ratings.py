@@ -35,6 +35,7 @@ from config import (  # noqa: E402
     PER_PAGE,
     USER_ID,
 )
+from fetch_observations import cached  # noqa: E402
 from site_names import SITE_KEYWORDS, IGNORED_KEYWORDS  # noqa: E402
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
@@ -83,7 +84,12 @@ def fetch_all_observations(notes):
     Fetch all observations from the iNaturalist API.
     On a page-level HTTP error, appends a warning to notes and stops early
     (returning whatever was collected so far rather than aborting entirely).
+    Returns the observations already downloaded in this process (by
+    fetch_observations.refresh(), as in run_all.py) instead of fetching again.
     """
+    observations = cached()
+    if observations is not None:
+        return observations
     print(f"Fetching observations for '{USER_ID}' from iNaturalist…")
     all_obs, page = [], 1
     while True:

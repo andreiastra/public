@@ -19,8 +19,9 @@ source URL in the comment beside it:
 import os
 
 # ── Output ────────────────────────────────────────────────────────────────────
-OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))  # generated reports
+OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))  # generated reports, for the reader
 REPORTS_DIR = OUTPUT_DIR
+CACHE_DIR = os.path.join(os.path.dirname(__file__), ".cache")  # working data for the scripts, git-ignored
 
 # ── User ──────────────────────────────────────────────────────────────────────
 USER_ID = "andreiastra"  # numeric ID 10958443

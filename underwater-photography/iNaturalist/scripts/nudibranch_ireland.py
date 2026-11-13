@@ -23,6 +23,7 @@ from config import (
     THROTTLE_S,
     USER_ID,
 )
+from fetch_observations import cached, nudibranchs_in_ireland
 from generate_location_ratings import photo_md
 from site_names import SITE_KEYWORDS
 
@@ -30,6 +31,9 @@ OUTPUT_FILE = os.path.join(OUTPUT_DIR, "nudibranch_ireland.md")
 
 
 def fetch_nudibranchs():
+    observations = cached()
+    if observations is not None:  # downloaded already (run_all.py): filter locally
+        return nudibranchs_in_ireland(observations)
     print(f"Fetching nudibranch observations in Ireland for {USER_ID}…")
     all_obs, page = [], 1
     while True:
