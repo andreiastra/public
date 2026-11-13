@@ -13,8 +13,10 @@ log scale and differ from rarity_underwater_ireland.py.
 
 Obscured observations are included and flagged, as in the Irish report.
 
+Counts are cached like in rarity_underwater_ireland.py; pass --refresh to fetch them again.
+
 Usage:
-  .venv/bin/python scripts/rarity_underwater_worldwide.py
+  .venv/bin/python scripts/rarity_underwater_worldwide.py [--refresh]
 """
 import os
 import sys

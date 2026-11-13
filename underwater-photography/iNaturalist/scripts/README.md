@@ -33,7 +33,7 @@ Supporting files:
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
 | [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
-| `.cache/` | Working data for the scripts (the observations download). Git-ignored. |
+| `.cache/` | Working data for the scripts (the observations download and the per-taxon rarity counts). Git-ignored. |
 
 ## Scripts
 
@@ -113,7 +113,7 @@ Supporting files:
   - Gets the observations from `underwater_observations()` in [`underwater_ireland.py`](#underwater_irelandpy) and keeps `quality_grade == "research"`. Needs ID observations are ignored.
   - Rarity is the number of distinct observers with a verifiable record (`verifiable=true`: Research Grade or Needs ID) of the taxon anywhere in Ireland (`/v1/observations/observers`). This matches the count on the iNaturalist taxon page. Counting Research Grade only would undercount taxa such as fish that mostly stay at Needs ID. Ties go to the taxon with fewer verifiable observations in Ireland.
   - Ratings: Unique (1 observer, only you), Very rare (2–5), Rare (6–20), Uncommon (21–100), Common (more than 100). Change the cut-offs in `RATINGS`.
-  - Makes 2 API calls per taxon with 0.5 s between them, so a run takes a couple of minutes.
+  - Makes 2 API calls per taxon with 0.5 s between them, so an uncached run takes a couple of minutes. The counts are cached in `scripts/.cache/taxon_counts.json` for 90 days (change `COUNTS_MAX_AGE`), so a normal run only fetches taxa that are new or stale and takes seconds. Run with `--refresh` to fetch every count again.
 - **Obscured locations**: obscured observations (see [Obscured locations](#obscured-locations)) can't be confirmed as underwater. They are still rated, because rarity depends on the taxon, and flagged "obscured, not confirmed underwater" in the Sites column.
 - **Shared code**: the fetching, ranking and rendering live in `generate_report()`, which [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) reuses with a different place and measure.
 - **Output**: `reports/rarity_underwater_ireland.md`
@@ -124,7 +124,7 @@ Supporting files:
   - Calls `generate_report()` from [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) with no `place_id` (worldwide) and `metric="total"`. Only the comparison changes, so the same observations and obscured-location handling apply.
   - Rarity is the worldwide count of verifiable observations of the taxon, fewest first. Ties go to the taxon with fewer distinct observers worldwide.
   - Ratings use a log scale, because worldwide counts are far larger: Unique (1 observation, only yours), Very rare (2–100), Rare (101–1,000), Uncommon (1,001–10,000), Common (more than 10,000). Change the cut-offs in `RATINGS`.
-  - Makes 2 API calls per taxon with 0.5 s between them, so a run takes a couple of minutes.
+  - Makes 2 API calls per taxon with 0.5 s between them. Uses the same count cache as the Ireland report (worldwide entries are stored separately) and also accepts `--refresh`.
 - **Reading it next to the Ireland report**: a taxon can be rare in Ireland and common worldwide (Sand Smelt: 10 observers in Ireland, 503 observations worldwide), or the reverse. The two reports answer different questions.
 - **Output**: `reports/rarity_underwater_worldwide.md`
 

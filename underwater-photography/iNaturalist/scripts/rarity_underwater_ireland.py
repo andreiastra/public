@@ -23,24 +23,31 @@ by rarity_underwater_worldwide.py with a different place and measure.
 
 Throttle: 0.5 s between requests, as in rare_birds_ireland.py.
 
+Cache: the per-taxon counts are stored in scripts/.cache/taxon_counts.json and reused
+for 90 days, so a normal run only fetches taxa that are new or stale. Pass --refresh
+to fetch everything again.
+
 Usage:
-  .venv/bin/python scripts/rarity_underwater_ireland.py
+  .venv/bin/python scripts/rarity_underwater_ireland.py [--refresh]
 """
+import json
 import os
 import sys
 import time
-from datetime import date
+from datetime import date, datetime, timedelta
 
 import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
-from config import API_BASE, IRELAND_PLACE_ID, OUTPUT_DIR, USER_ID
+from config import API_BASE, CACHE_DIR, IRELAND_PLACE_ID, OUTPUT_DIR, USER_ID
 from generate_location_ratings import photo_md
 from site_observations import names
 from underwater_ireland import iucn_status, underwater_observations
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "rarity_underwater_ireland.md")
 REQUEST_PAUSE_S = 0.5
+COUNTS_CACHE = os.path.join(CACHE_DIR, "taxon_counts.json")
+COUNTS_MAX_AGE = timedelta(days=90)
 
 # (max value, rating). The first matching row applies; anything above is DEFAULT_RATING.
 RATINGS = [
@@ -73,6 +80,39 @@ def fetch_counts(taxon_id, place_id=IRELAND_PLACE_ID):
         counts.append(r.json().get("total_results", 0))
         time.sleep(REQUEST_PAUSE_S)
     return tuple(counts)
+
+
+def _cache_key(taxon_id, place_id):
+    # "verifiable" is part of the key so counts taken with another definition are never reused.
+    return f"{taxon_id}:{place_id or 'world'}:verifiable"
+
+
+def load_counts_cache():
+    try:
+        with open(COUNTS_CACHE, encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def save_counts_cache(cache):
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    with open(COUNTS_CACHE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, indent=1, sort_keys=True)
+
+
+def cached_counts(cache, taxon_id, place_id, refresh=False):
+    """Return ((observers, observations), fetched) using the cache when the entry is fresh."""
+    key = _cache_key(taxon_id, place_id)
+    entry = cache.get(key)
+    if entry and not refresh:
+        age = datetime.now() - datetime.fromisoformat(entry["fetched"])
+        if age < COUNTS_MAX_AGE:
+            return (entry["observers"], entry["total"]), False
+    observers, total = fetch_counts(taxon_id, place_id)
+    cache[key] = {"observers": observers, "total": total,
+                  "fetched": datetime.now().isoformat(timespec="seconds")}
+    return (observers, total), True
 
 
 def collect_taxa(site_obs, obscured):
@@ -146,11 +186,20 @@ def generate_report(*, place_id, metric, ratings, title, script, intro, scope, o
     site_obs, obscured = underwater_observations(notes)
     taxa = collect_taxa(site_obs, obscured)
 
-    print(f"{len(taxa)} Research Grade taxa. Fetching {scope} counts…")
-    for i, (tid, info) in enumerate(taxa.items(), 1):
-        info["observers"], info["total"] = fetch_counts(tid, place_id)
-        if i % 20 == 0:
-            print(f"  {i}/{len(taxa)}")
+    refresh = "--refresh" in sys.argv
+    cache = load_counts_cache()
+    fetched = 0
+    print(f"{len(taxa)} Research Grade taxa. Getting {scope} counts…")
+    try:
+        for i, (tid, info) in enumerate(taxa.items(), 1):
+            (info["observers"], info["total"]), was_fetched = cached_counts(
+                cache, tid, place_id, refresh)
+            fetched += was_fetched
+            if i % 20 == 0:
+                print(f"  {i}/{len(taxa)}")
+    finally:
+        save_counts_cache(cache)  # keep progress even if interrupted
+    print(f"  {fetched} fetched, {len(taxa) - fetched} from cache")
 
     other = "total" if metric == "observers" else "observers"
     ranked = sorted(taxa.items(), key=lambda kv: (kv[1][metric], kv[1][other],
