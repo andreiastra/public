@@ -1,6 +1,6 @@
 """
 Fetch andreiastra's iNaturalist observations at a specific dive site (or all sites)
-and write a Markdown report with a thumbnail for each observation to reports/<site>.md.
+and write a Markdown report with a thumbnail for each observation to reports/sites/<site_name>.md.
 
 An observation belongs to the site when its place_guess resolves to the canonical site
 via the keyword list in site_names.py, or when its GPS position is within
@@ -179,7 +179,7 @@ def generate_site_report(site_query, observations=None, notes=None, output_path=
 
     if output_path is None:
         slug = slugify_site_name(canonical_site)
-        output_file = os.path.join(OUTPUT_DIR, f"{slug}.md")
+        output_file = os.path.join(OUTPUT_DIR, "sites", f"{slug}.md")
     else:
         output_file = output_path
 

@@ -43,7 +43,7 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ## Directory Overview
 
-- **[`reports/`](reports)** — Generated markdown reports and summaries (see [`reports/`](reports)).
+- **[`reports/`](reports)** — Generated markdown reports and species summaries (see [`reports/README.md`](reports/README.md)).
 - **[`scripts/`](scripts)** — API data pipelines and markdown report generators (see [`scripts/README.md`](scripts/README.md)).
 - **[`archive/`](archive)** — Historical dive computer logs and matching utilities used for older observations:
   - **[`archive/dive-logs/`](archive/dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`archive/dive-logs/README.md`](archive/dive-logs/README.md)).

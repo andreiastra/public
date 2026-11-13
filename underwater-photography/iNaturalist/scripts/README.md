@@ -18,7 +18,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`my_projects.py`](#my_projectspy) | stdout |
 | [`generate_location_ratings.py`](#generate_location_ratingspy) | `reports/Location_ratings.md` |
 | [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `reports/nudibranch_ireland.md` |
-| [`site_observations.py`](#site_observationspy) | `reports/<site>.md` |
+| [`site_observations.py`](#site_observationspy) | `reports/sites/<site_name>.md` |
 | [`species_classification.py`](#species_classificationpy) | `reports/species_classification.md` |
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
 | [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `reports/rarity_underwater_ireland.md` |
@@ -71,7 +71,7 @@ Supporting files:
 ### `site_observations.py`
 - **Purpose**: Lists all of the user's observations at any specific dive site (or all sites with `--all`), with a species summary and photo thumbnails linked to each observation.
 - **How it works**: Fetches all observations, matches `place_guess` against canonical site keywords from [`site_names.py`](site_names.py), and incorporates any observation within `CLUSTER_RADIUS_M` of the centroid.
-- **Output**: `reports/<site_slug>.md` (e.g. `reports/bank_pier.md`, `reports/kilcrohane_pier.md`).
+- **Output**: `reports/sites/<site_name>.md` (e.g. `reports/sites/bank_pier.md`, `reports/sites/kilcrohane_pier.md`).
 - **Usage**:
   ```bash
   .venv/bin/python scripts/site_observations.py "Bank Pier"
