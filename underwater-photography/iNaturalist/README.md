@@ -9,7 +9,6 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 ## Profile & Links
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
-- **West Cork Dive Highlights:** [dive-highlights-west-cork.html](https://andreiastra.github.io/public/underwater-photography/iNaturalist/dive-highlights-west-cork/dive-highlights-west-cork.html)
 - **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/scripts/OUTPUT/Location_ratings.md)
 - **Species Classification & Organism Types:** [species_classification.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/scripts/OUTPUT/species_classification.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra&place=ireland)
@@ -45,9 +44,9 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 ## Directory Overview
 
 - **[`scripts/`](scripts)** — API data pipelines and markdown report generators (see [`scripts/README.md`](scripts/README.md)).
-- **[`dive-highlights-west-cork/`](dive-highlights-west-cork)** — Interactive HTML highlights showcase (see [`dive-highlights-west-cork/README.md`](dive-highlights-west-cork/README.md)).
-- **[`dive-logs/`](dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index. Used historically as date and location anchors to resolve place names for old observations (see [`dive-logs/README.md`](dive-logs/README.md)).
-- **[`matching-dives-and-places/`](matching-dives-and-places)** — Historical scripts used to resolve place names for old iNaturalist observations by cross-referencing dive log dates against observation dates. No longer needed for new observations (see [`matching-dives-and-places/README.md`](matching-dives-and-places/README.md)).
+- **[`archive/`](archive)** — Historical dive computer logs and matching utilities used for older observations:
+  - **[`archive/dive-logs/`](archive/dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`archive/dive-logs/README.md`](archive/dive-logs/README.md)).
+  - **[`archive/matching-dives-and-places/`](archive/matching-dives-and-places)** — Historical scripts used to resolve place names for old iNaturalist observations (see [`archive/matching-dives-and-places/README.md`](archive/matching-dives-and-places/README.md)).
 - **[`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt)** & **[`Preferred_other_location_names.txt`](Preferred_other_location_names.txt)** — Canonical dive site and terrestrial location reference lists.
 - **[`TODO.md`](TODO.md)** — Active task tracker, known data/generator issues, and backlog improvements.
 
@@ -59,7 +58,7 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ## Requirements & Setup
 
-A shared virtual environment in the project root with `requests` installed is used by all Python scripts across `scripts/`, `dive-highlights-west-cork/`, and `matching-dives-and-places/`:
+A shared virtual environment in the project root with `requests` installed is used by all Python scripts in `scripts/`:
 
 ```bash
 cd /Users/astra/github/public/underwater-photography/iNaturalist

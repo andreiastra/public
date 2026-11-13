@@ -18,7 +18,8 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 
 # Base directory configuration
-BASE_DIR = '/Users/astra/github/public/underwater-photography/iNaturalist'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # underwater-photography/iNaturalist/archive
+REPO_DIR = os.path.dirname(BASE_DIR)  # underwater-photography/iNaturalist
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
 OUTPUT_FILE = os.path.join(BASE_DIR, 'matching-dives-and-places/unmatched_observations.json')
 

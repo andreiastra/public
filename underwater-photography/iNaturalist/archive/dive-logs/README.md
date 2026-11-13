@@ -2,9 +2,9 @@
 
 ## 1. Overview
 
-Directory: `/Users/astra/github/public/underwater-photography/iNaturalist/dive-logs`
+Directory: `/Users/astra/github/public/underwater-photography/iNaturalist/archive/dive-logs`
 
-This directory contains raw dive workout data exported from the Suunto Eon Core dive computer. This file serves as the technical reference for log formats and indexing scripts. For the project-wide overview, workflows, and pending action items / TODOs, see [`../README.md`](../README.md).
+This directory contains raw dive workout data exported from the Suunto Eon Core dive computer. This file serves as the technical reference for log formats and indexing scripts. For the project-wide overview, workflows, and pending action items / TODOs, see [`../../README.md`](../../README.md).
 
 ### Data Structure
 - `workouts/`: Raw dive logs containing `.fit` (binary dive telemetry including depth profile, temperature, and duration) and `.gpx` (GPS metadata, entry timestamps, and dive site description/notes in `<desc>`) files.
@@ -19,7 +19,7 @@ This directory contains raw dive workout data exported from the Suunto Eon Core 
 - **Output**: [`dives_table.md`](dives_table.md)
 - **Execution**:
   ```bash
-  .venv/bin/python dive-logs/generate_dives_table.py
+  .venv/bin/python archive/dive-logs/generate_dives_table.py
   ```
 
 ### Generated Artifact

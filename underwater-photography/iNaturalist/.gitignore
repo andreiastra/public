@@ -1,4 +1,5 @@
 dive-logs/workouts/
+archive/dive-logs/workouts/
 __pycache__/
 *.pyc
 scripts/OUTPUT/observations.json
