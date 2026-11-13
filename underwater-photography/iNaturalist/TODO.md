@@ -8,7 +8,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 * **Problem:** Hardcoded point-in-time counts (e.g. *54 Needs ID*, *17 at Lough Hyne*, *2 observations at Trafrask*) in markdown documentation become stale and inaccurate as new observations or community identifications are made.
 * **TODO:**
   - [x] Remove hardcoded counts from `README.md` and replace with dynamic iNaturalist query links.
-  - [ ] *(Enhancement)* Build an automated script (e.g. `scripts/generate_action_items.py` or extend `generate_location_ratings.py`) to query the live API and output a dynamic `OUTPUT/needs_id_breakdown.md` report on demand.
+  - [ ] *(Enhancement)* Build an automated script (e.g. `scripts/generate_action_items.py` or extend `generate_location_ratings.py`) to query the live API and output a dynamic `reports/needs_id_breakdown.md` report on demand.
 
 ---
 

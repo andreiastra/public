@@ -9,8 +9,8 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 ## Profile & Links
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
-- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/scripts/OUTPUT/Location_ratings.md)
-- **Species Classification & Organism Types:** [species_classification.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/scripts/OUTPUT/species_classification.md)
+- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/reports/Location_ratings.md)
+- **Species Classification & Organism Types:** [species_classification.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/reports/species_classification.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra&place=ireland)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
@@ -43,6 +43,7 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ## Directory Overview
 
+- **[`reports/`](reports)** — Generated markdown reports and summaries (see [`reports/`](reports)).
 - **[`scripts/`](scripts)** — API data pipelines and markdown report generators (see [`scripts/README.md`](scripts/README.md)).
 - **[`archive/`](archive)** — Historical dive computer logs and matching utilities used for older observations:
   - **[`archive/dive-logs/`](archive/dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`archive/dive-logs/README.md`](archive/dive-logs/README.md)).
@@ -91,8 +92,8 @@ To help observations reach **Research Grade** (which requires community consensu
 
 ### 2. 📊 Monitor Site Coverage & Ratings
 Instead of tracking static counts manually in markdown, regenerate the dynamic site reports from live iNaturalist data:
-- Run `.venv/bin/python scripts/generate_location_ratings.py` to update [`scripts/OUTPUT/Location_ratings.md`](scripts/OUTPUT/Location_ratings.md) with current dive counts, observation totals, and species lists per site.
-- Use the summary table in [`Location_ratings.md`](scripts/OUTPUT/Location_ratings.md) to identify under-explored dive sites.
+- Run `.venv/bin/python scripts/generate_location_ratings.py` to update [`reports/Location_ratings.md`](reports/Location_ratings.md) with current dive counts, observation totals, and species lists per site.
+- Use the summary table in [`Location_ratings.md`](reports/Location_ratings.md) to identify under-explored dive sites.
 
 ### 3. 📋 Track Known Issues & Data Tasks
 For active bug fixes, canonical site list pruning, and generator enhancements, see [`TODO.md`](TODO.md).

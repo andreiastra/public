@@ -1,7 +1,7 @@
 """
 Rate andreiastra's Research Grade underwater observations in Ireland by how many
 Research Grade observations of the taxon exist worldwide on iNaturalist, and write
-a Markdown report to OUTPUT/rarity_underwater_worldwide.md.
+a Markdown report to reports/rarity_underwater_worldwide.md.
 
 The observations are the same as in rarity_underwater_ireland.py (Irish dive
 sites, Research Grade only). Only the comparison changes: the Irish report counts

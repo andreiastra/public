@@ -1,7 +1,7 @@
 # Requirements: `Location_ratings.md` Generator
 
 **Script:** `scripts/generate_location_ratings.py`
-**Output:** `scripts/OUTPUT/Location_ratings.md`
+**Output:** `reports/Location_ratings.md`
 
 ---
 

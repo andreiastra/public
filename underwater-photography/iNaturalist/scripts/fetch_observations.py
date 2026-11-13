@@ -1,5 +1,5 @@
 """
-Fetch all iNaturalist observations for andreiastra and save to OUTPUT/observations.json.
+Fetch all iNaturalist observations for andreiastra and save to reports/observations.json.
 
 The file is a git-ignored snapshot and goes stale as soon as new observations are
 uploaded.  Never read it directly: call refresh() (or run this script), which

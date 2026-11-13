@@ -1,5 +1,5 @@
 """
-Generates OUTPUT/Location_ratings.md — a structured dive-site reference with:
+Generates reports/Location_ratings.md — a structured dive-site reference with:
   - Number of dive sessions per site (distinct observation dates at that site)
   - iNaturalist observations per site (fetched live from the API)
   - Each observation as a clickable photo thumbnail linking to the observation page

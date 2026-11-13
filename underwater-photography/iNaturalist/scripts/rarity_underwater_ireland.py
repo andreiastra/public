@@ -1,6 +1,6 @@
 """
 Rate andreiastra's Research Grade underwater observations in Ireland by rarity
-and write a Markdown report to OUTPUT/rarity_underwater_ireland.md.
+and write a Markdown report to reports/rarity_underwater_ireland.md.
 
 Which observations count: underwater_ireland.underwater_observations() (clustered
 onto a dive site), keeping Research Grade only.

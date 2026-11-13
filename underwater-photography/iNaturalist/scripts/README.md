@@ -12,17 +12,17 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 
 | Script | Output |
 |---|---|
-| [`fetch_observations.py`](#fetch_observationspy) | `OUTPUT/observations.json` |
+| [`fetch_observations.py`](#fetch_observationspy) | `reports/observations.json` |
 | [`my_places.py`](#my_placespy) | stdout |
 | [`my_locations.py`](#my_locationspy) | stdout |
 | [`my_projects.py`](#my_projectspy) | stdout |
-| [`generate_location_ratings.py`](#generate_location_ratingspy) | `OUTPUT/Location_ratings.md` |
-| [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `OUTPUT/nudibranch_ireland.md` |
-| [`site_observations.py`](#site_observationspy) | `OUTPUT/<site>.md` |
-| [`species_classification.py`](#species_classificationpy) | `OUTPUT/species_classification.md` |
-| [`underwater_ireland.py`](#underwater_irelandpy) | `OUTPUT/underwater_ireland.md` |
-| [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `OUTPUT/rarity_underwater_ireland.md` |
-| [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) | `OUTPUT/rarity_underwater_worldwide.md` |
+| [`generate_location_ratings.py`](#generate_location_ratingspy) | `reports/Location_ratings.md` |
+| [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `reports/nudibranch_ireland.md` |
+| [`site_observations.py`](#site_observationspy) | `reports/<site>.md` |
+| [`species_classification.py`](#species_classificationpy) | `reports/species_classification.md` |
+| [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
+| [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `reports/rarity_underwater_ireland.md` |
+| [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) | `reports/rarity_underwater_worldwide.md` |
 | [`rare_birds_ireland.py`](#rare_birds_irelandpy) | stdout |
 
 Supporting files:
@@ -31,13 +31,13 @@ Supporting files:
 |---|---|
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
 | [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
-| `OUTPUT/` | All generated files: reports and the observations download. Safe to regenerate. |
+| [`../reports/`](../reports) | All generated files: reports and the observations download. Safe to regenerate. |
 
 ## Scripts
 
 ### `fetch_observations.py`
 - **Purpose**: Downloads all of the user's observations and saves them as JSON.
-- **How it works**: Paginates the observations API and writes the full result list to `OUTPUT/observations.json`.
+- **How it works**: Paginates the observations API and writes the full result list to `reports/observations.json`.
 - **Git-ignored and always regenerated**: the file is a snapshot that goes stale as soon as new observations are uploaded, so it is not tracked. Don't read it directly. Run this script, or call `refresh()` from `fetch_observations.py`, which re-fetches from the API, rewrites the file and returns the observations. No script currently reads the file; the others fetch live.
 
 ### `my_places.py`
@@ -54,7 +54,7 @@ Supporting files:
 - **Purpose**: Lists the collection and umbrella projects the user has joined.
 
 ### `generate_location_ratings.py`
-- **Purpose**: Generates [`OUTPUT/Location_ratings.md`](OUTPUT/Location_ratings.md), a per-site index of dive sessions and observations with clickable photo thumbnails. Full spec: [`generate_location_ratings_REQUIREMENTS.md`](generate_location_ratings_REQUIREMENTS.md).
+- **Purpose**: Generates [`reports/Location_ratings.md`](../reports/Location_ratings.md), a per-site index of dive sessions and observations with clickable photo thumbnails. Full spec: [`generate_location_ratings_REQUIREMENTS.md`](generate_location_ratings_REQUIREMENTS.md).
 - **How it works**:
   - Fetches all observations and clusters them (500 m radius).
   - Resolves each cluster to a canonical site name via [`site_names.py`](site_names.py).
@@ -66,12 +66,12 @@ Supporting files:
 ### `nudibranch_ireland.py`
 - **Purpose**: Lists the user's nudibranch (order Nudibranchia) observations in Ireland, grouped by dive site, with a photo thumbnail and a link to each observation.
 - **How it works**: Filters the observations API by the nudibranch `taxon_id` and Ireland `place_id`, resolves each place to a site name via [`site_names.py`](site_names.py), and writes a site summary table and an observation table.
-- **Output**: `OUTPUT/nudibranch_ireland.md`
+- **Output**: `reports/nudibranch_ireland.md`
 
 ### `site_observations.py`
 - **Purpose**: Lists all of the user's observations at any specific dive site (or all sites with `--all`), with a species summary and photo thumbnails linked to each observation.
 - **How it works**: Fetches all observations, matches `place_guess` against canonical site keywords from [`site_names.py`](site_names.py), and incorporates any observation within `CLUSTER_RADIUS_M` of the centroid.
-- **Output**: `OUTPUT/<site_slug>.md` (e.g. `OUTPUT/bank_pier.md`, `OUTPUT/kilcrohane_pier.md`).
+- **Output**: `reports/<site_slug>.md` (e.g. `reports/bank_pier.md`, `reports/kilcrohane_pier.md`).
 - **Usage**:
   ```bash
   .venv/bin/python scripts/site_observations.py "Bank Pier"
@@ -80,23 +80,23 @@ Supporting files:
   ```
 
 ### `species_classification.py`
-- **Purpose**: Generates [`OUTPUT/species_classification.md`](OUTPUT/species_classification.md), a comprehensive breakdown of user observations in Ireland categorized into clean organism types (Bird, Fish, Crab, Nudibranch, Anemone, Sponge, Jellyfish, Flatworm, etc.) with a summary table, full species list, and individual sightings with thumbnails.
+- **Purpose**: Generates [`reports/species_classification.md`](../reports/species_classification.md), a comprehensive breakdown of user observations in Ireland categorized into clean organism types (Bird, Fish, Crab, Nudibranch, Anemone, Sponge, Jellyfish, Flatworm, etc.) with a summary table, full species list, and individual sightings with thumbnails.
 - **How it works**: Fetches user observations in Ireland (`place_id=6718`), traverses taxonomic hierarchies and ancestry to classify each observation into human-friendly organism types, and produces a structured report.
-- **Shared helper**: Also exports `species_type(obs)`, which is imported directly by other scripts (such as `site_observations.py`) to classify live API observation objects. Other scripts do **not** read or depend on the generated `OUTPUT/species_classification.md` file from disk.
-- **Output**: `OUTPUT/species_classification.md`
+- **Shared helper**: Also exports `species_type(obs)`, which is imported directly by other scripts (such as `site_observations.py`) to classify live API observation objects. Other scripts do **not** read or depend on the generated `reports/species_classification.md` file from disk.
+- **Output**: `reports/species_classification.md`
 
 ### `underwater_ireland.py`
-- **Purpose**: Generates [`OUTPUT/underwater_ireland.md`](OUTPUT/underwater_ireland.md), listing all of the user's underwater observations in Ireland, grouped by dive site (most observations first), with a site summary table and a photo thumbnail linked to each observation.
+- **Purpose**: Generates [`reports/underwater_ireland.md`](../reports/underwater_ireland.md), listing all of the user's underwater observations in Ireland, grouped by dive site (most observations first), with a site summary table and a photo thumbnail linked to each observation.
 - **How it works**: Reuses `fetch_all_observations()`, `cluster_and_label()`, `count_dives_per_site()`, `species_per_site()` and `render_site_section()` from `generate_location_ratings.py`, so "underwater" means the observation clusters onto a site in [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). Birding and other above-water places are excluded. Non-Irish dive sites (`NON_IRELAND_SITES`, currently Scapa Flow) are dropped.
 - **Obscured locations**: the reference implementation of the handling described in [Obscured locations](#obscured-locations). The script:
   - Splits out every `obscured` observation before clustering, so none are placed on a site.
   - Lists them in a separate **Obscured locations** section, most threatened first (CR, EN, VU, NT), with their IUCN status.
   - Skips obscured observations at ignored places (`IGNORED_KEYWORDS`, for example the Egypt trip).
   - Doesn't count them in the site totals, only in the "with obscured location" count in the report header.
-- **Output**: `OUTPUT/underwater_ireland.md`. Unresolved clusters appear as a `⚠️` warning at the top of the report (see [Keeping places up to date](#keeping-places-up-to-date)).
+- **Output**: `reports/underwater_ireland.md`. Unresolved clusters appear as a `⚠️` warning at the top of the report (see [Keeping places up to date](#keeping-places-up-to-date)).
 
 ### `rarity_underwater_ireland.py`
-- **Purpose**: Generates [`OUTPUT/rarity_underwater_ireland.md`](OUTPUT/rarity_underwater_ireland.md), rating the user's **Research Grade** underwater taxa in Ireland by rarity, rarest first, with a thumbnail, rating, IUCN status, the user's observation count and the dive sites.
+- **Purpose**: Generates [`reports/rarity_underwater_ireland.md`](../reports/rarity_underwater_ireland.md), rating the user's **Research Grade** underwater taxa in Ireland by rarity, rarest first, with a thumbnail, rating, IUCN status, the user's observation count and the dive sites.
 - **How it works**:
   - Gets the observations from `underwater_observations()` in [`underwater_ireland.py`](#underwater_irelandpy) and keeps `quality_grade == "research"`. Needs ID observations are ignored.
   - Rarity is the number of distinct observers with a Research Grade record of the taxon anywhere in Ireland (`/v1/observations/observers`), the same measure as `rare_birds_ireland.py` but counting Research Grade only. Ties go to the taxon with fewer Research Grade observations in Ireland.
@@ -104,17 +104,17 @@ Supporting files:
   - Makes 2 API calls per taxon with 0.5 s between them, so a run takes a couple of minutes.
 - **Obscured locations**: obscured observations (see [Obscured locations](#obscured-locations)) can't be confirmed as underwater. They are still rated, because rarity depends on the taxon, and flagged "obscured, not confirmed underwater" in the Sites column.
 - **Shared code**: the fetching, ranking and rendering live in `generate_report()`, which [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) reuses with a different place and measure.
-- **Output**: `OUTPUT/rarity_underwater_ireland.md`
+- **Output**: `reports/rarity_underwater_ireland.md`
 
 ### `rarity_underwater_worldwide.py`
-- **Purpose**: Generates [`OUTPUT/rarity_underwater_worldwide.md`](OUTPUT/rarity_underwater_worldwide.md), the same Research Grade underwater observations as the Ireland report, but ranked against the number of Research Grade observations **worldwide**.
+- **Purpose**: Generates [`reports/rarity_underwater_worldwide.md`](../reports/rarity_underwater_worldwide.md), the same Research Grade underwater observations as the Ireland report, but ranked against the number of Research Grade observations **worldwide**.
 - **How it works**:
   - Calls `generate_report()` from [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) with no `place_id` (worldwide) and `metric="total"`. Only the comparison changes, so the same observations and obscured-location handling apply.
   - Rarity is the worldwide count of Research Grade observations of the taxon, fewest first. Ties go to the taxon with fewer distinct observers worldwide.
   - Ratings use a log scale, because worldwide counts are far larger: Unique (1 observation, only yours), Very rare (2–100), Rare (101–1,000), Uncommon (1,001–10,000), Common (more than 10,000). Change the cut-offs in `RATINGS`.
   - Makes 2 API calls per taxon with 0.5 s between them, so a run takes a couple of minutes.
 - **Reading it next to the Ireland report**: a taxon can be rare in Ireland and common worldwide (Sand Smelt: 3 observers in Ireland, 177 observations worldwide), or the reverse. The two reports answer different questions.
-- **Output**: `OUTPUT/rarity_underwater_worldwide.md`
+- **Output**: `reports/rarity_underwater_worldwide.md`
 
 ### `rare_birds_ireland.py`
 - **Purpose**: Ranks the user's Irish bird species by rarity, measured as the number of **distinct observers** who have recorded the species anywhere in Ireland on iNaturalist (fewest observers = rarest).
@@ -178,11 +178,11 @@ Scripts that don't handle this yet are tracked in [`../TODO.md`](../TODO.md).
 - Sleep about 1 second between pages (`THROTTLE_S` in `config.py`).
 - Use `timeout=30` on requests.
 - No authentication is needed for public read access. The catch is that threatened species come back with [obscured locations](#obscured-locations).
-- Write every generated file to `OUTPUT_DIR` (`scripts/OUTPUT/`), never next to the sources.
+- Write every generated file to `OUTPUT_DIR` (`reports/`), never next to the sources.
 
 ## Keeping places up to date
 
-Places change occasionally, so nothing runs on a schedule. `OUTPUT/Location_ratings.md` is only as current as its last run.
+Places change occasionally, so nothing runs on a schedule. `reports/Location_ratings.md` is only as current as its last run.
 
 **Regenerate it** after you add or rename a place, or after a batch of new observations:
 

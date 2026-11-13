@@ -1,6 +1,6 @@
 """
 Write a Markdown report of andreiastra's underwater observations in Ireland,
-grouped by dive site, to OUTPUT/underwater_ireland.md.
+grouped by dive site, to reports/underwater_ireland.md.
 
 Reuses generate_location_ratings (fetching, clustering, site resolution and
 per-site rendering). Underwater means the observation clusters onto a dive site

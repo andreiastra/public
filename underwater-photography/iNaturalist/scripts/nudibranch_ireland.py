@@ -1,6 +1,6 @@
 """
 Fetch andreiastra's nudibranch observations in Ireland from iNaturalist and
-write a Markdown report, grouped by site, to OUTPUT/nudibranch_ireland.md.
+write a Markdown report, grouped by site, to reports/nudibranch_ireland.md.
 
 Sites are resolved with the keyword list in site_names.py; places with no match
 fall back to the first part of the observation's place_guess.

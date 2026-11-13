@@ -1,6 +1,6 @@
 """
 Fetch andreiastra's iNaturalist observations at a specific dive site (or all sites)
-and write a Markdown report with a thumbnail for each observation to OUTPUT/<site>.md.
+and write a Markdown report with a thumbnail for each observation to reports/<site>.md.
 
 An observation belongs to the site when its place_guess resolves to the canonical site
 via the keyword list in site_names.py, or when its GPS position is within
