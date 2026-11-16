@@ -70,14 +70,14 @@ python3 -m venv .venv
 Run any script directly without activating the venv:
 
 ```bash
-.venv/bin/python scripts/my_projects.py
+.venv/bin/python scripts/run_all.py
 ```
 
 Or activate for the session:
 
 ```bash
 source .venv/bin/activate
-python scripts/my_projects.py
+python scripts/run_all.py
 deactivate
 ```
 

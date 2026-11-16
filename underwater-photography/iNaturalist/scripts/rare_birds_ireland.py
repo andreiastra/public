@@ -1,117 +1,162 @@
 """
-Fetches all bird (Aves) observations for a given iNaturalist user in Ireland
-and ranks each species by how rarely it is recorded in Ireland overall.
+Rank andreiastra's bird (Aves) species in Ireland by how rarely they are recorded
+in Ireland overall, and write a Markdown report to reports/rare_birds_ireland.md.
 
-Rarity is measured by the number of distinct observers who have recorded the
-species in Ireland on iNaturalist — a species seen by only a handful of people
-is genuinely rare, independent of how many times any one person photographed it.
+Rarity of a species is the number of distinct observers who have a verifiable
+observation (Research Grade or Needs ID) of it anywhere in Ireland on iNaturalist
+(fewest = rarest), independent of how many times any one person photographed it.
+Ties go to the species with fewer verifiable observations in Ireland. Same measure,
+rating cut-offs and count cache as rarity_underwater_ireland.py.
 
 Uses the iNaturalist API endpoints:
   GET /v1/observations?user_id={user_id}&taxon_id=3&place_id={ireland_id}
-  GET /v1/observations/observers?taxon_id={taxon_id}&place_id={ireland_id}
+  GET /v1/observations/observers?taxon_id={taxon_id}&place_id={ireland_id}&verifiable=true
+  GET /v1/observations?taxon_id={taxon_id}&place_id={ireland_id}&verifiable=true&per_page=0
 
-Throttle: ~0.5 s between per-taxon requests to respect the API rate limit.
+The user's bird observations come from the download made by run_all.py when there
+is one, otherwise from the API.
+
+Throttle: 0.5 s between per-taxon requests to respect the API rate limit. The
+per-taxon counts are cached in scripts/.cache/taxon_counts.json for 90 days; pass
+--refresh to fetch everything again.
 
 Usage:
-  .venv/bin/python scripts/rare_birds_ireland.py
+  .venv/bin/python scripts/rare_birds_ireland.py [--refresh]
 """
-
+import os
+import sys
 import time
+from datetime import date
 
 import requests
 
+sys.path.insert(0, os.path.dirname(__file__))
 from config import (
-    API_BASE as BASE,
     AVES_TAXON_ID,
     IRELAND_PLACE_ID,
+    OBSERVATIONS_URL,
+    OUTPUT_DIR,
     PER_PAGE,
-    USER_ID as USER,
+    THROTTLE_S,
+    USER_ID,
+)
+from fetch_observations import birds_in_ireland, cached
+from generate_location_ratings import photo_md
+from rarity_underwater_ireland import (
+    RATINGS,
+    cached_counts,
+    legend,
+    load_counts_cache,
+    rating,
+    save_counts_cache,
 )
 
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "rare_birds_ireland.md")
 
-def fetch_bird_observations(user: str, place_id: int) -> list[dict]:
-    """Return all Aves observations for *user* within *place_id*."""
-    observations: list[dict] = []
-    page = 1
+
+def fetch_bird_observations():
+    """Return all of the user's Aves observations in Ireland."""
+    observations = cached()
+    if observations is not None:  # downloaded already (run_all.py): filter locally
+        return birds_in_ireland(observations)
+    print(f"Fetching bird observations for {USER_ID} in Ireland (place {IRELAND_PLACE_ID})…")
+    all_obs, page = [], 1
     while True:
-        r = requests.get(
-            f"{BASE}/observations",
-            params={
-                "user_id": user,
-                "taxon_id": AVES_TAXON_ID,
-                "place_id": place_id,
-                "per_page": PER_PAGE,
-                "page": page,
-            },
-        )
+        r = requests.get(OBSERVATIONS_URL, params={
+            "user_id":  USER_ID,
+            "taxon_id": AVES_TAXON_ID,
+            "place_id": IRELAND_PLACE_ID,
+            "per_page": PER_PAGE,
+            "page":     page,
+        }, timeout=30)
         r.raise_for_status()
         data = r.json()
         results = data.get("results", [])
-        observations.extend(results)
-        if not results or len(observations) >= data.get("total_results", 0):
+        all_obs.extend(results)
+        print(f"  page {page}: {len(results)} obs  (running total: {len(all_obs)})")
+        if not results or len(all_obs) >= data.get("total_results", 0):
             break
         page += 1
-        time.sleep(1)
-    return observations
+        time.sleep(THROTTLE_S)
+    return all_obs
 
 
-def ireland_observer_count(taxon_id: int, place_id: int) -> int:
-    """Return the number of distinct observers for *taxon_id* in *place_id*."""
-    r = requests.get(
-        f"{BASE}/observations/observers",
-        params={"taxon_id": taxon_id, "place_id": place_id, "per_page": 1, "verifiable": "any"},
-    )
-    r.raise_for_status()
-    return r.json().get("total_results", 0)
-
-
-def main() -> None:
-    print(f"Fetching bird observations for {USER} in Ireland (place {IRELAND_PLACE_ID})…")
-    observations = fetch_bird_observations(USER, IRELAND_PLACE_ID)
-    print(f"  {len(observations)} observations found.")
-
-    # Collect unique taxa
-    taxa: dict[int, dict] = {}
+def collect_taxa(observations):
+    """Group observations by taxon id."""
+    taxa = {}
     for obs in observations:
-        t = obs.get("taxon")
-        if not t:
+        taxon = obs.get("taxon")
+        if not taxon:
             continue
-        tid: int = t["id"]
-        if tid not in taxa:
-            taxa[tid] = {
-                "common": t.get("preferred_common_name") or t.get("name"),
-                "name": t.get("name"),
-                "my_observations": [],
-            }
-        taxa[tid]["my_observations"].append(
-            {
-                "id": obs["id"],
-                "date": obs.get("observed_on"),
-                "place": obs.get("place_guess"),
-                "quality": obs.get("quality_grade"),
-            }
+        info = taxa.setdefault(taxon["id"], {
+            "common": taxon.get("preferred_common_name") or taxon.get("name"),
+            "name": taxon.get("name"),
+            "obs": [],
+        })
+        info["obs"].append(obs)
+    return taxa
+
+
+def obs_url(obs):
+    return obs.get("uri") or f"https://www.inaturalist.org/observations/{obs['id']}"
+
+
+def render(ranked):
+    lines = [
+        "# Rarity of bird observations in Ireland\n",
+        f"> Generated by `scripts/rare_birds_ireland.py` on {date.today()} "
+        f"from live iNaturalist data for `{USER_ID}`. Your observations: all grades. "
+        "Comparison counts: all verifiable observations.\n",
+        f"**{len(ranked)}** species · **{sum(len(i['obs']) for _, i in ranked)}** observations\n",
+        "Rarity is the number of distinct observers with a verifiable record (Research Grade "
+        "or Needs ID) of the species anywhere in Ireland (fewest = rarest). Ties go to the "
+        "species with fewer verifiable observations in Ireland.\n",
+        *legend(RATINGS, "observers"),
+        "\n| # | Photo | Species | Rating | IE observers | IE obs | My obs | Dates | Places |",
+        "|--:|---|---|---|--:|--:|--:|---|---|",
+    ]
+    for rank, (tid, info) in enumerate(ranked, 1):
+        mine = sorted(info["obs"], key=lambda o: o.get("observed_on") or "")
+        label = f"[{info['common']}](https://www.inaturalist.org/taxa/{tid})"
+        if info["name"] and info["name"] != info["common"]:
+            label += f" (*{info['name']}*)"
+        dates = ", ".join(f"[{o['observed_on']}]({obs_url(o)})" for o in mine if o.get("observed_on"))
+        places = ", ".join(sorted({o["place_guess"] for o in mine if o.get("place_guess")}))
+        lines.append(
+            f"| {rank} | {photo_md(mine[0])} | {label} | {rating(info['observers'])} "
+            f"| {info['observers']:,} | {info['total']:,} | {len(mine)} | {dates or '—'} | {places or '—'} |"
         )
+    return "\n".join(lines) + "\n"
 
-    print(f"  {len(taxa)} unique taxa. Fetching Ireland-wide observer counts…")
-    for tid, info in taxa.items():
-        info["ireland_observers"] = ireland_observer_count(tid, IRELAND_PLACE_ID)
-        time.sleep(0.5)
 
-    # Sort rarest first (fewest distinct observers in Ireland)
-    ranked = sorted(taxa.items(), key=lambda x: x[1]["ireland_observers"])
+def main():
+    observations = fetch_bird_observations()
+    taxa = collect_taxa(observations)
+    if not taxa:
+        print("No bird observations found in Ireland.")
+        return
+    print(f"{len(observations)} observations, {len(taxa)} species. Getting Ireland-wide counts…")
 
-    print(
-        f"\n{'Rank':<5} {'Common Name':<40} {'Scientific Name':<35} {'IE observers':>12}  {'My obs':>6}  Observation IDs & Dates & Locations"
-    )
-    print("-" * 150)
-    for rank, (tid, info) in enumerate(ranked, start=1):
-        my = info["my_observations"]
-        obs_ids = ", ".join(str(o["id"]) for o in sorted(my, key=lambda o: o["date"] or ""))
-        dates = ", ".join(sorted({o["date"] for o in my if o["date"]}))
-        places = ", ".join(sorted({o["place"] for o in my if o["place"]}))
-        print(
-            f"{rank:<5} {info['common']:<40} {info['name']:<35} {info['ireland_observers']:>12}  {len(my):>6}  [{obs_ids}] {dates} | {places}"
-        )
+    refresh = "--refresh" in sys.argv
+    cache = load_counts_cache()
+    fetched = 0
+    try:
+        for i, (tid, info) in enumerate(taxa.items(), 1):
+            (info["observers"], info["total"]), was_fetched = cached_counts(
+                cache, tid, IRELAND_PLACE_ID, refresh)
+            fetched += was_fetched
+            if i % 20 == 0:
+                print(f"  {i}/{len(taxa)}")
+    finally:
+        save_counts_cache(cache)  # keep progress even if interrupted
+    print(f"  {fetched} fetched, {len(taxa) - fetched} from cache")
+
+    ranked = sorted(taxa.items(), key=lambda kv: (kv[1]["observers"], kv[1]["total"],
+                                                 (kv[1]["common"] or "").lower()))
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write(render(ranked))
+    print(f"Saved {len(ranked)} species → {os.path.normpath(OUTPUT_FILE)}")
 
 
 if __name__ == "__main__":

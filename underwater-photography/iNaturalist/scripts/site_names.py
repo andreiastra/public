@@ -8,11 +8,11 @@ names defined in Preferred_dive_site_names_ireland.txt.
 
 Each entry was derived by running:
 
-    .venv/bin/python scripts/my_locations.py
+    .venv/bin/python scripts/generate_location_ratings.py
 
-and inspecting the place_guess strings printed under each cluster.  For every
-cluster the place_guess values were examined and the shortest substring that
-uniquely identifies the site was chosen as the keyword.
+and inspecting the place_guess strings in the warning block for unresolved
+clusters.  For every cluster the place_guess values were examined and the
+shortest substring that uniquely identifies the site was chosen as the keyword.
 
 Two kinds of entries exist:
 
@@ -33,18 +33,18 @@ This list MUST be re-verified whenever:
   - New observations are uploaded for a site not yet in the list
 
 To refresh:
-  1. Run:  .venv/bin/python scripts/my_locations.py
-  2. For any cluster labelled "Unknown" or showing a raw place_guess instead
-     of a canonical name, inspect the printed place_guess strings.
+  1. Run:  .venv/bin/python scripts/generate_location_ratings.py
+  2. For each cluster in the warning block at the top of
+     reports/Location_ratings.md, inspect the sample place_guess.
   3. Add an entry here with the identifying fragment and the canonical name.
-  4. Re-run my_locations.py to confirm the cluster resolves correctly.
+  4. Re-run generate_location_ratings.py to confirm the warning is gone.
 
 ── Non-dive locations ────────────────────────────────────────────────────────
 
 IGNORED_KEYWORDS lists place_guess fragments for known terrestrial, birding,
 or otherwise non-dive locations.  Any cluster whose place_guess matches one of
 these is silently skipped by generate_location_ratings.py — no unresolved-
-cluster warning is raised.  Add entries here whenever my_locations.py shows a
+cluster warning is raised.  Add entries here whenever the warning block shows a
 cluster that should never appear in Location_ratings.md.
 
 ── Rules ─────────────────────────────────────────────────────────────────────
@@ -53,13 +53,12 @@ cluster that should never appear in Location_ratings.md.
   - Canonical names must match Preferred_dive_site_names_ireland.txt exactly.
 
 Imported by:
-  scripts/my_locations.py
   scripts/generate_location_ratings.py
 """
 
 # Fragments that identify non-dive locations.  Clusters whose combined
 # place_guess contains any of these are silently excluded from the output.
-# Verified against live my_locations.py output.
+# Verified against live generate_location_ratings.py output.
 IGNORED_KEYWORDS = [
     # Egypt trip (Red Sea) — not tracked in the West Cork site list
     "egypt",
@@ -119,7 +118,7 @@ SITE_KEYWORDS = [
     ("uc42",           "UC42"),
     # place_guess: "Small Sovereign Island, Ireland" / "Small Sovereign Island, Cork, Co. Cork, Ireland"
     ("small sovereign", "Small Sovereign Island"),
-    # place_guess: "Audley Cove, Co. Cork" (verify against my_locations.py output)
+    # place_guess: "Audley Cove, Co. Cork" (verify against the generate_location_ratings.py warning block)
     ("audley",         "Audley Cove"),
     # place_guess: "Scapa Flow, United Kingdom"
     ("scapa",          "Scapa Flow"),

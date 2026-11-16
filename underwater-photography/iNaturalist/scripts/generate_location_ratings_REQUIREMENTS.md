@@ -90,9 +90,9 @@ Observations are assigned to sites in two steps:
 
 ## Prerequisites
 
-1. `scripts/site_names.py` must be current — run `scripts/my_locations.py` and
-   verify every cluster resolves to a canonical name or is listed in
-   `IGNORED_KEYWORDS` before generating.
+1. `scripts/site_names.py` must be current — generate the report and check that
+   the `⚠️` warning block lists no unresolved cluster. Each one must resolve to a
+   canonical name or be listed in `IGNORED_KEYWORDS`.
 2. `.venv` with `requests` installed (`pip install requests`).
 
 ---

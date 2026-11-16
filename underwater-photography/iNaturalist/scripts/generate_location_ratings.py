@@ -130,7 +130,7 @@ def fetch_all_observations(notes):
 
 def cluster_and_label(observations, dive_sites, notes):
     """
-    Greedy 500 m radius clustering (same algorithm as my_locations.py).
+    Greedy 500 m radius clustering.
     Returns dict: canonical_site_name → list of observation dicts.
     Only clusters that resolve to a name present in dive_sites are kept.
     Appends a warning to notes for each cluster that could not be resolved.

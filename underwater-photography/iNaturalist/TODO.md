@@ -37,8 +37,8 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 4. 🟡 Handle Obscured Locations in Other Scripts
 * **Problem:** iNaturalist hides the true location of threatened species from the public API (`obscured: true`), so GPS-based scripts miss them or place them at the wrong site. Only [`scripts/underwater_ireland.py`](scripts/underwater_ireland.py) handles this. Details: [`scripts/README.md`](scripts/README.md#obscured-locations).
-* **Affected, wrong results:** `generate_location_ratings.py` (unmatched-cluster warning, observation missing from the site), `site_observations.py` and `my_locations.py` (distance clustering), `nudibranch_ireland.py` (matches on `place_guess`, which is "Cork, IE" for obscured observations, so the site falls back to that name).
-* **Affected, display only:** `my_places.py`, `species_classification.py` and `rare_birds_ireland.py` print `place_guess`, so obscured observations show a vague place such as "Cork, IE". Nothing is misplaced, but the place shown is not the real one.
+* **Affected, wrong results:** `generate_location_ratings.py` (unmatched-cluster warning, observation missing from the site), `site_observations.py` (distance clustering), `nudibranch_ireland.py` (matches on `place_guess`, which is "Cork, IE" for obscured observations, so the site falls back to that name).
+* **Affected, display only:** `species_classification.py` and `rare_birds_ireland.py` show `place_guess`, so obscured observations show a vague place such as "Cork, IE". Nothing is misplaced, but the place shown is not the real one.
 * **TODO:**
   - [ ] Move the obscured-observation split from `underwater_ireland.py` into a shared helper in `generate_location_ratings.py`.
   - [ ] Use it in the other scripts, and list obscured observations separately instead of dropping them or raising an unmatched-cluster warning.

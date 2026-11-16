@@ -12,11 +12,8 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 
 | Script | Output |
 |---|---|
-| [`run_all.py`](#run_allpy) | all the reports below (except `my_*` and `rare_birds_ireland.py`) |
+| [`run_all.py`](#run_allpy) | all the reports below |
 | [`fetch_observations.py`](#fetch_observationspy) | `scripts/.cache/observations.json` |
-| [`my_places.py`](#my_placespy) | stdout |
-| [`my_locations.py`](#my_locationspy) | stdout |
-| [`my_projects.py`](#my_projectspy) | stdout |
 | [`generate_location_ratings.py`](#generate_location_ratingspy) | `reports/Location_ratings.md` |
 | [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `reports/nudibranch_ireland.md` |
 | [`site_observations.py`](#site_observationspy) | `reports/sites/<site_name>.md` |
@@ -24,7 +21,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
 | [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `reports/rarity_underwater_ireland.md` |
 | [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) | `reports/rarity_underwater_worldwide.md` |
-| [`rare_birds_ireland.py`](#rare_birds_irelandpy) | stdout |
+| [`rare_birds_ireland.py`](#rare_birds_irelandpy) | `reports/rare_birds_ireland.md` |
 
 Supporting files:
 
@@ -39,9 +36,8 @@ Supporting files:
 
 ### `run_all.py`
 - **Purpose**: Runs every script that writes a report, in one go, with a single download of the observations.
-- **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts still make 2 API calls per taxon.
+- **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts (including the birds) still make 2 API calls per taxon.
 - **Order**: `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
-- **Not included**: `my_places.py`, `my_locations.py`, `my_projects.py` and `rare_birds_ireland.py`, because they only print to the terminal. Run them by hand.
 - **Usage**: `.venv/bin/python scripts/run_all.py`
 - **Standalone runs**: each script still works on its own. With nothing in memory it fetches from the API as before.
 - **Run reports**: after a full run, write up what changed in [`../reports/runs/`](../reports/runs). The procedure is in [`RUN_REPORT.md`](RUN_REPORT.md).
@@ -51,19 +47,6 @@ Supporting files:
 - **How it works**: Paginates the observations API and writes the full result list to `scripts/.cache/observations.json`, and keeps it in memory for the rest of the process.
 - **Git-ignored and always regenerated**: the file is a snapshot that goes stale as soon as new observations are uploaded, so it is not tracked. Don't read it directly. Run this script, or call `refresh()` from `fetch_observations.py`, which re-fetches from the API, rewrites the file and returns the observations.
 - **Helpers**: `cached()` returns the observations in memory (or `None`). `in_ireland()`, `nudibranchs_in_ireland()` and `birds_in_ireland()` give the same results as the API's `place_id` and `taxon_id` filters.
-
-### `my_places.py`
-- **Purpose**: Lists every distinct `place_guess` string on the user's observations.
-- **How it works**: Paginates through all observations and prints place counts with links to the individual observations.
-
-### `my_locations.py`
-- **Purpose**: Groups all observations into geospatial clusters and labels each with a canonical site name. **Also used to verify [`site_names.py`](site_names.py)**: run it and check that every cluster resolves to a canonical name.
-- **How it works**:
-  - Greedy clustering with a 500 m radius (`CLUSTER_RADIUS_M`), using the Haversine great-circle formula.
-  - Assigns site names by matching `place_guess` fragments against the keywords in [`site_names.py`](site_names.py).
-
-### `my_projects.py`
-- **Purpose**: Lists the collection and umbrella projects the user has joined.
 
 ### `generate_location_ratings.py`
 - **Purpose**: Generates [`reports/Location_ratings.md`](../reports/Location_ratings.md), a per-site index of dive sessions and observations with clickable photo thumbnails. Full spec: [`generate_location_ratings_REQUIREMENTS.md`](generate_location_ratings_REQUIREMENTS.md).
@@ -129,11 +112,12 @@ Supporting files:
 - **Output**: `reports/rarity_underwater_worldwide.md`
 
 ### `rare_birds_ireland.py`
-- **Purpose**: Ranks the user's Irish bird species by rarity, measured as the number of **distinct observers** who have recorded the species anywhere in Ireland on iNaturalist (fewest observers = rarest).
+- **Purpose**: Generates [`reports/rare_birds_ireland.md`](../reports/rare_birds_ireland.md), ranking the user's Irish bird species by rarity, measured as the number of **distinct observers** with a verifiable record of the species anywhere in Ireland on iNaturalist (fewest observers = rarest).
 - **How it works**:
-  - Paginates through the user's bird (Aves) observations in Ireland.
-  - Collects each unique taxon, then queries `/v1/observations/observers` once per taxon for its Ireland-wide observer count (0.5 s between requests).
-  - Prints a ranked table: rarest species first, with dates, locations and the user's observation count.
+  - Takes the user's bird (Aves) observations in Ireland from the shared download (`birds_in_ireland()`), or from the API when run on its own. All grades are included.
+  - Collects each unique taxon and gets its Ireland-wide counts with `cached_counts()` from [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy), so it uses the same measure, the same rating cut-offs (`RATINGS`) and the same `taxon_counts.json` cache. Accepts `--refresh`.
+  - Writes a ranked table: rarest species first, with thumbnail, rating, Ireland observers and observations, the user's observation count, and dated links and places.
+- **Output**: `reports/rare_birds_ireland.md`
 
 ## Shared code
 
@@ -171,7 +155,7 @@ Put the source URL in a comment beside the constant, for example `https://www.in
 Example: the Nursehound (IUCN VU), [observation 407269590](https://www.inaturalist.org/observations/407269590), was 10 km from the Kilcrohane Pier cluster.
 
 **Consequences:**
-- Clustering by distance (`cluster_and_label()`, `at_site()`, `my_locations.py`) leaves these observations unmatched, or can place them at the wrong site.
+- Clustering by distance (`cluster_and_label()`, `at_site()`) leaves these observations unmatched, or can place them at the wrong site.
 - Site counts, dive counts and species lists silently miss them.
 - `generate_location_ratings.py` raises an unmatched-cluster `⚠️` warning for each one, such as `1 obs near “Cork, IE”`.
 
@@ -225,6 +209,6 @@ Then regenerate and check that the warning is gone.
 - Keywords are matched as lower-case substrings of `place_guess`.
 - Canonical names must match `Preferred_dive_site_names_ireland.txt` exactly.
 
-To check how observations are grouped, run `.venv/bin/python scripts/my_locations.py`. It prints each cluster with its resolved name.
+To check how observations are grouped, read the `⚠️` warning block at the top of `reports/Location_ratings.md`. It lists each cluster that didn't resolve, with a sample `place_guess`.
 
 Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`), plus Clonakilty, Coolanagh, Courtmacsherry, Derrigra and Rosscarbery.
