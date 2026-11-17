@@ -22,6 +22,10 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `reports/rarity_underwater_ireland.md` |
 | [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) | `reports/rarity_underwater_worldwide.md` |
 | [`rare_birds_ireland.py`](#rare_birds_irelandpy) | `reports/rare_birds_ireland.md` |
+| [`one_and_done_ireland.py`](#one_and_done_irelandpy) | `reports/one_and_done_ireland.md` |
+| [`rarity_by_site_ireland.py`](#rarity_by_site_irelandpy) | `reports/rarity_by_site_ireland.md` |
+| [`gap_analysis_ireland.py`](#gap_analysis_irelandpy) | `reports/gap_analysis_ireland.md` |
+| [`year_in_review.py`](#year_in_reviewpy) | `reports/year_in_review.html` |
 
 Supporting files:
 
@@ -29,15 +33,16 @@ Supporting files:
 |---|---|
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
 | [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
+| [`underwater_stats.py`](underwater_stats.py) | Shared data preparation for the four underwater life-list reports (`one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py`, `year_in_review.py`): underwater observations as `(site, obs)` entries, a species table (species rank only), and dives. Defines functions only. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
-| `.cache/` | Working data for the scripts (the observations download and the per-taxon rarity counts). Git-ignored. |
+| `.cache/` | Working data for the scripts, git-ignored: `observations.json` (the download), `taxon_counts.json` (per-taxon rarity counts, 90 days) and `site_species.json` (species recorded near each dive site, 30 days, used by the gap analysis). |
 
 ## Scripts
 
 ### `run_all.py`
 - **Purpose**: Runs every script that writes a report, in one go, with a single download of the observations.
-- **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts (including the birds) still make 2 API calls per taxon.
-- **Order**: `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
+- **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts (including the birds and `rarity_by_site_ireland.py`) make 2 API calls per taxon that isn't in the 90-day cache. `gap_analysis_ireland.py` makes 1 call per dive site that isn't in its 30-day cache. `one_and_done_ireland.py` makes no calls. `year_in_review.py` only needs counts for the species in the 90-day cache, so in a full run it makes none; run on its own it fetches any that are missing.
+- **Order**: the four underwater life-list scripts (`one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py`, `year_in_review.py`) run after the rarity reports, so they reuse the counts those just cached. `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
 - **Usage**: `.venv/bin/python scripts/run_all.py`
 - **Standalone runs**: each script still works on its own. With nothing in memory it fetches from the API as before.
 - **Run reports**: after a full run, write up what changed in [`../reports/runs/`](../reports/runs). The procedure is in [`RUN_REPORT.md`](RUN_REPORT.md).
@@ -119,12 +124,36 @@ Supporting files:
   - Writes a ranked table: rarest species first, with thumbnail, rating, Ireland observers and observations, the user's observation count, and dated links and places.
 - **Output**: `reports/rare_birds_ireland.md`
 
+### `one_and_done_ireland.py`
+- **Purpose**: Generates [`reports/one_and_done_ireland.md`](../reports/one_and_done_ireland.md), the underwater species in Ireland recorded in exactly one observation.
+- **How it works**: Uses [`underwater_stats.py`](underwater_stats.py), so the observations are the same as in `underwater_ireland.py`. A species counts only when an observation is identified to species rank, at any grade. The report shows the share by organism type (`species_type()`), by site, and a photo table per site with the grade.
+- **Output**: `reports/one_and_done_ireland.md`. No API calls beyond the shared download.
+
+### `rarity_by_site_ireland.py`
+- **Purpose**: Generates [`reports/rarity_by_site_ireland.md`](../reports/rarity_by_site_ireland.md), which sites give the rare finds.
+- **How it works**: Takes Research Grade, species-rank observations, rates each species with the same Ireland-wide observer count, `RATINGS` and `taxon_counts.json` cache as [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy), and counts per site how many species fall in each rating. Also lists the 30 rarest finds. Obscured observations are in the rarest-finds table as "Obscured location" and left out of the site table.
+- **Output**: `reports/rarity_by_site_ireland.md`. Accepts `--refresh`. Makes API calls only for species not already in the cache.
+
+### `gap_analysis_ireland.py`
+- **Purpose**: Generates [`reports/gap_analysis_ireland.md`](../reports/gap_analysis_ireland.md), the species other observers have recorded near each of your dive sites that you haven't.
+- **How it works**: For each site, takes the centroid of your observations there and calls `/v1/observations/species_counts` with a 1 km radius, `quality_grade=research` and `without_taxon_id=LAND_TAXON_IDS` (see [`config.py`](config.py)). Compares the species with your underwater species at that site, and marks each as "Seen elsewhere" or "New for you" against your whole Irish list.
+- **Limits**: West Cork has few observers, so most sites list only a handful of species. The radius includes shore and intertidal records. Sites with no nearby records show nothing to find, which means nobody has posted there, not that you have seen it all. Obscured observations have no site, so they don't move a site's centroid or count towards "you have".
+- **Cache**: `scripts/.cache/site_species.json`, 30 days per site (1 request per site, so a first run takes under a minute). Accepts `--refresh`.
+- **Output**: `reports/gap_analysis_ireland.md`
+
+### `year_in_review.py`
+- **Purpose**: Generates [`reports/year_in_review.html`](../reports/year_in_review.html), a one-page, static HTML summary of the underwater life list in Ireland.
+- **How it works**: Same observations as the reports above. Shows totals, the best dive (most species on one date at one site), the rarest find (Ireland-wide observers, from the shared `taxon_counts.json` cache), the most photographed site, the share of dives on Saturdays and of observations before noon, monthly growth of the species list, and the users who identified most of your observations.
+- **Output**: `reports/year_in_review.html`. No scripts, no external resources.
+
 ## Shared code
 
 - **Constants**: import them from `config.py`. Don't redefine `USER_ID`, URLs or IDs in a script.
 - **Helpers**:
   - `fetch_all_observations()`, `haversine()`, and `photo_md()` come from `generate_location_ratings.py`.
   - `species_type()` comes from `species_classification.py`.
+  - `underwater_entries()`, `species_table()`, `dives()`, `site_label()`, `taxon_link()`, `weekday()` and `pct()` come from [`underwater_stats.py`](underwater_stats.py). `underwater_entries()` returns `(site, obs)` pairs for every underwater observation in Ireland, with `site` set to `None` for obscured ones. `species_table()` keeps species rank only, so genus-level observations are not counted as species. A "dive" is one date at one site, the same proxy `count_dives_per_site()` uses.
+  - `cached_counts()`, `load_counts_cache()`, `save_counts_cache()` and `rating()` come from `rarity_underwater_ireland.py`.
 - **Site names**: `site_names.py` is imported directly where needed. It is not re-exported through `config.py`.
 
 ## Verify place and taxon IDs

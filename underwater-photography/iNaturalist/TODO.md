@@ -43,3 +43,17 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
   - [ ] Move the obscured-observation split from `underwater_ireland.py` into a shared helper in `generate_location_ratings.py`.
   - [ ] Use it in the other scripts, and list obscured observations separately instead of dropping them or raising an unmatched-cluster warning.
   - [ ] *(Optional)* Add a per-observation site override for obscured observations, so they can be counted on their real site.
+
+---
+
+## 5. 🟡 Underwater Life-List Reports: Open Items
+Added with `one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py` and `year_in_review.py` (see [`scripts/README.md`](scripts/README.md)).
+* **Unmatched places:** "Ardra, Co. Cork" (4 observations) and "Union Hall, Unionhall, Co. Cork" (3) show the `site_names.py` unmatched-cluster warning, so they are missing from every site-based report. Decide whether each is a dive site (add to `Preferred_dive_site_names_ireland.txt` and `SITE_KEYWORDS`) or an ignored place (`IGNORED_KEYWORDS`).
+* **Not built yet** (ideas from the report review, none needs new API calls):
+  - [ ] Seasonality: species group by month. Wait for more than one winter of data.
+  - [ ] Needs ID action list (extends item 1): group the Needs ID observations by what blocks them (genus only, disagreement, one identifier).
+  - [ ] Egypt trip report: the Irish reports ignore the 169 Red Sea observations.
+  - [ ] Identifier credits by organism group.
+* **Gap analysis is sparse:** few people post in West Cork, so most sites list under 10 nearby species. A bigger radius or a county-level comparison would give more, at the cost of relevance.
+* **Dives are dates:** "best dive" and "dive days" count one date at one site, as `count_dives_per_site()` does. Two dives in a day at the same site count as one.
+* **Baseline for run reports:** commit the four new reports so the next run report ([`scripts/RUN_REPORT.md`](scripts/RUN_REPORT.md)) has something to compare against.

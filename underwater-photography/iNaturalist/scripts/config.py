@@ -41,3 +41,21 @@ IRELAND_PLACE_ID = 6718  # https://www.inaturalist.org/places/6718
 # ── Taxa ──────────────────────────────────────────────────────────────────────
 AVES_TAXON_ID         = 3      # https://www.inaturalist.org/taxa/3 (birds)
 NUDIBRANCHIA_TAXON_ID = 47113  # https://www.inaturalist.org/taxa/47113 (nudibranchs)
+
+# Land groups left out of the "what else lives here" comparison (gap_analysis_ireland.py).
+# Each ID was checked with /v1/taxa?q=<name>.
+LAND_TAXON_IDS = [
+    47126,   # https://www.inaturalist.org/taxa/47126 Plantae
+    47170,   # https://www.inaturalist.org/taxa/47170 Fungi
+    47158,   # https://www.inaturalist.org/taxa/47158 Insecta
+    47119,   # https://www.inaturalist.org/taxa/47119 Arachnida
+    3,       # https://www.inaturalist.org/taxa/3 Aves (birds)
+    40151,   # https://www.inaturalist.org/taxa/40151 Mammalia
+    26036,   # https://www.inaturalist.org/taxa/26036 Reptilia
+    20978,   # https://www.inaturalist.org/taxa/20978 Amphibia
+    47485,   # https://www.inaturalist.org/taxa/47485 Stylommatophora (land snails and slugs)
+    84718,   # https://www.inaturalist.org/taxa/84718 Oniscidea (woodlice)
+    144128,  # https://www.inaturalist.org/taxa/144128 Myriapoda (millipedes, centipedes)
+    333586,  # https://www.inaturalist.org/taxa/333586 Oligochaeta (earthworms)
+]
+

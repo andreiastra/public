@@ -5,7 +5,8 @@ fetch_observations.refresh() downloads all observations, rewrites
 scripts/.cache/observations.json and caches them in memory.  The scripts then read that
 cache instead of calling the API again, and the Ireland, nudibranch and bird
 scripts filter it locally.  The only API calls left are the per-taxon rarity
-counts, which no download can replace.
+counts (cached for 90 days) and the per-site species lists of the gap analysis
+(cached for 30 days), which no download can replace.
 
 A failing script doesn't stop the run: the others still run and the failures are
 listed at the end (exit code 1).
@@ -43,6 +44,10 @@ STEPS = [
     ("rarity_underwater_ireland.py", lambda: importlib.import_module("rarity_underwater_ireland").main()),
     ("rarity_underwater_worldwide.py", lambda: importlib.import_module("rarity_underwater_worldwide").main()),
     ("rare_birds_ireland.py", lambda: importlib.import_module("rare_birds_ireland").main()),
+    ("one_and_done_ireland.py", lambda: importlib.import_module("one_and_done_ireland").main()),
+    ("rarity_by_site_ireland.py", lambda: importlib.import_module("rarity_by_site_ireland").main()),
+    ("gap_analysis_ireland.py", lambda: importlib.import_module("gap_analysis_ireland").main()),
+    ("year_in_review.py", lambda: importlib.import_module("year_in_review").main()),
     # Last: writes reports/sites/
     ("site_observations.py --all", run_site_observations),
 ]

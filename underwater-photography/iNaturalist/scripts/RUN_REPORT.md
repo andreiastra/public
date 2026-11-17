@@ -21,7 +21,7 @@ From `iNaturalist/`:
 .venv/bin/python scripts/run_all.py > /tmp/run_all.log 2>&1; echo "exit=$?"
 ```
 
-The rarity reports make 2 API calls per species and take about 3 minutes each, so expect about 6 minutes in total.
+The rarity reports make 2 API calls per species and take about 3 minutes each, so expect about 6 minutes in total. `gap_analysis_ireland.py` adds about 45 seconds on its first run (1 call per dive site, then cached for 30 days). `rarity_by_site_ireland.py` reuses the counts the two rarity reports just fetched, so it adds almost nothing.
 
 From the log, record:
 - the exit code and whether every step is `ok` (the table at the end of the log),
@@ -53,6 +53,18 @@ for v in old new; do
 done
 head -8 reports/underwater_ireland.md | tail -3
 ```
+
+The underwater life-list reports have different headers, so they need their own commands. `one_and_done_ireland.md` and `rarity_by_site_ireland.md` print their totals in a bold line near the top. `gap_analysis_ireland.md` has no total, so compare the rows of its Sites table (the "Still to find" column). `year_in_review.html` has no header line: open it and compare the stat tiles by eye.
+
+```bash
+for f in one_and_done_ireland rarity_by_site_ireland; do
+  echo "--- $f"
+  git diff -U0 -- reports/$f.md | grep -E '^[-+]\*\*[0-9]+\*\*' | cut -c1-160
+done
+git diff -U0 -- reports/gap_analysis_ireland.md | grep -E '^[-+]\| \[' | cut -c1-120
+```
+
+Until these reports are committed there is nothing to diff against. The first run after committing them is the baseline.
 
 Fill in the summary table with Before, After and Change for each metric. Include the metrics that didn't change, with 0, so a reader can see they were checked.
 
