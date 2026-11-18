@@ -45,6 +45,8 @@ OUTPUT_FILE = os.path.join(OUTPUT_DIR, "gap_analysis_ireland.md")
 CACHE_FILE = os.path.join(CACHE_DIR, "site_species.json")
 CACHE_MAX_AGE = timedelta(days=30)
 SITE_RADIUS_KM = 1
+# Sites close enough to report as one: {merged name: [site names]}. Only this report merges them.
+SITE_GROUPS = {"Lough Hyne and Barloge Pier": ["Lough Hyne", "Barloge Pier"]}
 MIN_NEARBY_OBS = 1      # West Cork has few observers, so a single Research Grade record still counts
 PER_PAGE = 500          # species_counts maximum
 OBS_PER_PAGE = 200      # observations maximum
@@ -149,6 +151,28 @@ def nearby_species(cache, site, lat, lng, refresh):
     species = fetch_nearby(lat, lng)
     cache[key] = {"species": species, "fetched": datetime.now().isoformat(timespec="seconds")}
     return species
+
+
+def merge_sites(nearby, mine_by_site):
+    """Combine the SITE_GROUPS members into one site, in place.
+
+    The merged site covers both circles: species seen near either, with observations
+    found near both counted once, and your species at either site.
+    """
+    for merged, members in SITE_GROUPS.items():
+        members = [m for m in members if m in nearby]
+        if len(members) < 2:
+            continue
+        combined = {}
+        for m in members:
+            for sp in nearby.pop(m):
+                c = combined.setdefault(sp["id"], dict(sp, obs=[]))
+                c["obs"] = sorted(set(c["obs"]) | set(sp["obs"]), reverse=True)
+                c["count"] = max(c["count"], sp["count"])
+        for c in combined.values():
+            c["count"] = max(c["count"], len(c["obs"]))
+        nearby[merged] = list(combined.values())
+        mine_by_site[merged] = set().union(*(mine_by_site.pop(m, set()) for m in members))
 
 
 def label(sp):
@@ -260,6 +284,7 @@ def main():
             print(f"  {i}/{len(centroids)} {site}: {len(nearby[site])} species nearby")
     finally:
         save_cache(cache)
+    merge_sites(nearby, mine_by_site)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
