@@ -10,8 +10,8 @@ For each site the script takes the centroid of the user's observations there and
 non-land groups, and includes everyone's records, yours too.
 
 A species is "seen" when it is on your underwater list at species rank (any grade).
-"New for you" means you haven't recorded it at any Irish dive site; "Seen elsewhere"
-means you have, just not at this site.
+Only "New for you" species are listed: those you haven't recorded at any Irish dive
+site. Species you have recorded at another site are skipped.
 
 Caveats:
   * West Cork has few iNaturalist observers, so most sites have only a handful of nearby
@@ -38,15 +38,16 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 from config import API_BASE, CACHE_DIR, LAND_TAXON_IDS, OUTPUT_DIR, THROTTLE_S, USER_ID
+from species_classification import species_type
 from underwater_stats import species_table, underwater_entries
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "gap_analysis_ireland.md")
 CACHE_FILE = os.path.join(CACHE_DIR, "site_species.json")
 CACHE_MAX_AGE = timedelta(days=30)
 SITE_RADIUS_KM = 1
-SPECIES_PER_SITE = 15   # rows in each site table
 MIN_NEARBY_OBS = 1      # West Cork has few observers, so a single Research Grade record still counts
 PER_PAGE = 500          # species_counts maximum
+OBS_PER_PAGE = 200      # observations maximum
 
 
 def site_centroids(entries):
@@ -60,8 +61,39 @@ def site_centroids(entries):
             for s, v in points.items()}
 
 
+def fetch_observation_ids(lat, lng, species_ids):
+    """Observation ids within SITE_RADIUS_KM of a point, grouped by species: {taxon_id: [obs_id]}.
+
+    Observations identified below species rank are credited to their species ancestor.
+    """
+    by_species, page, total, seen = defaultdict(list), 1, None, 0
+    while total is None or seen < total:
+        r = requests.get(f"{API_BASE}/observations", params={
+            "lat": lat, "lng": lng, "radius": SITE_RADIUS_KM,
+            "quality_grade": "research", "locale": "en",
+            "without_taxon_id": ",".join(map(str, LAND_TAXON_IDS)),
+            "order_by": "id", "order": "desc", "per_page": OBS_PER_PAGE, "page": page,
+        }, timeout=60)
+        r.raise_for_status()
+        data = r.json()
+        total = data.get("total_results", 0)
+        batch = data.get("results", [])
+        if not batch:
+            break
+        seen += len(batch)
+        for obs in batch:
+            t = obs.get("taxon") or {}
+            for tid in [t.get("id")] + list(t.get("ancestor_ids") or []):
+                if tid in species_ids:
+                    by_species[tid].append(obs["id"])
+                    break
+        page += 1
+        time.sleep(THROTTLE_S)
+    return by_species
+
+
 def fetch_nearby(lat, lng):
-    """Species counts within SITE_RADIUS_KM of a point: [{id, name, common, count, photo}]."""
+    """Species within SITE_RADIUS_KM of a point: [{id, name, common, type, count, photo, obs}]."""
     results, page, total = [], 1, None
     while total is None or len(results) < total:
         r = requests.get(f"{API_BASE}/observations/species_counts", params={
@@ -82,10 +114,15 @@ def fetch_nearby(lat, lng):
                 continue
             results.append({
                 "id": t["id"], "name": t.get("name"), "common": t.get("preferred_common_name"),
+                "type": species_type({"taxon": t}),
                 "count": item["count"], "photo": (t.get("default_photo") or {}).get("square_url"),
             })
         page += 1
         time.sleep(THROTTLE_S)
+    if results:
+        obs_ids = fetch_observation_ids(lat, lng, {s["id"] for s in results})
+        for s in results:
+            s["obs"] = obs_ids.get(s["id"], [])
     return results
 
 
@@ -106,7 +143,7 @@ def save_cache(cache):
 def nearby_species(cache, site, lat, lng, refresh):
     key = f"{site}:{SITE_RADIUS_KM}km"
     entry = cache.get(key)
-    if entry and not refresh:
+    if entry and not refresh and all("obs" in s and "type" in s for s in entry["species"]):
         if datetime.now() - datetime.fromisoformat(entry["fetched"]) < CACHE_MAX_AGE:
             return entry["species"]
     species = fetch_nearby(lat, lng)
@@ -120,6 +157,10 @@ def label(sp):
     return text + (f" (*{sp['name']}*)" if sp["name"] and sp["name"] != common else "")
 
 
+def obs_links(ids):
+    return ", ".join(f"[{i}](https://www.inaturalist.org/observations/{i})" for i in ids)
+
+
 def thumb(sp):
     return f"![{sp['common'] or sp['name']}]({sp['photo']})" if sp.get("photo") else ""
 
@@ -129,20 +170,25 @@ def slug(site):
 
 
 def render(mine_by_site, mine_all, nearby, notes):
-    """mine_by_site: {site: {taxon_id}}; mine_all: {taxon_id}; nearby: {site: [species]}."""
+    """mine_by_site: {site: {taxon_id}}; mine_all: {taxon_id}; nearby: {site: [species]}.
+
+    Only "New for you" species are listed: those not on your Irish underwater list at any site.
+    """
     rows = {}
     for site, species in nearby.items():
         species = [s for s in species if s["count"] >= MIN_NEARBY_OBS]
-        missing = [s for s in species if s["id"] not in mine_by_site[site]]
-        rows[site] = (species, sorted(missing, key=lambda s: (-s["count"], s["name"] or "")))
+        have = [s for s in species if s["id"] in mine_by_site[site]]
+        new = [s for s in species if s["id"] not in mine_all]
+        rows[site] = (species, have, sorted(new, key=lambda s: (-s["count"], s["name"] or "")))
 
-    # Species missing at several sites: the best targets overall.
-    overall = defaultdict(lambda: {"sp": None, "sites": [], "count": 0})
-    for site, (_, missing) in rows.items():
-        for s in missing:
+    # New species near several sites: the best targets overall.
+    overall = defaultdict(lambda: {"sp": None, "sites": [], "count": 0, "obs": []})
+    for site, (_, _, new) in rows.items():
+        for s in new:
             o = overall[s["id"]]
             o["sp"], o["count"] = s, o["count"] + s["count"]
             o["sites"].append(site)
+            o["obs"] += s["obs"]
 
     lines = [
         "# Gap analysis: what else lives at your dive sites\n",
@@ -156,40 +202,39 @@ def render(mine_by_site, mine_all, nearby, notes):
         "\n**Read it as a to-do list, not a score.** Records near a site include shore and "
         "intertidal species, and counts depend on where people take photos.\n",
         "## Sites\n",
-        "| Site | Species there (all observers) | You have | Still to find |",
+        "| Site | Species there (all observers) | You have | New for you |",
         "|---|--:|--:|--:|",
     ]
-    for site in sorted(rows, key=lambda s: (-len(rows[s][1]), s)):
-        species, missing = rows[site]
-        lines.append(f"| [{site}](#{slug(site)}) | {len(species)} | {len(species) - len(missing)} | {len(missing)} |")
+    for site in sorted(rows, key=lambda s: (-len(rows[s][2]), s)):
+        species, have, new = rows[site]
+        lines.append(f"| [{site}](#{slug(site)}) | {len(species)} | {len(have)} | {len(new)} |")
 
     targets = sorted(overall.values(), key=lambda o: (-len(o["sites"]), -o["count"]))
     lines += [
         "\n## Best targets across all sites\n",
-        "Species recorded near several of your sites that you haven't recorded at them. "
-        "\"New for you\" species are not on your Irish underwater list at all.\n",
-        "| Photo | Species | Sites near | Records nearby | Status |",
-        "|---|---|--:|--:|---|",
+        "\"New for you\" species recorded near several of your sites. They are not on your "
+        "Irish underwater list at any site; species you have recorded anywhere in Ireland are skipped.\n",
+        "| Photo | Species | Organism type | Sites near | Observations |",
+        "|---|---|---|--:|---|",
     ]
     for o in targets[:20]:
         sp = o["sp"]
-        status = "Seen elsewhere" if sp["id"] in mine_all else "**New for you**"
-        lines.append(f"| {thumb(sp)} | {label(sp)} | {len(o['sites'])} | {o['count']} | {status} |")
+        lines.append(f"| {thumb(sp)} | {label(sp)} | {sp['type']} | {len(o['sites'])} | "
+                     f"{obs_links(sorted(set(o['obs']), reverse=True))} |")
 
-    for site in sorted(rows, key=lambda s: (-len(rows[s][1]), s)):
-        species, missing = rows[site]
+    for site in sorted(rows, key=lambda s: (-len(rows[s][2]), s)):
+        species, have, new = rows[site]
         lines += [
             f"\n## {site}\n",
-            f"{len(species)} species recorded nearby, **{len(species) - len(missing)}** on your list, "
-            f"**{len(missing)}** to find. Top {min(SPECIES_PER_SITE, len(missing))} by number of records:\n",
-            "| Photo | Species | Records nearby | Status |",
-            "|---|---|--:|---|",
+            f"{len(species)} species recorded nearby, **{len(have)}** on your list, "
+            f"**{len(new)}** new for you, most records first:\n",
+            "| Photo | Species | Organism type | Observations |",
+            "|---|---|---|---|",
         ]
-        for sp in missing[:SPECIES_PER_SITE]:
-            status = "Seen elsewhere" if sp["id"] in mine_all else "**New for you**"
-            lines.append(f"| {thumb(sp)} | {label(sp)} | {sp['count']} | {status} |")
-        if not missing:
-            lines.append("| | You have recorded everything listed for this site. | | |")
+        for sp in new:
+            lines.append(f"| {thumb(sp)} | {label(sp)} | {sp['type']} | {obs_links(sp['obs'])} |")
+        if not new:
+            lines.append("| | Nothing new for you at this site. | | |")
     return "\n".join(lines) + "\n"
 
 

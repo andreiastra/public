@@ -21,7 +21,7 @@ From `iNaturalist/`:
 .venv/bin/python scripts/run_all.py > /tmp/run_all.log 2>&1; echo "exit=$?"
 ```
 
-The rarity reports make 2 API calls per species and take about 3 minutes each, so expect about 6 minutes in total. `gap_analysis_ireland.py` adds about 45 seconds on its first run (1 call per dive site, then cached for 30 days). `rarity_by_site_ireland.py` reuses the counts the two rarity reports just fetched, so it adds almost nothing.
+The rarity reports make 2 API calls per species and take about 3 minutes each, so expect about 6 minutes in total. `gap_analysis_ireland.py` adds a few minutes on its first run (at least 2 calls per dive site, then cached for 30 days). `rarity_by_site_ireland.py` reuses the counts the two rarity reports just fetched, so it adds almost nothing.
 
 From the log, record:
 - the exit code and whether every step is `ok` (the table at the end of the log),
@@ -54,7 +54,7 @@ done
 head -8 reports/underwater_ireland.md | tail -3
 ```
 
-The underwater life-list reports have different headers, so they need their own commands. `one_and_done_ireland.md` and `rarity_by_site_ireland.md` print their totals in a bold line near the top. `gap_analysis_ireland.md` has no total, so compare the rows of its Sites table (the "Still to find" column). `year_in_review.html` has no header line: open it and compare the stat tiles by eye.
+The underwater life-list reports have different headers, so they need their own commands. `one_and_done_ireland.md` and `rarity_by_site_ireland.md` print their totals in a bold line near the top. `gap_analysis_ireland.md` has no total, so compare the rows of its Sites table (the "New for you" column). `year_in_review.html` has no header line: open it and compare the stat tiles by eye.
 
 ```bash
 for f in one_and_done_ireland rarity_by_site_ireland; do
