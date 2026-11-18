@@ -13,6 +13,8 @@ My saved Google Maps list "Cork Shore Diving", exported with Google Takeout. It 
 | File | What it is |
 |---|---|
 | [`Cork_Shore_Diving.csv`](Cork_Shore_Diving.csv) | The exported list of shore diving places |
+| [`cork_shore_diving_verification.md`](cork_shore_diving_verification.md) | Coordinates for every place, with a verification status and links to check each one in Google Maps |
+| [`coordinate_matching.md`](coordinate_matching.md) | How the coordinates were obtained and checked against independent sources |
 
 ## Columns
 
@@ -29,13 +31,13 @@ The CSV has the columns `Title`, `Note`, `URL`, `Tags` and `Comment`. The first 
 
 | Category | Rows |
 |---|---|
-| Named Google Maps places | 44 |
+| Named Google Maps places | 43 |
 | Dropped pins with coordinates | 12 |
-| **Total** | **56** |
+| **Total** | **55** |
 
 ## Coordinates
 
-Dropped pins carry decimal coordinates directly in their `URL` column (`https://www.google.com/maps/search/<latitude>,<longitude>`). Named places link by Google Place ID without embedded coordinates; cross-referencing them requires matching by name or looking up their location.
+Dropped pins carry decimal coordinates directly in their `URL` column (`https://www.google.com/maps/search/<latitude>,<longitude>`). Named places link by Google feature ID without embedded coordinates, so the export has no coordinates for them. Their coordinates are in [`cork_shore_diving_verification.md`](cork_shore_diving_verification.md). They were first estimated with Gemini, then checked against the pin Google Maps shows for each place and corrected where needed. All 43 are marked verified. See [`coordinate_matching.md`](coordinate_matching.md) for the method and the checks.
 
 ### Dropped pins
 
@@ -52,9 +54,9 @@ Decimal coordinates extracted from the URL. Row numbers reflect position in the 
 | 16 | 51°39'22.1"N 9°48'04.4"W | 51.656131, -9.801208 | Sandmount |
 | 18 | 51°35'39.2"N 8°49'26.1"W | 51.594219, -8.823924 |  |
 | 19 | 51°35'42.9"N 8°48'27.9"W | 51.595247, -8.807735 |  |
-| 29 | 51°34'54.1"N 8°45'03.3"W | 51.581694, -8.750916 |  |
-| 32 | 51°32'24.0"N 9°07'22.9"W | 51.539992, -9.12303 |  |
-| 44 | 51°33'35.3"N 9°45'23.8"W | 51.559811, -9.756601 |  |
+| 28 | 51°34'54.1"N 8°45'03.3"W | 51.581694, -8.750916 |  |
+| 31 | 51°32'24.0"N 9°07'22.9"W | 51.539992, -9.12303 |  |
+| 43 | 51°33'35.3"N 9°45'23.8"W | 51.559811, -9.756601 |  |
 
 ## Related
 

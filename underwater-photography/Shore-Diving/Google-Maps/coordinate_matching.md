@@ -1,107 +1,87 @@
 # Coordinate matching: Cork shore diving list
 
-How the coordinates for the 56 entries in [`Cork_Shore_Diving.csv`](Cork_Shore_Diving.csv) were obtained, and how well they match independent sources.
+How the coordinates for the 55 entries in [`Cork_Shore_Diving.csv`](Cork_Shore_Diving.csv) were obtained, and how they were checked.
 
-Date of the cross-check: 2026-11-09.
+The final coordinates are in [`cork_shore_diving_verification.md`](cork_shore_diving_verification.md). Row numbers in this document follow that table (east to west along the coast), not the order of the CSV.
 
 ## Summary
 
-| Group | Rows | Source of coordinates | Confidence |
-|---|---|---|---|
-| Dropped pins | 12 | Copied exactly from the `/maps/search/<lat>,<lng>` URL in the export | Exact |
-| Named places | 44 | Produced by Gemini, then checked manually in Google Maps | About 10 m precision at best (4 to 5 decimals). Not exported by Google, and not retrieved through the Places API |
+| Group | Rows | Source of coordinates |
+|---|---|---|
+| Dropped pins | 12 | Copied exactly from the `/maps/search/<lat>,<lng>` URL in the export |
+| Named places | 43 | Estimated with Gemini, then checked against the pin Google Maps shows. All 43 are marked verified, 33 of them after correction |
 
-Google's export holds no coordinates for named places. Their URLs carry only a feature ID (`!1s0x…:0x…`), so the 44 values are estimates.
+Google's export holds no coordinates for named places. Their URLs carry only a feature ID (`!1s0x…:0x…`). The Gemini values were estimates, not something Google returned.
 
-## Files
+In the verification table, the `Method` column shows how each value was set:
 
-| File | Role |
+| Method | Rows | Meaning |
+|---|---|---|
+| URL Parameter | 12 | Dropped pin, taken from the URL |
+| Corrected | 33 | Gemini's estimate was replaced with the coordinates Google Maps shows. These are given to 6 decimals |
+| Maps Entity | 10 | Gemini's estimate kept |
+
+## What the checks found
+
+Gemini's first estimates were often wrong. Corrected rows moved by these distances:
+
+| Place | Moved by |
 |---|---|
-| [`Cork_Shore_Diving.csv`](Cork_Shore_Diving.csv) | Original Google Takeout export |
-| [`Cork_Shore_Diving_Resolved_Coordinates.csv`](Cork_Shore_Diving_Resolved_Coordinates.csv) | First Gemini result. It also adds names to 6 untitled dropped pins |
-| [`Cork_Shore_Diving_Google_Maps_Resolved.csv`](Cork_Shore_Diving_Google_Maps_Resolved.csv) | Second Gemini result. It keeps the original `Note` column and changes 2 coordinates (rows 1 and 9) |
-| [`cork_shore_diving_verification.md`](cork_shore_diving_verification.md) | Side-by-side link table for manual comparison. Its coordinates match the first Gemini file |
+| Toor Pier | 9.1 km |
+| Canty's Cove | 7.2 km |
+| Zetland Pier | 6.8 km |
+| Old head pier | 3.0 km |
+| Kilkilleen Strand | 2.6 km |
+| Trá an Oileáin | 2.4 km |
+| Snave Pier | 1.9 km |
+| Audley Cove | 1.2 km |
+| Nohaval cove | 0.8 km |
 
-## Integrity checks
+Toor Pier, Canty's Cove, Kilkilleen Strand, Trá an Oileáin, Audley Cove, Nohaval cove and Dunnycove Slipway were also compared with the pin Google Maps showed when I loaded each place page in a browser. The corrected values are 1 to 56 m from it.
 
-- All three CSVs have 56 rows in the same order.
-- In the second file, `Title`, `Note` and `Google_Maps_URL` match the original export on every row.
-- The 12 dropped-pin coordinates differ from their URLs by 0 m.
-- Compared with the first Gemini file, only rows 1 and 9 changed.
-- Two rows share one coordinate: rows 6 and 33 (both Reen Pier, 51.5318, -9.1658). They are different Google places.
+## Reference sources
 
-## Reference sources used
-
-None of these is ground truth. They are independent hints.
+None of these is ground truth. They were used to find rows to check, and the Google Maps pin decides.
 
 | Source | What it gives | Limits |
 |---|---|---|
-| OpenStreetMap Nominatim, forward and reverse | Named piers, beaches and slips, plus the area a coordinate falls in | Many small Cork piers and slips are not mapped, so there are no hits for them |
-| Photon (Komoot, OSM-based) | Fuzzier name matches, including localities | Often returns the nearest village, not the pier |
-| S2 cell in the feature ID | The first half of `0x<cell>:0x…` decodes to an S2 cell with a location | Coarse. It was 0 m off for Dreenatra Pier but 4.5 km off for Lough Hyne. Use as a hint only |
+| Google Maps place page, loaded in a browser | The pin Google shows for the place (`!3d…!4d…` in the final URL) | Needs a browser that accepts the consent prompt. Plain `curl` or Python requests get no coordinates, because Google puts them in page JavaScript |
+| OpenStreetMap Nominatim and Photon | Named piers, beaches and slips | Many small Cork piers are not mapped. Photon often returns the nearest village instead |
+| S2 cell in the feature ID | The first half of `0x<cell>:0x…` decodes to an approximate location | Coarse. It was exact for Dreenatra Pier but 4.5 km off for Lough Hyne. Use as a hint only |
 
-To decode the S2 cell (Python, `pip install s2sphere`):
+## Rows checked last
+
+Four rows were still marked 🔴 after the first round. All four are now verified:
+
+| Row | Place | Result |
+|---|---|---|
+| 1 | Nohaval cove | Corrected to 51.713833, -8.384667. It moved 0.8 km and is about 30 m from the pin Google showed in my browser check |
+| 2 | Roberts Cove Beach | Corrected to 51.742194, -8.310500. It differs from Gemini's value by under 1 m, so this is a precision change only |
+| 3 | Oysterhaven slip | Gemini's value kept (51.6935, -8.4422), confirmed by you |
+| 4 | Old head pier | Corrected to 51.641778, -8.549389. It moved 3.0 km. OSM has no pier of this name, so I could not check this value independently |
+
+## Verified but with a coarse value
+
+These rows are marked verified and still have Gemini's 4-decimal estimates (about 10 m). Their checks agree, so I'd leave them:
+
+- Oysterhaven slip (3), confirmed by you
+- Blind Strand pier (5), 0.3 km from OSM's Blind Strand beach
+- Tragumna Bay slip (23), unconfirmed beyond reverse geocoding to Tragumna
+- Dooneen Pier (41) and Bank Pier (53), no independent data
+- Atlantic Sea Kayaking - Reen Pier (20), 184 m from the pin Google showed. The separate Reen Pier entry (21) was corrected to 51.528472, -9.166806
+
+## Names
+
+The first Gemini file had added names to six untitled dropped pins, such as Myross Island Cove and Sheep Cove West. Those names are no longer in the verification table. Only the notes you wrote in the export remain (Skeaghanore West Pier, Rossbrin Pier, Tralong Bay, Dirk Bay, Secret Pier and Sandmount).
+
+## Notes on the list
+
+- Travara Bay was in the earlier export and is not in the current one, so the list has 55 rows, not 56.
+- The earlier resolved CSVs (`Cork_Shore_Diving_Resolved_Coordinates.csv` and `Cork_Shore_Diving_Google_Maps_Resolved.csv`) have been deleted. The verification table now holds the coordinates.
+- To decode the S2 cell of a feature ID (`pip install s2sphere`):
 
 ```python
 import s2sphere
 cell = s2sphere.CellId(int("0x4845a3c11d402a29", 16))
 print(cell.to_lat_lng().lat().degrees, cell.to_lat_lng().lng().degrees)
 ```
-
-## Results for the named places
-
-### Matches an independent source (within about 1 km)
-
-Rows 2, 5, 6, 7, 21, 22, 23, 24, 36, 42, 47, 52, 53, 55 and 9 (second file).
-
-Rows 2, 7, 22, 23 and 42 are within about 150 m of an OSM feature with the same name. Row 9 (Audley Cove, 51.52895, -9.45195) is about 140 m from OSM and Photon (51.5278, -9.4511). The first file's value was about 1 km off.
-
-### Plausible, not contradicted
-
-Rows 14, 25, 26, 27, 31, 35, 37, 40 and 41. Each is within about 1 km of a matching OSM or Photon feature. Row 40 (Dunmanus Pier) is within 0.3 km of Dunmanus Point and Dunmanus Harbour. Row 37 (Lough Hyne) is the right area, but no source gave an exact point.
-
-### Probably wrong, needs a manual check
-
-| Row | Place | Current value | Reference suggests | Offset |
-|---|---|---|---|---|
-| 1 | Castlehaven Strand | 51.5206, -9.1755 | 51.5180, -9.1887 (OSM and Photon agree) | about 1 km. The first file was within 20 m, so row 1 may have got worse. |
-| 17 | Canty's Cove | 51.5832, -9.6641 | 51.5260, -9.7098 (OSM and Photon agree) | about 7 km |
-| 50 | Zetland Pier | 51.7385, -9.5280 | 51.6952, -9.5975 (OSM) | about 6.8 km |
-| 8 | Kilkilleen Strand | 51.5124, -9.4312 | about 51.529, -9.396 (the Kilkilleen place; the S2 cell is similar) | about 3 km |
-| 38 | Toor Pier | 51.5218, -9.6784 | about 51.490, -9.805 (the Toor locality; the S2 cell also lies west) | about 9 km |
-| 48 | Snave Pier | 51.7248, -9.4795 | 51.7277, -9.4525 (OSM pier) | about 1.9 km |
-
-### Uncertain
-
-| Row | Place | Note |
-|---|---|---|
-| 6, 33 | Reen Pier | Two Google places with identical coordinates. OSM puts Reen Pier at 51.5284, -9.1666, about 0.4 km away. |
-| 11 | Trá an Oileáin | OSM and Photon point about 2.3 km north-east, but only to farmland areas. |
-| 39 | Gortdubh Pier | The nearest name match is Gortduff, about 4 km south-west. This may be a different place. |
-| 20, 28, 30 | Travara Bay, Seven Heads Pier, Lehenagh Slip Way | No solid match. The nearby results are a guest house, a peninsula and a locality 5 km away. |
-
-### No independent data
-
-Rows 43, 45, 46, 49, 51, 54 and 56 have no OSM or Photon match. A missing match is not evidence that a value is wrong.
-
-Row 34 (Tragumna Bay slip) also has no OSM match. Photon returned only unrelated results ("Slip Heights" and "Slip Park", about 24 km away), and the S2 cell is about 3 km away. The point reverse-geocodes to Tragumna, so I did not flag it.
-
-## Dropped pins with Gemini-added names
-
-The first Gemini file named 6 dropped pins that have no name in the export. The names are guesses, except where noted.
-
-| Row | Added name |
-|---|---|
-| 10 | Myross Island Cove |
-| 18 | Sheep Cove West |
-| 19 | Sheep Cove East |
-| 29 | Dunworly Bay (reverse geocode gives "Dunworley Slipway", so partly supported) |
-| 32 | Rabbit Island Sound |
-| 44 | Ballynatra / Trá Ruaim Cove |
-
-## Open items
-
-- Check rows 1, 8, 17, 38, 48 and 50 in Google Maps and record the correct coordinates.
-- Decide whether rows 6 and 33 should share one point.
-- Change `Resolution_Method` in the second file from "Google Maps Place entity resolution" to something like "Gemini-estimated, manually checked". Google did not return these values.
-- Pick one resolved CSV as canonical.
