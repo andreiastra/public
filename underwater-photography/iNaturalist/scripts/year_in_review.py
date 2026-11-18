@@ -19,7 +19,6 @@ import os
 import re
 import sys
 from collections import Counter
-from datetime import date
 
 sys.path.insert(0, os.path.dirname(__file__))
 from config import IRELAND_PLACE_ID, OUTPUT_DIR, USER_ID
@@ -190,7 +189,7 @@ footer {{ margin: 36px 0 0; padding-top: 10px; border-top: 1px solid #e5e7eb; te
 <body>
 <main>
 <h1>Underwater Ireland: year in review</h1>
-<p class="sub">{esc(USER_ID)} · {esc(dates[0])} to {esc(dates[-1])} · generated {date.today()}</p>
+<p class="sub">{esc(USER_ID)} · {esc(dates[0])} to {esc(dates[-1])}</p>
 {notes_html}
 <div class="stats">
 {stat(len(table), "species")}
