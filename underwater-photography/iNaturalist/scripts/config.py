@@ -59,3 +59,9 @@ LAND_TAXON_IDS = [
     333586,  # https://www.inaturalist.org/taxa/333586 Oligochaeta (earthworms)
 ]
 
+# Seaweeds left out of the same comparison. Red and green algae are already dropped with Plantae;
+# Chromista holds the brown seaweeds (wracks, kelps, furbelows).
+SEAWEED_TAXON_IDS = [
+    48222,   # https://www.inaturalist.org/taxa/48222 Chromista
+]
+
