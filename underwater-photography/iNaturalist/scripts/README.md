@@ -25,6 +25,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`one_and_done_ireland.py`](#one_and_done_irelandpy) | `reports/one_and_done_ireland.md` |
 | [`rarity_by_site_ireland.py`](#rarity_by_site_irelandpy) | `reports/rarity_by_site_ireland.md` |
 | [`gap_analysis_ireland.py`](#gap_analysis_irelandpy) | `reports/gap_analysis_ireland.md` |
+| [`cork_species.py`](#cork_speciespy) | `reports/cork_species.md` |
 | [`year_in_review.py`](#year_in_reviewpy) | `reports/year_in_review.html` |
 
 Supporting files:
@@ -142,6 +143,13 @@ Supporting files:
 - **Limits**: West Cork has few observers, so most sites list only a handful of species. The radius includes shore and intertidal records. A site showing nothing new means you have recorded everything nearby, or nobody has posted there. Obscured observations have no site, so they don't move a site's centroid or count towards "you have".
 - **Cache**: `scripts/.cache/site_species.json`, 30 days per site (the species request plus one request per 200 nearby observations, so a first run takes a few minutes). Accepts `--refresh`.
 - **Output**: `reports/gap_analysis_ireland.md`
+
+### `cork_species.py`
+- **Purpose**: Generates [`reports/cork_species.md`](../reports/cork_species.md), every species other observers have recorded in Co Cork, with the ones on your Irish underwater list marked ✅.
+- **How it works**: Calls `/v1/observations/species_counts` once per 500 species with `place_id=CORK_PLACE_ID` (10796), `quality_grade=research` and the same land and seaweed exclusions as the gap analysis (`EXCLUDED_TAXA`, reused from [`gap_analysis_ireland.py`](gap_analysis_ireland.py)). "Observed" uses the same test as the gap analysis: the species is on your underwater list at species rank, at any grade and any Irish dive site. The "Organism type" column comes from `species_type()`. The report has a by-organism-type summary (each row links to its section) and one table per organism type, sorted by Co Cork record count, each count linking to those records on iNaturalist.
+- **Limits**: Co Cork is a county polygon, so it includes shore and intertidal records, and there is no iNaturalist filter for "underwater" in other people's records. Your Needs ID species are marked only if someone else has also recorded the species at Research Grade in Co Cork, so a few of your species (about 20) don't appear.
+- **Cache**: none. The run makes one or two API calls.
+- **Output**: `reports/cork_species.md`
 
 ### `year_in_review.py`
 - **Purpose**: Generates [`reports/year_in_review.html`](../reports/year_in_review.html), a one-page, static HTML summary of the underwater life list in Ireland.

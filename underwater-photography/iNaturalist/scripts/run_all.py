@@ -47,6 +47,7 @@ STEPS = [
     ("one_and_done_ireland.py", lambda: importlib.import_module("one_and_done_ireland").main()),
     ("rarity_by_site_ireland.py", lambda: importlib.import_module("rarity_by_site_ireland").main()),
     ("gap_analysis_ireland.py", lambda: importlib.import_module("gap_analysis_ireland").main()),
+    ("cork_species.py", lambda: importlib.import_module("cork_species").main()),
     ("year_in_review.py", lambda: importlib.import_module("year_in_review").main()),
     # Last: writes reports/sites/
     ("site_observations.py --all", run_site_observations),

@@ -37,6 +37,7 @@ CLUSTER_RADIUS_M = 500   # observations within this distance form one location
 
 # ── Places ────────────────────────────────────────────────────────────────────
 IRELAND_PLACE_ID = 6718  # https://www.inaturalist.org/places/6718
+CORK_PLACE_ID = 10796    # https://www.inaturalist.org/places/10796 (Cork, IE)
 
 # ── Taxa ──────────────────────────────────────────────────────────────────────
 AVES_TAXON_ID         = 3      # https://www.inaturalist.org/taxa/3 (birds)
