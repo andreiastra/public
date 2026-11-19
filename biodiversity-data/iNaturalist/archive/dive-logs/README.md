@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-Directory: `/Users/astra/github/public/underwater-photography/iNaturalist/archive/dive-logs`
+Directory: `/Users/astra/github/public/biodiversity-data/iNaturalist/archive/dive-logs`
 
 This directory contains raw dive workout data exported from the Suunto Eon Core dive computer. This file serves as the technical reference for log formats and indexing scripts. For the project-wide overview, workflows, and pending action items / TODOs, see [`../../README.md`](../../README.md).
 

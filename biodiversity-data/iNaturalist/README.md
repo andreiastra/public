@@ -9,8 +9,8 @@ This repository contains tools, data pipelines, and reporting scripts for catalo
 ## Profile & Links
 
 - **iNaturalist Profile:** [andreiastra on iNaturalist](https://www.inaturalist.org/people/andreiastra)
-- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/reports/Location_ratings.md)
-- **Species Classification & Organism Types:** [species_classification.md](https://github.com/andreiastra/public/blob/main/underwater-photography/iNaturalist/reports/species_classification.md)
+- **Dive Site Observations:** [Location_ratings.md](https://github.com/andreiastra/public/blob/main/biodiversity-data/iNaturalist/reports/Location_ratings.md)
+- **Species Classification & Organism Types:** [species_classification.md](https://github.com/andreiastra/public/blob/main/biodiversity-data/iNaturalist/reports/species_classification.md)
 - **Least Observed Wildflowers Tool:** [Wildflower Tracker (`andreiastra`)](https://elias.pschernig.com/wildflower/leastobserved.html?user=andreiastra&place=ireland)
 - **Google Colab Notebook:** [iNaturalist Data & Analysis Notebook](https://colab.research.google.com/drive/1kVHbCJRIewDRhXd8-t0d67D-vpwy7aPl#scrollTo=flI4KNDDsCv_)
 
@@ -62,7 +62,7 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 A shared virtual environment in the project root with `requests` installed is used by all Python scripts in `scripts/`:
 
 ```bash
-cd /Users/astra/github/public/underwater-photography/iNaturalist
+cd /Users/astra/github/public/biodiversity-data/iNaturalist
 python3 -m venv .venv
 .venv/bin/pip install requests
 ```

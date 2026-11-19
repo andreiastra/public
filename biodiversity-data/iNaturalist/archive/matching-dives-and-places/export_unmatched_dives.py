@@ -23,8 +23,8 @@ import unicodedata
 import xml.etree.ElementTree as ET
 
 # Base directory and file paths
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # underwater-photography/iNaturalist/archive
-REPO_DIR = os.path.dirname(BASE_DIR)  # underwater-photography/iNaturalist
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # biodiversity-data/iNaturalist/archive
+REPO_DIR = os.path.dirname(BASE_DIR)  # biodiversity-data/iNaturalist
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
 PREF_FILE = os.path.join(REPO_DIR, 'Preferred_dive_site_names_ireland.txt')
 OUTPUT_FILE = os.path.join(BASE_DIR, 'matching-dives-and-places/unmatched_dives.json')

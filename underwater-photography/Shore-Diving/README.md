@@ -60,5 +60,5 @@ Some of my dive sites have no pier entry on eOceanic. Blind Strand Pier appears 
 
 ## Related
 
-- [`../iNaturalist/`](../iNaturalist/README.md) holds the iNaturalist scripts and reports for my underwater observations.
-- [`../iNaturalist/Preferred_dive_site_names_ireland.txt`](../iNaturalist/Preferred_dive_site_names_ireland.txt) is the canonical list of dive site names used in those reports.
+- [`../../biodiversity-data/iNaturalist/`](../../biodiversity-data/iNaturalist/README.md) holds the iNaturalist scripts and reports for my underwater observations.
+- [`../../biodiversity-data/iNaturalist/Preferred_dive_site_names_ireland.txt`](../../biodiversity-data/iNaturalist/Preferred_dive_site_names_ireland.txt) is the canonical list of dive site names used in those reports.
