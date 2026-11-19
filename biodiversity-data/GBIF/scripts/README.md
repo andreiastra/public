@@ -16,12 +16,13 @@ Run every script from the `GBIF/` directory (the parent of this one) with the sh
 | [`fetch_occurrences.py`](#fetch_occurrencespy) | `scripts/.cache/occurrences.json` |
 | [`gbif_summary.py`](#gbif_summarypy) | `reports/gbif_summary.md` |
 | [`sync_status.py`](#sync_statuspy) | `reports/sync_status.md` |
+| [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
 
 Supporting files:
 
 | File | Purpose |
 |---|---|
-| [`config.py`](config.py) | Shared constants: API URLs, page sizes, `RECORDED_BY`, the iNaturalist dataset key, `OUTPUT_DIR`. Every script imports from it. |
+| [`config.py`](config.py) | Shared constants: API URLs, page sizes, `RECORDED_BY`, the iNaturalist dataset key, `OUTPUT_DIR`, `INATURALIST_SCRIPTS_DIR` (where `underwater_ireland.py` finds the iNaturalist scripts). Every script imports from it. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
 | `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download). |
 
@@ -49,3 +50,10 @@ Supporting files:
 - **How it works**: Downloads the research-grade observations from the iNaturalist API (2 calls for about 340 observations) and matches them to the GBIF occurrences on the iNaturalist observation id, which GBIF keeps in `occurrenceID`. Lists the observations that are not on GBIF yet, and any GBIF record that is no longer research grade.
 - **Reading it**: a missing observation is normally waiting for GBIF's next sync, which lags by days. GBIF has no date for when an observation became research grade, so the report shows iNaturalist's `updated_at`, which is an upper bound.
 - **Usage**: `../.venv/bin/python scripts/sync_status.py`
+
+### `underwater_ireland.py`
+- **Purpose**: Generates [`reports/underwater_ireland.md`](../reports/underwater_ireland.md), the user's underwater observations in Ireland and which of them are on GBIF.
+- **How it works**: GBIF has no habitat field, so "underwater" comes from iNaturalist. The script runs `underwater_observations()` from [`../../iNaturalist/scripts/underwater_ireland.py`](../../iNaturalist/scripts/underwater_ireland.py) in a subprocess (both folders have a `config.py`, so it can't be imported; the path is `INATURALIST_SCRIPTS_DIR` in `config.py`). That is the data set of the iNaturalist report: observations on a dive site, plus the obscured ones, at any grade. Each is matched to its GBIF occurrence on the iNaturalist observation id in `occurrenceID`.
+- **Output**: totals (on GBIF, not research grade, research grade but not yet synced, other Irish records), counts by organism group, site and year, and the research-grade observations still missing from GBIF. The iNaturalist observations are downloaded live, so this script needs network access to both APIs.
+- **Dependency**: if `underwater_observations()` is renamed or changes what it returns, this script breaks. Keep it in step with the iNaturalist script.
+- **Usage**: `../.venv/bin/python scripts/underwater_ireland.py`

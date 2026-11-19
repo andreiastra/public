@@ -94,6 +94,7 @@ Supporting files:
   - Lists them in a separate **Obscured locations** section, most threatened first (CR, EN, VU, NT), with their IUCN status.
   - Skips obscured observations at ignored places (`IGNORED_KEYWORDS`, for example the Egypt trip).
   - Doesn't count them in the site totals, only in the "with obscured location" count in the report header.
+- **Also used by GBIF**: [`../../GBIF/scripts/underwater_ireland.py`](../../GBIF/scripts/README.md#underwater_irelandpy) calls `underwater_observations()` to decide which GBIF records are underwater. Keep its name and return value stable, or update that script too.
 - **Output**: `reports/underwater_ireland.md`. Unresolved clusters appear as a `⚠️` warning at the top of the report (see [Keeping places up to date](#keeping-places-up-to-date)).
 
 ### `rarity_underwater_ireland.py`

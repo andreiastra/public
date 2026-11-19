@@ -74,7 +74,7 @@ curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
 ## Directory Overview
 
 - **[`scripts/`](scripts)** — API data pipelines and report generators (see [`scripts/README.md`](scripts/README.md)).
-- **[`reports/`](reports)** — Generated markdown reports (see [`reports/README.md`](reports/README.md)): [`gbif_summary.md`](reports/gbif_summary.md) and [`sync_status.md`](reports/sync_status.md).
+- **[`reports/`](reports)** — Generated markdown reports (see [`reports/README.md`](reports/README.md)): [`gbif_summary.md`](reports/gbif_summary.md), [`sync_status.md`](reports/sync_status.md) and [`underwater_ireland.md`](reports/underwater_ireland.md).
 
 Run from this directory, using the virtualenv shared with [`../iNaturalist`](../iNaturalist). To create it, see [Shared setup](../README.md#shared-setup).
 

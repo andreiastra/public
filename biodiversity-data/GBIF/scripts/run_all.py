@@ -17,7 +17,7 @@ import traceback
 sys.path.insert(0, os.path.dirname(__file__))
 import fetch_occurrences
 
-REPORT_SCRIPTS = ["gbif_summary", "sync_status"]
+REPORT_SCRIPTS = ["gbif_summary", "sync_status", "underwater_ireland"]
 
 
 def main():

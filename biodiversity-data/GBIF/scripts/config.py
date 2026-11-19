@@ -18,6 +18,8 @@ import os
 # ── Output ────────────────────────────────────────────────────────────────────
 OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))  # generated reports, for the reader
 CACHE_DIR = os.path.join(os.path.dirname(__file__), ".cache")  # working data, git-ignored
+# The iNaturalist scripts decide what "underwater" means (underwater_ireland.py).
+INATURALIST_SCRIPTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "iNaturalist", "scripts"))
 
 # ── Recorder ──────────────────────────────────────────────────────────────────
 # GBIF has no user id for iNaturalist records. The iNaturalist display name is
