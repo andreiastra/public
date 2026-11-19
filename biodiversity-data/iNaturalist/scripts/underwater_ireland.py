@@ -14,7 +14,7 @@ site sections and listed in their own "Obscured locations" section, with their
 IUCN status. Place them by hand: the owner sees the true location on iNaturalist.
 
 Usage:
-  .venv/bin/python scripts/underwater_ireland.py
+  ../.venv/bin/python scripts/underwater_ireland.py
 """
 import os
 import sys

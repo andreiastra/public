@@ -19,7 +19,7 @@ This directory contains raw dive workout data exported from the Suunto Eon Core 
 - **Output**: [`dives_table.md`](dives_table.md)
 - **Execution**:
   ```bash
-  .venv/bin/python archive/dive-logs/generate_dives_table.py
+  ../.venv/bin/python archive/dive-logs/generate_dives_table.py
   ```
 
 ### Generated Artifact

@@ -6,8 +6,8 @@ The file is a git-ignored snapshot. GBIF lags iNaturalist by days, so re-run the
 script instead of reading an old file.
 
 Usage:
-  ../iNaturalist/.venv/bin/python scripts/fetch_occurrences.py
-  ../iNaturalist/.venv/bin/python scripts/fetch_occurrences.py --country IE
+  ../.venv/bin/python scripts/fetch_occurrences.py
+  ../.venv/bin/python scripts/fetch_occurrences.py --country IE
 """
 import argparse
 import json

@@ -21,7 +21,7 @@ per-taxon counts are cached in scripts/.cache/taxon_counts.json for 90 days; pas
 --refresh to fetch everything again.
 
 Usage:
-  .venv/bin/python scripts/rare_birds_ireland.py [--refresh]
+  ../.venv/bin/python scripts/rare_birds_ireland.py [--refresh]
 """
 import os
 import sys

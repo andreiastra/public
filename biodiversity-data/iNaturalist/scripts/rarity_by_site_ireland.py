@@ -13,7 +13,7 @@ rarest-finds table with the site "Obscured location" and are left out of the
 per-site table.
 
 Usage:
-  .venv/bin/python scripts/rarity_by_site_ireland.py [--refresh]
+  ../.venv/bin/python scripts/rarity_by_site_ireland.py [--refresh]
 """
 import os
 import sys

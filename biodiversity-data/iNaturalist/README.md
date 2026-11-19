@@ -59,24 +59,24 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ## Requirements & Setup
 
-A shared virtual environment in the project root with `requests` installed is used by all Python scripts in `scripts/`:
+All Python scripts here, and those in [`../GBIF`](../GBIF), share one virtual environment at `biodiversity-data/.venv` (git-ignored). Its dependencies are listed in [`../requirements.txt`](../requirements.txt):
 
 ```bash
-cd /Users/astra/github/public/biodiversity-data/iNaturalist
+cd /Users/astra/github/public/biodiversity-data
 python3 -m venv .venv
-.venv/bin/pip install requests
+.venv/bin/pip install -r requirements.txt
 ```
 
-Run any script directly without activating the venv:
+Then run the scripts from `iNaturalist/`. Run any script directly without activating the venv:
 
 ```bash
-.venv/bin/python scripts/run_all.py
+../.venv/bin/python scripts/run_all.py
 ```
 
 Or activate for the session:
 
 ```bash
-source .venv/bin/activate
+source ../.venv/bin/activate
 python scripts/run_all.py
 deactivate
 ```
@@ -92,7 +92,7 @@ To help observations reach **Research Grade** (which requires community consensu
 
 ### 2. 📊 Monitor Site Coverage & Ratings
 Instead of tracking static counts manually in markdown, regenerate the dynamic site reports from live iNaturalist data:
-- Run `.venv/bin/python scripts/generate_location_ratings.py` to update [`reports/Location_ratings.md`](reports/Location_ratings.md) with current dive counts, observation totals, and species lists per site.
+- Run `../.venv/bin/python scripts/generate_location_ratings.py` to update [`reports/Location_ratings.md`](reports/Location_ratings.md) with current dive counts, observation totals, and species lists per site.
 - Use the summary table in [`Location_ratings.md`](reports/Location_ratings.md) to identify under-explored dive sites.
 
 ### 3. 🎯 Decide What to Look for Next

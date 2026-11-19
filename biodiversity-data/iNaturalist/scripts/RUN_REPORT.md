@@ -18,7 +18,7 @@ If the reports have uncommitted changes from an earlier run, commit or discard t
 From `iNaturalist/`:
 
 ```bash
-.venv/bin/python scripts/run_all.py > /tmp/run_all.log 2>&1; echo "exit=$?"
+../.venv/bin/python scripts/run_all.py > /tmp/run_all.log 2>&1; echo "exit=$?"
 ```
 
 The rarity reports make 2 API calls per species and take about 3 minutes each, so expect about 6 minutes in total. `gap_analysis_ireland.py` adds a few minutes on its first run (at least 2 calls per dive site, then cached for 30 days). `rarity_by_site_ireland.py` reuses the counts the two rarity reports just fetched, so it adds almost nothing.
@@ -75,7 +75,7 @@ Totals alone don't say what happened. Check these three causes.
 **New observations.** The download is kept in `scripts/.cache/observations.json`. List what was uploaded since the last run (use the date of the last run):
 
 ```bash
-.venv/bin/python - <<'EOF'
+../.venv/bin/python - <<'EOF'
 import collections, json
 obs = json.load(open("scripts/.cache/observations.json"))
 new = [o for o in obs if (o.get("created_at") or "") >= "2026-11-09"]   # day after the last run
@@ -96,7 +96,7 @@ Each `-`/`+` pair is one observation. The same name with `Needs ID` before and `
 **Rarity reports.** Compare taxa, ratings and your own counts between the old and new rarity reports:
 
 ```bash
-.venv/bin/python - <<'EOF'
+../.venv/bin/python - <<'EOF'
 import re, subprocess
 def rows(txt):
     out = {}

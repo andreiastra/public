@@ -12,7 +12,7 @@ scripts/.cache/taxon_counts.json cache. Top identifier counts current identifica
 other people made on these observations.
 
 Usage:
-  .venv/bin/python scripts/year_in_review.py [--refresh]
+  ../.venv/bin/python scripts/year_in_review.py [--refresh]
 """
 import html
 import os

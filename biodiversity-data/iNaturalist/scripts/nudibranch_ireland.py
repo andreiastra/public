@@ -6,7 +6,7 @@ Sites are resolved with the keyword list in site_names.py; places with no match
 fall back to the first part of the observation's place_guess.
 
 Usage:
-  .venv/bin/python scripts/nudibranch_ireland.py
+  ../.venv/bin/python scripts/nudibranch_ireland.py
 """
 import os
 import time

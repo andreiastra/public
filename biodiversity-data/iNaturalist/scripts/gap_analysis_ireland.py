@@ -26,7 +26,7 @@ Caveats:
 Cache: scripts/.cache/site_species.json, 30 days per site. --refresh fetches every site again.
 
 Usage:
-  .venv/bin/python scripts/gap_analysis_ireland.py [--refresh]
+  ../.venv/bin/python scripts/gap_analysis_ireland.py [--refresh]
 """
 import json
 import os

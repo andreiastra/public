@@ -14,7 +14,7 @@ run_all.py downloads them once for the whole run.  Use the helpers below to take
 the Ireland, nudibranch and bird subsets from that list instead of calling the API.
 
 Usage:
-  .venv/bin/python scripts/fetch_observations.py
+  ../.venv/bin/python scripts/fetch_observations.py
 """
 import json
 import os

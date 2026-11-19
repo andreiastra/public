@@ -5,7 +5,7 @@ Python scripts that query the [iNaturalist API](https://api.inaturalist.org/v1/d
 Run every script from the `iNaturalist/` directory (the parent of this one) with the project virtualenv. See [Requirements & Setup](../README.md#requirements--setup) for creating it.
 
 ```bash
-.venv/bin/python scripts/<script>.py
+../.venv/bin/python scripts/<script>.py
 ```
 
 ## Overview
@@ -44,7 +44,7 @@ Supporting files:
 - **Purpose**: Runs every script that writes a report, in one go, with a single download of the observations.
 - **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts (including the birds and `rarity_by_site_ireland.py`) make 2 API calls per taxon that isn't in the 90-day cache. `gap_analysis_ireland.py` makes at least 2 calls per dive site that isn't in its 30-day cache (more for sites with many nearby observations). `one_and_done_ireland.py` makes no calls. `year_in_review.py` only needs counts for the species in the 90-day cache, so in a full run it makes none; run on its own it fetches any that are missing.
 - **Order**: the four underwater life-list scripts (`one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py`, `year_in_review.py`) run after the rarity reports, so they reuse the counts those just cached. `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
-- **Usage**: `.venv/bin/python scripts/run_all.py`
+- **Usage**: `../.venv/bin/python scripts/run_all.py`
 - **Standalone runs**: each script still works on its own. With nothing in memory it fetches from the API as before.
 - **Run reports**: after a full run, write up what changed in [`../reports/runs/`](../reports/runs). The procedure is in [`RUN_REPORT.md`](RUN_REPORT.md).
 
@@ -75,9 +75,9 @@ Supporting files:
 - **Output**: `reports/sites/<site_name>.md` (e.g. `reports/sites/bank_pier.md`, `reports/sites/kilcrohane_pier.md`).
 - **Usage**:
   ```bash
-  .venv/bin/python scripts/site_observations.py "Bank Pier"
-  .venv/bin/python scripts/site_observations.py "Kilcrohane Pier"
-  .venv/bin/python scripts/site_observations.py --all
+  ../.venv/bin/python scripts/site_observations.py "Bank Pier"
+  ../.venv/bin/python scripts/site_observations.py "Kilcrohane Pier"
+  ../.venv/bin/python scripts/site_observations.py --all
   ```
 
 ### `species_classification.py`
@@ -222,7 +222,7 @@ Places change occasionally, so nothing runs on a schedule. `reports/Location_rat
 **Regenerate it** after you add or rename a place, or after a batch of new observations:
 
 ```bash
-.venv/bin/python scripts/generate_location_ratings.py
+../.venv/bin/python scripts/generate_location_ratings.py
 ```
 
 Then read the `⚠️` warning block at the top of the generated file. Each entry is a cluster of observations that matched neither a dive site nor an ignored place. No warning means every observation is accounted for.

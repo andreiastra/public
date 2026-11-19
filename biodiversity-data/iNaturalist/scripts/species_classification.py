@@ -3,7 +3,7 @@ Fetch all of andreiastra's iNaturalist observations in Ireland and write a speci
 classification and organism types report with photo thumbnails to reports/species_classification.md.
 
 Usage:
-  .venv/bin/python scripts/species_classification.py
+  ../.venv/bin/python scripts/species_classification.py
 """
 import collections
 import os

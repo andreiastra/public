@@ -17,7 +17,7 @@ Caveats:
   * Marine mammals and seabirds are excluded (LAND_TAXON_IDS), and so are brown seaweeds.
 
 Usage:
-  .venv/bin/python scripts/cork_species.py
+  ../.venv/bin/python scripts/cork_species.py
 """
 import os
 import sys

@@ -28,7 +28,7 @@ for 90 days, so a normal run only fetches taxa that are new or stale. Pass --ref
 to fetch everything again.
 
 Usage:
-  .venv/bin/python scripts/rarity_underwater_ireland.py [--refresh]
+  ../.venv/bin/python scripts/rarity_underwater_ireland.py [--refresh]
 """
 import json
 import os

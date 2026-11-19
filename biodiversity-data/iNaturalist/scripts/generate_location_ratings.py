@@ -17,7 +17,7 @@ iNaturalist data before running this script.  See scripts/site_names.py for
 the full refresh procedure.
 
 Usage:
-  .venv/bin/python scripts/generate_location_ratings.py
+  ../.venv/bin/python scripts/generate_location_ratings.py
 """
 import math
 import os

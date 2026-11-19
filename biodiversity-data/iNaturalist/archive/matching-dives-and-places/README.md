@@ -20,7 +20,7 @@ This file serves as the technical reference for matching scripts and review data
 - **Output**: [`unmatched_dives.json`](unmatched_dives.json)
 - **Execution**:
   ```bash
-  .venv/bin/python matching-dives-and-places/export_unmatched_dives.py
+  ../.venv/bin/python matching-dives-and-places/export_unmatched_dives.py
   ```
 
 ### 2. `export_unmatched.py`
@@ -32,5 +32,5 @@ This file serves as the technical reference for matching scripts and review data
 - **Output**: [`unmatched_observations.json`](unmatched_observations.json)
 - **Execution**:
   ```bash
-  .venv/bin/python matching-dives-and-places/export_unmatched.py
+  ../.venv/bin/python matching-dives-and-places/export_unmatched.py
   ```

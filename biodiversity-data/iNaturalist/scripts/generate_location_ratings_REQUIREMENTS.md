@@ -93,14 +93,14 @@ Observations are assigned to sites in two steps:
 1. `scripts/site_names.py` must be current — generate the report and check that
    the `⚠️` warning block lists no unresolved cluster. Each one must resolve to a
    canonical name or be listed in `IGNORED_KEYWORDS`.
-2. `.venv` with `requests` installed (`pip install requests`).
+2. the shared `biodiversity-data/.venv` with `requests` installed (`pip install -r ../requirements.txt`).
 
 ---
 
 ## Execution
 
 ```bash
-.venv/bin/python scripts/generate_location_ratings.py
+../.venv/bin/python scripts/generate_location_ratings.py
 ```
 
 Expected console output: page-by-page fetch progress, then a per-site summary

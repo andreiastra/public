@@ -8,7 +8,7 @@ names defined in Preferred_dive_site_names_ireland.txt.
 
 Each entry was derived by running:
 
-    .venv/bin/python scripts/generate_location_ratings.py
+    ../.venv/bin/python scripts/generate_location_ratings.py
 
 and inspecting the place_guess strings in the warning block for unresolved
 clusters.  For every cluster the place_guess values were examined and the
@@ -33,7 +33,7 @@ This list MUST be re-verified whenever:
   - New observations are uploaded for a site not yet in the list
 
 To refresh:
-  1. Run:  .venv/bin/python scripts/generate_location_ratings.py
+  1. Run:  ../.venv/bin/python scripts/generate_location_ratings.py
   2. For each cluster in the warning block at the top of
      reports/Location_ratings.md, inspect the sample place_guess.
   3. Add an entry here with the identifying fragment and the canonical name.

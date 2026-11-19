@@ -8,9 +8,9 @@ CLUSTER_RADIUS_M of the centroid of those matches (catches observations logged
 under a generic place name such as "Cork, Co. Cork, Ireland").
 
 Usage:
-  .venv/bin/python scripts/site_observations.py "Bank Pier"
-  .venv/bin/python scripts/site_observations.py "Kilcrohane Pier"
-  .venv/bin/python scripts/site_observations.py --all
+  ../.venv/bin/python scripts/site_observations.py "Bank Pier"
+  ../.venv/bin/python scripts/site_observations.py "Kilcrohane Pier"
+  ../.venv/bin/python scripts/site_observations.py --all
 """
 import argparse
 import collections

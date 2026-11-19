@@ -11,7 +11,7 @@ Observations with an obscured location are listed under "Obscured location"
 (see README "Obscured locations").
 
 Usage:
-  .venv/bin/python scripts/one_and_done_ireland.py
+  ../.venv/bin/python scripts/one_and_done_ireland.py
 """
 import os
 import sys

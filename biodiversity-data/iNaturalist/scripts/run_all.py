@@ -12,7 +12,7 @@ A failing script doesn't stop the run: the others still run and the failures are
 listed at the end (exit code 1).
 
 Usage:
-  .venv/bin/python scripts/run_all.py
+  ../.venv/bin/python scripts/run_all.py
 """
 import importlib
 import os
