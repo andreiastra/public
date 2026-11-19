@@ -4,7 +4,7 @@
 
 > ⚠️ The following clusters could not be matched to a known dive site — consider updating scripts/site_names.py: 3 obs near “Union Hall, Unionhall, Co. Cork, Ireland”; 3 obs near “Trá an Oileáin, Co. Cork, Ireland”
 
-**60** of **106** species (57%) were recorded in exactly one observation · **38** Research Grade, **22** Needs ID.
+**60** of **106** species (57%) were recorded in exactly one observation · **39** Research Grade, **21** Needs ID.
 
 A high share is what a new life list looks like: every dive still turns up species you haven't seen before. It also means most of the list rests on a single photo. These are the species to look for on the next dive at the same site.
 
@@ -127,7 +127,7 @@ A high share is what a new life list looks like: every dive still turns up speci
 |---|---|---|---|---|
 | [![Sea Lemon](https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/small.jpg)](https://www.inaturalist.org/observations/395265769 "Sea Lemon") | [Sea Lemon](https://www.inaturalist.org/taxa/476238) (*Archidoris pseudoargus*) | Nudibranch | 2026-03-21 | 🔍 Needs ID |
 | [![Aplidium punctum](https://inaturalist-open-data.s3.amazonaws.com/photos/724734753/small.jpg)](https://www.inaturalist.org/observations/395265557 "Aplidium punctum") | [Aplidium punctum](https://www.inaturalist.org/taxa/338045) | Sea Squirt | 2026-03-21 | ✅ Research Grade |
-| [![White Aeolis](https://inaturalist-open-data.s3.amazonaws.com/photos/724733322/small.jpg)](https://www.inaturalist.org/observations/395264859 "White Aeolis") | [White Aeolis](https://www.inaturalist.org/taxa/466954) (*Favorinus branchialis*) | Nudibranch | 2026-03-21 | 🔍 Needs ID |
+| [![White Aeolis](https://inaturalist-open-data.s3.amazonaws.com/photos/724733322/small.jpg)](https://www.inaturalist.org/observations/395264859 "White Aeolis") | [White Aeolis](https://www.inaturalist.org/taxa/466954) (*Favorinus branchialis*) | Nudibranch | 2026-03-21 | ✅ Research Grade |
 | [![Pink Coryphella](https://inaturalist-open-data.s3.amazonaws.com/photos/728003235/small.jpg)](https://www.inaturalist.org/observations/396957235 "Pink Coryphella") | [Pink Coryphella](https://www.inaturalist.org/taxa/605942) (*Edmundsella pedata*) | Nudibranch | 2026-04-25 | ✅ Research Grade |
 | [![Botryllus renierii](https://inaturalist-open-data.s3.amazonaws.com/photos/757909506/small.jpg)](https://www.inaturalist.org/observations/411946308 "Botryllus renierii") | [Botryllus renierii](https://www.inaturalist.org/taxa/800390) | Sea Squirt | 2026-10-31 | ✅ Research Grade |
 
