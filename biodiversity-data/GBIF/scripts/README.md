@@ -17,6 +17,7 @@ Run every script from the `GBIF/` directory (the parent of this one) with the sh
 | [`gbif_summary.py`](#gbif_summarypy) | `reports/gbif_summary.md` |
 | [`sync_status.py`](#sync_statuspy) | `reports/sync_status.md` |
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
+| [`citations.py`](#citationspy) | `reports/citations.md` |
 
 Supporting files:
 
@@ -57,3 +58,10 @@ Supporting files:
 - **Output**: totals (on GBIF, not research grade, research grade but not yet synced, other Irish records), counts by organism group, site and year, and the research-grade observations still missing from GBIF. The iNaturalist observations are downloaded live, so this script needs network access to both APIs.
 - **Dependency**: if `underwater_observations()` is renamed or changes what it returns, this script breaks. Keep it in step with the iNaturalist script.
 - **Usage**: `../.venv/bin/python scripts/underwater_ireland.py`
+
+### `citations.py`
+- **Purpose**: Generates [`reports/citations.md`](../reports/citations.md), the research GBIF links to the iNaturalist dataset and to the species you recorded.
+- **How it works**: Calls `/literature/search` filtered by `gbifDatasetKey` for the dataset-wide totals and facets (year, topic, researcher country, peer review, open access), and `/occurrence/download/dataset/{key}` for the download count. It then searches the same literature for the GBIF taxon keys on your records (repeated `gbifTaxonKey` parameters are an OR, 100 keys per request) and ranks the papers by how many of your species they mention. About 7 API calls (one per second) and no iNaturalist calls.
+- **Direct citations**: GBIF's literature index also stores occurrence keys that papers cite explicitly, but that is rare for iNaturalist records. `/literature/search?gbifOccurrenceKey=` fails on the API (`Unknown SearchParameter data type java.lang.Long`), so the script reads the `gbifOccurrenceKey` facet over the whole index (about 1,300 cited keys) and intersects it with your occurrence keys. The script stops if the facet is truncated.
+- **Reading it**: apart from direct citations, GBIF links papers to the dataset and to taxa, not to a contributor. The dataset figures cover every iNaturalist contributor. A paper that mentions a species you recorded may have used only other people's records of it.
+- **Usage**: `../.venv/bin/python scripts/citations.py`

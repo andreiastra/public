@@ -13,6 +13,7 @@ All reports are generated from live [GBIF](https://www.gbif.org) data for record
 | **[`gbif_summary.md`](gbif_summary.md)** | What the records on GBIF look like: counts by country, organism group and year, the species total, and the issues GBIF raised. | [`gbif_summary.py`](../scripts/README.md#gbif_summarypy) |
 | **[`sync_status.md`](sync_status.md)** | Research-grade iNaturalist observations that are not on GBIF yet, and records still on GBIF that are no longer research grade. | [`sync_status.py`](../scripts/README.md#sync_statuspy) |
 | **[`underwater_ireland.md`](underwater_ireland.md)** | The underwater observations in Ireland (the iNaturalist report's data set) that are on GBIF, by organism group, site and year, and the research-grade ones still missing. | [`underwater_ireland.py`](../scripts/README.md#underwater_irelandpy) |
+| **[`citations.md`](citations.md)** | Research GBIF links to the iNaturalist dataset (papers, downloads, by year and topic), and the papers that mention species you recorded. | [`citations.py`](../scripts/README.md#citationspy) |
 
 ---
 

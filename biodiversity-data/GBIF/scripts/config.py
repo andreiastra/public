@@ -33,9 +33,16 @@ API_BASE              = "https://api.gbif.org/v1"
 OCCURRENCE_URL        = f"{API_BASE}/occurrence"
 OCCURRENCE_SEARCH_URL = f"{OCCURRENCE_URL}/search"
 SPECIES_MATCH_URL     = f"{API_BASE}/species/match"
+DATASET_URL           = f"{API_BASE}/dataset"
+LITERATURE_SEARCH_URL = f"{API_BASE}/literature/search"
+DOWNLOAD_DATASET_URL  = f"{API_BASE}/occurrence/download/dataset"
 INATURALIST_OBSERVATIONS_URL = "https://api.inaturalist.org/v1/observations"
 INATURALIST_PER_PAGE         = 200   # iNaturalist API maximum
 PAGE_SIZE             = 300   # API maximum for /occurrence/search
+LITERATURE_PAGE_SIZE  = 500   # /literature/search accepts at least 500 (1000 fails)
+TAXON_BATCH           = 100   # taxon keys per /literature/search request (keeps the URL short)
+OCCURRENCE_FACET_LIMIT = 100000  # facetLimit for gbifOccurrenceKey; the whole index cites about 1,300 keys
+
 THROTTLE_S            = 1     # be polite; GBIF asks for reasonable request rates
 
 # ── Datasets ──────────────────────────────────────────────────────────────────
