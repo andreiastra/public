@@ -71,24 +71,20 @@ curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
 
 ---
 
-## Scripts
+## Directory Overview
+
+- **[`scripts/`](scripts)** — API data pipelines and report generators (see [`scripts/README.md`](scripts/README.md)).
+- **[`reports/`](reports)** — Generated markdown reports (see [`reports/README.md`](reports/README.md)): [`gbif_summary.md`](reports/gbif_summary.md) and [`sync_status.md`](reports/sync_status.md).
 
 Run from this directory, using the virtualenv shared with [`../iNaturalist`](../iNaturalist). To create it, see [Shared setup](../README.md#shared-setup).
 
 ```bash
-../.venv/bin/python scripts/fetch_occurrences.py
-../.venv/bin/python scripts/fetch_occurrences.py --country IE
+../.venv/bin/python scripts/run_all.py
 ```
-
-| File | Purpose |
-|---|---|
-| [`scripts/config.py`](scripts/config.py) | Shared constants: API URLs, page size, `RECORDED_BY`, iNaturalist dataset key, country codes. |
-| [`scripts/fetch_occurrences.py`](scripts/fetch_occurrences.py) | Downloads all my occurrences from the iNaturalist dataset to `scripts/.cache/occurrences.json` (a snapshot, regenerate rather than read). Optional `--country`. |
 
 ---
 
 ## Ideas to explore
 
-- Compare the GBIF set against the iNaturalist set, to list research-grade observations that have not reached GBIF yet and to spot ones that never will (licence, location).
 - Species recorded in Ireland on GBIF that are missing from the iNaturalist life list, from sources other than iNaturalist (museums, surveys, Seasearch).
 - Download a full species list for a dive-site area with `geometry` or a bounding box (`decimalLatitude`, `decimalLongitude` ranges).

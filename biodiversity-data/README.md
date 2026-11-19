@@ -28,5 +28,6 @@ The venv stores absolute paths. If you move this folder, delete `.venv` and crea
 
 ## Conventions
 
-- Reports under `iNaturalist/reports/` are generated. Regenerate them rather than editing them by hand.
+- Reports under `iNaturalist/reports/` and `GBIF/reports/` are generated. Regenerate them rather than editing them by hand.
+- Each folder has the same layout: `scripts/` for the generators and `reports/` for their output, each with its own README, and a `run_all.py` that regenerates everything with one download.
 - Downloaded API data is cached in each folder's `scripts/.cache/`, which is git-ignored. These files are snapshots and go stale, so re-run the fetch script instead of reading an old copy.

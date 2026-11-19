@@ -2,8 +2,15 @@
 Fetch all GBIF occurrences recorded by Andre Astra from the iNaturalist
 research-grade dataset and save them to scripts/.cache/occurrences.json.
 
-The file is a git-ignored snapshot. GBIF lags iNaturalist by days, so re-run the
-script instead of reading an old file.
+The file is a git-ignored snapshot and goes stale: GBIF lags iNaturalist by
+days. Never read it directly. Call refresh() (or run this script), which always
+re-fetches from the API, rewrites the file, and returns the occurrences.
+
+    from fetch_occurrences import refresh
+    occurrences = refresh()
+
+In-process cache: refresh() also stores the occurrences in memory, and the report
+scripts read them through cached(), so run_all.py downloads them once.
 
 Usage:
   ../.venv/bin/python scripts/fetch_occurrences.py
@@ -28,6 +35,13 @@ from config import (
 )
 
 OUTPUT = os.path.join(CACHE_DIR, "occurrences.json")
+
+_cache = None  # occurrences downloaded earlier in this process, or None
+
+
+def cached():
+    """Return the occurrences downloaded earlier in this process, or None."""
+    return _cache
 
 
 def fetch_all(country=None):
@@ -54,16 +68,28 @@ def fetch_all(country=None):
     return results
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--country", help="ISO 3166-1 alpha-2 code, e.g. IE")
-    args = parser.parse_args()
+def refresh(country=None):
+    """Fetch the occurrences from the API, rewrite OUTPUT, cache and return them.
 
-    occurrences = fetch_all(args.country)
+    Report scripts call this with no country. A country-filtered fetch is only for
+    looking at the data by hand, so it is saved but not kept in the in-process cache.
+    """
+    global _cache
+    occurrences = fetch_all(country)
+    if country is None:
+        _cache = occurrences
     os.makedirs(CACHE_DIR, exist_ok=True)
     with open(OUTPUT, "w", encoding="utf-8") as f:
         json.dump(occurrences, f, ensure_ascii=False, indent=2)
     print(f"Saved {len(occurrences)} occurrences → {os.path.normpath(OUTPUT)}")
+    return occurrences
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument("--country", help="ISO 3166-1 alpha-2 code, e.g. IE")
+    args = parser.parse_args()
+    refresh(args.country)
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ beside it:
 import os
 
 # ── Output ────────────────────────────────────────────────────────────────────
+OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "reports"))  # generated reports, for the reader
 CACHE_DIR = os.path.join(os.path.dirname(__file__), ".cache")  # working data, git-ignored
 
 # ── Recorder ──────────────────────────────────────────────────────────────────
@@ -23,12 +24,15 @@ CACHE_DIR = os.path.join(os.path.dirname(__file__), ".cache")  # working data, g
 # stored in the Darwin Core field recordedBy, so this is a text match, not an id.
 # iNaturalist login: andreiastra (numeric ID 10958443).
 RECORDED_BY = "Andre Astra"
+INATURALIST_USER_ID = "andreiastra"  # used only to compare against iNaturalist (sync_status.py)
 
 # ── API ───────────────────────────────────────────────────────────────────────
 API_BASE              = "https://api.gbif.org/v1"
 OCCURRENCE_URL        = f"{API_BASE}/occurrence"
 OCCURRENCE_SEARCH_URL = f"{OCCURRENCE_URL}/search"
 SPECIES_MATCH_URL     = f"{API_BASE}/species/match"
+INATURALIST_OBSERVATIONS_URL = "https://api.inaturalist.org/v1/observations"
+INATURALIST_PER_PAGE         = 200   # iNaturalist API maximum
 PAGE_SIZE             = 300   # API maximum for /occurrence/search
 THROTTLE_S            = 1     # be polite; GBIF asks for reasonable request rates
 
