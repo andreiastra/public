@@ -53,32 +53,16 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 
 ---
 
-> **Documentation Convention:** This root README is the single source of truth for high-level workflows and project setup. Subfolder documentation files serve as focused technical references for script parameters, schemas, and data structures. Active issues and backlog tasks are tracked in [`TODO.md`](TODO.md).
+> **Documentation Convention:** This README is the single source of truth for iNaturalist workflows. Subfolder documentation files serve as focused technical references for script parameters, schemas, and data structures. Active issues and backlog tasks are tracked in [`TODO.md`](TODO.md).
 
 ---
 
 ## Requirements & Setup
 
-All Python scripts here, and those in [`../GBIF`](../GBIF), share one virtual environment at `biodiversity-data/.venv` (git-ignored). Its dependencies are listed in [`../requirements.txt`](../requirements.txt):
-
-```bash
-cd /Users/astra/github/public/biodiversity-data
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-```
-
-Then run the scripts from `iNaturalist/`. Run any script directly without activating the venv:
+The scripts use the virtual environment shared with [`../GBIF`](../GBIF). Create it once as described in [Shared setup](../README.md#shared-setup), then run scripts from this directory:
 
 ```bash
 ../.venv/bin/python scripts/run_all.py
-```
-
-Or activate for the session:
-
-```bash
-source ../.venv/bin/activate
-python scripts/run_all.py
-deactivate
 ```
 
 ---

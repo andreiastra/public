@@ -73,7 +73,7 @@ curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
 
 ## Scripts
 
-Run from this directory. The scripts need `requests`, which is in the virtualenv shared with [`../iNaturalist`](../iNaturalist) at `biodiversity-data/.venv`. To create it, see [Requirements & Setup](../iNaturalist/README.md#requirements--setup).
+Run from this directory, using the virtualenv shared with [`../iNaturalist`](../iNaturalist). To create it, see [Shared setup](../README.md#shared-setup).
 
 ```bash
 ../.venv/bin/python scripts/fetch_occurrences.py
