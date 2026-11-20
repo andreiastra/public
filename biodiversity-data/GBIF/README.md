@@ -1,5 +1,11 @@
 # GBIF
 
+**Useful links:** 
+
+[my records on GBIF](https://www.gbif.org/occurrence/search?recordedBy=Andre+Astra) (occurrence search, `recordedBy=Andre Astra`).
+
+---
+
 Notes and scripts for exploring the [GBIF API](https://techdocs.gbif.org/en/openapi/) with my own records. This is the counterpart of [`../iNaturalist`](../iNaturalist).
 
 [GBIF](https://www.gbif.org) (Global Biodiversity Information Facility) is an open biodiversity data aggregator. Research-grade iNaturalist observations with an open licence are published to it automatically, in the dataset [iNaturalist Research-grade Observations](https://www.gbif.org/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7).
@@ -131,7 +137,7 @@ curl -s "$B/occurrence/download/dataset/$K?limit=0"
 ## Directory Overview
 
 - **[`scripts/`](scripts)** — API data pipelines and report generators (see [`scripts/README.md`](scripts/README.md)).
-- **[`reports/`](reports)** — Generated markdown reports (see [`reports/README.md`](reports/README.md)): [`gbif_summary.md`](reports/gbif_summary.md), [`sync_status.md`](reports/sync_status.md), [`underwater_ireland.md`](reports/underwater_ireland.md) and [`citations.md`](reports/citations.md).
+- **[`reports/`](reports)** — Generated markdown reports (see [`reports/README.md`](reports/README.md)): [`gbif_summary.md`](reports/gbif_summary.md), [`sync_status.md`](reports/sync_status.md), [`underwater_ireland.md`](reports/underwater_ireland.md), [`lough_hyne_species.md`](reports/lough_hyne_species.md) and [`citations.md`](reports/citations.md).
 
 Run from this directory, using the virtualenv shared with [`../iNaturalist`](../iNaturalist). To create it, see [Shared setup](../README.md#shared-setup).
 
@@ -144,4 +150,4 @@ Run from this directory, using the virtualenv shared with [`../iNaturalist`](../
 ## Ideas to explore
 
 - Species recorded in Ireland on GBIF that are missing from the iNaturalist life list, from sources other than iNaturalist (museums, surveys, Seasearch).
-- Download a full species list for a dive-site area with `geometry` or a bounding box (`decimalLatitude`, `decimalLongitude` ranges).
+- Download a full species list for another dive-site area with `geometry` or a bounding box (`decimalLatitude`, `decimalLongitude` ranges). [`lough_hyne_species.md`](reports/lough_hyne_species.md) does this for Lough Hyne with a `geometry` polygon, and adds filters for photos, marine species and duplicate records.
