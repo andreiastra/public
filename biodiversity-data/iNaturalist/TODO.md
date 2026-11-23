@@ -21,17 +21,17 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 3. 🟡 Keep `site_names.py` in Sync with the Location Lists
 * **Problem:** Location names are kept in two places that can drift apart:
-  - [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) used to be read by no script, so every above-water place also had to be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). That is fixed: `site_names.py` now reads the file.
+  - [`LAND_SITES.txt`](LAND_SITES.txt) used to be read by no script, so every above-water place also had to be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). That is fixed: `site_names.py` now reads the file.
   - [`DIVE_SITES.txt`](DIVE_SITES.txt) and the hand-written `SITE_ALIASES`. Each site's full name is now a keyword automatically, and an alias pointing to a site that is not in the file raises a warning on import. A site with no alias whose `place_guess` lacks its full name is still not flagged.
 * **Why not check file timestamps:** modified times change on `git checkout`, `git pull` or a plain re-save, so they don't show whether names changed. They also can't say which names are new or which keyword they need. Compare file contents with `site_names.py` on every run instead.
 * **Why dive-site keywords stay hand-written:** they need judgement. A bare `"simon"` matched "Cloghmac**simon**, Bandon", and a bare `"sandmount"` merged Bank Pier with Sandmount Bay Beach. Some sites also need aliases that can't be derived from the name, such as `"derreenacarrin"` for Zetland Pier, or `"bank"` for the plus-code place names.
 * **TODO:**
-  - [x] Make `site_names.py` read `Preferred_other_location_names.txt` and skip any place name containing one of its entries (lower-cased).
-  - [ ] Move `derrigra` from `IGNORED_KEYWORDS` into `Preferred_other_location_names.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
+  - [x] Make `site_names.py` read `LAND_SITES.txt` and skip any place name containing one of its entries (lower-cased).
+  - [ ] Move `derrigra` from `IGNORED_KEYWORDS` into `LAND_SITES.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
   - [x] Build `SITE_KEYWORDS` from the full names in `DIVE_SITES.txt`, keeping only short fragments and townland aliases in `SITE_ALIASES`.
   - [x] Warn for each `SITE_ALIASES` entry whose site name is not in `DIVE_SITES.txt`.
   - [ ] *(Optional)* Warn at the top of `Location_ratings.md` for a site in the file that has 0 observations and no alias, so a short-form `place_guess` isn't missed.
-  - [x] Update the "Two files are easy to mix up" section of [`scripts/README.md`](scripts/README.md), which said no script reads `Preferred_other_location_names.txt`.
+  - [x] Update the "Two files are easy to mix up" section of [`scripts/README.md`](scripts/README.md), which said no script reads `LAND_SITES.txt`.
 * **Workflow once done:** edit a `.txt` file, run `generate_location_ratings.py`, then read the warnings at the top of the report.
 
 ---
@@ -49,7 +49,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 5. 🟡 Underwater Life-List Reports: Open Items
 Added with `one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py` and `year_in_review.py` (see [`scripts/README.md`](scripts/README.md)).
-* **Unmatched places:** "Ardra, Co. Cork" (4 observations) shows the `site_names.py` unmatched-cluster warning, so it is missing from every site-based report. Decide whether it is a dive site (add to `DIVE_SITES.txt`, plus a `SITE_ALIASES` entry if needed) or an ignored place (add to `Preferred_other_location_names.txt`). "Union Hall, Unionhall" and "Trá an Oileáin" are now ignored places.
+* **Unmatched places:** "Ardra, Co. Cork" (4 observations) shows the `site_names.py` unmatched-cluster warning, so it is missing from every site-based report. Decide whether it is a dive site (add to `DIVE_SITES.txt`, plus a `SITE_ALIASES` entry if needed) or an ignored place (add to `LAND_SITES.txt`). "Union Hall, Unionhall" and "Trá an Oileáin" are now ignored places.
 * **Not built yet** (ideas from the report review, none needs new API calls):
   - [ ] Seasonality: species group by month. Wait for more than one winter of data.
   - [ ] Needs ID action list (extends item 1): group the Needs ID observations by what blocks them (genus only, disagreement, one identifier).

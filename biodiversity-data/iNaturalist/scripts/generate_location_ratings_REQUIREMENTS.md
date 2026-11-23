@@ -20,7 +20,7 @@ observation made there, each shown as a clickable photo thumbnail.
 | iNaturalist observations | Live API (`/v1/observations`) | Fetched at run time for user `andreiastra`; 30 s timeout per page |
 | Canonical site names | `DIVE_SITES.txt` | One name per line; every entry appears in output |
 | Keyword → name mapping | `scripts/site_names.py` → `SITE_KEYWORDS` | Each full name from the file, then `SITE_ALIASES` (short fragments and townlands) mapped to canonical names |
-| Non-dive location skip-list | `Preferred_other_location_names.txt` + `scripts/site_names.py` → `IGNORED_KEYWORDS` | Clusters matching these are silently excluded |
+| Non-dive location skip-list | `LAND_SITES.txt` + `scripts/site_names.py` → `IGNORED_KEYWORDS` | Clusters matching these are silently excluded |
 
 ---
 

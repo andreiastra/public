@@ -48,7 +48,7 @@ Supports filtering by `user_id`, `taxon_id`, `place_id`, bounding boxes, date ra
 - **[`archive/`](archive)** — Historical dive computer logs and matching utilities used for older observations:
   - **[`archive/dive-logs/`](archive/dive-logs)** — Raw Suunto dive computer telemetry (`.fit` / `.gpx`) and chronological dive index (see [`archive/dive-logs/README.md`](archive/dive-logs/README.md)).
   - **[`archive/matching-dives-and-places/`](archive/matching-dives-and-places)** — Historical scripts used to resolve place names for old iNaturalist observations (see [`archive/matching-dives-and-places/README.md`](archive/matching-dives-and-places/README.md)).
-- **[`DIVE_SITES.txt`](DIVE_SITES.txt)** & **[`Preferred_other_location_names.txt`](Preferred_other_location_names.txt)** — Canonical dive site and terrestrial location reference lists.
+- **[`DIVE_SITES.txt`](DIVE_SITES.txt)** & **[`LAND_SITES.txt`](LAND_SITES.txt)** — Canonical dive site and terrestrial location reference lists.
 - **[`TODO.md`](TODO.md)** — Active task tracker, known data/generator issues, and backlog improvements.
 
 ---

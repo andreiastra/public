@@ -48,7 +48,7 @@ or otherwise non-dive locations.  Any cluster whose place_guess matches one of
 these is silently skipped by generate_location_ratings.py — no unresolved-
 cluster warning is raised.
 
-Most of the list is read from Preferred_other_location_names.txt (one name per
+Most of the list is read from LAND_SITES.txt (one name per
 line, matched case-insensitively).  To silence a new non-dive place, add its
 name to that file.  Only keywords that are not place names there (the Egypt
 trip, "derrigra") are listed in this module.
@@ -69,7 +69,7 @@ import warnings
 
 _ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DIVE_SITES_FILE = os.path.join(_ROOT, "DIVE_SITES.txt")
-OTHER_LOCATIONS_FILE = os.path.join(_ROOT, "Preferred_other_location_names.txt")
+OTHER_LOCATIONS_FILE = os.path.join(_ROOT, "LAND_SITES.txt")
 
 
 def _read_names(path):
@@ -79,13 +79,13 @@ def _read_names(path):
 
 
 def load_other_locations(path=OTHER_LOCATIONS_FILE):
-    """Return the lower-cased place names in Preferred_other_location_names.txt."""
+    """Return the lower-cased place names in LAND_SITES.txt."""
     return [name.lower() for name in _read_names(path)]
 
 
 # Fragments that identify non-dive locations.  Clusters whose combined
 # place_guess contains any of these are silently excluded from the output.
-# The names in Preferred_other_location_names.txt are appended below.
+# The names in LAND_SITES.txt are appended below.
 IGNORED_KEYWORDS = [
     # Egypt trip (Red Sea) — not tracked in the West Cork site list
     "egypt",

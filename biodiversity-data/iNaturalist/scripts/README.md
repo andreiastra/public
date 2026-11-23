@@ -239,7 +239,7 @@ Then read the `⚠️` warning block at the top of the generated file. Each entr
 | The cluster is… | Do this |
 |---|---|
 | A dive site | Add the name to [`../DIVE_SITES.txt`](../DIVE_SITES.txt). If its `place_guess` doesn't contain the full name (a short form such as "Barloge", or only a townland), also add an alias to `SITE_ALIASES` in [`site_names.py`](site_names.py). |
-| Not a dive site (birding, a village) | Add the place name to [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt), one per line. |
+| Not a dive site (birding, a village) | Add the place name to [`../LAND_SITES.txt`](../LAND_SITES.txt), one per line. |
 | Not a dive site, and not a place name worth listing (a trip abroad) | Add a keyword to `IGNORED_KEYWORDS` in [`site_names.py`](site_names.py). |
 | Logged under a generic place name, such as "Cork, Co. Cork, Ireland" | Rename the place on iNaturalist first, then add a keyword for the new name. A keyword can't safely match a generic name. |
 | Logged as "Cork, IE" and the species is threatened (for example a VU Nursehound) | Nothing to fix. The location is [obscured](#obscured-locations), so the warning stays until `generate_location_ratings.py` handles these (see [`../TODO.md`](../TODO.md)). |
@@ -249,7 +249,7 @@ Then regenerate and check that the warning is gone.
 **Two files are easy to mix up:**
 
 - [`../DIVE_SITES.txt`](../DIVE_SITES.txt) is read by `generate_location_ratings.py`. Every entry listed here is treated as a distinct dive site and generates an output section in `Location_ratings.md`. Do not place townland aliases or alternate site names here if they map to another canonical site in `site_names.py` (otherwise they will render as empty 0-observation entries).
-- [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt) is read by [`site_names.py`](site_names.py) and appended to `IGNORED_KEYWORDS`. Each line is matched as a lower-case substring of `place_guess`, so a place listed there is skipped silently and raises no warning. Write the name as it appears in `place_guess`, with accents (`Trá an Oileáin`).
+- [`../LAND_SITES.txt`](../LAND_SITES.txt) is read by [`site_names.py`](site_names.py) and appended to `IGNORED_KEYWORDS`. Each line is matched as a lower-case substring of `place_guess`, so a place listed there is skipped silently and raises no warning. Write the name as it appears in `place_guess`, with accents (`Trá an Oileáin`).
 
 **Keyword rules** (details in the [`site_names.py`](site_names.py) docstring):
 - Put longer, more specific keywords first (`bank pier` before `bank`).
@@ -258,4 +258,4 @@ Then regenerate and check that the warning is gone.
 
 To check how observations are grouped, read the `⚠️` warning block at the top of `reports/Location_ratings.md`. It lists each cluster that didn't resolve, with a sample `place_guess`.
 
-Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`) and `derrigra`, which are hardcoded in `site_names.py`, plus every name in `Preferred_other_location_names.txt`.
+Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`) and `derrigra`, which are hardcoded in `site_names.py`, plus every name in `LAND_SITES.txt`.
