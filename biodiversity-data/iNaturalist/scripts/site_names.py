@@ -50,8 +50,8 @@ cluster warning is raised.
 
 Most of the list is read from LAND_SITES.txt (one name per
 line, matched case-insensitively).  To silence a new non-dive place, add its
-name to that file.  Only keywords that are not place names there (the Egypt
-trip, "derrigra") are listed in this module.
+name to that file.  Only the overseas keywords (the Egypt trip) are listed in
+this module.
 
 ── Rules ─────────────────────────────────────────────────────────────────────
   - Full names are matched before aliases.
@@ -92,7 +92,6 @@ IGNORED_KEYWORDS = [
     "janub sina",      # "Janub Sina', EG"
     "saudi arabia",
     "sharm el sheikh",
-    "derrigra",        # inland townland, Co. Cork
 ] + load_other_locations()
 
 # Short fragments and townland aliases that the full names in

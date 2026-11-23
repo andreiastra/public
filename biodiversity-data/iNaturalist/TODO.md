@@ -8,7 +8,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 * **Problem:** Hardcoded point-in-time counts (e.g. *54 Needs ID*, *17 at Lough Hyne*, *2 observations at Trafrask*) in markdown documentation become stale and inaccurate as new observations or community identifications are made.
 * **TODO:**
   - [x] Remove hardcoded counts from `README.md` and replace with dynamic iNaturalist query links.
-  - [ ] *(Enhancement)* Build an automated script (e.g. `scripts/generate_action_items.py` or extend `generate_location_ratings.py`) to query the live API and output a dynamic `reports/needs_id_breakdown.md` report on demand.
+  - [x] *(Enhancement)* Build an automated script to output a Needs ID report on demand. Done as [`scripts/not_research_grade_ireland.py`](scripts/not_research_grade_ireland.py), which writes [`reports/not_research_grade_ireland.md`](reports/not_research_grade_ireland.md) (underwater observations, grouped by organism type). Grouping by what blocks each ID is still open, see item 5.
 
 ---
 
@@ -20,14 +20,14 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 ---
 
 ## 3. 🟡 Keep `site_names.py` in Sync with the Location Lists
-* **Problem:** Location names are kept in two places that can drift apart:
-  - [`LAND_SITES.txt`](LAND_SITES.txt) used to be read by no script, so every above-water place also had to be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). That is fixed: `site_names.py` now reads the file.
-  - [`DIVE_SITES.txt`](DIVE_SITES.txt) and the hand-written `SITE_ALIASES`. Each site's full name is now a keyword automatically, and an alias pointing to a site that is not in the file raises a warning on import. A site with no alias whose `place_guess` lacks its full name is still not flagged.
+* **Problem:** `site_names.py` combines the two text lists with hand-written keywords, and they can still drift apart:
+  - [`LAND_SITES.txt`](LAND_SITES.txt) is read by [`scripts/site_names.py`](scripts/site_names.py) and appended to `IGNORED_KEYWORDS`. Only the overseas keywords (the Egypt trip) are still hardcoded there.
+  - [`DIVE_SITES.txt`](DIVE_SITES.txt) gives each site's full name as a keyword automatically. Short forms and townlands live in the hand-written `SITE_ALIASES`. An alias pointing to a site that is not in the file raises a warning on import. A site with no alias whose `place_guess` lacks its full name is still not flagged.
 * **Why not check file timestamps:** modified times change on `git checkout`, `git pull` or a plain re-save, so they don't show whether names changed. They also can't say which names are new or which keyword they need. Compare file contents with `site_names.py` on every run instead.
 * **Why dive-site keywords stay hand-written:** they need judgement. A bare `"simon"` matched "Cloghmac**simon**, Bandon", and a bare `"sandmount"` merged Bank Pier with Sandmount Bay Beach. Some sites also need aliases that can't be derived from the name, such as `"derreenacarrin"` for Zetland Pier, or `"bank"` for the plus-code place names.
 * **TODO:**
   - [x] Make `site_names.py` read `LAND_SITES.txt` and skip any place name containing one of its entries (lower-cased).
-  - [ ] Move `derrigra` from `IGNORED_KEYWORDS` into `LAND_SITES.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
+  - [x] Move `derrigra` from `IGNORED_KEYWORDS` into `LAND_SITES.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
   - [x] Build `SITE_KEYWORDS` from the full names in `DIVE_SITES.txt`, keeping only short fragments and townland aliases in `SITE_ALIASES`.
   - [x] Warn for each `SITE_ALIASES` entry whose site name is not in `DIVE_SITES.txt`.
   - [ ] *(Optional)* Warn at the top of `Location_ratings.md` for a site in the file that has 0 observations and no alias, so a short-form `place_guess` isn't missed.
@@ -49,7 +49,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 5. 🟡 Underwater Life-List Reports: Open Items
 Added with `one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py` and `year_in_review.py` (see [`scripts/README.md`](scripts/README.md)).
-* **Unmatched places:** "Ardra, Co. Cork" (4 observations) shows the `site_names.py` unmatched-cluster warning, so it is missing from every site-based report. Decide whether it is a dive site (add to `DIVE_SITES.txt`, plus a `SITE_ALIASES` entry if needed) or an ignored place (add to `LAND_SITES.txt`). "Union Hall, Unionhall" and "Trá an Oileáin" are now ignored places.
+* **Unmatched places:** none left to decide. The only unmatched-cluster warning in `Location_ratings.md` is the obscured "Cork, IE" observation (item 4). "Union Hall, Unionhall" and "Trá an Oileáin" are ignored places in `LAND_SITES.txt`, and "Ardra, Co. Cork" no longer appears in the observations.
 * **Not built yet** (ideas from the report review, none needs new API calls):
   - [ ] Seasonality: species group by month. Wait for more than one winter of data.
   - [ ] Needs ID action list (extends item 1): group the Needs ID observations by what blocks them (genus only, disagreement, one identifier).
@@ -57,4 +57,4 @@ Added with `one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis
   - [ ] Identifier credits by organism group.
 * **Gap analysis is sparse:** few people post in West Cork, so most sites list under 10 nearby species. A bigger radius or a county-level comparison would give more, at the cost of relevance.
 * **Dives are dates:** "best dive" and "dive days" count one date at one site, as `count_dives_per_site()` does. Two dives in a day at the same site count as one.
-* **Baseline for run reports:** commit the four new reports so the next run report ([`scripts/RUN_REPORT.md`](scripts/RUN_REPORT.md)) has something to compare against.
+* **Baseline for run reports:** done. The four reports are committed, so the next run report ([`scripts/RUN_REPORT.md`](scripts/RUN_REPORT.md)) can compare against them.

@@ -258,4 +258,4 @@ Then regenerate and check that the warning is gone.
 
 To check how observations are grouped, read the `⚠️` warning block at the top of `reports/Location_ratings.md`. It lists each cluster that didn't resolve, with a sample `place_guess`.
 
-Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`) and `derrigra`, which are hardcoded in `site_names.py`, plus every name in `LAND_SITES.txt`.
+Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`), which is hardcoded in `site_names.py`, plus every name in `LAND_SITES.txt`.
