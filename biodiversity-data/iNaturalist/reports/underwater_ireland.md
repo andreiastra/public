@@ -221,7 +221,7 @@ iNaturalist hides the true location of these observations (threatened species), 
 | [![Candy Stripe Flatworm](https://inaturalist-open-data.s3.amazonaws.com/photos/724735849/small.jpg)](https://www.inaturalist.org/observations/395266018 "Candy Stripe Flatworm") | [**Candy Stripe Flatworm**<br>*Prostheceraeus vittatus*](https://www.inaturalist.org/observations/395266018) | 2026-03-21 | ✅ Research Grade |
 | [![Sea Lemon](https://inaturalist-open-data.s3.amazonaws.com/photos/724735398/small.jpg)](https://www.inaturalist.org/observations/395265769 "Sea Lemon") | [**Sea Lemon**<br>*Archidoris pseudoargus*](https://www.inaturalist.org/observations/395265769) | 2026-03-21 | 🔍 Needs ID |
 | [![Aplidium punctum](https://inaturalist-open-data.s3.amazonaws.com/photos/724734753/small.jpg)](https://www.inaturalist.org/observations/395265557 "Aplidium punctum") | [**Aplidium punctum**](https://www.inaturalist.org/observations/395265557) | 2026-03-21 | ✅ Research Grade |
-| [![White Aeolis](https://inaturalist-open-data.s3.amazonaws.com/photos/724733322/small.jpg)](https://www.inaturalist.org/observations/395264859 "White Aeolis") | [**White Aeolis**<br>*Favorinus branchialis*](https://www.inaturalist.org/observations/395264859) | 2026-03-21 | 🔍 Needs ID |
+| [![White Aeolis](https://inaturalist-open-data.s3.amazonaws.com/photos/724733322/small.jpg)](https://www.inaturalist.org/observations/395264859 "White Aeolis") | [**White Aeolis**<br>*Favorinus branchialis*](https://www.inaturalist.org/observations/395264859) | 2026-03-21 | ✅ Research Grade |
 
 ---
 
