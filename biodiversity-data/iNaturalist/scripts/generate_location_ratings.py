@@ -243,6 +243,20 @@ def photo_md(obs):
     return f"[{name}]({url})"
 
 
+def render_obs_row(obs):
+    """Return one Photo | Species | Date | Status table row for an observation."""
+    photo   = photo_md(obs)
+    taxon   = obs.get("taxon") or {}
+    common  = taxon.get("preferred_common_name") or taxon.get("name") or "Unknown"
+    sci     = taxon.get("name") or ""
+    sp_cell = f"**{common}**" + (f"<br>*{sci}*" if sci and sci != common else "")
+    date    = obs.get("observed_on") or "—"
+    quality = obs.get("quality_grade") or "unknown"
+    badge   = "✅ Research Grade" if quality == "research" else "🔍 Needs ID"
+    obs_url = obs.get("uri") or f"https://www.inaturalist.org/observations/{obs['id']}"
+    return f"| {photo} | [{sp_cell}]({obs_url}) | {date} | {badge} |"
+
+
 def render_site_section(site, obs_list, dive_count, species_list):
     anchor = site.lower().replace(" ", "-").replace("'", "").replace("(", "").replace(")", "")
     lines  = [
@@ -261,17 +275,7 @@ def render_site_section(site, obs_list, dive_count, species_list):
         "| Photo | Species | Date | Status |",
         "|-------|---------|------|--------|",
     ]
-    for obs in obs_list:
-        photo   = photo_md(obs)
-        taxon   = obs.get("taxon") or {}
-        common  = taxon.get("preferred_common_name") or taxon.get("name") or "Unknown"
-        sci     = taxon.get("name") or ""
-        sp_cell = f"**{common}**" + (f"<br>*{sci}*" if sci and sci != common else "")
-        date    = obs.get("observed_on") or "—"
-        quality = obs.get("quality_grade") or "unknown"
-        badge   = "✅ Research Grade" if quality == "research" else "🔍 Needs ID"
-        obs_url = obs.get("uri") or f"https://www.inaturalist.org/observations/{obs['id']}"
-        lines.append(f"| {photo} | [{sp_cell}]({obs_url}) | {date} | {badge} |")
+    lines += [render_obs_row(obs) for obs in obs_list]
 
     return "\n".join(lines)
 

@@ -41,6 +41,7 @@ STEPS = [
     ("nudibranch_ireland.py", lambda: importlib.import_module("nudibranch_ireland").main()),
     ("species_classification.py", lambda: importlib.import_module("species_classification").main()),
     ("underwater_ireland.py", lambda: importlib.import_module("underwater_ireland").main()),
+    ("not_research_grade_ireland.py", lambda: importlib.import_module("not_research_grade_ireland").main()),
     ("rarity_underwater_ireland.py", lambda: importlib.import_module("rarity_underwater_ireland").main()),
     ("rarity_underwater_worldwide.py", lambda: importlib.import_module("rarity_underwater_worldwide").main()),
     ("rare_birds_ireland.py", lambda: importlib.import_module("rare_birds_ireland").main()),

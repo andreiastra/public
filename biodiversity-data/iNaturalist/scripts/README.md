@@ -19,6 +19,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`site_observations.py`](#site_observationspy) | `reports/sites/<site_name>.md` |
 | [`species_classification.py`](#species_classificationpy) | `reports/species_classification.md` |
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
+| [`not_research_grade_ireland.py`](#not_research_grade_irelandpy) | `reports/not_research_grade_ireland.md` |
 | [`rarity_underwater_ireland.py`](#rarity_underwater_irelandpy) | `reports/rarity_underwater_ireland.md` |
 | [`rarity_underwater_worldwide.py`](#rarity_underwater_worldwidepy) | `reports/rarity_underwater_worldwide.md` |
 | [`rare_birds_ireland.py`](#rare_birds_irelandpy) | `reports/rare_birds_ireland.md` |
@@ -96,6 +97,11 @@ Supporting files:
   - Doesn't count them in the site totals, only in the "with obscured location" count in the report header.
 - **Also used by GBIF**: [`../../GBIF/scripts/underwater_ireland.py`](../../GBIF/scripts/README.md#underwater_irelandpy) calls `underwater_observations()` to decide which GBIF records are underwater. Keep its name and return value stable, or update that script too.
 - **Output**: `reports/underwater_ireland.md`. Unresolved clusters appear as a `⚠️` warning at the top of the report (see [Keeping places up to date](#keeping-places-up-to-date)).
+
+### `not_research_grade_ireland.py`
+- **Purpose**: Generates [`reports/not_research_grade_ireland.md`](../reports/not_research_grade_ireland.md), listing the underwater observations in Ireland that are not Research Grade yet (Needs ID), grouped by organism type (most pending first), with the dive site in each row.
+- **How it works**: Takes the entries from `underwater_entries()` in [`underwater_stats.py`](underwater_stats.py), keeps `quality_grade != "research"` and groups them with `species_type()` from `species_classification.py`. Within a type the rows are sorted by species name, newest first. Obscured observations are included, with "Obscured location" as site.
+- **Output**: `reports/not_research_grade_ireland.md`
 
 ### `rarity_underwater_ireland.py`
 - **Purpose**: Generates [`reports/rarity_underwater_ireland.md`](../reports/rarity_underwater_ireland.md), rating the user's **Research Grade** underwater taxa in Ireland by rarity, rarest first, with a thumbnail, rating, IUCN status, the user's observation count and the dive sites.
