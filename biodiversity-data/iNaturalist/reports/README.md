@@ -23,6 +23,7 @@ All reports are generated from live [iNaturalist](https://www.inaturalist.org) d
 | **[`year_in_review.html`](year_in_review.html)** | One-page HTML summary of the underwater life list: totals, best dive, rarest find, top site, when you dive, growth, identifiers. Open in a browser. | [`year_in_review.py`](../scripts/README.md#year_in_reviewpy) |
 | **[`sites/<site_name>.md`](sites/bank_pier.md)** | Individual dive site reports detailing site species lists and observation galleries (e.g., [`sites/bank_pier.md`](sites/bank_pier.md), [`sites/canty_s_cove.md`](sites/canty_s_cove.md), [`sites/gortdubh_pier.md`](sites/gortdubh_pier.md), [`sites/kilcrohane_pier.md`](sites/kilcrohane_pier.md)). | [`site_observations.py`](../scripts/README.md#site_observationspy) |
 | **[`runs/<date>.md`](runs/2026-11-13.md)** | One dated write-up per full run: how it went and what changed in the reports. Written by hand, not regenerated. | [`run_all.py`](../scripts/README.md#run_allpy) |
+| **[`investigations/<date>-<topic>.md`](investigations/2026-11-22-yesterdays-observations-and-projects.md)** | One-off write-ups of a question answered from live data, with the method and caveats. Written by hand, not regenerated. | None |
 
 ---
 
