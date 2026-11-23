@@ -39,11 +39,10 @@ from config import (CACHE_DIR, INATURALIST_DATASET_KEY, LOUGH_HYNE_POLYGON, OCCU
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "lough_hyne_species.md")
 PROFILE_CACHE = os.path.join(CACHE_DIR, "species_profiles.json")
-OCCURRENCE_PAGE = "https://www.gbif.org/occurrence/{}"
 WORKERS = 8
-THUMB_HEIGHT = 75  # px
+THUMB_HEIGHT = 150  # px
 # GBIF's image cache resizes any host's photo; the digest is the MD5 of the original URL.
-THUMB_URL = "https://api.gbif.org/v1/image/cache/x75/occurrence/{key}/media/{digest}"
+THUMB_URL = "https://api.gbif.org/v1/image/cache/x150/occurrence/{key}/media/{digest}"
 # Table groups, from the GBIF classification (phylum, class, order). The first match wins.
 GROUPS = [
     ("Nudibranchs", lambda ph, cl, od: od == "Nudibranchia"),
@@ -137,15 +136,16 @@ def profiles_for(keys):
 
 
 def thumbnail(o):
-    """GBIF's small cached thumbnail of the first photo, linked to the occurrence page, or "—"."""
+    """GBIF's small cached thumbnail of the first photo, linked to the full-size photo, or "—"."""
     for m in o.get("media") or []:
         if m.get("type") == "StillImage" and m.get("identifier"):
             digest = hashlib.md5(m["identifier"].encode()).hexdigest()
             thumb = THUMB_URL.format(key=o["key"], digest=digest)
+            link = m["identifier"]
             if plain(o.get("recordedBy")) == plain(RECORDED_BY):  # my record: outlined in blue
-                return (f'<a href="{OCCURRENCE_PAGE.format(o["key"])}"><img src="{thumb}" height="{THUMB_HEIGHT}" '
+                return (f'<a href="{link}"><img src="{thumb}" height="{THUMB_HEIGHT}" '
                         f'style="border: 3px solid #0f62fe" alt="my photo"></a>')
-            return f'<a href="{OCCURRENCE_PAGE.format(o["key"])}"><img src="{thumb}" height="{THUMB_HEIGHT}" alt="photo"></a>'
+            return f'<a href="{link}"><img src="{thumb}" height="{THUMB_HEIGHT}" alt="photo"></a>'
     return "—"
 
 
