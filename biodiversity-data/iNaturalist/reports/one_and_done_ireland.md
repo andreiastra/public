@@ -4,7 +4,7 @@
 
 > ⚠️ The following clusters could not be matched to a known dive site — consider updating scripts/site_names.py: 3 obs near “Union Hall, Unionhall, Co. Cork, Ireland”; 3 obs near “Trá an Oileáin, Co. Cork, Ireland”
 
-**60** of **106** species (57%) were recorded in exactly one observation · **39** Research Grade, **21** Needs ID.
+**58** of **107** species (54%) were recorded in exactly one observation · **38** Research Grade, **20** Needs ID.
 
 A high share is what a new life list looks like: every dive still turns up species you haven't seen before. It also means most of the list rests on a single photo. These are the species to look for on the next dive at the same site.
 
@@ -12,19 +12,21 @@ A high share is what a new life list looks like: every dive still turns up speci
 
 | Observations | Species |
 |--:|--:|
-| 1 | 60 |
-| 2 | 25 |
-| 3 | 11 |
-| 4 | 3 |
+| 1 | 58 |
+| 2 | 22 |
+| 3 | 13 |
+| 4 | 4 |
 | 5 | 7 |
+| 6 | 2 |
+| 7 | 1 |
 
 ## By organism type
 
 | Type | Seen once | All species | Share once |
 |---|--:|--:|--:|
-| Fish | 13 | 27 | 48% |
+| Fish | 12 | 27 | 44% |
 | Nudibranch | 8 | 10 | 80% |
-| Anemone | 6 | 9 | 67% |
+| Anemone | 6 | 10 | 60% |
 | Sea Squirt | 5 | 7 | 71% |
 | Sponge | 4 | 5 | 80% |
 | Crab | 3 | 11 | 27% |
@@ -33,7 +35,6 @@ A high share is what a new life list looks like: every dive still turns up speci
 | Jellyfish | 2 | 4 | 50% |
 | Sea Cucumber | 2 | 3 | 67% |
 | Starfish | 2 | 3 | 67% |
-| Worm | 2 | 4 | 50% |
 | Bivalve | 1 | 2 | 50% |
 | Bryozoan | 1 | 1 | 100% |
 | Hydroid | 1 | 1 | 100% |
@@ -42,6 +43,7 @@ A high share is what a new life list looks like: every dive still turns up speci
 | Sea Hare | 1 | 4 | 25% |
 | Seaweed / Algae | 1 | 1 | 100% |
 | Shrimp | 1 | 2 | 50% |
+| Worm | 1 | 4 | 25% |
 | Coral | 0 | 2 | 0% |
 | Flatworm | 0 | 1 | 0% |
 | Squat Lobster | 0 | 1 | 0% |
@@ -51,17 +53,17 @@ A high share is what a new life list looks like: every dive still turns up speci
 | Site | Seen once |
 |---|--:|
 | [Lough Hyne](#lough-hyne) | 10 |
-| [Zetland Pier](#zetland-pier) | 10 |
+| [Zetland Pier](#zetland-pier) | 9 |
 | [Kilcrohane Pier](#kilcrohane-pier) | 8 |
 | [Sandmount Bay Beach](#sandmount-bay-beach) | 6 |
 | [Canty's Cove](#cantys-cove) | 5 |
 | [Gortdubh Pier](#gortdubh-pier) | 4 |
 | [Seven Heads Pier](#seven-heads-pier) | 4 |
-| [Audley Cove](#audley-cove) | 2 |
 | [Bank Pier](#bank-pier) | 2 |
 | [Dooneen Pier](#dooneen-pier) | 2 |
 | [Snave Pier](#snave-pier) | 2 |
 | [Aghabeg Pier](#aghabeg-pier) | 1 |
+| [Audley Cove](#audley-cove) | 1 |
 | [Obscured location](#obscured-location) | 1 |
 | [Simon's Cove](#simons-cove) | 1 |
 | [Small Sovereign Island](#small-sovereign-island) | 1 |
@@ -90,7 +92,6 @@ A high share is what a new life list looks like: every dive still turns up speci
 | [![Mauve Stinger](https://inaturalist-open-data.s3.amazonaws.com/photos/726552889/small.jpg)](https://www.inaturalist.org/observations/396194167 "Mauve Stinger") | [Mauve Stinger](https://www.inaturalist.org/taxa/256089) (*Pelagia noctiluca*) | Jellyfish | 2025-09-06 | ✅ Research Grade |
 | [![Ascidia mentula](https://inaturalist-open-data.s3.amazonaws.com/photos/726549784/small.jpg)](https://www.inaturalist.org/observations/396192786 "Ascidia mentula") | [Ascidia mentula](https://www.inaturalist.org/taxa/472689) | Sea Squirt | 2025-09-06 | ✅ Research Grade |
 | [![Halichondria bowerbanki](https://inaturalist-open-data.s3.amazonaws.com/photos/726539732/small.jpg)](https://www.inaturalist.org/observations/396188209 "Halichondria bowerbanki") | [Halichondria bowerbanki](https://www.inaturalist.org/taxa/120498) | Sponge | 2025-09-06 | 🔍 Needs ID |
-| [![Sand Goby](https://inaturalist-open-data.s3.amazonaws.com/photos/752335660/small.jpg)](https://www.inaturalist.org/observations/409202218 "Sand Goby") | [Sand Goby](https://www.inaturalist.org/taxa/344748) (*Pomatoschistus minutus*) | Fish | 2026-10-16 | 🔍 Needs ID |
 | [![Daisy Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/752335253/small.jpg)](https://www.inaturalist.org/observations/409202209 "Daisy Anemone") | [Daisy Anemone](https://www.inaturalist.org/taxa/481214) (*Cereus pedunculatus*) | Anemone | 2026-10-16 | ✅ Research Grade |
 | [![Sand Smelt](https://inaturalist-open-data.s3.amazonaws.com/photos/751524432/small.jpg)](https://www.inaturalist.org/observations/408801853 "Sand Smelt") | [Sand Smelt](https://www.inaturalist.org/taxa/118594) (*Atherina presbyter*) | Fish | 2026-10-16 | ✅ Research Grade |
 | [![Striped Red Mullet](https://inaturalist-open-data.s3.amazonaws.com/photos/751524411/small.jpg)](https://www.inaturalist.org/observations/408801845 "Striped Red Mullet") | [Striped Red Mullet](https://www.inaturalist.org/taxa/118619) (*Mullus surmuletus*) | Fish | 2026-10-16 | ✅ Research Grade |
@@ -149,13 +150,6 @@ A high share is what a new life list looks like: every dive still turns up speci
 | [![European lobster](https://inaturalist-open-data.s3.amazonaws.com/photos/724693602/small.jpg)](https://www.inaturalist.org/observations/395243552 "European lobster") | [European lobster](https://www.inaturalist.org/taxa/62410) (*Homarus gammarus*) | Lobster | 2026-07-18 | ✅ Research Grade |
 | [![Jewel Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/728014868/small.jpg)](https://www.inaturalist.org/observations/396962848 "Jewel Anemone") | [Jewel Anemone](https://www.inaturalist.org/taxa/337998) (*Corynactis viridis*) | Anemone | 2026-08-01 | ✅ Research Grade |
 
-## Audley Cove
-
-| Photo | Species | Type | Date | Grade |
-|---|---|---|---|---|
-| [![Sand Fan Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/761159756/small.jpg)](https://www.inaturalist.org/observations/413553781 "Sand Fan Worm") | [Sand Fan Worm](https://www.inaturalist.org/taxa/49533) (*Myxicola infundibulum*) | Worm | 2026-11-07 | ✅ Research Grade |
-| [![Greater Pipefish](https://inaturalist-open-data.s3.amazonaws.com/photos/761159471/small.jpg)](https://www.inaturalist.org/observations/413553765 "Greater Pipefish") | [Greater Pipefish](https://www.inaturalist.org/taxa/118624) (*Syngnathus acus*) | Fish | 2026-11-07 | ✅ Research Grade |
-
 ## Bank Pier
 
 | Photo | Species | Type | Date | Grade |
@@ -182,6 +176,12 @@ A high share is what a new life list looks like: every dive still turns up speci
 | Photo | Species | Type | Date | Grade |
 |---|---|---|---|---|
 | [![Common Moon Jelly](https://inaturalist-open-data.s3.amazonaws.com/photos/726522362/small.jpg)](https://www.inaturalist.org/observations/396179191 "Common Moon Jelly") | [Common Moon Jelly](https://www.inaturalist.org/taxa/48328) (*Aurelia aurita*) | Jellyfish | 2025-07-12 | ✅ Research Grade |
+
+## Audley Cove
+
+| Photo | Species | Type | Date | Grade |
+|---|---|---|---|---|
+| [![Greater Pipefish](https://inaturalist-open-data.s3.amazonaws.com/photos/761159471/small.jpg)](https://www.inaturalist.org/observations/413553765 "Greater Pipefish") | [Greater Pipefish](https://www.inaturalist.org/taxa/118624) (*Syngnathus acus*) | Fish | 2026-11-07 | ✅ Research Grade |
 
 ## Obscured location
 

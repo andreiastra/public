@@ -4,25 +4,25 @@
 
 > ⚠️ The following clusters could not be matched to a known dive site — consider updating scripts/site_names.py: 3 obs near “Union Hall, Unionhall, Co. Cork, Ireland”; 3 obs near “Trá an Oileáin, Co. Cork, Ireland”
 
-**63** of **209** observations still need an ID, grouped by organism type. Full list per site: [`underwater_ireland.md`](underwater_ireland.md).
+**65** of **233** observations still need an ID, grouped by organism type. Full list per site: [`underwater_ireland.md`](underwater_ireland.md).
 
 ## Organism types
 
 | Type | Needs ID | Taxa |
 |---|---:|---:|
-| [Crab](#crab) | 12 | 9 |
+| [Crab](#crab) | 13 | 9 |
 | [Fish](#fish) | 8 | 8 |
-| [Sponge](#sponge) | 6 | 5 |
-| [Coral](#coral) | 4 | 2 |
+| [Sponge](#sponge) | 7 | 6 |
 | [Nudibranch](#nudibranch) | 4 | 4 |
 | [Sea Cucumber](#sea-cucumber) | 4 | 4 |
+| [Worm](#worm) | 4 | 2 |
+| [Anemone](#anemone) | 3 | 3 |
+| [Coral](#coral) | 3 | 2 |
 | [Sea Hare](#sea-hare) | 3 | 3 |
-| [Sea Squirt](#sea-squirt) | 3 | 3 |
 | [Starfish](#starfish) | 3 | 2 |
-| [Worm](#worm) | 3 | 2 |
-| [Anemone](#anemone) | 2 | 2 |
 | [Bivalve](#bivalve) | 2 | 2 |
 | [Gastropod](#gastropod) | 2 | 2 |
+| [Sea Squirt](#sea-squirt) | 2 | 2 |
 | [Seaweed / Algae](#seaweed-algae) | 2 | 1 |
 | [Crustacean](#crustacean) | 1 | 1 |
 | [Hydroid](#hydroid) | 1 | 1 |
@@ -36,10 +36,11 @@
 <a id="crab"></a>
 ## Crab
 
-**Needs ID:** 12
+**Needs ID:** 13
 
 | Photo | Species | Site | Date |
 |-------|---------|------|------|
+| [![Common Hermit Crab](https://inaturalist-open-data.s3.amazonaws.com/photos/766780617/small.jpg)](https://www.inaturalist.org/observations/416360440 "Common Hermit Crab") | [**Common Hermit Crab**<br>*Pagurus bernhardus*](https://www.inaturalist.org/observations/416360440) | Lough Hyne | 2026-11-21 |
 | [![Common Hermit Crab](https://inaturalist-open-data.s3.amazonaws.com/photos/746998859/small.jpg)](https://www.inaturalist.org/observations/406573811 "Common Hermit Crab") | [**Common Hermit Crab**<br>*Pagurus bernhardus*](https://www.inaturalist.org/observations/406573811) | Kilcrohane Pier | 2026-03-07 |
 | [![European Spider Crab](https://inaturalist-open-data.s3.amazonaws.com/photos/724744487/small.jpg)](https://www.inaturalist.org/observations/395270973 "European Spider Crab") | [**European Spider Crab**<br>*Maja squinado*](https://www.inaturalist.org/observations/395270973) | Lough Hyne | 2026-03-14 |
 | [![Great Spider Crab](https://inaturalist-open-data.s3.amazonaws.com/photos/724729756/small.jpg)](https://www.inaturalist.org/observations/395262551 "Great Spider Crab") | [**Great Spider Crab**<br>*Hyas araneus*](https://www.inaturalist.org/observations/395262551) | Lough Hyne | 2026-04-04 |
@@ -78,31 +79,17 @@
 <a id="sponge"></a>
 ## Sponge
 
-**Needs ID:** 6
+**Needs ID:** 7
 
 | Photo | Species | Site | Date |
 |-------|---------|------|------|
 | [![Golf Ball Sponge](https://inaturalist-open-data.s3.amazonaws.com/photos/728954538/small.jpg)](https://www.inaturalist.org/observations/397443318 "Golf Ball Sponge") | [**Golf Ball Sponge**<br>*Tethya aurantium*](https://www.inaturalist.org/observations/397443318) | Sandmount Bay Beach | 2026-09-05 |
 | [![Halichondria bowerbanki](https://inaturalist-open-data.s3.amazonaws.com/photos/726539732/small.jpg)](https://www.inaturalist.org/observations/396188209 "Halichondria bowerbanki") | [**Halichondria bowerbanki**](https://www.inaturalist.org/observations/396188209) | Zetland Pier | 2025-09-06 |
+| [![Haliclona](https://inaturalist-open-data.s3.amazonaws.com/photos/766767185/small.jpg)](https://www.inaturalist.org/observations/416356150 "Haliclona") | [**Haliclona**](https://www.inaturalist.org/observations/416356150) | Lough Hyne | 2026-11-21 |
 | [![Orange Golf Ball Sponge](https://inaturalist-open-data.s3.amazonaws.com/photos/728954486/small.jpg)](https://www.inaturalist.org/observations/397443312 "Orange Golf Ball Sponge") | [**Orange Golf Ball Sponge**<br>*Tethya burtoni*](https://www.inaturalist.org/observations/397443312) | Sandmount Bay Beach | 2026-09-05 |
 | [![Suberites](https://inaturalist-open-data.s3.amazonaws.com/photos/727613397/small.jpg)](https://www.inaturalist.org/observations/396758104 "Suberites") | [**Suberites**](https://www.inaturalist.org/observations/396758104) | Garnish Island | 2025-07-19 |
 | [![Suberites](https://inaturalist-open-data.s3.amazonaws.com/photos/727612727/small.jpg)](https://www.inaturalist.org/observations/396757876 "Suberites") | [**Suberites**](https://www.inaturalist.org/observations/396757876) | Garnish Island | 2025-07-19 |
 | [![Suberites carnosus](https://inaturalist-open-data.s3.amazonaws.com/photos/727563282/small.jpg)](https://www.inaturalist.org/observations/396732472 "Suberites carnosus") | [**Suberites carnosus**](https://www.inaturalist.org/observations/396732472) | Bank Pier | 2025-11-22 |
-
----
-
-
-<a id="coral"></a>
-## Coral
-
-**Needs ID:** 4
-
-| Photo | Species | Site | Date |
-|-------|---------|------|------|
-| [![Coralline algae](https://inaturalist-open-data.s3.amazonaws.com/photos/729863308/small.jpg)](https://www.inaturalist.org/observations/397909120 "Coralline algae") | [**Coralline algae**<br>*Corallinales*](https://www.inaturalist.org/observations/397909120) | Sandmount Bay Beach | 2026-09-05 |
-| [![Devonshire Cup Coral](https://inaturalist-open-data.s3.amazonaws.com/photos/748395002/small.jpg)](https://www.inaturalist.org/observations/407269595 "Devonshire Cup Coral") | [**Devonshire Cup Coral**<br>*Caryophyllia smithii*](https://www.inaturalist.org/observations/407269595) | Kilcrohane Pier | 2026-10-10 |
-| [![Devonshire Cup Coral](https://inaturalist-open-data.s3.amazonaws.com/photos/728954726/small.jpg)](https://www.inaturalist.org/observations/397443333 "Devonshire Cup Coral") | [**Devonshire Cup Coral**<br>*Caryophyllia smithii*](https://www.inaturalist.org/observations/397443333) | Sandmount Bay Beach | 2026-09-05 |
-| [![Devonshire Cup Coral](https://inaturalist-open-data.s3.amazonaws.com/photos/757603099/small.jpg)](https://www.inaturalist.org/observations/411793911 "Devonshire Cup Coral") | [**Devonshire Cup Coral**<br>*Caryophyllia smithii*](https://www.inaturalist.org/observations/411793911) | Canty's Cove | 2026-03-21 |
 
 ---
 
@@ -137,6 +124,49 @@
 ---
 
 
+<a id="worm"></a>
+## Worm
+
+**Needs ID:** 4
+
+| Photo | Species | Site | Date |
+|-------|---------|------|------|
+| [![Peacock Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/766685593/small.jpg)](https://www.inaturalist.org/observations/416315382 "Peacock Worm") | [**Peacock Worm**<br>*Sabella pavonina*](https://www.inaturalist.org/observations/416315382) | Lough Hyne | 2026-11-21 |
+| [![Peacock Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/756471219/small.jpg)](https://www.inaturalist.org/observations/411231213 "Peacock Worm") | [**Peacock Worm**<br>*Sabella pavonina*](https://www.inaturalist.org/observations/411231213) | Bank Pier | 2026-05-09 |
+| [![Peacock Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/732167282/small.jpg)](https://www.inaturalist.org/observations/399088173 "Peacock Worm") | [**Peacock Worm**<br>*Sabella pavonina*](https://www.inaturalist.org/observations/399088173) | Lough Hyne | 2025-10-25 |
+| [![Serpulid Tubeworms](https://inaturalist-open-data.s3.amazonaws.com/photos/728008601/small.jpg)](https://www.inaturalist.org/observations/396959899 "Serpulid Tubeworms") | [**Serpulid Tubeworms**<br>*Serpulidae*](https://www.inaturalist.org/observations/396959899) | Seven Heads Pier | 2026-07-18 |
+
+---
+
+
+<a id="anemone"></a>
+## Anemone
+
+**Needs ID:** 3
+
+| Photo | Species | Site | Date |
+|-------|---------|------|------|
+| [![Cylinder Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/724748563/small.jpg)](https://www.inaturalist.org/observations/395272480 "Cylinder Anemone") | [**Cylinder Anemone**<br>*Cerianthus membranaceus*](https://www.inaturalist.org/observations/395272480) | Lough Hyne | 2026-01-31 |
+| [![Sagartiidae](https://inaturalist-open-data.s3.amazonaws.com/photos/766685571/small.jpg)](https://www.inaturalist.org/observations/416315377 "Sagartiidae") | [**Sagartiidae**](https://www.inaturalist.org/observations/416315377) | Lough Hyne | 2026-11-21 |
+| [![Sandalled Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/725188461/small.jpg)](https://www.inaturalist.org/observations/395496251 "Sandalled Anemone") | [**Sandalled Anemone**<br>*Actinothoe sphyrodeta*](https://www.inaturalist.org/observations/395496251) | Gortdubh Pier | 2026-08-29 |
+
+---
+
+
+<a id="coral"></a>
+## Coral
+
+**Needs ID:** 3
+
+| Photo | Species | Site | Date |
+|-------|---------|------|------|
+| [![Coralline algae](https://inaturalist-open-data.s3.amazonaws.com/photos/729863308/small.jpg)](https://www.inaturalist.org/observations/397909120 "Coralline algae") | [**Coralline algae**<br>*Corallinales*](https://www.inaturalist.org/observations/397909120) | Sandmount Bay Beach | 2026-09-05 |
+| [![Devonshire Cup Coral](https://inaturalist-open-data.s3.amazonaws.com/photos/748395002/small.jpg)](https://www.inaturalist.org/observations/407269595 "Devonshire Cup Coral") | [**Devonshire Cup Coral**<br>*Caryophyllia smithii*](https://www.inaturalist.org/observations/407269595) | Kilcrohane Pier | 2026-10-10 |
+| [![Devonshire Cup Coral](https://inaturalist-open-data.s3.amazonaws.com/photos/728954726/small.jpg)](https://www.inaturalist.org/observations/397443333 "Devonshire Cup Coral") | [**Devonshire Cup Coral**<br>*Caryophyllia smithii*](https://www.inaturalist.org/observations/397443333) | Sandmount Bay Beach | 2026-09-05 |
+
+---
+
+
 <a id="sea-hare"></a>
 ## Sea Hare
 
@@ -151,20 +181,6 @@
 ---
 
 
-<a id="sea-squirt"></a>
-## Sea Squirt
-
-**Needs ID:** 3
-
-| Photo | Species | Site | Date |
-|-------|---------|------|------|
-| [![Corella parallelogramma](https://inaturalist-open-data.s3.amazonaws.com/photos/757599697/small.jpg)](https://www.inaturalist.org/observations/411792513 "Corella parallelogramma") | [**Corella parallelogramma**](https://www.inaturalist.org/observations/411792513) | Dooneen Pier | 2026-05-02 |
-| [![Didemnum maculosum](https://inaturalist-open-data.s3.amazonaws.com/photos/725206286/small.jpg)](https://www.inaturalist.org/observations/395505064 "Didemnum maculosum") | [**Didemnum maculosum**](https://www.inaturalist.org/observations/395505064) | Gortdubh Pier | 2026-08-29 |
-| [![Grey colonial ascidian](https://inaturalist-open-data.s3.amazonaws.com/photos/725188401/small.jpg)](https://www.inaturalist.org/observations/395496246 "Grey colonial ascidian") | [**Grey colonial ascidian**<br>*Leptoclinides*](https://www.inaturalist.org/observations/395496246) | Gortdubh Pier | 2026-08-29 |
-
----
-
-
 <a id="starfish"></a>
 ## Starfish
 
@@ -175,33 +191,6 @@
 | [![Blood Stars](https://inaturalist-open-data.s3.amazonaws.com/photos/724698234/small.jpg)](https://www.inaturalist.org/observations/395245820 "Blood Stars") | [**Blood Stars**<br>*Henricia*](https://www.inaturalist.org/observations/395245820) | Seven Heads Pier | 2026-07-18 |
 | [![Blood Stars](https://inaturalist-open-data.s3.amazonaws.com/photos/724747000/small.jpg)](https://www.inaturalist.org/observations/395271654 "Blood Stars") | [**Blood Stars**<br>*Henricia*](https://www.inaturalist.org/observations/395271654) | Dooneen Pier | 2026-02-14 |
 | [![Northern Blood Star](https://inaturalist-open-data.s3.amazonaws.com/photos/725188530/small.jpg)](https://www.inaturalist.org/observations/395496256 "Northern Blood Star") | [**Northern Blood Star**<br>*Henricia sanguinolenta*](https://www.inaturalist.org/observations/395496256) | Gortdubh Pier | 2026-08-29 |
-
----
-
-
-<a id="worm"></a>
-## Worm
-
-**Needs ID:** 3
-
-| Photo | Species | Site | Date |
-|-------|---------|------|------|
-| [![Peacock Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/756471219/small.jpg)](https://www.inaturalist.org/observations/411231213 "Peacock Worm") | [**Peacock Worm**<br>*Sabella pavonina*](https://www.inaturalist.org/observations/411231213) | Bank Pier | 2026-05-09 |
-| [![Peacock Worm](https://inaturalist-open-data.s3.amazonaws.com/photos/732167282/small.jpg)](https://www.inaturalist.org/observations/399088173 "Peacock Worm") | [**Peacock Worm**<br>*Sabella pavonina*](https://www.inaturalist.org/observations/399088173) | Lough Hyne | 2025-10-25 |
-| [![Serpulid Tubeworms](https://inaturalist-open-data.s3.amazonaws.com/photos/728008601/small.jpg)](https://www.inaturalist.org/observations/396959899 "Serpulid Tubeworms") | [**Serpulid Tubeworms**<br>*Serpulidae*](https://www.inaturalist.org/observations/396959899) | Seven Heads Pier | 2026-07-18 |
-
----
-
-
-<a id="anemone"></a>
-## Anemone
-
-**Needs ID:** 2
-
-| Photo | Species | Site | Date |
-|-------|---------|------|------|
-| [![Cylinder Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/724748563/small.jpg)](https://www.inaturalist.org/observations/395272480 "Cylinder Anemone") | [**Cylinder Anemone**<br>*Cerianthus membranaceus*](https://www.inaturalist.org/observations/395272480) | Lough Hyne | 2026-01-31 |
-| [![Sandalled Anemone](https://inaturalist-open-data.s3.amazonaws.com/photos/725188461/small.jpg)](https://www.inaturalist.org/observations/395496251 "Sandalled Anemone") | [**Sandalled Anemone**<br>*Actinothoe sphyrodeta*](https://www.inaturalist.org/observations/395496251) | Gortdubh Pier | 2026-08-29 |
 
 ---
 
@@ -228,6 +217,19 @@
 |-------|---------|------|------|
 | [![Patella](https://inaturalist-open-data.s3.amazonaws.com/photos/728954026/small.jpg)](https://www.inaturalist.org/observations/397443292 "Patella") | [**Patella**](https://www.inaturalist.org/observations/397443292) | Sandmount Bay Beach | 2026-09-05 |
 | [![Tritia](https://inaturalist-open-data.s3.amazonaws.com/photos/761159480/small.jpg)](https://www.inaturalist.org/observations/413553770 "Tritia") | [**Tritia**](https://www.inaturalist.org/observations/413553770) | Audley Cove | 2026-11-07 |
+
+---
+
+
+<a id="sea-squirt"></a>
+## Sea Squirt
+
+**Needs ID:** 2
+
+| Photo | Species | Site | Date |
+|-------|---------|------|------|
+| [![Didemnum maculosum](https://inaturalist-open-data.s3.amazonaws.com/photos/725206286/small.jpg)](https://www.inaturalist.org/observations/395505064 "Didemnum maculosum") | [**Didemnum maculosum**](https://www.inaturalist.org/observations/395505064) | Gortdubh Pier | 2026-08-29 |
+| [![Grey colonial ascidian](https://inaturalist-open-data.s3.amazonaws.com/photos/725188401/small.jpg)](https://www.inaturalist.org/observations/395496246 "Grey colonial ascidian") | [**Grey colonial ascidian**<br>*Leptoclinides*](https://www.inaturalist.org/observations/395496246) | Gortdubh Pier | 2026-08-29 |
 
 ---
 

@@ -10,7 +10,7 @@
 
 | Site | Species there (all observers) | You have | New for you |
 |---|--:|--:|--:|
-| [Lough Hyne and Barloge Pier](#lough-hyne-and-barloge-pier) | 80 | 14 | 41 |
+| [Lough Hyne and Barloge Pier](#lough-hyne-and-barloge-pier) | 80 | 16 | 41 |
 | [Bank Pier](#bank-pier) | 24 | 9 | 2 |
 | [Kilcrohane Pier](#kilcrohane-pier) | 25 | 22 | 2 |
 | [Sandmount Bay Beach](#sandmount-bay-beach) | 24 | 12 | 2 |
@@ -59,7 +59,7 @@
 
 ## Lough Hyne and Barloge Pier
 
-80 species recorded nearby, **14** on your list, **41** new for you, most records first:
+80 species recorded nearby, **16** on your list, **41** new for you, most records first:
 
 | Photo | Species | Organism type | Observations |
 |---|---|---|---|
