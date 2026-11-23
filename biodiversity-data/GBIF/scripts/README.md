@@ -1,6 +1,6 @@
 # GBIF scripts
 
-Python scripts that query the [GBIF API](https://techdocs.gbif.org/en/openapi/) for records recorded by `Andre Astra` in the iNaturalist research-grade dataset. This file is the technical reference for scripts, shared configuration and output formats. For the overview and API notes, see [`../README.md`](../README.md).
+Python scripts that query the [GBIF API](https://techdocs.gbif.org/en/openapi/) for records recorded by `Andre Astra` in the iNaturalist research-grade dataset. This file is the technical reference for scripts, shared configuration and output formats. For the overview, see [`../README.md`](../README.md). API notes are in [API notes](#api-notes) below.
 
 Run every script from the `GBIF/` directory (the parent of this one) with the shared virtualenv. See [Shared setup](../../README.md#shared-setup) for creating it.
 
@@ -27,6 +27,65 @@ Supporting files:
 | [`config.py`](config.py) | Shared constants: API URLs, page sizes, `RECORDED_BY`, the iNaturalist dataset key, `OUTPUT_DIR`, `INATURALIST_SCRIPTS_DIR` (where `underwater_ireland.py` finds the iNaturalist scripts). Every script imports from it. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
 | `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download) and `species_profiles.json` (marine flags used by `lough_hyne_species.py`). |
+
+## API notes
+
+Base URL `https://api.gbif.org/v1`. Reads need no authentication.
+
+| Endpoint | Purpose |
+|---|---|
+| `/occurrence/{key}` | One occurrence record |
+| `/occurrence/search` | Search occurrences (taxon, country, date, dataset, coordinates, `recordedBy`, …) |
+| `/occurrence/download/request` | Large asynchronous downloads (needs a GBIF account) |
+| `/species/match?name=` | Match a name to the GBIF backbone taxonomy |
+| `/species/{key}` | Taxon details |
+| `/dataset/{key}` | Dataset metadata |
+
+Search results return at most 300 records per page. Deep paging stops at an offset of about 100,000. Use `limit=0` for a count only, and `facet=<field>` for counts grouped by a field.
+
+### How GBIF differs from iNaturalist
+
+- **Research grade only.** Needs ID observations and observations without an open licence are absent, so GBIF counts are lower than the iNaturalist ones.
+- **Lag.** GBIF re-reads iNaturalist periodically. Check `lastInterpreted` on a record to see when it last synced.
+- **No user id.** Records are matched by the text field `recordedBy` (`Andre Astra`), not by the iNaturalist login or ID. Linking an [ORCID iD](../../README.md#orcid) adds a real identifier once it is synced.
+- **Own keys.** `taxonKey` and `speciesKey` come from the GBIF backbone and differ from iNaturalist taxon IDs. A record can carry the issue `TAXON_ID_NOT_FOUND` when the iNaturalist ID has no match; the name still resolves.
+- **Rounded coordinates.** Expect the issue `COORDINATE_ROUNDED` (6 decimal places).
+- **Obscured locations.** Threatened species are generalised, as on iNaturalist.
+
+### Counts from the API (2026-11-19)
+
+Research-grade records `recordedBy=Andre Astra` in the [iNaturalist Research-grade Observations](https://www.gbif.org/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7) dataset:
+
+| Country | Records |
+|---|---|
+| Ireland (IE) | 205 |
+| Egypt (EG) | 90 |
+| United Kingdom (GB) | 1 |
+| Saudi Arabia (SA) | 1 |
+| **Total** | **297** |
+
+These are snapshot figures and go stale. Re-run the [handy queries](#handy-queries) for current ones.
+
+### Handy queries
+
+```bash
+B=https://api.gbif.org/v1
+
+# One record
+curl -s "$B/occurrence/6520575999"
+
+# Count of my records, grouped by country
+curl -s "$B/occurrence/search?recordedBy=Andre%20Astra&limit=0&facet=country"
+
+# Same species recorded by anyone in Ireland
+curl -s "$B/occurrence/search?scientificName=Tubulanus%20annulatus&country=IE&limit=20"
+
+# Match a name to the backbone
+curl -s "$B/species/match?name=Tubulanus%20annulatus"
+
+# Verify the dataset key
+curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
+```
 
 ## Scripts
 
