@@ -25,11 +25,11 @@ from site_names import SITE_KEYWORDS
 from species_classification import species_type
 
 _ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
-SITES_FILE = os.path.join(_ROOT, "Preferred_dive_site_names_ireland.txt")
+SITES_FILE = os.path.join(_ROOT, "DIVE_SITES.txt")
 
 
 def load_canonical_sites():
-    """Load canonical dive site names from Preferred_dive_site_names_ireland.txt."""
+    """Load canonical dive site names from DIVE_SITES.txt."""
     sites = []
     if os.path.exists(SITES_FILE):
         with open(SITES_FILE, encoding="utf-8") as f:

@@ -5,14 +5,14 @@ Generates reports/Location_ratings.md — a structured dive-site reference with:
   - Each observation as a clickable photo thumbnail linking to the observation page
 
 Authoritative sources:
-  - Canonical site names : Preferred_dive_site_names_ireland.txt
+  - Canonical site names : DIVE_SITES.txt
   - Keyword → name mapping: scripts/site_names.py
 
 ── Site keyword mapping ──────────────────────────────────────────────────────
 
 Observations are assigned to sites by matching each observation's place_guess
 string against the keyword list in scripts/site_names.py.  That list must be
-kept in sync with Preferred_dive_site_names_ireland.txt and verified against live
+kept in sync with DIVE_SITES.txt and verified against live
 iNaturalist data before running this script.  See scripts/site_names.py for
 the full refresh procedure.
 
@@ -40,14 +40,14 @@ from site_names import SITE_KEYWORDS, IGNORED_KEYWORDS  # noqa: E402
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 _ROOT      = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
-SITES_FILE = os.path.join(_ROOT, "Preferred_dive_site_names_ireland.txt")
+SITES_FILE = os.path.join(_ROOT, "DIVE_SITES.txt")
 OUTPUT     = os.path.join(OUTPUT_DIR, "Location_ratings.md")
 
 
 # ── Load dive sites from file ─────────────────────────────────────────────────
 
 def load_dive_sites(path):
-    """Return a set of canonical site names from Preferred_dive_site_names_ireland.txt."""
+    """Return a set of canonical site names from DIVE_SITES.txt."""
     sites = set()
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -297,7 +297,7 @@ def main():
     dive_counts   = count_dives_per_site(site_obs)
     species_map   = species_per_site(site_obs)
 
-    # Build records for every site in Preferred_dive_site_names_ireland.txt
+    # Build records for every site in DIVE_SITES.txt
     records = [
         (site, site_obs.get(site, []), dive_counts.get(site, 0), species_map.get(site, []))
         for site in sorted(dive_sites)

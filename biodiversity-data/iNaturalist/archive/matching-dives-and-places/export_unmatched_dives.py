@@ -3,7 +3,7 @@
 export_unmatched_dives.py
 
 Compares the location/description tags (<desc>) of all Suunto Eon Core dive workouts
-against the canonical site list in `Preferred_dive_site_names_ireland.txt`.
+against the canonical site list in `DIVE_SITES.txt`.
 
 Normalizes text (handling smart quotes, case-insensitivity, and common aliases like
 '7 Heads' -> 'Seven Heads Pier', 'Barloque' -> 'Barloge Pier', 'Cantys' -> "Canty's Cove").
@@ -26,7 +26,7 @@ import xml.etree.ElementTree as ET
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # biodiversity-data/iNaturalist/archive
 REPO_DIR = os.path.dirname(BASE_DIR)  # biodiversity-data/iNaturalist
 WORKOUTS_DIR = os.path.join(BASE_DIR, 'dive-logs/workouts')
-PREF_FILE = os.path.join(REPO_DIR, 'Preferred_dive_site_names_ireland.txt')
+PREF_FILE = os.path.join(REPO_DIR, 'DIVE_SITES.txt')
 OUTPUT_FILE = os.path.join(BASE_DIR, 'matching-dives-and-places/unmatched_dives.json')
 
 # Load the preferred location names

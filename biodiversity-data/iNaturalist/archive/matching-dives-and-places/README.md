@@ -1,6 +1,6 @@
 # Matching Dives & Places
 
-Scripts that cross-reference Suunto Eon Core dive logs (`dive-logs/workouts/`) against live [iNaturalist](https://www.inaturalist.org) observations and canonical site names in [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt).
+Scripts that cross-reference Suunto Eon Core dive logs (`dive-logs/workouts/`) against live [iNaturalist](https://www.inaturalist.org) observations and canonical site names in [`../DIVE_SITES.txt`](../DIVE_SITES.txt).
 
 > **Historical purpose:** These scripts were written to resolve place names for **old observations** — ones uploaded before consistent dive-site naming was established. The dive logs provided date and location anchors to identify which site each observation belonged to. This work is complete; the scripts are not needed for new observations, which are named correctly at upload time.
 
@@ -11,7 +11,7 @@ This file serves as the technical reference for matching scripts and review data
 ## Scripts & Output Datasets
 
 ### 1. `export_unmatched_dives.py`
-- **Purpose**: Normalizes dive `<desc>` tags from Suunto GPX workout files and maps them against canonical site names in `Preferred_dive_site_names_ireland.txt`.
+- **Purpose**: Normalizes dive `<desc>` tags from Suunto GPX workout files and maps them against canonical site names in `DIVE_SITES.txt`.
 - **How It Works**:
   - Scans all `.gpx` files in `dive-logs/workouts/`.
   - Normalizes text (smart quotes, apostrophes, lowercasing, and stripping 'Pier' suffixes).

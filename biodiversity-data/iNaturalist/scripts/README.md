@@ -34,7 +34,7 @@ Supporting files:
 | File | Purpose |
 |---|---|
 | [`config.py`](config.py) | Shared constants: user, API URLs, page size, clustering radius, place and taxon IDs, `OUTPUT_DIR`. Every script imports from it. |
-| [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). |
+| [`site_names.py`](site_names.py) | Keyword → canonical dive site name mapping, plus `IGNORED_KEYWORDS` for non-dive places. Names must match [`../DIVE_SITES.txt`](../DIVE_SITES.txt). |
 | [`underwater_stats.py`](underwater_stats.py) | Shared data preparation for the four underwater life-list reports (`one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py`, `year_in_review.py`): underwater observations as `(site, obs)` entries, a species table (species rank only), and dives. Defines functions only. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
 | `.cache/` | Working data for the scripts, git-ignored: `observations.json` (the download), `taxon_counts.json` (per-taxon rarity counts, 90 days) and `site_species.json` (species recorded near each dive site, 30 days, used by the gap analysis). |
@@ -89,7 +89,7 @@ Supporting files:
 
 ### `underwater_ireland.py`
 - **Purpose**: Generates [`reports/underwater_ireland.md`](../reports/underwater_ireland.md), listing all of the user's underwater observations in Ireland, grouped by dive site (most observations first), with a site summary table and a photo thumbnail linked to each observation.
-- **How it works**: Reuses `fetch_all_observations()`, `cluster_and_label()`, `count_dives_per_site()`, `species_per_site()` and `render_site_section()` from `generate_location_ratings.py`, so "underwater" means the observation clusters onto a site in [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt). Birding and other above-water places are excluded. Non-Irish dive sites (`NON_IRELAND_SITES`, currently Scapa Flow) are dropped.
+- **How it works**: Reuses `fetch_all_observations()`, `cluster_and_label()`, `count_dives_per_site()`, `species_per_site()` and `render_site_section()` from `generate_location_ratings.py`, so "underwater" means the observation clusters onto a site in [`../DIVE_SITES.txt`](../DIVE_SITES.txt). Birding and other above-water places are excluded. Non-Irish dive sites (`NON_IRELAND_SITES`, currently Scapa Flow) are dropped.
 - **Obscured locations**: the reference implementation of the handling described in [Obscured locations](#obscured-locations). The script:
   - Splits out every `obscured` observation before clustering, so none are placed on a site.
   - Lists them in a separate **Obscured locations** section, most threatened first (CR, EN, VU, NT), with their IUCN status.
@@ -238,8 +238,9 @@ Then read the `⚠️` warning block at the top of the generated file. Each entr
 
 | The cluster is… | Do this |
 |---|---|
-| A dive site | Add the name to [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt), then add a keyword for it to `SITE_KEYWORDS` in [`site_names.py`](site_names.py). |
-| Not a dive site (birding, a trip abroad, a village) | Add a keyword to `IGNORED_KEYWORDS` in [`site_names.py`](site_names.py). |
+| A dive site | Add the name to [`../DIVE_SITES.txt`](../DIVE_SITES.txt). If its `place_guess` doesn't contain the full name (a short form such as "Barloge", or only a townland), also add an alias to `SITE_ALIASES` in [`site_names.py`](site_names.py). |
+| Not a dive site (birding, a village) | Add the place name to [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt), one per line. |
+| Not a dive site, and not a place name worth listing (a trip abroad) | Add a keyword to `IGNORED_KEYWORDS` in [`site_names.py`](site_names.py). |
 | Logged under a generic place name, such as "Cork, Co. Cork, Ireland" | Rename the place on iNaturalist first, then add a keyword for the new name. A keyword can't safely match a generic name. |
 | Logged as "Cork, IE" and the species is threatened (for example a VU Nursehound) | Nothing to fix. The location is [obscured](#obscured-locations), so the warning stays until `generate_location_ratings.py` handles these (see [`../TODO.md`](../TODO.md)). |
 
@@ -247,14 +248,14 @@ Then regenerate and check that the warning is gone.
 
 **Two files are easy to mix up:**
 
-- [`../Preferred_dive_site_names_ireland.txt`](../Preferred_dive_site_names_ireland.txt) is read by `generate_location_ratings.py`. Every entry listed here is treated as a distinct dive site and generates an output section in `Location_ratings.md`. Do not place townland aliases or alternate site names here if they map to another canonical site in `site_names.py` (otherwise they will render as empty 0-observation entries).
-- [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt) is a reference list for you only. No script reads it. Adding a place there does not silence a warning, so add the keyword to `IGNORED_KEYWORDS` as well.
+- [`../DIVE_SITES.txt`](../DIVE_SITES.txt) is read by `generate_location_ratings.py`. Every entry listed here is treated as a distinct dive site and generates an output section in `Location_ratings.md`. Do not place townland aliases or alternate site names here if they map to another canonical site in `site_names.py` (otherwise they will render as empty 0-observation entries).
+- [`../Preferred_other_location_names.txt`](../Preferred_other_location_names.txt) is read by [`site_names.py`](site_names.py) and appended to `IGNORED_KEYWORDS`. Each line is matched as a lower-case substring of `place_guess`, so a place listed there is skipped silently and raises no warning. Write the name as it appears in `place_guess`, with accents (`Trá an Oileáin`).
 
 **Keyword rules** (details in the [`site_names.py`](site_names.py) docstring):
 - Put longer, more specific keywords first (`bank pier` before `bank`).
 - Keywords are matched as lower-case substrings of `place_guess`.
-- Canonical names must match `Preferred_dive_site_names_ireland.txt` exactly.
+- Canonical names must match `DIVE_SITES.txt` exactly.
 
 To check how observations are grouped, read the `⚠️` warning block at the top of `reports/Location_ratings.md`. It lists each cluster that didn't resolve, with a sample `place_guess`.
 
-Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`), plus Clonakilty, Coolanagh, Courtmacsherry, Derrigra and Rosscarbery.
+Currently ignored: the Egypt trip (`egypt`, `janub sina`, `saudi arabia`, `sharm el sheikh`) and `derrigra`, which are hardcoded in `site_names.py`, plus every name in `Preferred_other_location_names.txt`.

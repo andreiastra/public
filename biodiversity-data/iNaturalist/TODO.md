@@ -13,7 +13,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 ---
 
 ## 2. 🔵 Generator Formatting for Zero-Observation Sites
-* **Problem:** [`scripts/generate_location_ratings.py`](scripts/generate_location_ratings.py) unconditionally renders full markdown sections and table rows for every canonical site in `Preferred_dive_site_names_ireland.txt`, even when it has 0 observations.
+* **Problem:** [`scripts/generate_location_ratings.py`](scripts/generate_location_ratings.py) unconditionally renders full markdown sections and table rows for every canonical site in `DIVE_SITES.txt`, even when it has 0 observations.
 * **TODO:**
   - [ ] Update `generate_location_ratings.py` to optionally filter out 0-observation sites or group them into a compact "Unobserved Sites" section at the end of the report.
 
@@ -21,16 +21,17 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 3. 🟡 Keep `site_names.py` in Sync with the Location Lists
 * **Problem:** Location names are kept in two places that can drift apart:
-  - [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) is not read by any script. Every above-water place must also be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). Example: `Bandon` was in the file but its observations still triggered an "unmatched cluster" warning until `"bandon"` was added to `IGNORED_KEYWORDS`.
-  - [`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt) and `SITE_KEYWORDS` are not checked against each other. A new dive site with no keyword, or a keyword pointing to a renamed or removed site, goes unnoticed.
+  - [`Preferred_other_location_names.txt`](Preferred_other_location_names.txt) used to be read by no script, so every above-water place also had to be added by hand to `IGNORED_KEYWORDS` in [`scripts/site_names.py`](scripts/site_names.py). That is fixed: `site_names.py` now reads the file.
+  - [`DIVE_SITES.txt`](DIVE_SITES.txt) and the hand-written `SITE_ALIASES`. Each site's full name is now a keyword automatically, and an alias pointing to a site that is not in the file raises a warning on import. A site with no alias whose `place_guess` lacks its full name is still not flagged.
 * **Why not check file timestamps:** modified times change on `git checkout`, `git pull` or a plain re-save, so they don't show whether names changed. They also can't say which names are new or which keyword they need. Compare file contents with `site_names.py` on every run instead.
 * **Why dive-site keywords stay hand-written:** they need judgement. A bare `"simon"` matched "Cloghmac**simon**, Bandon", and a bare `"sandmount"` merged Bank Pier with Sandmount Bay Beach. Some sites also need aliases that can't be derived from the name, such as `"derreenacarrin"` for Zetland Pier, or `"bank"` for the plus-code place names.
 * **TODO:**
-  - [ ] Make `site_names.py` read `Preferred_other_location_names.txt` and skip any place name containing one of its entries (lower-cased).
+  - [x] Make `site_names.py` read `Preferred_other_location_names.txt` and skip any place name containing one of its entries (lower-cased).
   - [ ] Move `derrigra` from `IGNORED_KEYWORDS` into `Preferred_other_location_names.txt`. Keep only the overseas entries (Egypt, Saudi Arabia) in `IGNORED_KEYWORDS`.
-  - [ ] In `generate_location_ratings.py`, add a warning at the top of `Location_ratings.md` for each site in `Preferred_dive_site_names_ireland.txt` that has no keyword in `SITE_KEYWORDS`.
-  - [ ] Add a warning for each `SITE_KEYWORDS` entry whose site name is not in `Preferred_dive_site_names_ireland.txt`.
-  - [ ] Update the "Two files are easy to mix up" section of [`scripts/README.md`](scripts/README.md), which currently says no script reads `Preferred_other_location_names.txt`.
+  - [x] Build `SITE_KEYWORDS` from the full names in `DIVE_SITES.txt`, keeping only short fragments and townland aliases in `SITE_ALIASES`.
+  - [x] Warn for each `SITE_ALIASES` entry whose site name is not in `DIVE_SITES.txt`.
+  - [ ] *(Optional)* Warn at the top of `Location_ratings.md` for a site in the file that has 0 observations and no alias, so a short-form `place_guess` isn't missed.
+  - [x] Update the "Two files are easy to mix up" section of [`scripts/README.md`](scripts/README.md), which said no script reads `Preferred_other_location_names.txt`.
 * **Workflow once done:** edit a `.txt` file, run `generate_location_ratings.py`, then read the warnings at the top of the report.
 
 ---
@@ -48,7 +49,7 @@ This file tracks active bugs, data quality issues, and backlog enhancements for 
 
 ## 5. 🟡 Underwater Life-List Reports: Open Items
 Added with `one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py` and `year_in_review.py` (see [`scripts/README.md`](scripts/README.md)).
-* **Unmatched places:** "Ardra, Co. Cork" (4 observations) and "Union Hall, Unionhall, Co. Cork" (3) show the `site_names.py` unmatched-cluster warning, so they are missing from every site-based report. Decide whether each is a dive site (add to `Preferred_dive_site_names_ireland.txt` and `SITE_KEYWORDS`) or an ignored place (`IGNORED_KEYWORDS`).
+* **Unmatched places:** "Ardra, Co. Cork" (4 observations) shows the `site_names.py` unmatched-cluster warning, so it is missing from every site-based report. Decide whether it is a dive site (add to `DIVE_SITES.txt`, plus a `SITE_ALIASES` entry if needed) or an ignored place (add to `Preferred_other_location_names.txt`). "Union Hall, Unionhall" and "Trá an Oileáin" are now ignored places.
 * **Not built yet** (ideas from the report review, none needs new API calls):
   - [ ] Seasonality: species group by month. Wait for more than one winter of data.
   - [ ] Needs ID action list (extends item 1): group the Needs ID observations by what blocks them (genus only, disagreement, one identifier).

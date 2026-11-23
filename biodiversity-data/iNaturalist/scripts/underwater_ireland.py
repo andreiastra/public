@@ -4,7 +4,7 @@ grouped by dive site, to reports/underwater_ireland.md.
 
 Reuses generate_location_ratings (fetching, clustering, site resolution and
 per-site rendering). Underwater means the observation clusters onto a dive site
-in Preferred_dive_site_names_ireland.txt; sites outside Ireland are dropped.
+in DIVE_SITES.txt; sites outside Ireland are dropped.
 
 Obscured observations are listed separately. iNaturalist hides the true
 location of threatened species (e.g. IUCN VU) from the public API and returns a

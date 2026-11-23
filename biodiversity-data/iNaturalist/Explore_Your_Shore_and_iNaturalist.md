@@ -85,7 +85,7 @@ Ulster Wildlife's **ShoreNI** survey tells participants to upload photos to iNat
 - **Duplicates:** a record in iNaturalist and in an NBDC dataset will show up twice in GBIF. This is normal but worth knowing.
 - **Location accuracy:** Explore Your Shore! validation checks position. Obscured or imprecise iNaturalist coordinates should be corrected on the form.
 - **Licence:** NBDC open data is published under CC-BY. Check it is compatible with your iNaturalist licence choice.
-- **Site names:** the canonical names in [`Preferred_dive_site_names_ireland.txt`](Preferred_dive_site_names_ireland.txt) would make form submissions consistent.
+- **Site names:** the canonical names in [`DIVE_SITES.txt`](DIVE_SITES.txt) would make form submissions consistent.
 
 ---
 
