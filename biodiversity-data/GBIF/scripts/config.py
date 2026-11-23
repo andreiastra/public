@@ -59,7 +59,7 @@ IRELAND = "IE"
 # Lough Hyne, Co. Cork (centre 51°30'10.5"N 9°18'10.4"W): the polygon drawn around the lough
 # in the GBIF occurrence search (Location filter). WKT, longitude first.
 LOUGH_HYNE_POLYGON = "POLYGON((-9.29748 51.51075,-9.3163 51.50589,-9.30232 51.48843,-9.28454 51.49507,-9.29748 51.51075))"
-# West Cork, GADM level 2 (IRL.4.9_1, under Cork IRL.4_1). GBIF's gadmGid filter uses the
-# same IDs; the record's gadm field lists it as level2 "West Cork" (checked with
-# occurrence/search?gadmGid=IRL.4.9_1).
-WEST_CORK_GADM_GID = "IRL.4.9_1"
+# West Cork and its coastal waters: a polygon drawn in the GBIF occurrence search (Location
+# filter). WKT, longitude first. The GADM boundary (IRL.4.9_1) is not used because it only
+# covers land, so it misses underwater records at sea.
+WEST_CORK_POLYGON = "POLYGON((-9.51086 51.84839,-10.38407 51.57121,-9.66406 51.32488,-8.37264 51.58549,-8.53962 51.86447,-9.51086 51.84839))"
