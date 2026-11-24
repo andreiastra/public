@@ -29,6 +29,7 @@ Reports:
 - [`sync_status.md`](reports/sync_status.md): research-grade observations not on GBIF yet.
 - [`underwater_ireland.md`](reports/underwater_ireland.md): the Irish underwater observations that are on GBIF.
 - [`lough_hyne_species.md`](reports/lough_hyne_species.md): marine species anyone has recorded around Lough Hyne.
+- [`cork_underwater.md`](reports/cork_underwater.md): marine species anyone has recorded in West Cork and its coastal waters.
 - [`citations.md`](reports/citations.md): research that uses the dataset.
 
 ## Running

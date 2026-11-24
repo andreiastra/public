@@ -18,6 +18,7 @@ Run every script from the `GBIF/` directory (the parent of this one) with the sh
 | [`sync_status.py`](#sync_statuspy) | `reports/sync_status.md` |
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
 | [`lough_hyne_species.py`](#lough_hyne_speciespy) | `reports/lough_hyne_species.md` |
+| [`cork_underwater.py`](#cork_underwaterpy) | `reports/cork_underwater.md` |
 | [`citations.py`](#citationspy) | `reports/citations.md` |
 
 Supporting files:
@@ -26,7 +27,7 @@ Supporting files:
 |---|---|
 | [`config.py`](config.py) | Shared constants: API URLs, page sizes, `RECORDED_BY`, the iNaturalist dataset key, `OUTPUT_DIR`, `INATURALIST_SCRIPTS_DIR` (where `underwater_ireland.py` finds the iNaturalist scripts). Every script imports from it. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
-| `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download) and `species_profiles.json` (marine flags used by `lough_hyne_species.py`). |
+| `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download), `species_profiles.json` (marine flags used by `lough_hyne_species.py`) and `west_cork_species.json` (marine flags and names used by `cork_underwater.py`). |
 
 ## API notes
 
@@ -127,6 +128,14 @@ curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
 - **Cache**: the profiles take 2 calls per species (about 400 for the 191 species with a photo) on the first run, so they are kept in `scripts/.cache/species_profiles.json` and only new species are fetched afterwards. Delete the file to refresh them. It does not use `occurrences.json`, so `run_all.py` does not share a download with it.
 - **Reading it**: the polygon takes in the shore and some land around the lough, so land records are in the totals (the marine filter drops them from the species list). To repeat the search in the GBIF website, paste the polygon into Location, Geometry; with Occurrence status set to Present and Media type set to Still image, the website's count matches the report's.
 - **Usage**: `../.venv/bin/python scripts/lough_hyne_species.py`
+
+### `cork_underwater.py`
+- **Purpose**: Generates [`reports/cork_underwater.md`](../reports/cork_underwater.md), the underwater species recorded by anyone in West Cork and its coastal waters, from every GBIF dataset.
+- **How it works**: It does not download the records. One `/occurrence/search` call with `geometry` (`WEST_CORK_POLYGON` in `config.py`), `occurrenceStatus=PRESENT`, `mediaType=StillImage`, `limit=0` and `facet=speciesKey` returns the photo count per species in under a second. A second call adds `recordedBy` (`RECORDED_BY`) for my own counts. The marine check and the marine filter are the same as in `lough_hyne_species.py` (a species counts when a GBIF species profile marks it as marine; `Aves` and `Magnoliopsida` are left out). Mammals and reptiles get their own group, "Seals, whales and turtles", because the shared groups would file them under fish. The polygon was drawn in the GBIF occurrence search. It replaced the GADM boundary `IRL.4.9_1`, which covers land only and so missed the coast and the sea.
+- **Cache**: one `speciesProfiles` call per species for the marine flag, then the name and common names for the marine ones only. The results are kept in `scripts/.cache/west_cork_species.json` and saved every 200 species, so a stopped run loses little. Flags already in `species_profiles.json` are reused. The first run took about 3 minutes (2,215 species in the polygon). Delete the file to refresh.
+- **Not in `run_all.py`**: it does not use `occurrences.json`, and the first run is slow, so it is run on its own.
+- **Limits**: counts cannot remove copies of iNaturalist records that other datasets republish (that needs the recorder and date of each record), so photo counts can be a little high. There are no thumbnails and no year or dataset tables.
+- **Usage**: `../.venv/bin/python scripts/cork_underwater.py`
 
 ### `citations.py`
 - **Purpose**: Generates [`reports/citations.md`](../reports/citations.md), the research GBIF links to the iNaturalist dataset and to the species you recorded.
