@@ -20,15 +20,16 @@ Run every script from the `GBIF/` directory (the parent of this one) with the sh
 | [`lough_hyne_species.py`](#lough_hyne_speciespy) | `reports/lough_hyne_species.md` |
 | [`cork_underwater.py`](#cork_underwaterpy) | `reports/cork_underwater.md` |
 | [`citations.py`](#citationspy) | `reports/citations.md` |
+| [`underwater_url.py`](#underwater_urlpy) | a gbif.org search URL for an area, printed (no report) |
 
 Supporting files:
 
 | File | Purpose |
 |---|---|
 | [`config.py`](config.py) | Shared constants: API URLs, page sizes, `RECORDED_BY`, the iNaturalist dataset key, `OUTPUT_DIR`, `INATURALIST_SCRIPTS_DIR` (where `underwater_ireland.py` finds the iNaturalist scripts). Every script imports from it. |
-| [`marine.py`](marine.py) | The marine ("underwater") check shared by `gbif_summary.py`, `lough_hyne_species.py` and `cork_underwater.py`: `marine_flags(keys)` gives the cached marine flag per species key, `is_underwater(flag, class)` leaves out `NOT_UNDERWATER` (`Aves`, `Magnoliopsida`), and `get()` is the retrying GET. |
+| [`marine.py`](marine.py) | The marine ("underwater") check shared by `gbif_summary.py`, `lough_hyne_species.py`, `cork_underwater.py` and `underwater_url.py` (through `cork_underwater.py`): `marine_flags(keys)` gives the cached marine flag per species key, `is_underwater(flag, class)` leaves out `NOT_UNDERWATER` (`Aves`, `Magnoliopsida`), and `get()` is the retrying GET. |
 | [`../reports/`](../reports) | Generated reports, for the reader. Safe to regenerate. |
-| `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download), `marine_flags.json` (the marine flag per species, from `marine.py`), `species_profiles.json` (names, groups and flags used by `lough_hyne_species.py`) and `west_cork_species.json` (names and Catalogue of Life IDs used by `cork_underwater.py`). |
+| `.cache/` | Working data for the scripts, git-ignored: `occurrences.json` (the download), `marine_flags.json` (the marine flag per species, from `marine.py`), `species_profiles.json` (names, groups and flags used by `lough_hyne_species.py`) and `west_cork_species.json` (names and Catalogue of Life IDs used by `cork_underwater.py` and `underwater_url.py`). |
 
 ## API notes
 
@@ -146,3 +147,10 @@ curl -s "$B/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7"
 - **Direct citations**: GBIF's literature index also stores occurrence keys that papers cite explicitly, but that is rare for iNaturalist records. `/literature/search?gbifOccurrenceKey=` fails on the API (`Unknown SearchParameter data type java.lang.Long`), so the script reads the `gbifOccurrenceKey` facet over the whole index (about 1,300 cited keys) and intersects it with your occurrence keys. The script stops if the facet is truncated.
 - **Reading it**: apart from direct citations, GBIF links papers to the dataset and to taxa, not to a contributor. The dataset figures cover every iNaturalist contributor. A paper that mentions a species you recorded may have used only other people's records of it.
 - **Usage**: `../.venv/bin/python scripts/citations.py`
+
+### `underwater_url.py`
+- **Purpose**: Prints a gbif.org occurrence search URL for the underwater species recorded in an area (`--geometry`, a WKT polygon, longitude first). The link is documented in [`../README.md`](../README.md#underwater-species-search).
+- **How it works**: It reuses the functions of [`cork_underwater.py`](#cork_underwaterpy). One `/occurrence/search` call with `geometry`, `occurrenceStatus=PRESENT`, `mediaType=StillImage`, `limit=0` and `facet=speciesKey` lists the species with a photo in the area. `marine_species()` keeps the marine ones (a GBIF species profile marks them as marine; `Aves` and `Magnoliopsida` are left out) and fetches their Catalogue of Life IDs, which is what gbif.org takes as `taxonKey`. The URL has one `taxonKey` per ID (a synonym and its accepted name share one), plus `occurrenceStatus=DETECTED` and `mediaType=StillImage`, the same as the links in `cork_underwater.md`. Stderr shows the species count and the URL length.
+- **Cache**: shares `scripts/.cache/west_cork_species.json` and `marine_flags.json` with `cork_underwater.py`, so a species is looked up once. A new area costs a few calls per new species.
+- **Limits**: only species with a photo in the area at the time of the run are in the URL, so run it again for new ones. Records identified only above species have no `speciesKey` and are not in it. A species with no exact Catalogue of Life match is left out, with a warning on stderr. The URL grows with the species count (about 20 characters each).
+- **Usage**: `../.venv/bin/python scripts/underwater_url.py --geometry "POLYGON((lon lat,...))"`

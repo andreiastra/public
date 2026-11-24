@@ -2,7 +2,11 @@
 
 Notes, scripts and reports for exploring the [GBIF API](https://techdocs.gbif.org/en/openapi/) with my own wildlife records. This is the counterpart of [`../iNaturalist`](../iNaturalist).
 
-**Links:** [my records on GBIF](https://www.gbif.org/occurrence/search?recordedBy=Andre+Astra) (occurrence search, `recordedBy=Andre Astra`) · [iNaturalist dataset on GBIF](https://www.gbif.org/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7)
+**Links:**
+
+- [my records on GBIF](https://www.gbif.org/occurrence/search?recordedBy=Andre+Astra) (occurrence search, `recordedBy=Andre Astra`)
+- [iNaturalist dataset on GBIF](https://www.gbif.org/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7)
+- [underwater species](#underwater-species-search) (photos of marine species in an area you give; built by a script)
 
 ---
 
@@ -41,6 +45,22 @@ Run from this directory, using the virtualenv shared with [`../iNaturalist`](../
 ```
 
 This writes every report except [`cork_underwater.md`](reports/cork_underwater.md), which has its own script because its first run is slow: `../.venv/bin/python scripts/cork_underwater.py`.
+
+---
+
+## Underwater species search
+
+[`scripts/underwater_url.py`](scripts/underwater_url.py) prints a gbif.org search URL for the underwater species recorded in an area you give it, as a WKT polygon (longitude first; draw one in the **Location** filter on gbif.org to get it):
+
+```bash
+../.venv/bin/python scripts/underwater_url.py --geometry "POLYGON((-9.18931 51.52073,-9.19342 51.51876,-9.18799 51.5156,-9.18062 51.518,-9.18139 51.51957,-9.18931 51.52073))"
+```
+
+The URL has the polygon, `occurrenceStatus=DETECTED`, `mediaType=StillImage` (a photo) and one `taxonKey` per species.
+
+GBIF occurrences have no habitat field (`habitat=MARINE` is ignored by the occurrence search), so "underwater" comes from the species: the script lists the species with a photo in the area, keeps the ones a GBIF species profile marks as marine (the same check as [`cork_underwater.md`](reports/cork_underwater.md); birds and flowering plants are left out), and puts each one in the URL. Checking species rather than whole groups means snails, crabs, worms and wrasse are included and land species are not. The values are Catalogue of Life IDs (`DXNZ`), which gbif.org takes, not the numeric GBIF keys of the API.
+
+Limits: only species that already have a photo in the area are in the URL, so run the script again to pick up new ones. A species with no exact Catalogue of Life match is left out, with a warning. A very large area gives a very long URL (about 20 characters per species). See [`underwater_url.py`](scripts/README.md#underwater_urlpy) for details.
 
 ---
 
