@@ -3,7 +3,7 @@ Write reports/cork_underwater.md: an overview of the underwater (marine) species
 that anyone has recorded in West Cork and its coastal waters, according to GBIF.
 
 Like lough_hyne_species.py this uses every dataset on GBIF, not only andreiastra's
-records, and the same marine filter. Unlike it, this script does not download the
+records, and the same marine filter (marine.py). Unlike it, this script does not download the
 records. GBIF counts them per species with the `facet` parameter, so one request
 replaces about 80 pages of 300 records. The area is a polygon around West Cork and
 its coastal waters (WEST_CORK_POLYGON in config.py). The filters:
@@ -12,15 +12,15 @@ its coastal waters (WEST_CORK_POLYGON in config.py). The filters:
   2. occurrenceStatus = PRESENT (absence records are dropped)
   3. mediaType = StillImage (the record has a photo)
   4. identified to species (the facet is speciesKey)
-  5. marine species (see lough_hyne_species.py), without the groups in NOT_UNDERWATER
+  5. marine species (see marine.py), without the groups in NOT_UNDERWATER
 
 Counts cannot drop copies of iNaturalist records that other datasets republish
 (see lough_hyne_species.without_copies; it needs the recorder and date of each
 record), so photo counts here can be a little too high. There are no thumbnails.
 
-The marine flag and names are fetched once per species and kept in
-scripts/.cache/west_cork_species.json. Species already profiled by
-lough_hyne_species.py are not checked again for the marine flag.
+The marine flags are kept by marine.py in scripts/.cache/marine_flags.json. The names and
+Catalogue of Life IDs are fetched once per species and kept in
+scripts/.cache/west_cork_species.json.
 
 Usage:
   ../.venv/bin/python scripts/cork_underwater.py
@@ -29,10 +29,13 @@ import json
 import os
 import sys
 from concurrent.futures import ThreadPoolExecutor
+from urllib.parse import quote_plus
 
 sys.path.insert(0, os.path.dirname(__file__))
-from config import CACHE_DIR, OCCURRENCE_SEARCH_URL, OUTPUT_DIR, RECORDED_BY, SPECIES_URL, WEST_CORK_POLYGON
+from config import (CACHE_DIR, COL_CHECKLIST_KEY, NUDIBRANCHIA_COL_ID, OCCURRENCE_SEARCH_URL, OUTPUT_DIR,
+                    RECORDED_BY, SPECIES_MATCH_V2_URL, SPECIES_URL, WEST_CORK_POLYGON)
 import lough_hyne_species as lh
+from marine import NOT_UNDERWATER, WORKERS, get, is_underwater, marine_flags
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "cork_underwater.md")
 SPECIES_CACHE = os.path.join(CACHE_DIR, "west_cork_species.json")
@@ -43,7 +46,7 @@ SAVE_EVERY = 200        # write the cache after this many lookups, so a stop los
 
 def facet_counts(**extra):
     """(records, {speciesKey: photos}) for present occurrences with a photo inside the polygon."""
-    data = lh.get(OCCURRENCE_SEARCH_URL, geometry=WEST_CORK_POLYGON, occurrenceStatus="PRESENT",
+    data = get(OCCURRENCE_SEARCH_URL, geometry=WEST_CORK_POLYGON, occurrenceStatus="PRESENT",
                   mediaType="StillImage", limit=0, facet="speciesKey", facetLimit=FACET_LIMIT,
                   facetMincount=1, **extra)
     counts = {c["name"]: c["count"] for c in data["facets"][0]["counts"]} if data["facets"] else {}
@@ -63,16 +66,11 @@ def save(cache):
         json.dump(cache, f, ensure_ascii=False)
 
 
-def is_marine(key):
-    profiles = lh.get(f"{SPECIES_URL}/{key}/speciesProfiles", limit=100).get("results", [])
-    return {"marine": any(p.get("marine") for p in profiles)}
-
-
 def details(key):
     """Name, common name and classification of a species, for the group table."""
-    taxon = lh.get(f"{SPECIES_URL}/{key}")
+    taxon = get(f"{SPECIES_URL}/{key}")
     english = [v["vernacularName"] for v in
-               lh.get(f"{SPECIES_URL}/{key}/vernacularNames", limit=200).get("results", [])
+               get(f"{SPECIES_URL}/{key}/vernacularNames", limit=200).get("results", [])
                if v.get("language") == "eng" and v.get("vernacularName")]
     return {"marine": True,
             "name": taxon.get("species") or taxon.get("canonicalName") or taxon.get("scientificName"),
@@ -80,14 +78,25 @@ def details(key):
             "phylum": taxon.get("phylum"), "class": taxon.get("class"), "order": taxon.get("order")}
 
 
+def col_id(key, cache):
+    """Catalogue of Life ID of a species, which is what gbif.org takes as `taxonKey`.
+    None when the name has no exact match, so the report shows the name without a link."""
+    match = get(SPECIES_MATCH_V2_URL, scientificName=cache[key]["name"], rank="SPECIES",
+                   checklistKey=COL_CHECKLIST_KEY)
+    if match.get("diagnostics", {}).get("matchType") != "EXACT":
+        return {"col": None}
+    usage = match.get("acceptedUsage") or match.get("usage") or {}  # a synonym's records sit under the accepted name
+    return {"col": usage.get("key")}
+
+
 def run_batch(label, keys, work, cache):
-    """Run `work(key)` for each key on a few threads, store the results, and save as it goes."""
+    """Run `work(key)` for each key on a few threads, merge the results into the cache, and save as it goes."""
     if not keys:
         return
     print(f"{label}: {len(keys)} species", flush=True)
-    with ThreadPoolExecutor(lh.WORKERS) as pool:
+    with ThreadPoolExecutor(WORKERS) as pool:
         for i, (k, result) in enumerate(zip(keys, pool.map(work, keys)), 1):
-            cache[k] = result
+            cache.setdefault(k, {}).update(result)
             if i % SAVE_EVERY == 0:
                 save(cache)
                 print(f"  {i}/{len(keys)}", flush=True)
@@ -97,14 +106,13 @@ def run_batch(label, keys, work, cache):
 def marine_species(keys):
     """{speciesKey: details} for the marine species among `keys`."""
     cache = load(SPECIES_CACHE)
-    shared = load(lh.PROFILE_CACHE)  # profiles from lough_hyne_species.py
-    for k in keys:
-        if k not in cache and "marine" in shared.get(k, {}):
-            cache[k] = {"marine": shared[k]["marine"]}
-    run_batch("Checking the marine flag", [k for k in keys if k not in cache], is_marine, cache)
+    for k, flag in marine_flags(keys).items():
+        cache.setdefault(k, {})["marine"] = flag
     run_batch("Fetching names", [k for k in keys if cache[k]["marine"] and "name" not in cache[k]],
               details, cache)
-    return {k: cache[k] for k in keys if cache[k]["marine"] and cache[k].get("class") not in lh.NOT_UNDERWATER}
+    run_batch("Fetching Catalogue of Life IDs", [k for k in keys if cache[k]["marine"] and "col" not in cache[k]],
+              lambda k: col_id(k, cache), cache)
+    return {k: cache[k] for k in keys if is_underwater(cache[k]["marine"], cache[k].get("class"))}
 
 
 SEA_MAMMALS = "Seals, whales and turtles"
@@ -117,6 +125,16 @@ def group_of(s):
     return lh.group_of({"phylum": s.get("phylum"), "class": s.get("class"), "order": s.get("order")})
 
 
+def search_url(*taxa):
+    """gbif.org occurrence search with the report's filters for the given species (repeated `taxonKey`
+    values are an OR), or None when none of them has a Catalogue of Life ID."""
+    ids = list(dict.fromkeys(s["col"] for s in taxa if s.get("col")))  # a synonym and its accepted name share an ID
+    if not ids:
+        return None
+    return ("https://www.gbif.org/occurrence/search?geometry=" + quote_plus(WEST_CORK_POLYGON) +
+            "&mediaType=StillImage&occurrenceStatus=DETECTED" + "".join(f"&taxonKey={i}" for i in ids))
+
+
 def render(records, counts, mine, species):
     """Markdown overview. `counts` and `mine` map a speciesKey to photos; `species` are the marine ones."""
     photos = sum(counts[k] for k in species)
@@ -125,6 +143,11 @@ def render(records, counts, mine, species):
 
     def label(k):
         return species[k]["common"] or f"*{species[k]['name']}*"
+
+    def latin(k):
+        """Scientific name, linked to its search on gbif.org when it has a Catalogue of Life ID."""
+        url = search_url(species[k])
+        return f"[*{species[k]['name']}*]({url})" if url else f"*{species[k]['name']}*"
 
     grouped = {}
     for k, s in species.items():
@@ -146,30 +169,43 @@ def render(records, counts, mine, species):
         "2. Occurrence is present, not an absence record: `occurrenceStatus=PRESENT`",
         "3. The record has a photo: `mediaType=StillImage`",
         "4. Identified to species: counted per `speciesKey` with `facet=speciesKey`",
-        f"5. Marine species, leaving out {' and '.join(sorted(lh.NOT_UNDERWATER))} (seabirds and coastal plants): "
+        f"5. Marine species, leaving out {' and '.join(sorted(NOT_UNDERWATER))} (seabirds and coastal plants): "
         "a GBIF species profile (WoRMS or Catalogue of Life) marks it as marine\n",
         "The filters can be repeated on [gbif.org/occurrence/search](https://www.gbif.org/occurrence/search) "
         "(Location, the polygon above; Occurrence status, Present; Media type, Still image). "
         "The website can't filter by marine species, so filters 4 and 5 are applied by the script. "
-        f"My photos use the same filters plus `recordedBy={RECORDED_BY}`.\n",
+        f"My photos use the same filters plus `recordedBy={RECORDED_BY}`. "
+        "Each scientific name below links to the same search for that species on gbif.org, and each group's "
+        "photo count links to the search for all its species (the nudibranchs link to the whole order, "
+        "so that search also finds photos identified only to genus or order, which the counts here leave out) "
+        "(the website's `taxonKey` is a Catalogue of Life ID; a name with no exact match there has no link "
+        "and is left out of its group's search).\n",
         "## Species by group\n",
         f"**{len(species)}** species in {len(grouped)} groups.\n",
         "| Group | Species | Photos | Mine |",
         "|---|--:|--:|--:|",
     ]
-    lines += [f"| [{g}](#{lh.anchor(g)}) | {len(ks)} | {sum(counts[k] for k in ks)} | "
+    def group_photos(g, ks):
+        """Photo total of a group, linked to the search for all its species. The nudibranchs link to
+        the whole order, which also finds photos identified only to genus or order."""
+        total = sum(counts[k] for k in ks)
+        taxa = [{"col": NUDIBRANCHIA_COL_ID}] if g == "Nudibranchs" else [species[k] for k in ks]
+        url = search_url(*taxa)
+        return f"[{total}]({url})" if url else str(total)
+
+    lines += [f"| [{g}](#{lh.anchor(g)}) | {len(ks)} | {group_photos(g, ks)} | "
               f"{sum(mine.get(k, 0) for k in ks)} |" for g, ks in ordered]
 
     lines += ["\n## Most photographed species\n",
               f"The {TOP_SPECIES} species with the most photos.\n",
               "| Common name | Species | Group | Photos | Mine |", "|---|---|---|--:|--:|"]
-    lines += [f"| {label(k)} | *{species[k]['name']}* | {group_of(species[k])} | {counts[k]} | {mine.get(k, 0)} |"
+    lines += [f"| {label(k)} | {latin(k)} | {group_of(species[k])} | {counts[k]} | {mine.get(k, 0)} |"
               for k in top]
 
     lines.append("\n## All species by group\n")
     for g, ks in ordered:
         lines += [f"### {g}\n", "| Common name | Species | Photos | Mine |", "|---|---|--:|--:|"]
-        lines += [f"| {label(k)} | *{species[k]['name']}* | {counts[k]} | {mine.get(k, 0)} |"
+        lines += [f"| {label(k)} | {latin(k)} | {counts[k]} | {mine.get(k, 0)} |"
                   for k in sorted(ks, key=lambda k: (-counts[k], label(k).strip("*").lower()))]
         lines.append("")
 

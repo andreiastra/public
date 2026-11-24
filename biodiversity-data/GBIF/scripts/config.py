@@ -33,6 +33,15 @@ API_BASE              = "https://api.gbif.org/v1"
 OCCURRENCE_URL        = f"{API_BASE}/occurrence"
 OCCURRENCE_SEARCH_URL = f"{OCCURRENCE_URL}/search"
 SPECIES_MATCH_URL     = f"{API_BASE}/species/match"
+# gbif.org filters taxa by Catalogue of Life ID (taxonKey=DXNZ), not by the numeric GBIF key the
+# v1 API uses. The v2 match gives that ID in usage.key when it is given the checklist below.
+# https://api.gbif.org/v1/dataset/7ddf754f-d193-4cc9-b351-99906754a03b  ("Catalogue of Life")
+# https://api.gbif.org/v2/species/match?scientificName=Anemonia%20viridis&checklistKey=7ddf754f-d193-4cc9-b351-99906754a03b
+SPECIES_MATCH_V2_URL  = "https://api.gbif.org/v2/species/match"
+COL_CHECKLIST_KEY     = "7ddf754f-d193-4cc9-b351-99906754a03b"
+# Catalogue of Life ID of the order Nudibranchia, for one search of the whole group on gbif.org.
+# https://api.gbif.org/v2/species/match?scientificName=Nudibranchia&rank=ORDER&checklistKey=7ddf754f-d193-4cc9-b351-99906754a03b
+NUDIBRANCHIA_COL_ID   = "7NFD5"
 DATASET_URL           = f"{API_BASE}/dataset"
 SPECIES_URL           = f"{API_BASE}/species"
 LITERATURE_SEARCH_URL = f"{API_BASE}/literature/search"

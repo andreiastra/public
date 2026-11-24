@@ -12,7 +12,7 @@
 4. Identified to species: counted per `speciesKey` with `facet=speciesKey`
 5. Marine species, leaving out Aves and Magnoliopsida (seabirds and coastal plants): a GBIF species profile (WoRMS or Catalogue of Life) marks it as marine
 
-The filters can be repeated on [gbif.org/occurrence/search](https://www.gbif.org/occurrence/search) (Location, the polygon above; Occurrence status, Present; Media type, Still image). The website can't filter by marine species, so filters 4 and 5 are applied by the script. My photos use the same filters plus `recordedBy=Andre Astra`.
+The filters can be repeated on [gbif.org/occurrence/search](https://www.gbif.org/occurrence/search) (Location, the polygon above; Occurrence status, Present; Media type, Still image). The website can't filter by marine species, so filters 4 and 5 are applied by the script. My photos use the same filters plus `recordedBy=Andre Astra`. Each scientific name below links to the same search for that species on gbif.org, and each group's photo count links to the search for all its species (the nudibranchs link to the whole order, so that search also finds photos identified only to genus or order, which the counts here leave out) (the website's `taxonKey` is a Catalogue of Life ID; a name with no exact match there has no link and is left out of its group's search).
 
 ## Species by group
 
@@ -20,21 +20,21 @@ The filters can be repeated on [gbif.org/occurrence/search](https://www.gbif.org
 
 | Group | Species | Photos | Mine |
 |---|--:|--:|--:|
-| [Crustaceans](#crustaceans) | 81 | 663 | 22 |
-| [Fish and sharks](#fish-and-sharks) | 71 | 674 | 43 |
-| [Bivalves and chitons](#bivalves-and-chitons) | 47 | 513 | 3 |
-| [Sea snails and limpets](#sea-snails-and-limpets) | 40 | 664 | 10 |
-| [Jellyfish, hydroids and comb jellies](#jellyfish-hydroids-and-comb-jellies) | 32 | 531 | 9 |
-| [Worms](#worms) | 27 | 158 | 7 |
-| [Nudibranchs](#nudibranchs) | 25 | 68 | 9 |
-| [Sea squirts](#sea-squirts) | 23 | 222 | 8 |
-| [Anemones and corals](#anemones-and-corals) | 21 | 690 | 16 |
-| [Sponges](#sponges) | 20 | 84 | 5 |
-| [Starfish, urchins and sea cucumbers](#starfish-urchins-and-sea-cucumbers) | 19 | 314 | 7 |
-| [Seals, whales and turtles](#seals-whales-and-turtles) | 13 | 194 | 0 |
-| [Sea mats](#sea-mats) | 9 | 61 | 1 |
-| [Seaweeds](#seaweeds) | 5 | 199 | 0 |
-| [Other](#other) | 13 | 45 | 0 |
+| [Crustaceans](#crustaceans) | 81 | [663](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=NGSFN&taxonKey=MVLJC&taxonKey=MVLMW&taxonKey=TNVNW&taxonKey=MMPZ4&taxonKey=MMPRV&taxonKey=LSKVH&taxonKey=T237K&taxonKey=KZQYG&taxonKey=46N2Q&taxonKey=44KPK&taxonKey=63ZRJ&taxonKey=FD5Q&taxonKey=42GJV&taxonKey=4GY6X&taxonKey=X7KC&taxonKey=42BT5&taxonKey=FQYY&taxonKey=3F865&taxonKey=4N5Y9&taxonKey=4XYMQ&taxonKey=7BJDY&taxonKey=3F83D&taxonKey=42V92&taxonKey=4CXBW&taxonKey=3QMZF&taxonKey=S7R27&taxonKey=38C7K&taxonKey=4J847&taxonKey=5WY3B&taxonKey=9CQH8&taxonKey=B3YJL&taxonKey=9GQWD&taxonKey=9GR6K&taxonKey=4HVTW&taxonKey=52L7Z&taxonKey=CDVWQ&taxonKey=B3LTY&taxonKey=Z6JZ&taxonKey=4F8XH&taxonKey=4QMGB&taxonKey=Q4MY9&taxonKey=Q4MZF&taxonKey=6TKTG&taxonKey=TYZDN&taxonKey=39QPJ&taxonKey=6PXBK&taxonKey=6MTD8&taxonKey=6MTD6&taxonKey=6N5CF&taxonKey=B6YGJ&taxonKey=6N5D5&taxonKey=3863T&taxonKey=4YQQN&taxonKey=3QL9S&taxonKey=6N94C&taxonKey=3WTWT&taxonKey=3TL85&taxonKey=6PVKX&taxonKey=68XN4&taxonKey=QSDM&taxonKey=699MF&taxonKey=B84P3&taxonKey=B84P4&taxonKey=B86VW&taxonKey=B872N&taxonKey=R48N&taxonKey=8V8S6&taxonKey=5C52P&taxonKey=YSVB&taxonKey=3XJS3&taxonKey=5C525&taxonKey=7VDPS&taxonKey=4JJQZ&taxonKey=5V28P&taxonKey=4B2HX&taxonKey=LCHLX&taxonKey=CDVWH&taxonKey=3PKWM&taxonKey=CDVWJ&taxonKey=6RVDM) | 22 |
+| [Fish and sharks](#fish-and-sharks) | 71 | [674](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7B8JC&taxonKey=53WK2&taxonKey=53WPL&taxonKey=6FDM6&taxonKey=476CN&taxonKey=54ZDW&taxonKey=6HKHX&taxonKey=69QWD&taxonKey=4Z53X&taxonKey=68GF7&taxonKey=4VTVV&taxonKey=79XKF&taxonKey=3GPZM&taxonKey=6KN8X&taxonKey=D58DM&taxonKey=6PQXZ&taxonKey=56KVS&taxonKey=4LQXP&taxonKey=5XK85&taxonKey=325YH&taxonKey=3RKYF&taxonKey=3RL4M&taxonKey=S9XC&taxonKey=53PK9&taxonKey=5X7W8&taxonKey=PR89&taxonKey=3NR7W&taxonKey=35J92&taxonKey=YSGX&taxonKey=72JQ3&taxonKey=6TNQX&taxonKey=4CMHT&taxonKey=44K4P&taxonKey=TVBX&taxonKey=XLH2&taxonKey=44L3Q&taxonKey=KH43&taxonKey=3T7KX&taxonKey=3T7JW&taxonKey=5VWXW&taxonKey=3W2MQ&taxonKey=VBRH&taxonKey=6K7M2&taxonKey=3Z8JC&taxonKey=4KYQ9&taxonKey=4KYQ7&taxonKey=592TM&taxonKey=592TK&taxonKey=4MF6P&taxonKey=4W57R&taxonKey=4W56Z&taxonKey=725XK&taxonKey=36R33&taxonKey=T72Q&taxonKey=4GMHZ&taxonKey=57PL7&taxonKey=DZZN&taxonKey=43V8G&taxonKey=437HG&taxonKey=43YSF&taxonKey=78RLW&taxonKey=793MV&taxonKey=78RLX&taxonKey=6WRN6&taxonKey=5D45H&taxonKey=6K72F&taxonKey=3GPR2&taxonKey=3GQ39&taxonKey=79CZL&taxonKey=WCQZ&taxonKey=TVBL) | 43 |
+| [Bivalves and chitons](#bivalves-and-chitons) | 47 | [513](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=43TR5&taxonKey=43TSC&taxonKey=45GN2&taxonKey=64YTF&taxonKey=767GC&taxonKey=75CW4&taxonKey=3XDJ2&taxonKey=3WGJ3&taxonKey=64D63&taxonKey=3RVBP&taxonKey=SKNF&taxonKey=8SX2W&taxonKey=4Y5MX&taxonKey=39X34&taxonKey=6FBPD&taxonKey=3WCHF&taxonKey=5Z9TR&taxonKey=7FNZ4&taxonKey=6DK9Q&taxonKey=5WDT8&taxonKey=4GKW9&taxonKey=3TB3R&taxonKey=4FVLS&taxonKey=7FMMY&taxonKey=4TMNJ&taxonKey=4TMNH&taxonKey=7FM9J&taxonKey=TLM2&taxonKey=6RKGL&taxonKey=54LY2&taxonKey=5V6JJ&taxonKey=4Z976&taxonKey=4Z979&taxonKey=8LF6&taxonKey=4VYNX&taxonKey=3FB7F&taxonKey=3FB7L&taxonKey=6DDV4&taxonKey=3LHV5&taxonKey=44QCJ&taxonKey=44RHY&taxonKey=3XGCW&taxonKey=44RLH&taxonKey=4KYMF&taxonKey=73T5L&taxonKey=39X2R&taxonKey=3WZYF) | 3 |
+| [Sea snails and limpets](#sea-snails-and-limpets) | 40 | [664](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7TJ4X&taxonKey=876DH&taxonKey=3JHP8&taxonKey=PS2Z&taxonKey=58MSR&taxonKey=39F9W&taxonKey=6D7BT&taxonKey=BDZT&taxonKey=3QLJS&taxonKey=3VNQM&taxonKey=3VNPR&taxonKey=3RTLM&taxonKey=LMMT&taxonKey=NLPP&taxonKey=FV4F&taxonKey=3VNNH&taxonKey=6FXL3&taxonKey=48CQ8&taxonKey=6KFJ9&taxonKey=4DZZM&taxonKey=764GF&taxonKey=4DZRD&taxonKey=67NTY&taxonKey=6F624&taxonKey=7994R&taxonKey=6HGNS&taxonKey=595W8&taxonKey=595XS&taxonKey=482KT&taxonKey=W7KY&taxonKey=5943F&taxonKey=4DZW4&taxonKey=4G6DS&taxonKey=4GRD2&taxonKey=3VNRQ&taxonKey=7D6G4&taxonKey=C4TY8&taxonKey=6ZRWJ&taxonKey=52G35&taxonKey=LXYN) | 10 |
+| [Jellyfish, hydroids and comb jellies](#jellyfish-hydroids-and-comb-jellies) | 32 | [531](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=75XQ6&taxonKey=JTCQ&taxonKey=6C4NW&taxonKey=6L9KB&taxonKey=6L9KD&taxonKey=4HFBD&taxonKey=7FL3G&taxonKey=3N2F4&taxonKey=3BZHC&taxonKey=723RK&taxonKey=46W9Y&taxonKey=MR4G&taxonKey=YTLJ&taxonKey=64YV8&taxonKey=64Z7N&taxonKey=3S84V&taxonKey=488Y7&taxonKey=4WYD7&taxonKey=8KHC&taxonKey=663CL&taxonKey=LLTX&taxonKey=77S47&taxonKey=MDD9&taxonKey=5YKQ7&taxonKey=4SDKS&taxonKey=65JWL&taxonKey=5YY6J&taxonKey=QKVB&taxonKey=3863J&taxonKey=32NCL&taxonKey=5X985&taxonKey=5WX7T) | 9 |
+| [Worms](#worms) | 27 | [158](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6LCFR&taxonKey=BMPZ&taxonKey=76T7X&taxonKey=3CWXJ&taxonKey=3S779&taxonKey=6HVS2&taxonKey=4TV2B&taxonKey=45GY3&taxonKey=68L4P&taxonKey=4MMXP&taxonKey=3TTG7&taxonKey=59JYN&taxonKey=3V2QK&taxonKey=4MYFR&taxonKey=77FRV&taxonKey=3C9MB&taxonKey=GFJ9&taxonKey=4TV53&taxonKey=4Z8FK&taxonKey=4Z8FH&taxonKey=4Z8F8&taxonKey=6ZB5J&taxonKey=4Z7T6&taxonKey=4WWP2&taxonKey=3QLM3&taxonKey=9N5R&taxonKey=3C9SB) | 7 |
+| [Nudibranchs](#nudibranchs) | 25 | [68](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7NFD5) | 9 |
+| [Sea squirts](#sea-squirts) | 23 | [222](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=VFCZ&taxonKey=35WR7&taxonKey=3VF5Q&taxonKey=VV7W&taxonKey=H5XP&taxonKey=4FS5C&taxonKey=FNZC&taxonKey=FNZS&taxonKey=FP4Q&taxonKey=FP2T&taxonKey=44CSC&taxonKey=5387D&taxonKey=34Q3R&taxonKey=6ZVKS&taxonKey=MPNZ&taxonKey=MPMV&taxonKey=36N7V&taxonKey=YDD8&taxonKey=YDCZ&taxonKey=H63Z&taxonKey=4L4HT&taxonKey=MPRR&taxonKey=MPRJ) | 8 |
+| [Anemones and corals](#anemones-and-corals) | 21 | [690](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=84G8L&taxonKey=9T7Z&taxonKey=9T8D&taxonKey=9TB6&taxonKey=DXNZ&taxonKey=7F3N4&taxonKey=BCTH&taxonKey=7YW7T&taxonKey=4DJ7F&taxonKey=RJDJ&taxonKey=YQKR&taxonKey=64PJ3&taxonKey=5WTQ2&taxonKey=5VFK7&taxonKey=42J2K&taxonKey=7VK9G&taxonKey=SXGX&taxonKey=BL5K&taxonKey=BL4S&taxonKey=42HZY&taxonKey=6KXQB) | 16 |
+| [Sponges](#sponges) | 20 | [84](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3H87X&taxonKey=3JCBW&taxonKey=53LRW&taxonKey=6DRBH&taxonKey=6SPLT&taxonKey=6LPB7&taxonKey=4JHYH&taxonKey=FQ75&taxonKey=FQ73&taxonKey=3JBXK&taxonKey=3NHYZ&taxonKey=75RR7&taxonKey=55HM3&taxonKey=53D67&taxonKey=4LB33&taxonKey=5Z9Q9&taxonKey=6L9GF&taxonKey=7BRH6&taxonKey=W7FX&taxonKey=45H33) | 5 |
+| [Starfish, urchins and sea cucumbers](#starfish-urchins-and-sea-cucumbers) | 19 | [314](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WDNW&taxonKey=3Y9YD&taxonKey=49WJF&taxonKey=D4V7&taxonKey=4CP35&taxonKey=38GP4&taxonKey=6DVHP&taxonKey=BJRBY&taxonKey=5VTWJ&taxonKey=6TVQ3&taxonKey=HSRS&taxonKey=6LPXV&taxonKey=87P58&taxonKey=6SPNK&taxonKey=38LGL&taxonKey=HRM8&taxonKey=5VVTS&taxonKey=4NBB9) | 7 |
+| [Seals, whales and turtles](#seals-whales-and-turtles) | 13 | [194](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GK65&taxonKey=3JBV8&taxonKey=59R5F&taxonKey=74SZC&taxonKey=3G9Z6&taxonKey=77C9R&taxonKey=KF8W&taxonKey=KF8K&taxonKey=74HLW&taxonKey=3H7KR&taxonKey=34JWM&taxonKey=34XB9) | 0 |
+| [Sea mats](#sea-mats) | 9 | [61](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=36VP3&taxonKey=3ZNJY&taxonKey=322X9&taxonKey=RYQJS&taxonKey=S3SP&taxonKey=4VCFN&taxonKey=6JBV6&taxonKey=CS258&taxonKey=BSQH5) | 1 |
+| [Seaweeds](#seaweeds) | 5 | [199](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MM697&taxonKey=PGMMR&taxonKey=SQQZW&taxonKey=MRFGL&taxonKey=TYX8R) | 0 |
+| [Other](#other) | 13 | [45](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BJ3SQ&taxonKey=4WQSQ&taxonKey=6YGHL&taxonKey=48DZG&taxonKey=4RBFC&taxonKey=R84X&taxonKey=LQ348&taxonKey=6NH56&taxonKey=4RBJ5&taxonKey=6J8Q4&taxonKey=5TYZ9&taxonKey=VVFY&taxonKey=6ZD37) | 0 |
 
 ## Most photographed species
 
@@ -42,31 +42,31 @@ The 25 species with the most photos.
 
 | Common name | Species | Group | Photos | Mine |
 |---|---|---|--:|--:|
-| Snakelocks Anemone | *Anemonia viridis* | Anemones and corals | 166 | 5 |
-| Beadlet Anemone | *Actinia equina* | Anemones and corals | 156 | 0 |
-| Dogfish | *Scyliorhinus canicula* | Fish and sharks | 122 | 5 |
-| Atlantic Man o' War | *Physalia physalis* | Jellyfish, hydroids and comb jellies | 121 | 0 |
-| Atlantic dog whelk | *Nucella lapillus* | Sea snails and limpets | 96 | 0 |
-| Common Shore Crab | *Carcinus maenas* | Crustaceans | 92 | 2 |
-| Compass Jellyfish | *Chrysaora hysoscella* | Jellyfish, hydroids and comb jellies | 89 | 3 |
-| Atlantic limpet | *Patella vulgata* | Sea snails and limpets | 86 | 0 |
-| By-the-wind Sailor | *Velella velella* | Jellyfish, hydroids and comb jellies | 86 | 0 |
-| Atlantic Gray Seal | *Halichoerus grypus* | Seals, whales and turtles | 76 | 0 |
-| Atlantic harbor seal | *Phoca vitulina* | Seals, whales and turtles | 70 | 0 |
-| Blue rayed limpet | *Patella pellucida* | Sea snails and limpets | 68 | 1 |
-| Flat Wrack | *Fucus spiralis* | Seaweeds | 67 | 0 |
-| gem anemone | *Bunodactis verrucosa* | Anemones and corals | 65 | 0 |
-| Golden Star Tunicate | *Botryllus schlosseri* | Sea squirts | 65 | 0 |
-| Brown Crab | *Cancer pagurus* | Crustaceans | 60 | 2 |
-| Spiny Starfish | *Marthasterias glacialis* | Starfish, urchins and sea cucumbers | 60 | 3 |
-| Dahlia Anemone | *Urticina felina* | Anemones and corals | 57 | 2 |
-| European painted top shell | *Calliostoma zizyphinum* | Sea snails and limpets | 52 | 1 |
-| Velvet Swimming Crab | *Necora puber* | Crustaceans | 51 | 5 |
-| Common Periwinkle | *Littorina littorea* | Sea snails and limpets | 50 | 0 |
-| Atlantic Common Sea Star | *Asterias rubens* | Starfish, urchins and sea cucumbers | 48 | 1 |
-| Jap weed | *Sargassum muticum* | Seaweeds | 48 | 0 |
-| Jewel 'anemone' | *Corynactis viridis* | Anemones and corals | 48 | 1 |
-| Strawberry Anemone | *Actinia fragacea* | Anemones and corals | 48 | 1 |
+| Snakelocks Anemone | [*Anemonia viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=DXNZ) | Anemones and corals | 166 | 5 |
+| Beadlet Anemone | [*Actinia equina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9T7Z) | Anemones and corals | 156 | 0 |
+| Dogfish | [*Scyliorhinus canicula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4W56Z) | Fish and sharks | 122 | 5 |
+| Atlantic Man o' War | [*Physalia physalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4HFBD) | Jellyfish, hydroids and comb jellies | 121 | 0 |
+| Atlantic dog whelk | [*Nucella lapillus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=482KT) | Sea snails and limpets | 96 | 0 |
+| Common Shore Crab | [*Carcinus maenas*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=R48N) | Crustaceans | 92 | 2 |
+| Compass Jellyfish | [*Chrysaora hysoscella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5YKQ7) | Jellyfish, hydroids and comb jellies | 89 | 3 |
+| Atlantic limpet | [*Patella vulgata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=764GF) | Sea snails and limpets | 86 | 0 |
+| By-the-wind Sailor | [*Velella velella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7FL3G) | Jellyfish, hydroids and comb jellies | 86 | 0 |
+| Atlantic Gray Seal | [*Halichoerus grypus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3JBV8) | Seals, whales and turtles | 76 | 0 |
+| Atlantic harbor seal | [*Phoca vitulina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GK65) | Seals, whales and turtles | 70 | 0 |
+| Blue rayed limpet | [*Patella pellucida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4DZW4) | Sea snails and limpets | 68 | 1 |
+| Flat Wrack | [*Fucus spiralis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=PGMMR) | Seaweeds | 67 | 0 |
+| gem anemone | [*Bunodactis verrucosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WTQ2) | Anemones and corals | 65 | 0 |
+| Golden Star Tunicate | [*Botryllus schlosseri*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MPRR) | Sea squirts | 65 | 0 |
+| Brown Crab | [*Cancer pagurus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WY3B) | Crustaceans | 60 | 2 |
+| Spiny Starfish | [*Marthasterias glacialis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3Y9YD) | Starfish, urchins and sea cucumbers | 60 | 3 |
+| Dahlia Anemone | [*Urticina felina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7F3N4) | Anemones and corals | 57 | 2 |
+| European painted top shell | [*Calliostoma zizyphinum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=PS2Z) | Sea snails and limpets | 52 | 1 |
+| Velvet Swimming Crab | [*Necora puber*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6RVDM) | Crustaceans | 51 | 5 |
+| Common Periwinkle | [*Littorina littorea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VNPR) | Sea snails and limpets | 50 | 0 |
+| Atlantic Common Sea Star | [*Asterias rubens*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=HRM8) | Starfish, urchins and sea cucumbers | 48 | 1 |
+| Jap weed | [*Sargassum muticum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=SQQZW) | Seaweeds | 48 | 0 |
+| Jewel 'anemone' | [*Corynactis viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YQKR) | Anemones and corals | 48 | 1 |
+| Strawberry Anemone | [*Actinia fragacea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9T8D) | Anemones and corals | 48 | 1 |
 
 ## All species by group
 
@@ -74,521 +74,521 @@ The 25 species with the most photos.
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Common Shore Crab | *Carcinus maenas* | 92 | 2 |
-| Brown Crab | *Cancer pagurus* | 60 | 2 |
-| Velvet Swimming Crab | *Necora puber* | 51 | 5 |
-| Bernhard's hermit crab | *Pagurus bernhardus* | 45 | 4 |
-| Broad-clawed Porcelain Crab | *Porcellana platycheles* | 38 | 0 |
-| Montagu's Crab | *Xantho hydrophilus* | 38 | 0 |
-| Atlantic spider crab | *Maja brachydactyla* | 28 | 2 |
-| Common Prawn | *Palaemon serratus* | 26 | 3 |
-| Common Goose Barnacle | *Lepas anatifera* | 25 | 0 |
-| Australasian barnacle | *Austrominius modestus* | 24 | 0 |
-| Rockpool Prawn | *Palaemon elegans* | 19 | 0 |
-| Common Sea Slater | *Ligia oceanica* | 17 | 0 |
-| Long-clawed Porcelain Crab | *Pisidia longicornis* | 16 | 0 |
-| Acorn Barnacle | *Semibalanus balanoides* | 14 | 0 |
-| Poli's Stellate Barnacle | *Chthamalus stellatus* | 10 | 0 |
-| Seashore springtail | *Anurida maritima* | 9 | 0 |
-| Risso's Crab | *Xantho pilipes* | 8 | 0 |
-| *Sphaeroma serratum* | *Sphaeroma serratum* | 8 | 0 |
-| Leach's squat lobster | *Galathea squamifera* | 7 | 0 |
-| Buoy Barnacle | *Dosima fascicularis* | 6 | 0 |
-| Common Lobster | *Homarus gammarus* | 6 | 1 |
-| Montagu's Stellate Barnacle | *Chthamalus montagui* | 6 | 0 |
-| Spiny Squat lobster | *Galathea strigosa* | 6 | 2 |
-| Bristly Crab | *Pilumnus hirtellus* | 5 | 0 |
-| Harbour Crab | *Liocarcinus depurator* | 5 | 0 |
-| Wart Barnacle | *Verruca stroemia* | 5 | 0 |
-| an acorn barnacle | *Balanus crenatus* | 4 | 0 |
-| Masked Crab | *Corystes cassivelaunus* | 4 | 0 |
-| Brown Shrimp | *Crangon crangon* | 3 | 0 |
-| Gammarid | *Jassa falcata* | 3 | 0 |
-| granular marine isopod | *Idotea granulosa* | 3 | 0 |
-| *Janira maculosa* | *Janira maculosa* | 3 | 0 |
-| Small Goose Barnacle | *Lepas pectinata* | 3 | 0 |
-| Baltic Isopod | *Idotea balthica* | 2 | 0 |
-| *Caprella acanthifera* | *Caprella acanthifera* | 2 | 0 |
-| *Caprella septentrionalis* | *Caprella septentrionalis* | 2 | 0 |
-| *Colomastix pusilla* | *Colomastix pusilla* | 2 | 0 |
-| *Crassicorophium bonellii* | *Crassicorophium bonellii* | 2 | 0 |
-| *Dynamene bidentata* | *Dynamene bidentata* | 2 | 0 |
-| *Gammaropsis maculata* | *Gammaropsis maculata* | 2 | 0 |
-| *Idotea emarginata* | *Idotea emarginata* | 2 | 0 |
-| *Iphimedia minuta* | *Iphimedia minuta* | 2 | 0 |
-| *Lysianassa ceratina* | *Lysianassa ceratina* | 2 | 0 |
-| Metallic Isopod | *Idotea metallica* | 2 | 0 |
-| *Microdeutopus versiculatus* | *Microdeutopus versiculatus* | 2 | 0 |
-| *Perrierella audouiniana* | *Perrierella audouiniana* | 2 | 0 |
-| rough barnacle | *Balanus balanus* | 2 | 0 |
-| sea spider | *Endeis spinosa* | 2 | 0 |
-| Toothed Crab | *Pirimela denticulata* | 2 | 0 |
-| Western Yellow Centipede | *Stigmatogaster subterranea* | 2 | 0 |
-| Wrinkled Swimming Crab | *Liocarcinus corrugatus* | 2 | 0 |
-| *Abludomelita obtusata* | *Abludomelita obtusata* | 1 | 0 |
-| *Anapagurus hyndmanni* | *Anapagurus hyndmanni* | 1 | 0 |
-| *Animoceradocus semiserratus* | *Animoceradocus semiserratus* | 1 | 0 |
-| *Apherusa jurinei* | *Apherusa jurinei* | 1 | 0 |
-| *Apocorophium acutum* | *Apocorophium acutum* | 1 | 0 |
-| Arch-fronted Swimming Crab | *Liocarcinus navigator* | 1 | 0 |
-| Bay barnacle | *Amphibalanus improvisus* | 1 | 0 |
-| chamaeleon prawn | *Hippolyte varians* | 1 | 1 |
-| Chameleon Shrimp | *Praunus flexuosus* | 1 | 0 |
-| Columbus crab | *Planes minutus* | 1 | 0 |
-| Crab-hacker barnacle | *Sacculina carcini* | 1 | 0 |
-| European Sand Hopper | *Talitrus saltator* | 1 | 0 |
-| *Gammarellus angulosus* | *Gammarellus angulosus* | 1 | 0 |
-| *Idotea neglecta* | *Idotea neglecta* | 1 | 0 |
-| Intertidal Red Mite | *Neomolgus littoralis* | 1 | 0 |
-| Leach's Spider Crab | *Inachus phalangium* | 1 | 0 |
-| least skeleton shrimp | *Phtisica marina* | 1 | 0 |
-| *Leptocheirus pectinatus* | *Leptocheirus pectinatus* | 1 | 0 |
-| *Leucothoe spinicarpa* | *Leucothoe spinicarpa* | 1 | 0 |
-| *Metaphoxus fultoni* | *Metaphoxus fultoni* | 1 | 0 |
-| *Metopa borealis* | *Metopa borealis* | 1 | 0 |
-| *Munna kroyeri* | *Munna kroyeri* | 1 | 0 |
-| *Othomaera othonis* | *Othomaera othonis* | 1 | 0 |
-| *Pandarus bicolor* | *Pandarus bicolor* | 1 | 0 |
-| *Parajassa pelagica* | *Parajassa pelagica* | 1 | 0 |
-| Pennant's nut crab | *Ebalia tuberosa* | 1 | 0 |
-| *Protomedeia fasciata* | *Protomedeia fasciata* | 1 | 0 |
-| *Pycnogonum litorale* | *Pycnogonum litorale* | 1 | 0 |
-| Skeleton Shrimp | *Caprella penantis* | 1 | 0 |
-| *Socarnes erythrophthalmus* | *Socarnes erythrophthalmus* | 1 | 0 |
+| Common Shore Crab | [*Carcinus maenas*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=R48N) | 92 | 2 |
+| Brown Crab | [*Cancer pagurus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WY3B) | 60 | 2 |
+| Velvet Swimming Crab | [*Necora puber*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6RVDM) | 51 | 5 |
+| Bernhard's hermit crab | [*Pagurus bernhardus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B3YJL) | 45 | 4 |
+| Broad-clawed Porcelain Crab | [*Porcellana platycheles*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B872N) | 38 | 0 |
+| Montagu's Crab | [*Xantho hydrophilus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5C525) | 38 | 0 |
+| Atlantic spider crab | [*Maja brachydactyla*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3XJS3) | 28 | 2 |
+| Common Prawn | [*Palaemon serratus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9GR6K) | 26 | 3 |
+| Common Goose Barnacle | [*Lepas anatifera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=Q4MY9) | 25 | 0 |
+| Australasian barnacle | [*Austrominius modestus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LSKVH) | 24 | 0 |
+| Rockpool Prawn | [*Palaemon elegans*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9GQWD) | 19 | 0 |
+| Common Sea Slater | [*Ligia oceanica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6PXBK) | 17 | 0 |
+| Long-clawed Porcelain Crab | [*Pisidia longicornis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B86VW) | 16 | 0 |
+| Acorn Barnacle | [*Semibalanus balanoides*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=T237K) | 14 | 0 |
+| Poli's Stellate Barnacle | [*Chthamalus stellatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MVLMW) | 10 | 0 |
+| Seashore springtail | [*Anurida maritima*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=KZQYG) | 9 | 0 |
+| Risso's Crab | [*Xantho pilipes*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5C52P) | 8 | 0 |
+| *Sphaeroma serratum* | [*Sphaeroma serratum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4YQQN) | 8 | 0 |
+| Leach's squat lobster | [*Galathea squamifera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B84P3) | 7 | 0 |
+| Buoy Barnacle | [*Dosima fascicularis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=NGSFN) | 6 | 0 |
+| Common Lobster | [*Homarus gammarus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7VDPS) | 6 | 1 |
+| Montagu's Stellate Barnacle | [*Chthamalus montagui*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MVLJC) | 6 | 0 |
+| Spiny Squat lobster | [*Galathea strigosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B84P4) | 6 | 2 |
+| Bristly Crab | [*Pilumnus hirtellus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4HVTW) | 5 | 0 |
+| Harbour Crab | [*Liocarcinus depurator*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=CDVWJ) | 5 | 0 |
+| Wart Barnacle | [*Verruca stroemia*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TNVNW) | 5 | 0 |
+| an acorn barnacle | [*Balanus crenatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MMPZ4) | 4 | 0 |
+| Masked Crab | [*Corystes cassivelaunus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YSVB) | 4 | 0 |
+| Brown Shrimp | [*Crangon crangon*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9CQH8) | 3 | 0 |
+| Gammarid | [*Jassa falcata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3QMZF) | 3 | 0 |
+| granular marine isopod | [*Idotea granulosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6N5D5) | 3 | 0 |
+| *Janira maculosa* | [*Janira maculosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3QL9S) | 3 | 0 |
+| Small Goose Barnacle | [*Lepas pectinata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=Q4MZF) | 3 | 0 |
+| Baltic Isopod | [*Idotea balthica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6MTD8) | 2 | 0 |
+| *Caprella acanthifera* | [*Caprella acanthifera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=68XN4) | 2 | 0 |
+| *Caprella septentrionalis* | [*Caprella septentrionalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=QSDM) | 2 | 0 |
+| *Colomastix pusilla* | [*Colomastix pusilla*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=X7KC) | 2 | 0 |
+| *Crassicorophium bonellii* | [*Crassicorophium bonellii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=Z6JZ) | 2 | 0 |
+| *Dynamene bidentata* | [*Dynamene bidentata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3863T) | 2 | 0 |
+| *Gammaropsis maculata* | [*Gammaropsis maculata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3F865) | 2 | 0 |
+| *Idotea emarginata* | [*Idotea emarginata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6MTD6) | 2 | 0 |
+| *Iphimedia minuta* | [*Iphimedia minuta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6N94C) | 2 | 0 |
+| *Lysianassa ceratina* | [*Lysianassa ceratina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WTWT) | 2 | 0 |
+| Metallic Isopod | [*Idotea metallica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B6YGJ) | 2 | 0 |
+| *Microdeutopus versiculatus* | [*Microdeutopus versiculatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=42V92) | 2 | 0 |
+| *Perrierella audouiniana* | [*Perrierella audouiniana*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4F8XH) | 2 | 0 |
+| rough barnacle | [*Balanus balanus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MMPRV) | 2 | 0 |
+| sea spider | [*Endeis spinosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=39QPJ) | 2 | 0 |
+| Toothed Crab | [*Pirimela denticulata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4J847) | 2 | 0 |
+| Western Yellow Centipede | [*Stigmatogaster subterranea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=52L7Z) | 2 | 0 |
+| Wrinkled Swimming Crab | [*Liocarcinus corrugatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=CDVWH) | 2 | 0 |
+| *Abludomelita obtusata* | [*Abludomelita obtusata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=63ZRJ) | 1 | 0 |
+| *Anapagurus hyndmanni* | [*Anapagurus hyndmanni*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=B3LTY) | 1 | 0 |
+| *Animoceradocus semiserratus* | [*Animoceradocus semiserratus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5V28P) | 1 | 0 |
+| *Apherusa jurinei* | [*Apherusa jurinei*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FD5Q) | 1 | 0 |
+| *Apocorophium acutum* | [*Apocorophium acutum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FQYY) | 1 | 0 |
+| Arch-fronted Swimming Crab | [*Liocarcinus navigator*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=CDVWQ) | 1 | 0 |
+| Bay barnacle | [*Amphibalanus improvisus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LCHLX) | 1 | 0 |
+| chamaeleon prawn | [*Hippolyte varians*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=8V8S6) | 1 | 1 |
+| Chameleon Shrimp | [*Praunus flexuosus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=S7R27) | 1 | 0 |
+| Columbus crab | [*Planes minutus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4JJQZ) | 1 | 0 |
+| Crab-hacker barnacle | [*Sacculina carcini*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TYZDN) | 1 | 0 |
+| European Sand Hopper | [*Talitrus saltator*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7BJDY) | 1 | 0 |
+| *Gammarellus angulosus* | [*Gammarellus angulosus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3F83D) | 1 | 0 |
+| *Idotea neglecta* | [*Idotea neglecta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6N5CF) | 1 | 0 |
+| Intertidal Red Mite | [*Neomolgus littoralis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=46N2Q) | 1 | 0 |
+| Leach's Spider Crab | [*Inachus phalangium*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3PKWM) | 1 | 0 |
+| least skeleton shrimp | [*Phtisica marina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GY6X) | 1 | 0 |
+| *Leptocheirus pectinatus* | [*Leptocheirus pectinatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3TL85) | 1 | 0 |
+| *Leucothoe spinicarpa* | [*Leucothoe spinicarpa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6PVKX) | 1 | 0 |
+| *Metaphoxus fultoni* | [*Metaphoxus fultoni*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=42BT5) | 1 | 0 |
+| *Metopa borealis* | [*Metopa borealis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=42GJV) | 1 | 0 |
+| *Munna kroyeri* | [*Munna kroyeri*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44KPK) | 1 | 0 |
+| *Othomaera othonis* | [*Othomaera othonis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4B2HX) | 1 | 0 |
+| *Pandarus bicolor* | [*Pandarus bicolor*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6TKTG) | 1 | 0 |
+| *Parajassa pelagica* | [*Parajassa pelagica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4CXBW) | 1 | 0 |
+| Pennant's nut crab | [*Ebalia tuberosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=38C7K) | 1 | 0 |
+| *Protomedeia fasciata* | [*Protomedeia fasciata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4N5Y9) | 1 | 0 |
+| *Pycnogonum litorale* | [*Pycnogonum litorale*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4QMGB) | 1 | 0 |
+| Skeleton Shrimp | [*Caprella penantis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=699MF) | 1 | 0 |
+| *Socarnes erythrophthalmus* | [*Socarnes erythrophthalmus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4XYMQ) | 1 | 0 |
 
 ### Fish and sharks
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Dogfish | *Scyliorhinus canicula* | 122 | 5 |
-| Two-spotted goby | *Gobiusculus flavescens* | 46 | 4 |
-| Blenny | *Lipophrys pholis* | 45 | 0 |
-| Worm Pipefish | *Nerophis lumbriciformis* | 39 | 0 |
-| Bull Huss | *Scyliorhinus stellaris* | 36 | 1 |
-| Fifteen-spine stickleback | *Spinachia spinachia* | 34 | 2 |
-| Corkwing | *Symphodus melops* | 32 | 2 |
-| Montagu's Blenny | *Coryphoblennius galerita* | 25 | 0 |
-| Atlantic Pollock | *Pollachius pollachius* | 20 | 1 |
-| Ballan Wrasse | *Labrus bergylta* | 18 | 4 |
-| Basking Shark | *Cetorhinus maximus* | 17 | 0 |
-| Fatherlasher | *Taurulus bubalis* | 17 | 2 |
-| Mediterranean Painted Goby | *Pomatoschistus pictus* | 16 | 1 |
-| Gattorugine | *Parablennius gattorugine* | 14 | 4 |
-| Cornish Sucker | *Lepadogaster purpurea* | 13 | 0 |
-| Homelyn ray | *Raja montagui* | 13 | 0 |
-| Maiden ray | *Raja clavata* | 11 | 0 |
-| Common dragonet | *Callionymus lyra* | 9 | 1 |
-| Broad-nosed Eel | *Anguilla anguilla* | 8 | 0 |
-| Brown trout | *Salmo trutta* | 7 | 0 |
-| Butter-fish | *Pholis gunnellus* | 7 | 0 |
-| Leopard-spotted Goby | *Thorogobius ephippiatus* | 7 | 1 |
-| Macaronesian Rockling | *Gaidropsarus mediterraneus* | 7 | 1 |
-| Red-mouth Goby | *Gobius cruentatus* | 7 | 0 |
-| Five-bear Cockling | *Ciliata mustela* | 6 | 0 |
-| Rock Cook | *Centrolabrus exoletus* | 6 | 0 |
-| Rock Goby | *Gobius paganellus* | 6 | 1 |
-| Black Goby | *Gobius niger* | 5 | 3 |
-| Gold-sinny | *Ctenolabrus rupestris* | 5 | 1 |
-| Atlantic Mackerel | *Scomber scombrus* | 4 | 0 |
-| Capemouth | *Dicentrarchus labrax* | 4 | 2 |
-| Common Mola | *Mola mola* | 4 | 0 |
-| Aiguille de mer | *Syngnathus acus* | 3 | 1 |
-| Arctic Cod | *Gadus morhua* | 3 | 0 |
-| Atlantic John Dory | *Zeus faber* | 3 | 0 |
-| Bib | *Trisopterus luscus* | 3 | 1 |
-| Blue grey skate | *Dipturus batis* | 3 | 0 |
-| Conger | *Conger conger* | 3 | 0 |
-| Grey Mullet | *Chelon labrosus* | 3 | 0 |
-| Owl ray | *Raja microocellata* | 3 | 0 |
-| Portuguese blenny | *Parablennius ruber* | 3 | 2 |
-| Snake Fish | *Entelurus aequoreus* | 3 | 0 |
-| Atherine | *Atherina presbyter* | 2 | 1 |
-| Blonde Skate | *Raja brachyura* | 2 | 0 |
-| Butterfly skate | *Leucoraja naevus* | 2 | 0 |
-| Common Triggerfish | *Balistes capriscus* | 2 | 0 |
-| Grey Gurnard | *Eutrigla gurnardus* | 2 | 0 |
-| American Pollack | *Pollachius virens* | 1 | 0 |
-| Angler | *Lophius piscatorius* | 1 | 0 |
-| Atlantic Herring | *Clupea harengus* | 1 | 0 |
-| Atlantic Horse Mackerel | *Trachurus trachurus* | 1 | 0 |
-| Atlantic Needlefish | *Scomberesox saurus* | 1 | 0 |
-| Black Moray | *Muraena helena* | 1 | 0 |
-| Blue Dog | *Prionace glauca* | 1 | 0 |
-| Broad-nosed pipefish | *Syngnathus typhle* | 1 | 0 |
-| Common ling | *Molva molva* | 1 | 0 |
-| Conemara clingfish | *Lepadogaster candolii* | 1 | 0 |
-| Couch's Goby | *Gobius couchi* | 1 | 0 |
-| Cuckoo wrasse | *Labrus mixtus* | 1 | 0 |
-| Frie's Goby | *Lesueurigobius friesii* | 1 | 0 |
-| Garfish, Garpike | *Belone belone* | 1 | 0 |
-| Golden Grey Mullet | *Chelon auratus* | 1 | 0 |
-| Great sand eel | *Hyperoplus lanceolatus* | 1 | 0 |
-| Haddock | *Melanogrammus aeglefinus* | 1 | 0 |
-| Lemon Sole | *Microstomus kitt* | 1 | 0 |
-| Lesser pipefish | *Syngnathus rostellatus* | 1 | 0 |
-| Poor cod | *Trisopterus minutus* | 1 | 1 |
-| Red Snake-fish | *Cepola macrophthalma* | 1 | 0 |
-| Red Stripped Mullet | *Mullus surmuletus* | 1 | 1 |
-| Reticulated Dragonet | *Callionymus reticulatus* | 1 | 0 |
-| Sapphirine gurnard | *Chelidonichthys lucerna* | 1 | 0 |
+| Dogfish | [*Scyliorhinus canicula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4W56Z) | 122 | 5 |
+| Two-spotted goby | [*Gobiusculus flavescens*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=D58DM) | 46 | 4 |
+| Blenny | [*Lipophrys pholis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=72JQ3) | 45 | 0 |
+| Worm Pipefish | [*Nerophis lumbriciformis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=476CN) | 39 | 0 |
+| Bull Huss | [*Scyliorhinus stellaris*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4W57R) | 36 | 1 |
+| Fifteen-spine stickleback | [*Spinachia spinachia*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z53X) | 34 | 2 |
+| Corkwing | [*Symphodus melops*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=53PK9) | 32 | 2 |
+| Montagu's Blenny | [*Coryphoblennius galerita*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YSGX) | 25 | 0 |
+| Atlantic Pollock | [*Pollachius pollachius*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4KYQ7) | 20 | 1 |
+| Ballan Wrasse | [*Labrus bergylta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3RKYF) | 18 | 4 |
+| Basking Shark | [*Cetorhinus maximus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=T72Q) | 17 | 0 |
+| Fatherlasher | [*Taurulus bubalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=54ZDW) | 17 | 2 |
+| Mediterranean Painted Goby | [*Pomatoschistus pictus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4LQXP) | 16 | 1 |
+| Gattorugine | [*Parablennius gattorugine*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4CMHT) | 14 | 4 |
+| Cornish Sucker | [*Lepadogaster purpurea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3T7KX) | 13 | 0 |
+| Homelyn ray | [*Raja montagui*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=78RLW) | 13 | 0 |
+| Maiden ray | [*Raja clavata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=793MV) | 11 | 0 |
+| Common dragonet | [*Callionymus lyra*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=PR89) | 9 | 1 |
+| Broad-nosed Eel | [*Anguilla anguilla*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=DZZN) | 8 | 0 |
+| Brown trout | [*Salmo trutta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=79CZL) | 7 | 0 |
+| Butter-fish | [*Pholis gunnellus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GMHZ) | 7 | 0 |
+| Leopard-spotted Goby | [*Thorogobius ephippiatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=56KVS) | 7 | 1 |
+| Macaronesian Rockling | [*Gaidropsarus mediterraneus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6K7M2) | 7 | 1 |
+| Red-mouth Goby | [*Gobius cruentatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3GPR2) | 7 | 0 |
+| Five-bear Cockling | [*Ciliata mustela*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=VBRH) | 6 | 0 |
+| Rock Cook | [*Centrolabrus exoletus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=S9XC) | 6 | 0 |
+| Rock Goby | [*Gobius paganellus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3GQ39) | 6 | 1 |
+| Black Goby | [*Gobius niger*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3GPZM) | 5 | 3 |
+| Gold-sinny | [*Ctenolabrus rupestris*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=325YH) | 5 | 1 |
+| Atlantic Mackerel | [*Scomber scombrus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=79XKF) | 4 | 0 |
+| Capemouth | [*Dicentrarchus labrax*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=35J92) | 4 | 2 |
+| Common Mola | [*Mola mola*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=43V8G) | 4 | 0 |
+| Aiguille de mer | [*Syngnathus acus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=53WK2) | 3 | 1 |
+| Arctic Cod | [*Gadus morhua*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6K72F) | 3 | 0 |
+| Atlantic John Dory | [*Zeus faber*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5D45H) | 3 | 0 |
+| Bib | [*Trisopterus luscus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=592TK) | 3 | 1 |
+| Blue grey skate | [*Dipturus batis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=36R33) | 3 | 0 |
+| Conger | [*Conger conger*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=XLH2) | 3 | 0 |
+| Grey Mullet | [*Chelon labrosus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TVBX) | 3 | 0 |
+| Owl ray | [*Raja microocellata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=78RLX) | 3 | 0 |
+| Portuguese blenny | [*Parablennius ruber*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6TNQX) | 3 | 2 |
+| Snake Fish | [*Entelurus aequoreus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6FDM6) | 3 | 0 |
+| Atherine | [*Atherina presbyter*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5VWXW) | 2 | 1 |
+| Blonde Skate | [*Raja brachyura*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6WRN6) | 2 | 0 |
+| Butterfly skate | [*Leucoraja naevus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=725XK) | 2 | 0 |
+| Common Triggerfish | [*Balistes capriscus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=KH43) | 2 | 0 |
+| Grey Gurnard | [*Eutrigla gurnardus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6HKHX) | 2 | 0 |
+| American Pollack | [*Pollachius virens*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4KYQ9) | 1 | 0 |
+| Angler | [*Lophius piscatorius*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3W2MQ) | 1 | 0 |
+| Atlantic Herring | [*Clupea harengus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=WCQZ) | 1 | 0 |
+| Atlantic Horse Mackerel | [*Trachurus trachurus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=57PL7) | 1 | 0 |
+| Atlantic Needlefish | [*Scomberesox saurus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4VTVV) | 1 | 0 |
+| Black Moray | [*Muraena helena*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44L3Q) | 1 | 0 |
+| Blue Dog | [*Prionace glauca*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4MF6P) | 1 | 0 |
+| Broad-nosed pipefish | [*Syngnathus typhle*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7B8JC) | 1 | 0 |
+| Common ling | [*Molva molva*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=43YSF) | 1 | 0 |
+| Conemara clingfish | [*Lepadogaster candolii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3T7JW) | 1 | 0 |
+| Couch's Goby | [*Gobius couchi*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6KN8X) | 1 | 0 |
+| Cuckoo wrasse | [*Labrus mixtus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3RL4M) | 1 | 0 |
+| Frie's Goby | [*Lesueurigobius friesii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6PQXZ) | 1 | 0 |
+| Garfish, Garpike | [*Belone belone*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=68GF7) | 1 | 0 |
+| Golden Grey Mullet | [*Chelon auratus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TVBL) | 1 | 0 |
+| Great sand eel | [*Hyperoplus lanceolatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3NR7W) | 1 | 0 |
+| Haddock | [*Melanogrammus aeglefinus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3Z8JC) | 1 | 0 |
+| Lemon Sole | [*Microstomus kitt*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=437HG) | 1 | 0 |
+| Lesser pipefish | [*Syngnathus rostellatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=53WPL) | 1 | 0 |
+| Poor cod | [*Trisopterus minutus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=592TM) | 1 | 1 |
+| Red Snake-fish | [*Cepola macrophthalma*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5XK85) | 1 | 0 |
+| Red Stripped Mullet | [*Mullus surmuletus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44K4P) | 1 | 1 |
+| Reticulated Dragonet | [*Callionymus reticulatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5X7W8) | 1 | 0 |
+| Sapphirine gurnard | [*Chelidonichthys lucerna*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=69QWD) | 1 | 0 |
 
 ### Bivalves and chitons
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Great Scallop | *Pecten maximus* | 39 | 3 |
-| Bay Mussel | *Mytilus edulis* | 35 | 0 |
-| cinereous chiton | *Lepidochitona cinerea* | 34 | 0 |
-| Cockle | *Cerastoderma edule* | 33 | 0 |
-| Chequered carpet shell, Cross-cut carpet shell | *Ruditapes decussatus* | 32 | 0 |
-| Variegated Scallop | *Mimachlamys varia* | 31 | 0 |
-| Rayed Artemis | *Dosinia exoleta* | 25 | 0 |
-| corrugated venus | *Venerupis corrugata* | 22 | 0 |
-| European jingle shell | *Anomia ephippium* | 21 | 0 |
-| striped venus | *Chamelea striatula* | 18 | 0 |
-| Atlantic Surf Clam | *Spisula solida* | 17 | 0 |
-| Japanese Oyster | *Magallana gigas* | 17 | 0 |
-| Pod Razor | *Ensis siliqua* | 17 | 0 |
-| Edible oyster | *Ostrea edulis* | 16 | 0 |
-| Otter shell, Common otter shell | *Lutraria lutraria* | 15 | 0 |
-| Large-neck Clam | *Mya arenaria* | 13 | 0 |
-| rayed trough clam | *Mactra stultorum* | 12 | 0 |
-| clam | *Venus verrucosa* | 10 | 0 |
-| Banded Wedge-shell | *Donax vittatus* | 9 | 0 |
-| European prickly cockle | *Acanthocardia echinata* | 9 | 0 |
-| Humpback Scallop | *Talochlamys pusio* | 9 | 0 |
-| flat sunsetclam | *Gari depressa* | 7 | 0 |
-| Thin Tellin | *Macomangulus tenuis* | 7 | 0 |
-| Baltic Macoma | *Macoma balthica* | 6 | 0 |
-| Faroe sunset shell | *Gari fervensis* | 6 | 0 |
-| northern lucina | *Lucinoma borealis* | 6 | 0 |
-| Common Piddock | *Pholas dactylus* | 5 | 0 |
-| Peppery Furrow Shell | *Scrobicularia plana* | 5 | 0 |
-| Arched Razor Shell | *Ensis magnus* | 4 | 0 |
-| Norway cockle | *Laevicardium crassum* | 4 | 0 |
-| American jack knife clam | *Ensis leei* | 3 | 0 |
-| banded venus | *Clausinella fasciata* | 3 | 0 |
-| European razor clam | *Solen marginatus* | 3 | 0 |
-| White Piddock | *Barnea candida* | 3 | 0 |
-| banded carpet shell | *Polititapes rhomboides* | 2 | 0 |
-| Blunt Gaper | *Mya truncata* | 2 | 0 |
-| Queen Scallop | *Aequipecten opercularis* | 2 | 0 |
-| white abra | *Abra alba* | 2 | 0 |
-| Arctic Hiatella | *Hiatella arctica* | 1 | 0 |
-| Bearded Horse-mussel | *Modiolus barbatus* | 1 | 0 |
-| cut surfclam | *Spisula subtruncata* | 1 | 0 |
-| Galician mussel | *Mytilus galloprovincialis* | 1 | 0 |
-| Horse Mussel | *Modiolus modiolus* | 1 | 0 |
-| Japanese carpet shell | *Ruditapes philippinarum* | 1 | 0 |
-| Marbled Crenella | *Musculus subpictus* | 1 | 0 |
-| Pod Razor | *Pharus legumen* | 1 | 0 |
-| *Venus casina* | *Venus casina* | 1 | 0 |
+| Great Scallop | [*Pecten maximus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=767GC) | 39 | 3 |
+| Bay Mussel | [*Mytilus edulis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=73T5L) | 35 | 0 |
+| cinereous chiton | [*Lepidochitona cinerea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3TB3R) | 34 | 0 |
+| Cockle | [*Cerastoderma edule*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=SKNF) | 33 | 0 |
+| Chequered carpet shell, Cross-cut carpet shell | [*Ruditapes decussatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4TMNH) | 32 | 0 |
+| Variegated Scallop | [*Mimachlamys varia*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6RKGL) | 31 | 0 |
+| Rayed Artemis | [*Dosinia exoleta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6DK9Q) | 25 | 0 |
+| corrugated venus | [*Venerupis corrugata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7FM9J) | 22 | 0 |
+| European jingle shell | [*Anomia ephippium*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5V6JJ) | 21 | 0 |
+| striped venus | [*Chamelea striatula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TLM2) | 18 | 0 |
+| Atlantic Surf Clam | [*Spisula solida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z976) | 17 | 0 |
+| Japanese Oyster | [*Magallana gigas*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3XGCW) | 17 | 0 |
+| Pod Razor | [*Ensis siliqua*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=39X34) | 17 | 0 |
+| Edible oyster | [*Ostrea edulis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=75CW4) | 16 | 0 |
+| Otter shell, Common otter shell | [*Lutraria lutraria*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WGJ3) | 15 | 0 |
+| Large-neck Clam | [*Mya arenaria*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44RHY) | 13 | 0 |
+| rayed trough clam | [*Mactra stultorum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3XDJ2) | 12 | 0 |
+| clam | [*Venus verrucosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7FNZ4) | 10 | 0 |
+| Banded Wedge-shell | [*Donax vittatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6DDV4) | 9 | 0 |
+| European prickly cockle | [*Acanthocardia echinata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64D63) | 9 | 0 |
+| Humpback Scallop | [*Talochlamys pusio*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=54LY2) | 9 | 0 |
+| flat sunsetclam | [*Gari depressa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3FB7F) | 7 | 0 |
+| Thin Tellin | [*Macomangulus tenuis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WZYF) | 7 | 0 |
+| Baltic Macoma | [*Macoma balthica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=8SX2W) | 6 | 0 |
+| Faroe sunset shell | [*Gari fervensis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3FB7L) | 6 | 0 |
+| northern lucina | [*Lucinoma borealis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WCHF) | 6 | 0 |
+| Common Piddock | [*Pholas dactylus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GKW9) | 5 | 0 |
+| Peppery Furrow Shell | [*Scrobicularia plana*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4VYNX) | 5 | 0 |
+| Arched Razor Shell | [*Ensis magnus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6FBPD) | 4 | 0 |
+| Norway cockle | [*Laevicardium crassum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3RVBP) | 4 | 0 |
+| American jack knife clam | [*Ensis leei*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=39X2R) | 3 | 0 |
+| banded venus | [*Clausinella fasciata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5Z9TR) | 3 | 0 |
+| European razor clam | [*Solen marginatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Y5MX) | 3 | 0 |
+| White Piddock | [*Barnea candida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WDT8) | 3 | 0 |
+| banded carpet shell | [*Polititapes rhomboides*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4KYMF) | 2 | 0 |
+| Blunt Gaper | [*Mya truncata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44RLH) | 2 | 0 |
+| Queen Scallop | [*Aequipecten opercularis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64YTF) | 2 | 0 |
+| white abra | [*Abra alba*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=8LF6) | 2 | 0 |
+| Arctic Hiatella | [*Hiatella arctica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3LHV5) | 1 | 0 |
+| Bearded Horse-mussel | [*Modiolus barbatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=43TR5) | 1 | 0 |
+| cut surfclam | [*Spisula subtruncata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z979) | 1 | 0 |
+| Galician mussel | [*Mytilus galloprovincialis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=45GN2) | 1 | 0 |
+| Horse Mussel | [*Modiolus modiolus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=43TSC) | 1 | 0 |
+| Japanese carpet shell | [*Ruditapes philippinarum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4TMNJ) | 1 | 0 |
+| Marbled Crenella | [*Musculus subpictus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44QCJ) | 1 | 0 |
+| Pod Razor | [*Pharus legumen*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4FVLS) | 1 | 0 |
+| *Venus casina* | [*Venus casina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7FMMY) | 1 | 0 |
 
 ### Sea snails and limpets
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Atlantic dog whelk | *Nucella lapillus* | 96 | 0 |
-| Atlantic limpet | *Patella vulgata* | 86 | 0 |
-| Blue rayed limpet | *Patella pellucida* | 68 | 1 |
-| European painted top shell | *Calliostoma zizyphinum* | 52 | 1 |
-| Common Periwinkle | *Littorina littorea* | 50 | 0 |
-| Lined Top Shell | *Phorcus lineatus* | 39 | 0 |
-| Flat Top Shell | *Steromphala umbilicalis* | 32 | 0 |
-| Buckie | *Buccinum undatum* | 28 | 0 |
-| European oyster drill | *Ocenebra erinaceus* | 22 | 0 |
-| Grey Top Shell | *Steromphala cineraria* | 20 | 0 |
-| Sea Hare | *Aplysia punctata* | 16 | 2 |
-| Side-gilled Seaslug | *Berthella plumula* | 16 | 0 |
-| Common Flat Periwinkle | *Littorina obtusata* | 15 | 0 |
-| European cowrie | *Trivia monacha* | 14 | 1 |
-| great top shell | *Gibbula magus* | 14 | 0 |
-| Arctic Cowrie | *Trivia arctica* | 13 | 0 |
-| Thick-Lipped Dog Whelk | *Tritia incrassata* | 8 | 0 |
-| Banded Chink Shell | *Lacuna vincta* | 7 | 0 |
-| Greek keyhole limpet | *Diodora graeca* | 7 | 0 |
-| needle shell | *Bittium reticulatum* | 7 | 0 |
-| Common Pelican's Foot | *Aporrhais pespelecani* | 6 | 0 |
-| European pheasant shell | *Tricolia pullus* | 6 | 0 |
-| Janthina | *Janthina janthina* | 6 | 0 |
-| Netted Dog Whelk | *Tritia reticulata* | 6 | 2 |
-| Solar-powered Sea Slug | *Elysia viridis* | 5 | 0 |
-| Thin Bubble-shell | *Akera bullata* | 4 | 1 |
-| Black-lined Periwinkle | *Littorina saxatilis* | 3 | 0 |
-| European necklace shell | *Euspira catena* | 3 | 0 |
-| European wentletrap | *Epitonium clathrus* | 3 | 0 |
-| flat periwinkle | *Littorina fabalis* | 2 | 0 |
-| Auger Shell | *Turritellinella tricarinata* | 1 | 1 |
-| Black-footed Limpet | *Patella depressa* | 1 | 0 |
-| China Limpet | *Patella ulyssiponensis* | 1 | 0 |
-| *Haminoea navicula* | *Haminoea navicula* | 1 | 0 |
-| Lobe Shell | *Philine quadripartita* | 1 | 1 |
-| Pennant's Top Shell | *Steromphala pennanti* | 1 | 0 |
-| Sea Angel | *Clione limacina* | 1 | 0 |
-| Slit Limpet | *Emarginula fissura* | 1 | 0 |
-| tiny risso snail | *Rissoa parva* | 1 | 0 |
-| Transparent Lamellaria | *Marsenia perspicua* | 1 | 0 |
+| Atlantic dog whelk | [*Nucella lapillus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=482KT) | 96 | 0 |
+| Atlantic limpet | [*Patella vulgata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=764GF) | 86 | 0 |
+| Blue rayed limpet | [*Patella pellucida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4DZW4) | 68 | 1 |
+| European painted top shell | [*Calliostoma zizyphinum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=PS2Z) | 52 | 1 |
+| Common Periwinkle | [*Littorina littorea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VNPR) | 50 | 0 |
+| Lined Top Shell | [*Phorcus lineatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GRD2) | 39 | 0 |
+| Flat Top Shell | [*Steromphala umbilicalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6ZRWJ) | 32 | 0 |
+| Buckie | [*Buccinum undatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=NLPP) | 28 | 0 |
+| European oyster drill | [*Ocenebra erinaceus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=48CQ8) | 22 | 0 |
+| Grey Top Shell | [*Steromphala cineraria*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=52G35) | 20 | 0 |
+| Sea Hare | [*Aplysia punctata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=67NTY) | 16 | 2 |
+| Side-gilled Seaslug | [*Berthella plumula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LMMT) | 16 | 0 |
+| Common Flat Periwinkle | [*Littorina obtusata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VNQM) | 15 | 0 |
+| European cowrie | [*Trivia monacha*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=595XS) | 14 | 1 |
+| great top shell | [*Gibbula magus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6KFJ9) | 14 | 0 |
+| Arctic Cowrie | [*Trivia arctica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=595W8) | 13 | 0 |
+| Thick-Lipped Dog Whelk | [*Tritia incrassata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7D6G4) | 8 | 0 |
+| Banded Chink Shell | [*Lacuna vincta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3RTLM) | 7 | 0 |
+| Greek keyhole limpet | [*Diodora graeca*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6D7BT) | 7 | 0 |
+| needle shell | [*Bittium reticulatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LXYN) | 7 | 0 |
+| Common Pelican's Foot | [*Aporrhais pespelecani*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FV4F) | 6 | 0 |
+| European pheasant shell | [*Tricolia pullus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=58MSR) | 6 | 0 |
+| Janthina | [*Janthina janthina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3QLJS) | 6 | 0 |
+| Netted Dog Whelk | [*Tritia reticulata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5943F) | 6 | 2 |
+| Solar-powered Sea Slug | [*Elysia viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6F624) | 5 | 0 |
+| Thin Bubble-shell | [*Akera bullata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BDZT) | 4 | 1 |
+| Black-lined Periwinkle | [*Littorina saxatilis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VNRQ) | 3 | 0 |
+| European necklace shell | [*Euspira catena*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6HGNS) | 3 | 0 |
+| European wentletrap | [*Epitonium clathrus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6FXL3) | 3 | 0 |
+| flat periwinkle | [*Littorina fabalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VNNH) | 2 | 0 |
+| Auger Shell | [*Turritellinella tricarinata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7TJ4X) | 1 | 1 |
+| Black-footed Limpet | [*Patella depressa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4DZRD) | 1 | 0 |
+| China Limpet | [*Patella ulyssiponensis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4DZZM) | 1 | 0 |
+| *Haminoea navicula* | [*Haminoea navicula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3JHP8) | 1 | 0 |
+| Lobe Shell | [*Philine quadripartita*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4G6DS) | 1 | 1 |
+| Pennant's Top Shell | [*Steromphala pennanti*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=C4TY8) | 1 | 0 |
+| Sea Angel | [*Clione limacina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=W7KY) | 1 | 0 |
+| Slit Limpet | [*Emarginula fissura*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=39F9W) | 1 | 0 |
+| tiny risso snail | [*Rissoa parva*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7994R) | 1 | 0 |
+| Transparent Lamellaria | [*Marsenia perspicua*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=876DH) | 1 | 0 |
 
 ### Jellyfish, hydroids and comb jellies
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Atlantic Man o' War | *Physalia physalis* | 121 | 0 |
-| Compass Jellyfish | *Chrysaora hysoscella* | 89 | 3 |
-| By-the-wind Sailor | *Velella velella* | 86 | 0 |
-| Common Moon Jelly | *Aurelia aurita* | 45 | 1 |
-| Luminous Jellyfish | *Pelagia noctiluca* | 44 | 1 |
-| Blue Jellyfish | *Cyanea lamarckii* | 34 | 0 |
-| Giant Jellyfish | *Cyanea capillata* | 27 | 0 |
-| Beroe | *Beroe cucumis* | 9 | 0 |
-| Atlantic Sea Gooseberry | *Pleurobrachia pileus* | 8 | 0 |
-| octaradiate stalked jellyfish | *Haliclystus octoradiatus* | 8 | 0 |
-| Barrel Jelly | *Rhizostoma pulmo* | 7 | 0 |
-| *Aequorea vitrina* | *Aequorea vitrina* | 6 | 4 |
-| Bell Hydroid | *Obelia geniculata* | 6 | 0 |
-| *Calvadosia campanulata* | *Calvadosia campanulata* | 6 | 0 |
-| common northern comb jelly | *Bolinopsis infundibulum* | 5 | 0 |
-| crystal jelly | *Aequorea forskalea* | 5 | 0 |
-| *Neoturris pileata* | *Neoturris pileata* | 4 | 0 |
-| Creeping Sertularia | *Dynamena pumila* | 2 | 0 |
-| *Eudendrium arbuscula* | *Eudendrium arbuscula* | 2 | 0 |
-| Hermit Crab Fur | *Hydractinia echinata* | 2 | 0 |
-| kaleidoscope jellyfish | *Haliclystus auricula* | 2 | 0 |
-| *Leuckartiara octona* | *Leuckartiara octona* | 2 | 0 |
-| St. John's jellyfish | *Calvadosia cruxmelitensis* | 2 | 0 |
-| *Agalma elegans* | *Agalma elegans* | 1 | 0 |
-| Blue-cross Jelly | *Cosmetira pilosella* | 1 | 0 |
-| Bougainvillia polyp | *Bougainvillia muscus* | 1 | 0 |
-| *Candelabrum phrygium* | *Candelabrum phrygium* | 1 | 0 |
-| Club-headed Hydroid | *Clava multicornis* | 1 | 0 |
-| Great Tooth Hydroid | *Sertularella polyzonias* | 1 | 0 |
-| *Laodicea undulata* | *Laodicea undulata* | 1 | 0 |
-| Pink Helmet | *Aglantha digitale* | 1 | 0 |
-| Sea Fir | *Abietinaria abietina* | 1 | 0 |
+| Atlantic Man o' War | [*Physalia physalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4HFBD) | 121 | 0 |
+| Compass Jellyfish | [*Chrysaora hysoscella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5YKQ7) | 89 | 3 |
+| By-the-wind Sailor | [*Velella velella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7FL3G) | 86 | 0 |
+| Common Moon Jelly | [*Aurelia aurita*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=JTCQ) | 45 | 1 |
+| Luminous Jellyfish | [*Pelagia noctiluca*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=75XQ6) | 44 | 1 |
+| Blue Jellyfish | [*Cyanea lamarckii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=32NCL) | 34 | 0 |
+| Giant Jellyfish | [*Cyanea capillata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6C4NW) | 27 | 0 |
+| Beroe | [*Beroe cucumis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LLTX) | 9 | 0 |
+| Atlantic Sea Gooseberry | [*Pleurobrachia pileus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=77S47) | 8 | 0 |
+| octaradiate stalked jellyfish | [*Haliclystus octoradiatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6L9KB) | 8 | 0 |
+| Barrel Jelly | [*Rhizostoma pulmo*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4SDKS) | 7 | 0 |
+| *Aequorea vitrina* | [*Aequorea vitrina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64Z7N) | 6 | 4 |
+| Bell Hydroid | [*Obelia geniculata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=488Y7) | 6 | 0 |
+| *Calvadosia campanulata* | [*Calvadosia campanulata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WX7T) | 6 | 0 |
+| common northern comb jelly | [*Bolinopsis infundibulum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MDD9) | 5 | 0 |
+| crystal jelly | [*Aequorea forskalea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64YV8) | 5 | 0 |
+| *Neoturris pileata* | [*Neoturris pileata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=46W9Y) | 4 | 0 |
+| Creeping Sertularia | [*Dynamena pumila*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3863J) | 2 | 0 |
+| *Eudendrium arbuscula* | [*Eudendrium arbuscula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3BZHC) | 2 | 0 |
+| Hermit Crab Fur | [*Hydractinia echinata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3N2F4) | 2 | 0 |
+| kaleidoscope jellyfish | [*Haliclystus auricula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6L9KD) | 2 | 0 |
+| *Leuckartiara octona* | [*Leuckartiara octona*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=723RK) | 2 | 0 |
+| St. John's jellyfish | [*Calvadosia cruxmelitensis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5X985) | 2 | 0 |
+| *Agalma elegans* | [*Agalma elegans*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=65JWL) | 1 | 0 |
+| Blue-cross Jelly | [*Cosmetira pilosella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YTLJ) | 1 | 0 |
+| Bougainvillia polyp | [*Bougainvillia muscus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MR4G) | 1 | 0 |
+| *Candelabrum phrygium* | [*Candelabrum phrygium*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=QKVB) | 1 | 0 |
+| Club-headed Hydroid | [*Clava multicornis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5YY6J) | 1 | 0 |
+| Great Tooth Hydroid | [*Sertularella polyzonias*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4WYD7) | 1 | 0 |
+| *Laodicea undulata* | [*Laodicea undulata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3S84V) | 1 | 0 |
+| Pink Helmet | [*Aglantha digitale*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=663CL) | 1 | 0 |
+| Sea Fir | [*Abietinaria abietina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=8KHC) | 1 | 0 |
 
 ### Worms
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| sinistral spiral tubeworm | *Spirorbis spirorbis* | 28 | 0 |
-| Sand Mason | *Lanice conchilega* | 19 | 0 |
-| Candy Stripe Flatworm | *Prostheceraeus vittatus* | 15 | 3 |
-| Christmas tree worm | *Spirobranchus triqueter* | 13 | 0 |
-| Bootlace Worm | *Lineus longissimus* | 10 | 0 |
-| European Honeycomb Worm | *Sabellaria alveolata* | 10 | 0 |
-| Cluster Feather Duster | *Bispira volutacornis* | 9 | 1 |
-| *Myxicola infundibulum* | *Myxicola infundibulum* | 7 | 1 |
-| Blow Lug | *Arenicola marina* | 6 | 0 |
-| Fan worm | *Sabella pavonina* | 5 | 0 |
-| Lamarck's Christmas Tree Worm | *Spirobranchus lamarcki* | 5 | 0 |
-| Emerald green paddle worm | *Eulalia clavigera* | 4 | 0 |
-| *Janua heterostropha* | *Janua heterostropha* | 4 | 0 |
-| *Leptoplana tremellaris* | *Leptoplana tremellaris* | 4 | 0 |
-| Football Jersey Worm | *Tubulanus annulatus* | 3 | 2 |
-| *Acromegalomma vesiculosum* | *Acromegalomma vesiculosum* | 2 | 0 |
-| gelatinous scale worm | *Alentia gelatinosa* | 2 | 0 |
-| *Spirorbis tridentatus* | *Spirorbis tridentatus* | 2 | 0 |
-| strawberry worm | *Eupolymnia nebulosa* | 2 | 0 |
-| Australian tubeworm | *Ficopomatus enigmaticus* | 1 | 0 |
-| Green Paddle Worm | *Eulalia viridis* | 1 | 0 |
-| *Harmothoe extenuata* | *Harmothoe extenuata* | 1 | 0 |
-| Operculate Fanworm | *Serpula vermicularis* | 1 | 0 |
-| *Peresiella clymenoides* | *Peresiella clymenoides* | 1 | 0 |
-| *Phyllodoce lamelligera* | *Phyllodoce lamelligera* | 1 | 0 |
-| *Procerodes littoralis* | *Procerodes littoralis* | 1 | 0 |
-| *Spirorbis corallinae* | *Spirorbis corallinae* | 1 | 0 |
+| sinistral spiral tubeworm | [*Spirorbis spirorbis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z8FH) | 28 | 0 |
+| Sand Mason | [*Lanice conchilega*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3S779) | 19 | 0 |
+| Candy Stripe Flatworm | [*Prostheceraeus vittatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4MYFR) | 15 | 3 |
+| Christmas tree worm | [*Spirobranchus triqueter*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z7T6) | 13 | 0 |
+| Bootlace Worm | [*Lineus longissimus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3V2QK) | 10 | 0 |
+| European Honeycomb Worm | [*Sabellaria alveolata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4TV53) | 10 | 0 |
+| Cluster Feather Duster | [*Bispira volutacornis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=68L4P) | 9 | 1 |
+| *Myxicola infundibulum* | [*Myxicola infundibulum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=45GY3) | 7 | 1 |
+| Blow Lug | [*Arenicola marina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=GFJ9) | 6 | 0 |
+| Fan worm | [*Sabella pavonina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4TV2B) | 5 | 0 |
+| Lamarck's Christmas Tree Worm | [*Spirobranchus lamarcki*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6ZB5J) | 5 | 0 |
+| Emerald green paddle worm | [*Eulalia clavigera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3C9MB) | 4 | 0 |
+| *Janua heterostropha* | [*Janua heterostropha*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3QLM3) | 4 | 0 |
+| *Leptoplana tremellaris* | [*Leptoplana tremellaris*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3TTG7) | 4 | 0 |
+| Football Jersey Worm | [*Tubulanus annulatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=59JYN) | 3 | 2 |
+| *Acromegalomma vesiculosum* | [*Acromegalomma vesiculosum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9N5R) | 2 | 0 |
+| gelatinous scale worm | [*Alentia gelatinosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BMPZ) | 2 | 0 |
+| *Spirorbis tridentatus* | [*Spirorbis tridentatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z8FK) | 2 | 0 |
+| strawberry worm | [*Eupolymnia nebulosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3CWXJ) | 2 | 0 |
+| Australian tubeworm | [*Ficopomatus enigmaticus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6HVS2) | 1 | 0 |
+| Green Paddle Worm | [*Eulalia viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3C9SB) | 1 | 0 |
+| *Harmothoe extenuata* | [*Harmothoe extenuata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6LCFR) | 1 | 0 |
+| Operculate Fanworm | [*Serpula vermicularis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4WWP2) | 1 | 0 |
+| *Peresiella clymenoides* | [*Peresiella clymenoides*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=76T7X) | 1 | 0 |
+| *Phyllodoce lamelligera* | [*Phyllodoce lamelligera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=77FRV) | 1 | 0 |
+| *Procerodes littoralis* | [*Procerodes littoralis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4MMXP) | 1 | 0 |
+| *Spirorbis corallinae* | [*Spirorbis corallinae*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4Z8F8) | 1 | 0 |
 
 ### Nudibranchs
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Sea Lemon | *Doris pseudoargus* | 18 | 0 |
-| Crowned Aeolis | *Facelina auriculata* | 6 | 0 |
-| Orange-Clubbed Sea Slug | *Limacia clavigera* | 5 | 3 |
-| Shag-Rug Aeolis | *Aeolidia filomenae* | 5 | 0 |
-| *Aeolidiella sanguinea* | *Aeolidiella sanguinea* | 4 | 0 |
-| crested aeolis | *Antiopella cristata* | 3 | 0 |
-| *Dicata odhneri* | *Dicata odhneri* | 3 | 0 |
-| *Facelina annulicornis* | *Facelina annulicornis* | 2 | 2 |
-| Four-lined Polycera | *Polycera quadrilineata* | 2 | 0 |
-| *Janolus hyalinus* | *Janolus hyalinus* | 2 | 0 |
-| *Polycera kernowensis* | *Polycera kernowensis* | 2 | 1 |
-| Slender Eolis | *Coryphella gracilis* | 2 | 0 |
-| White Atlantic Cadlina | *Cadlina laevis* | 2 | 1 |
-| *Amphorina farrani* | *Amphorina farrani* | 1 | 0 |
-| Chestnut Pump Dorid | *Pelagella castanea* | 1 | 0 |
-| *Crimora papillata* | *Crimora papillata* | 1 | 1 |
-| *Discodoris rosi* | *Discodoris rosi* | 1 | 0 |
-| *Doto hystrix* | *Doto hystrix* | 1 | 0 |
-| *Facelina dubia* | *Facelina dubia* | 1 | 0 |
-| *Geitodoris planata* | *Geitodoris planata* | 1 | 0 |
-| *Palio nothus* | *Palio nothus* | 1 | 0 |
-| Pink Coryphella | *Edmundsella pedata* | 1 | 1 |
-| *Trinchesia genovae* | *Trinchesia genovae* | 1 | 0 |
-| Venus Seaslug | *Okenia elegans* | 1 | 0 |
-| White Aeolis | *Favorinus branchialis* | 1 | 0 |
+| Sea Lemon | [*Doris pseudoargus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=G8Z6) | 18 | 0 |
+| Crowned Aeolis | [*Facelina auriculata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3DRBB) | 6 | 0 |
+| Orange-Clubbed Sea Slug | [*Limacia clavigera*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6PZZV) | 5 | 3 |
+| Shag-Rug Aeolis | [*Aeolidia filomenae*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=659YP) | 5 | 0 |
+| *Aeolidiella sanguinea* | [*Aeolidiella sanguinea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64XYZ) | 4 | 0 |
+| crested aeolis | [*Antiopella cristata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7Q5KP) | 3 | 0 |
+| *Dicata odhneri* | [*Dicata odhneri*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=35J5K) | 3 | 0 |
+| *Facelina annulicornis* | [*Facelina annulicornis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6HLXS) | 2 | 2 |
+| Four-lined Polycera | [*Polycera quadrilineata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4L3VG) | 2 | 0 |
+| *Janolus hyalinus* | [*Janolus hyalinus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3QLDZ) | 2 | 0 |
+| *Polycera kernowensis* | [*Polycera kernowensis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=8QGLW) | 2 | 1 |
+| Slender Eolis | [*Coryphella gracilis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YSCX) | 2 | 0 |
+| White Atlantic Cadlina | [*Cadlina laevis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=P7BW) | 2 | 1 |
+| *Amphorina farrani* | [*Amphorina farrani*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7Q2RF) | 1 | 0 |
+| Chestnut Pump Dorid | [*Pelagella castanea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BDR5W) | 1 | 0 |
+| *Crimora papillata* | [*Crimora papillata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=ZGC6) | 1 | 1 |
+| *Discodoris rosi* | [*Discodoris rosi*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=CTL9M) | 1 | 0 |
+| *Doto hystrix* | [*Doto hystrix*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=37HFT) | 1 | 0 |
+| *Facelina dubia* | [*Facelina dubia*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3DRBJ) | 1 | 0 |
+| *Geitodoris planata* | [*Geitodoris planata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3FH43) | 1 | 0 |
+| *Palio nothus* | [*Palio nothus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4C56N) | 1 | 0 |
+| Pink Coryphella | [*Edmundsella pedata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=38SXK) | 1 | 1 |
+| *Trinchesia genovae* | [*Trinchesia genovae*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7TBTP) | 1 | 0 |
+| Venus Seaslug | [*Okenia elegans*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=492BX) | 1 | 0 |
+| White Aeolis | [*Favorinus branchialis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3DWZ2) | 1 | 0 |
 
 ### Sea squirts
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Golden Star Tunicate | *Botryllus schlosseri* | 65 | 0 |
-| Light Bulb Tunicate | *Clavelina lepadiformis* | 33 | 0 |
-| *Ascidia mentula* | *Ascidia mentula* | 25 | 1 |
-| Colonial Seasquirt | *Morchellium argus* | 18 | 0 |
-| Neptune's Heart Sea Squirt | *Phallusia mammillata* | 15 | 2 |
-| *Aplidium turbinatum* | *Aplidium turbinatum* | 11 | 1 |
-| Ascidian | *Styela clava* | 8 | 0 |
-| *Didemnum maculosum* | *Didemnum maculosum* | 8 | 0 |
-| botrylloid | *Botrylloides leachii* | 6 | 0 |
-| *Lissoclinum perforatum* | *Lissoclinum perforatum* | 6 | 0 |
-| Dirty Sea Squirt | *Ascidiella aspersa* | 5 | 0 |
-| Sea Vase | *Ciona intestinalis* | 5 | 0 |
-| *Aplidium punctum* | *Aplidium punctum* | 3 | 1 |
-| Orange-tipped sea squirt | *Corella eumyota* | 3 | 0 |
-| Baked Bean Ascidian | *Dendrodoa grossularia* | 2 | 0 |
-| Gas Mantle Ascidian | *Corella parallelogramma* | 2 | 2 |
-| *Aplidium nordmanni* | *Aplidium nordmanni* | 1 | 0 |
-| *Aplidium pallidum* | *Aplidium pallidum* | 1 | 0 |
-| *Botryllus renierii* | *Botryllus renierii* | 1 | 1 |
-| Chain Tunicate | *Botrylloides violaceus* | 1 | 0 |
-| *Diplosoma spongiforme* | *Diplosoma spongiforme* | 1 | 0 |
-| Orange Sea Grapes | *Stolonica socialis* | 1 | 0 |
-| *Polyclinum aurantium* | *Polyclinum aurantium* | 1 | 0 |
+| Golden Star Tunicate | [*Botryllus schlosseri*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MPRR) | 65 | 0 |
+| Light Bulb Tunicate | [*Clavelina lepadiformis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=VV7W) | 33 | 0 |
+| *Ascidia mentula* | [*Ascidia mentula*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=H5XP) | 25 | 1 |
+| Colonial Seasquirt | [*Morchellium argus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=44CSC) | 18 | 0 |
+| Neptune's Heart Sea Squirt | [*Phallusia mammillata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4FS5C) | 15 | 2 |
+| *Aplidium turbinatum* | [*Aplidium turbinatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FP4Q) | 11 | 1 |
+| Ascidian | [*Styela clava*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5387D) | 8 | 0 |
+| *Didemnum maculosum* | [*Didemnum maculosum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=35WR7) | 8 | 0 |
+| botrylloid | [*Botrylloides leachii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MPMV) | 6 | 0 |
+| *Lissoclinum perforatum* | [*Lissoclinum perforatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3VF5Q) | 6 | 0 |
+| Dirty Sea Squirt | [*Ascidiella aspersa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=H63Z) | 5 | 0 |
+| Sea Vase | [*Ciona intestinalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=VFCZ) | 5 | 0 |
+| *Aplidium punctum* | [*Aplidium punctum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FP2T) | 3 | 1 |
+| Orange-tipped sea squirt | [*Corella eumyota*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YDCZ) | 3 | 0 |
+| Baked Bean Ascidian | [*Dendrodoa grossularia*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=34Q3R) | 2 | 0 |
+| Gas Mantle Ascidian | [*Corella parallelogramma*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YDD8) | 2 | 2 |
+| *Aplidium nordmanni* | [*Aplidium nordmanni*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FNZC) | 1 | 0 |
+| *Aplidium pallidum* | [*Aplidium pallidum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FNZS) | 1 | 0 |
+| *Botryllus renierii* | [*Botryllus renierii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MPRJ) | 1 | 1 |
+| Chain Tunicate | [*Botrylloides violaceus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MPNZ) | 1 | 0 |
+| *Diplosoma spongiforme* | [*Diplosoma spongiforme*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=36N7V) | 1 | 0 |
+| Orange Sea Grapes | [*Stolonica socialis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6ZVKS) | 1 | 0 |
+| *Polyclinum aurantium* | [*Polyclinum aurantium*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4L4HT) | 1 | 0 |
 
 ### Anemones and corals
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Snakelocks Anemone | *Anemonia viridis* | 166 | 5 |
-| Beadlet Anemone | *Actinia equina* | 156 | 0 |
-| gem anemone | *Bunodactis verrucosa* | 65 | 0 |
-| Dahlia Anemone | *Urticina felina* | 57 | 2 |
-| Jewel 'anemone' | *Corynactis viridis* | 48 | 1 |
-| Strawberry Anemone | *Actinia fragacea* | 48 | 1 |
-| Daisy Anemone | *Cereus pedunculatus* | 42 | 1 |
-| elegant anemone | *Cylista elegans* | 33 | 0 |
-| Red Speckled Anemone | *Anthopleura ballii* | 24 | 3 |
-| Devonshire Cup-coral | *Caryophyllia smithii* | 12 | 0 |
-| Dead Men's Fingers | *Alcyonium digitatum* | 10 | 2 |
-| Plumose Anemone | *Metridium dianthus* | 8 | 0 |
-| Clonal Plumose Anemone | *Metridium senile* | 6 | 1 |
-| pink sea fingers | *Alcyonium hibernicum* | 5 | 0 |
-| Trumpet Anemone | *Aiptasia mutabilis* | 3 | 0 |
-| small snakelocks anemone | *Sagartia undata* | 2 | 0 |
-| *Actinia prasina* | *Actinia prasina* | 1 | 0 |
-| cave-burrowing anemone | *Cylista troglodytes* | 1 | 0 |
-| Cluster Anemone, White Cluster Anemone | *Parazoanthus anguicomus* | 1 | 0 |
-| *Halcampa chrysanthellum* | *Halcampa chrysanthellum* | 1 | 0 |
-| Sandalled Anemone | *Actinothoe sphyrodeta* | 1 | 0 |
+| Snakelocks Anemone | [*Anemonia viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=DXNZ) | 166 | 5 |
+| Beadlet Anemone | [*Actinia equina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9T7Z) | 156 | 0 |
+| gem anemone | [*Bunodactis verrucosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5WTQ2) | 65 | 0 |
+| Dahlia Anemone | [*Urticina felina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7F3N4) | 57 | 2 |
+| Jewel 'anemone' | [*Corynactis viridis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=YQKR) | 48 | 1 |
+| Strawberry Anemone | [*Actinia fragacea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9T8D) | 48 | 1 |
+| Daisy Anemone | [*Cereus pedunculatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=SXGX) | 42 | 1 |
+| elegant anemone | [*Cylista elegans*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=84G8L) | 33 | 0 |
+| Red Speckled Anemone | [*Anthopleura ballii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5VFK7) | 24 | 3 |
+| Devonshire Cup-coral | [*Caryophyllia smithii*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=RJDJ) | 12 | 0 |
+| Dead Men's Fingers | [*Alcyonium digitatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BL4S) | 10 | 2 |
+| Plumose Anemone | [*Metridium dianthus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=42HZY) | 8 | 0 |
+| Clonal Plumose Anemone | [*Metridium senile*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=42J2K) | 6 | 1 |
+| pink sea fingers | [*Alcyonium hibernicum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BL5K) | 5 | 0 |
+| Trumpet Anemone | [*Aiptasia mutabilis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BCTH) | 3 | 0 |
+| small snakelocks anemone | [*Sagartia undata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7YW7T) | 2 | 0 |
+| *Actinia prasina* | [*Actinia prasina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=9TB6) | 1 | 0 |
+| cave-burrowing anemone | [*Cylista troglodytes*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7VK9G) | 1 | 0 |
+| Cluster Anemone, White Cluster Anemone | [*Parazoanthus anguicomus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4DJ7F) | 1 | 0 |
+| *Halcampa chrysanthellum* | [*Halcampa chrysanthellum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6KXQB) | 1 | 0 |
+| Sandalled Anemone | [*Actinothoe sphyrodeta*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=64PJ3) | 1 | 0 |
 
 ### Sponges
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Boring Sponge | *Cliona celata* | 16 | 5 |
-| Orange sponge | *Suberites ficus* | 13 | 0 |
-| compressed purse sponge | *Grantia compressa* | 12 | 0 |
-| bread-crumb sponge | *Halichondria panicea* | 7 | 0 |
-| blue encrusting sponge | *Terpios gelatinosus* | 6 | 0 |
-| Encrusting rose sponge | *Aplysilla rosea* | 6 | 0 |
-| simple-rayed membrane sponge | *Plakina monolopha* | 5 | 0 |
-| brittle horny sponge | *Dysidea fragilis* | 3 | 0 |
-| flesh sponge | *Haliclona viscosa* | 3 | 0 |
-| *Paratimea loennbergi* | *Paratimea loennbergi* | 2 | 0 |
-| Small Calcareous Cup | *Sycon ciliatum* | 2 | 0 |
-| chimney sponge | *Polymastia penicillus* | 1 | 0 |
-| *Clathrina rubra* | *Clathrina rubra* | 1 | 0 |
-| crumb-of-bread sponge | *Hymeniacidon perlevis* | 1 | 0 |
-| deadman's finger | *Haliclona oculata* | 1 | 0 |
-| *Ophlitaspongia papilla* | *Ophlitaspongia papilla* | 1 | 0 |
-| Orange Puffball Sponge | *Tethya citrina* | 1 | 0 |
-| Pale Orange Crater Sponge | *Hemimycale columella* | 1 | 0 |
-| Rough scallop sponge | *Myxilla incrustans* | 1 | 0 |
-| Sulphur Sponge | *Aplysilla sulfurea* | 1 | 0 |
+| Boring Sponge | [*Cliona celata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=W7FX) | 16 | 5 |
+| Orange sponge | [*Suberites ficus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=53D67) | 13 | 0 |
+| compressed purse sponge | [*Grantia compressa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3H87X) | 12 | 0 |
+| bread-crumb sponge | [*Halichondria panicea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3JBXK) | 7 | 0 |
+| blue encrusting sponge | [*Terpios gelatinosus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=55HM3) | 6 | 0 |
+| Encrusting rose sponge | [*Aplysilla rosea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FQ73) | 6 | 0 |
+| simple-rayed membrane sponge | [*Plakina monolopha*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4JHYH) | 5 | 0 |
+| brittle horny sponge | [*Dysidea fragilis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6DRBH) | 3 | 0 |
+| flesh sponge | [*Haliclona viscosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6L9GF) | 3 | 0 |
+| *Paratimea loennbergi* | [*Paratimea loennbergi*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=75RR7) | 2 | 0 |
+| Small Calcareous Cup | [*Sycon ciliatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=53LRW) | 2 | 0 |
+| chimney sponge | [*Polymastia penicillus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4LB33) | 1 | 0 |
+| *Clathrina rubra* | [*Clathrina rubra*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5Z9Q9) | 1 | 0 |
+| crumb-of-bread sponge | [*Hymeniacidon perlevis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3NHYZ) | 1 | 0 |
+| deadman's finger | [*Haliclona oculata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3JCBW) | 1 | 0 |
+| *Ophlitaspongia papilla* | [*Ophlitaspongia papilla*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6SPLT) | 1 | 0 |
+| Orange Puffball Sponge | [*Tethya citrina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=7BRH6) | 1 | 0 |
+| Pale Orange Crater Sponge | [*Hemimycale columella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6LPB7) | 1 | 0 |
+| Rough scallop sponge | [*Myxilla incrustans*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=45H33) | 1 | 0 |
+| Sulphur Sponge | [*Aplysilla sulfurea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=FQ75) | 1 | 0 |
 
 ### Starfish, urchins and sea cucumbers
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Spiny Starfish | *Marthasterias glacialis* | 60 | 3 |
-| Atlantic Common Sea Star | *Asterias rubens* | 48 | 1 |
+| Spiny Starfish | [*Marthasterias glacialis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3Y9YD) | 60 | 3 |
+| Atlantic Common Sea Star | [*Asterias rubens*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=HRM8) | 48 | 1 |
 | Starlet | *Asterina gibbosa* | 44 | 0 |
-| green sea urchin | *Psammechinus miliaris* | 39 | 0 |
-| Rock Urchin | *Paracentrotus lividus* | 25 | 0 |
-| Common Urchin | *Echinus esculentus* | 24 | 0 |
-| Sea Potato | *Echinocardium cordatum* | 17 | 1 |
-| Common Brittlestar | *Ophiothrix fragilis* | 14 | 1 |
-| Brooding Snake Star | *Amphipholis squamata* | 11 | 0 |
-| Sea Gherkin | *Pawsonia saxicola* | 10 | 0 |
-| Brown Sea Cucumber | *Aslia lefevrei* | 6 | 0 |
-| small cushion star | *Asterina phylactica* | 4 | 0 |
-| Cotton Spinner | *Holothuria forskali* | 3 | 1 |
-| Sand Star | *Astropecten irregularis* | 3 | 0 |
-| Seven Armed Sea Star | *Luidia ciliaris* | 2 | 0 |
-| Atlantic Feather Star | *Antedon bifida* | 1 | 0 |
-| Black Brittlestar | *Ophiocomina nigra* | 1 | 0 |
-| Blood Starfish | *Henricia oculata* | 1 | 0 |
-| Pea Urchin | *Echinocyamus pusillus* | 1 | 0 |
+| green sea urchin | [*Psammechinus miliaris*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4NBB9) | 39 | 0 |
+| Rock Urchin | [*Paracentrotus lividus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4CP35) | 25 | 0 |
+| Common Urchin | [*Echinus esculentus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=38LGL) | 24 | 0 |
+| Sea Potato | [*Echinocardium cordatum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=38GP4) | 17 | 1 |
+| Common Brittlestar | [*Ophiothrix fragilis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6SPNK) | 14 | 1 |
+| Brooding Snake Star | [*Amphipholis squamata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=D4V7) | 11 | 0 |
+| Sea Gherkin | [*Pawsonia saxicola*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6TVQ3) | 10 | 0 |
+| Brown Sea Cucumber | [*Aslia lefevrei*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5VTWJ) | 6 | 0 |
+| small cushion star | [*Asterina phylactica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=HSRS) | 4 | 0 |
+| Cotton Spinner | [*Holothuria forskali*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BJRBY) | 3 | 1 |
+| Sand Star | [*Astropecten irregularis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5VVTS) | 3 | 0 |
+| Seven Armed Sea Star | [*Luidia ciliaris*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3WDNW) | 2 | 0 |
+| Atlantic Feather Star | [*Antedon bifida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=87P58) | 1 | 0 |
+| Black Brittlestar | [*Ophiocomina nigra*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=49WJF) | 1 | 0 |
+| Blood Starfish | [*Henricia oculata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6LPXV) | 1 | 0 |
+| Pea Urchin | [*Echinocyamus pusillus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6DVHP) | 1 | 0 |
 
 ### Seals, whales and turtles
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Atlantic Gray Seal | *Halichoerus grypus* | 76 | 0 |
-| Atlantic harbor seal | *Phoca vitulina* | 70 | 0 |
-| Atlantic Dolphin | *Delphinus delphis* | 20 | 0 |
-| Afro-Iberian Harbor Porpoise | *Phocoena phocoena* | 12 | 0 |
+| Atlantic Gray Seal | [*Halichoerus grypus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3JBV8) | 76 | 0 |
+| Atlantic harbor seal | [*Phoca vitulina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4GK65) | 70 | 0 |
+| Atlantic Dolphin | [*Delphinus delphis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=34JWM) | 20 | 0 |
+| Afro-Iberian Harbor Porpoise | [*Phocoena phocoena*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=77C9R) | 12 | 0 |
 | Common Otter | *Lutra lutra* | 5 | 0 |
-| Acutorostrata | *Balaenoptera acutorostrata* | 2 | 0 |
-| American black-fish | *Globicephala melas* | 2 | 0 |
-| Black Porpoise | *Tursiops truncatus* | 2 | 0 |
-| Atlantic Walrus | *Odobenus rosmarus* | 1 | 0 |
-| Blackfish | *Orcinus orca* | 1 | 0 |
-| Blue Sea Turtle | *Dermochelys coriacea* | 1 | 0 |
-| Calderon Gris | *Grampus griseus* | 1 | 0 |
-| Common Finback | *Balaenoptera physalus* | 1 | 0 |
+| Acutorostrata | [*Balaenoptera acutorostrata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=KF8K) | 2 | 0 |
+| American black-fish | [*Globicephala melas*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3G9Z6) | 2 | 0 |
+| Black Porpoise | [*Tursiops truncatus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=59R5F) | 2 | 0 |
+| Atlantic Walrus | [*Odobenus rosmarus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=74HLW) | 1 | 0 |
+| Blackfish | [*Orcinus orca*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=74SZC) | 1 | 0 |
+| Blue Sea Turtle | [*Dermochelys coriacea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=34XB9) | 1 | 0 |
+| Calderon Gris | [*Grampus griseus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3H7KR) | 1 | 0 |
+| Common Finback | [*Balaenoptera physalus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=KF8W) | 1 | 0 |
 
 ### Sea mats
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Lacy Crust Bryozoan | *Membranipora membranacea* | 26 | 1 |
-| Keyhole Bryozoan | *Cryptosula pallasiana* | 13 | 0 |
-| Hairy Sea-mat | *Electra pilosa* | 12 | 0 |
-| Bristly bryozoan | *Flustrellidra hispida* | 5 | 0 |
-| Branching Bryozoan | *Schizoporella unicornis* | 1 | 0 |
-| *Cellepora pumicosa* | *Cellepora pumicosa* | 1 | 0 |
-| *Disporella hispida* | *Disporella hispida* | 1 | 0 |
-| Potato Chip Bryozoan | *Pentapora foliacea* | 1 | 0 |
-| red ripple bryozoan | *Watersipora subatra* | 1 | 0 |
+| Lacy Crust Bryozoan | [*Membranipora membranacea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=3ZNJY) | 26 | 1 |
+| Keyhole Bryozoan | [*Cryptosula pallasiana*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=322X9) | 13 | 0 |
+| Hairy Sea-mat | [*Electra pilosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=CS258) | 12 | 0 |
+| Bristly bryozoan | [*Flustrellidra hispida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6JBV6) | 5 | 0 |
+| Branching Bryozoan | [*Schizoporella unicornis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4VCFN) | 1 | 0 |
+| *Cellepora pumicosa* | [*Cellepora pumicosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=S3SP) | 1 | 0 |
+| *Disporella hispida* | [*Disporella hispida*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=36VP3) | 1 | 0 |
+| Potato Chip Bryozoan | [*Pentapora foliacea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=RYQJS) | 1 | 0 |
+| red ripple bryozoan | [*Watersipora subatra*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BSQH5) | 1 | 0 |
 
 ### Seaweeds
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Flat Wrack | *Fucus spiralis* | 67 | 0 |
-| Jap weed | *Sargassum muticum* | 48 | 0 |
-| Common Southern Kelp | *Saccharina latissima* | 46 | 0 |
-| Brown algae | *Colpomenia peregrina* | 33 | 0 |
-| Mermaid's Tresses | *Chorda filum* | 5 | 0 |
+| Flat Wrack | [*Fucus spiralis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=PGMMR) | 67 | 0 |
+| Jap weed | [*Sargassum muticum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=SQQZW) | 48 | 0 |
+| Common Southern Kelp | [*Saccharina latissima*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=TYX8R) | 46 | 0 |
+| Brown algae | [*Colpomenia peregrina*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MRFGL) | 33 | 0 |
+| Mermaid's Tresses | [*Chorda filum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=MM697) | 5 | 0 |
 
 ### Other
 
 | Common name | Species | Photos | Mine |
 |---|---|--:|--:|
-| Common Cuttlefish | *Sepia officinalis* | 14 | 0 |
-| Fly Agaric | *Amanita muscaria* | 11 | 0 |
-| Pink Cuttlefish | *Rhombosepion orbignyanum* | 6 | 0 |
-| Atlantic bobtail | *Sepiola atlantica* | 2 | 0 |
-| Common cord grass, Rice grass, Townsends grass | *Sporobolus anglicus* | 2 | 0 |
-| German-sarsaparilla | *Carex arenaria* | 2 | 0 |
-| Sea Ivory | *Ramalina siliquosa* | 2 | 0 |
-| Black-grass | *Juncus gerardi* | 1 | 0 |
-| Crab's Eye Lichen | *Ochrolechia parella* | 1 | 0 |
-| Ergot | *Claviceps purpurea* | 1 | 0 |
-| *Flintinoides labiosa* | *Flintinoides labiosa* | 1 | 0 |
-| Harpoon Weed | *Asparagopsis armata* | 1 | 0 |
-| *Ramalina cuspidata* | *Ramalina cuspidata* | 1 | 0 |
+| Common Cuttlefish | [*Sepia officinalis*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6YGHL) | 14 | 0 |
+| Fly Agaric | [*Amanita muscaria*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=5TYZ9) | 11 | 0 |
+| Pink Cuttlefish | [*Rhombosepion orbignyanum*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=BJ3SQ) | 6 | 0 |
+| Atlantic bobtail | [*Sepiola atlantica*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4WQSQ) | 2 | 0 |
+| Common cord grass, Rice grass, Townsends grass | [*Sporobolus anglicus*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6ZD37) | 2 | 0 |
+| German-sarsaparilla | [*Carex arenaria*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=R84X) | 2 | 0 |
+| Sea Ivory | [*Ramalina siliquosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4RBJ5) | 2 | 0 |
+| Black-grass | [*Juncus gerardi*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6NH56) | 1 | 0 |
+| Crab's Eye Lichen | [*Ochrolechia parella*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=48DZG) | 1 | 0 |
+| Ergot | [*Claviceps purpurea*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=VVFY) | 1 | 0 |
+| *Flintinoides labiosa* | [*Flintinoides labiosa*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=6J8Q4) | 1 | 0 |
+| Harpoon Weed | [*Asparagopsis armata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=LQ348) | 1 | 0 |
+| *Ramalina cuspidata* | [*Ramalina cuspidata*](https://www.gbif.org/occurrence/search?geometry=POLYGON%28%28-9.51086+51.84839%2C-10.38407+51.57121%2C-9.66406+51.32488%2C-8.37264+51.58549%2C-8.53962+51.86447%2C-9.51086+51.84839%29%29&mediaType=StillImage&occurrenceStatus=DETECTED&taxonKey=4RBFC) | 1 | 0 |
 
 The marine flag comes from taxon profiles, so a marine species seen on the shore or from a boat counts too, and a freshwater or terrestrial species never appears. A species with no marine value in its GBIF profile (some seaweeds) is left out. Records carry a coordinate uncertainty, so some may come from the sea or land just outside the polygon. For the photos themselves, see [`lough_hyne_species.md`](lough_hyne_species.md) for the Lough Hyne records.

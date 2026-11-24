@@ -106,7 +106,7 @@ curl -s -G https://api.gbif.org/v1/occurrence/search \
 
 | Approach | Requests | Time |
 |---|---|---|
-| Download every record ([`cork_underwater.py`](../../scripts/cork_underwater.py)) | about 81 pages of 300 records, about 1.9 MB each, then 3 lookups per species | stopped by hand after about 40 minutes with no report |
+| Download every record (the original [`cork_underwater.py`](../../scripts/cork_underwater.py)) | about 81 pages of 300 records, about 1.9 MB each, then 3 lookups per species | stopped by hand after about 40 minutes with no report |
 | One `facet=speciesKey` call | 1 (about 65 KB) | under 1 second |
 
 After the facet call, the only slow part is the marine check: one `speciesProfiles` request per species in the polygon, which took a few minutes at 8 requests in parallel. Common names and classes were then fetched for the marine species only.

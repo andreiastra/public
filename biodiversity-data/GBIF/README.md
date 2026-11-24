@@ -21,7 +21,7 @@ For the endpoints, paging limits, example queries and how GBIF differs from iNat
 | Folder | Contents |
 |---|---|
 | [`scripts/`](scripts) | Pipelines and report generators, the shared `config.py`, and the API notes. See [`scripts/README.md`](scripts/README.md). |
-| [`reports/`](reports) | Generated reports. See [`reports/README.md`](reports/README.md). |
+| [`reports/`](reports) | Generated reports, and one-off write-ups in [`reports/investigations/`](reports/investigations). See [`reports/README.md`](reports/README.md). |
 
 Reports:
 
@@ -39,6 +39,8 @@ Run from this directory, using the virtualenv shared with [`../iNaturalist`](../
 ```bash
 ../.venv/bin/python scripts/run_all.py
 ```
+
+This writes every report except [`cork_underwater.md`](reports/cork_underwater.md), which has its own script because its first run is slow: `../.venv/bin/python scripts/cork_underwater.py`.
 
 ---
 

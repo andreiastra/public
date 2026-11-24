@@ -10,13 +10,13 @@ every dataset on GBIF (iNaturalist, surveys, museum specimens, ...). The filters
   2. occurrenceStatus = PRESENT (absence records are dropped)
   3. mediaType = StillImage (the record has a photo)
   4. identified to species
-  5. marine species (below), without the groups in NOT_UNDERWATER
+  5. marine species (see marine.py), without the groups in NOT_UNDERWATER
   6. copies removed (see without_copies)
 
 GBIF occurrences have no habitat field, so "underwater" comes from the taxon:
 a species counts when a GBIF species profile marks it as marine (WoRMS or the
-Catalogue of Life). The profiles are fetched once per species and kept in
-scripts/.cache/species_profiles.json, because they rarely change.
+Catalogue of Life); see marine.py. The profiles are fetched once per species and
+kept in scripts/.cache/species_profiles.json, because they rarely change.
 
 Usage:
   ../.venv/bin/python scripts/lough_hyne_species.py
@@ -31,15 +31,13 @@ import unicodedata
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
-import requests
-
 sys.path.insert(0, os.path.dirname(__file__))
 from config import (CACHE_DIR, INATURALIST_DATASET_KEY, LOUGH_HYNE_POLYGON, OCCURRENCE_SEARCH_URL, OUTPUT_DIR,
                     PAGE_SIZE, RECORDED_BY, SPECIES_URL, THROTTLE_S)
+from marine import NOT_UNDERWATER, WORKERS, fetch_flag, get, is_underwater
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "lough_hyne_species.md")
 PROFILE_CACHE = os.path.join(CACHE_DIR, "species_profiles.json")
-WORKERS = 8
 THUMB_HEIGHT = 150  # px
 # GBIF's image cache resizes any host's photo; the digest is the MD5 of the original URL.
 THUMB_URL = "https://api.gbif.org/v1/image/cache/x150/occurrence/{key}/media/{digest}"
@@ -73,22 +71,6 @@ def group_of(o):
     return next((name for name, test in GROUPS if test(ph, cl, od)), OTHER)
 
 
-# GBIF calls seabirds and coastal plants "marine", but they are not underwater.
-NOT_UNDERWATER = {"Aves", "Magnoliopsida"}
-
-
-def get(url, **params):
-    for attempt in range(5):
-        try:
-            r = requests.get(url, params=params, timeout=60)
-            r.raise_for_status()
-            return r.json()
-        except requests.RequestException:
-            if attempt == 4:
-                raise
-            time.sleep(2 ** attempt)
-
-
 def fetch_occurrences():
     """Present occurrences with a photo inside the polygon, from every dataset."""
     params = {"geometry": LOUGH_HYNE_POLYGON, "occurrenceStatus": "PRESENT",
@@ -106,7 +88,6 @@ def fetch_occurrences():
 def fetch_profile(key):
     """Taxon details and whether any source calls the species marine."""
     taxon = get(f"{SPECIES_URL}/{key}")
-    profiles = get(f"{SPECIES_URL}/{key}/speciesProfiles", limit=100).get("results", [])
     english = [v["vernacularName"] for v in
                get(f"{SPECIES_URL}/{key}/vernacularNames", limit=200).get("results", [])
                if v.get("language") == "eng" and v.get("vernacularName")]
@@ -114,7 +95,7 @@ def fetch_profile(key):
         "common": english[0] if english else None,
         "name": taxon.get("species") or taxon.get("canonicalName") or taxon.get("scientificName"),
         "group": taxon.get("class") or taxon.get("order") or taxon.get("phylum") or taxon.get("kingdom") or "—",
-        "marine": any(p.get("marine") for p in profiles),
+        "marine": fetch_flag(key),
     }
 
 
@@ -183,7 +164,7 @@ def without_copies(records):
 def render(occurrences, profiles):
     """Markdown for the records that pass every filter. `occurrences` all have a photo."""
     keys = {str(o["speciesKey"]): o for o in occurrences if o.get("speciesKey")}
-    marine = {k for k, p in profiles.items() if p["marine"] and p["group"] not in NOT_UNDERWATER}
+    marine = {k for k, p in profiles.items() if is_underwater(p["marine"], p["group"])}
     records = [o for o in occurrences if str(o.get("speciesKey")) in marine]
     records, copies = without_copies(records)
     records.sort(key=lambda o: o.get("eventDate") or "", reverse=True)  # newest photo first
