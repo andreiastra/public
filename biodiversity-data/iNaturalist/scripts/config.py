@@ -43,6 +43,17 @@ CORK_PLACE_ID = 10796    # https://www.inaturalist.org/places/10796 (Cork, IE)
 AVES_TAXON_ID         = 3      # https://www.inaturalist.org/taxa/3 (birds)
 NUDIBRANCHIA_TAXON_ID = 47113  # https://www.inaturalist.org/taxa/47113 (nudibranchs)
 
+# ── Projects ──────────────────────────────────────────────────────────────────
+CRABS_PROJECT_ID = 7611  # https://www.inaturalist.org/projects/crabs-of-the-world
+# The project accepts an observation of any of these taxa or their descendants
+# (its "in_taxon?" rules, from /v1/projects/7611).
+CRABS_PROJECT_TAXON_IDS = [
+    121639,  # https://www.inaturalist.org/taxa/121639 Brachyura (true crabs)
+    123825,  # https://www.inaturalist.org/taxa/123825 Anomura (hermit crabs, squat lobsters, ...)
+    373243,  # https://www.inaturalist.org/taxa/373243 Macrophthalmidae
+    51931,   # https://www.inaturalist.org/taxa/51931 Ocypodoidea (ghost and fiddler crabs)
+]
+
 # Land groups left out of the "what else lives here" comparison (gap_analysis_ireland.py).
 # Each ID was checked with /v1/taxa?q=<name>.
 LAND_TAXON_IDS = [

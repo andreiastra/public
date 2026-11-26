@@ -16,6 +16,7 @@ Run every script from the `iNaturalist/` directory (the parent of this one) with
 | [`fetch_observations.py`](#fetch_observationspy) | `scripts/.cache/observations.json` |
 | [`generate_location_ratings.py`](#generate_location_ratingspy) | `reports/Location_ratings.md` |
 | [`nudibranch_ireland.py`](#nudibranch_irelandpy) | `reports/nudibranch_ireland.md` |
+| [`crabs_not_in_project.py`](#crabs_not_in_projectpy) | `reports/crabs_not_in_project.md` |
 | [`site_observations.py`](#site_observationspy) | `reports/sites/<site_name>.md` |
 | [`species_classification.py`](#species_classificationpy) | `reports/species_classification.md` |
 | [`underwater_ireland.py`](#underwater_irelandpy) | `reports/underwater_ireland.md` |
@@ -45,6 +46,7 @@ Supporting files:
 - **Purpose**: Runs every script that writes a report, in one go, with a single download of the observations.
 - **How it works**: Calls `fetch_observations.refresh()` first, which keeps the observations in memory. The other scripts read them through `fetch_all_observations()` instead of calling the API again, and the Ireland, nudibranch and bird scripts filter the list locally. The rarity scripts (including the birds and `rarity_by_site_ireland.py`) make 2 API calls per taxon that isn't in the 90-day cache. `gap_analysis_ireland.py` makes at least 2 calls per dive site that isn't in its 30-day cache (more for sites with many nearby observations). `one_and_done_ireland.py` makes no calls. `year_in_review.py` only needs counts for the species in the 90-day cache, so in a full run it makes none; run on its own it fetches any that are missing.
 - **Order**: the four underwater life-list scripts (`one_and_done_ireland.py`, `rarity_by_site_ireland.py`, `gap_analysis_ireland.py`, `year_in_review.py`) run after the rarity reports, so they reuse the counts those just cached. `site_observations.py --all` (writes `reports/sites/`) runs last. A failing script doesn't stop the run; failures are listed at the end and the exit code is 1.
+- **Warnings**: a step whose `main()` returns a string adds it to the end-of-run summary under `⚠️`. Currently only `crabs_not_in_project.py` does this.
 - **Usage**: `../.venv/bin/python scripts/run_all.py`
 - **Standalone runs**: each script still works on its own. With nothing in memory it fetches from the API as before.
 - **Run reports**: after a full run, write up what changed in [`../reports/runs/`](../reports/runs). The procedure is in [`RUN_REPORT.md`](RUN_REPORT.md).
@@ -69,6 +71,12 @@ Supporting files:
 - **Purpose**: Lists the user's nudibranch (order Nudibranchia) observations in Ireland, grouped by dive site, with a photo thumbnail and a link to each observation.
 - **How it works**: Filters the observations API by the nudibranch `taxon_id` and Ireland `place_id`, resolves each place to a site name via [`site_names.py`](site_names.py), and writes a site summary table and an observation table.
 - **Output**: `reports/nudibranch_ireland.md`
+
+### `crabs_not_in_project.py`
+- **Purpose**: Lists the user's crab observations that are not in the iNaturalist project [Crabs of the World](https://www.inaturalist.org/projects/crabs-of-the-world), newest first, so they can be added.
+- **How it works**: "Crab" means the project's own taxon rules (`CRABS_PROJECT_TAXON_IDS` in [`config.py`](config.py): Brachyura, Anomura, Macrophthalmidae, Ocypodoidea), so hermit crabs count. An observation is in the project when `CRABS_PROJECT_ID` is in its `project_ids`. Worldwide, not just Ireland.
+- **Output**: `reports/crabs_not_in_project.md`. When nothing is missing, the report says so.
+- **Warning**: `main()` returns a warning string when any crab is missing from the project, and `None` otherwise. [`run_all.py`](#run_allpy) repeats that warning in its closing summary (it doesn't change the exit code). Run on its own, the script prints the same warning.
 
 ### `site_observations.py`
 - **Purpose**: Lists all of the user's observations at any specific dive site (or all sites with `--all`), with a species summary and photo thumbnails linked to each observation.

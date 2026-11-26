@@ -11,6 +11,10 @@ counts (cached for 90 days) and the per-site species lists of the gap analysis
 A failing script doesn't stop the run: the others still run and the failures are
 listed at the end (exit code 1).
 
+A step can also return a warning string (for example crabs_not_in_project.py when
+crabs are missing from the project).  Warnings are repeated in the summary at the
+end; they don't change the exit code.
+
 Usage:
   ../.venv/bin/python scripts/run_all.py
 """
@@ -39,6 +43,7 @@ STEPS = [
     ("fetch_observations.py", fetch_observations.refresh),
     ("generate_location_ratings.py", lambda: importlib.import_module("generate_location_ratings").main()),
     ("nudibranch_ireland.py", lambda: importlib.import_module("nudibranch_ireland").main()),
+    ("crabs_not_in_project.py", lambda: importlib.import_module("crabs_not_in_project").main()),
     ("species_classification.py", lambda: importlib.import_module("species_classification").main()),
     ("underwater_ireland.py", lambda: importlib.import_module("underwater_ireland").main()),
     ("not_research_grade_ireland.py", lambda: importlib.import_module("not_research_grade_ireland").main()),
@@ -57,12 +62,15 @@ STEPS = [
 
 def main():
     results = []
+    warnings = []
     for label, step in STEPS:
         print(f"\n{'=' * 78}\n▶ {label}\n{'=' * 78}", flush=True)
         start = time.time()
         try:
-            step()
+            warning = step()
             error = None
+            if isinstance(warning, str):
+                warnings.append((label, warning))
         except Exception:  # keep going, report at the end
             error = traceback.format_exc()
             print(error)
@@ -71,6 +79,8 @@ def main():
     print(f"\n{'=' * 78}\nSummary\n{'=' * 78}")
     for label, secs, error in results:
         print(f"  {'FAILED' if error else 'ok':6s} {secs:6.1f}s  {label}")
+    for label, warning in warnings:
+        print(f"\n⚠️  {label}: {warning}")
     failed = [label for label, _, error in results if error]
     if failed:
         print(f"\n{len(failed)} script(s) failed: {', '.join(failed)}")
